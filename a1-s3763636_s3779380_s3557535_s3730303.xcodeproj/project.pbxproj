@@ -282,7 +282,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CQV92MJ6Y3;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "a1-s3763636_s3779380_s3557535_s3730303/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -299,7 +299,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CQV92MJ6Y3;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "a1-s3763636_s3779380_s3557535_s3730303/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
