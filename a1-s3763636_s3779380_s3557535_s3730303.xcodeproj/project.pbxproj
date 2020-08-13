@@ -39,16 +39,18 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = Model;
-			sourceTree = "<group>";
+			name = Model;
+			path = "a1-s3763636_s3779380_s3557535_s3730303/Model";
+			sourceTree = SOURCE_ROOT;
 		};
 		631E2A9524E4D7B400D90097 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				6348D72224DBC158004B0476 /* ViewController.swift */,
 			);
-			path = Controller;
-			sourceTree = "<group>";
+			name = Controller;
+			path = "a1-s3763636_s3779380_s3557535_s3730303/Controller";
+			sourceTree = SOURCE_ROOT;
 		};
 		631E2A9724E4D7CB00D90097 /* View */ = {
 			isa = PBXGroup;
@@ -56,15 +58,17 @@
 				6348D72424DBC158004B0476 /* Main.storyboard */,
 				6348D72924DBC15C004B0476 /* LaunchScreen.storyboard */,
 			);
-			path = View;
-			sourceTree = "<group>";
+			name = View;
+			path = "a1-s3763636_s3779380_s3557535_s3730303/View";
+			sourceTree = SOURCE_ROOT;
 		};
 		631E2A9824E4D7D900D90097 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = ViewModel;
-			sourceTree = "<group>";
+			name = ViewModel;
+			path = "a1-s3763636_s3779380_s3557535_s3730303/ViewModel";
+			sourceTree = SOURCE_ROOT;
 		};
 		6348D71424DBC158004B0476 = {
 			isa = PBXGroup;
