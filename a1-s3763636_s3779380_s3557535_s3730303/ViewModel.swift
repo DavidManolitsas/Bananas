@@ -8,5 +8,5 @@
 
 import Foundation
 
-// This file is just a sample to add the Model folder to Git
-// Delete once another file has been added to the model group
+// This file is just a sample to add the ViewModel folder to Git
+// Delete once another file has been added to the ViewModel group
