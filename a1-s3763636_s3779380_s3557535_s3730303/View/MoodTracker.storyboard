@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Os-mV-BTR">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Mood Tracker-->
+        <scene sceneID="TwY-ar-fgS">
+            <objects>
+                <viewController id="Dy3-aQ-iCX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g4b-Nt-HW6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Mrs-o3-f3D"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mood Tracker" id="asB-FR-ttC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Nt-us-JM2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1377" y="1696"/>
+        </scene>
+        <!--Mood Tracker-->
+        <scene sceneID="KDz-Px-eTh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Os-mV-BTR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Mood Tracker" image="moodtracker" id="rCe-H3-UWJ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ENH-lc-l1a">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Dy3-aQ-iCX" kind="relationship" relationship="rootViewController" id="YuK-PT-nB2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jy2-Az-Huq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1377" y="872"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="moodtracker" width="24" height="22.5"/>
+    </resources>
+</document>
