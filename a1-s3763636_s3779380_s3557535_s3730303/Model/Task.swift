@@ -10,12 +10,14 @@ import Foundation
 
 class Task {
     
+    var completed: Bool
     var description: String
     var priority: TaskPriority
     
     init(description: String) {
         self.description = description
         self.priority = .none
+        self.completed = false;
     }
     
 }
