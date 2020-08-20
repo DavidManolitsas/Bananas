@@ -20,7 +20,13 @@ class TodoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        
+        tasks.append(Task(description: "Get milk"))
+        tasks.append(Task(description: "Walk the dog"))
+        
+        
     }
+    
     
     @IBAction func onAddClicked(_ sender: Any) {
         let alert = UIAlertController(title: "Add Task", message: nil, preferredStyle: .alert)
@@ -36,51 +42,35 @@ class TodoViewController: UIViewController {
             guard let userInput = alert.textFields?.first?.text else {
                 return
             }
-            print(userInput)
             
             let task = Task(description: userInput)
-            
-            if self.count == 1 {
-                task.priority = TaskPriority.medium
-            }
-            
-            if self.count == 2 {
-                task.priority = TaskPriority.medium
-            }
-            
-            if self.count == 3 {
-                task.priority = TaskPriority.low
-            }
-            
-            if self.count == 4 {
-                task.priority = TaskPriority.high
-            }
-            
-            
-            self.addTask(task: task)
+            self.addTask(insertedTask: task)
         }
         alert.addAction(action)
         present(alert, animated: true)
     }
     
-    func addTask(task:Task) {
-        // Testing
-        count += 1
-        
-        self.tasks.insert(task, at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
-    
-        self.sortTasks()
-    }
     
     func alertControllerBackgroundTapped() {
         self.dismiss(animated: true, completion: nil)
     }
     
+    
+    func addTask(insertedTask:Task) {
+        let index:Int = 0
+        
+        self.tasks.insert(insertedTask, at: index)
+        let indexPath = IndexPath(row: index, section: 0)
+        tableView.insertRows(at: [indexPath], with: .automatic)
+        
+        self.sortTasks()
+    }
+    
+    
     func sortTasks() {
         var temp:Task
         
+        // Sort the tasks array based on priority
         for i in 0..<tasks.count {
             for j in 0..<tasks.count {
                 if (tasks[i].priority.detail.value < tasks[j].priority.detail.value) {
@@ -92,9 +82,9 @@ class TodoViewController: UIViewController {
         }
         
         tableView.reloadData()
-    
     }
 }
+
 
 extension TodoViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -127,5 +117,13 @@ extension TodoViewController: UITableViewDataSource {
         }
 
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tasks.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }

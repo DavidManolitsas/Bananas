@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YDe-xF-Ni5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f10-bt-IF1">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,12 +22,40 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="8mZ-hP-N9P" kind="relationship" relationship="rootViewController" id="8Xo-dg-kVF"/>
+                        <segue destination="8mZ-hP-N9P" kind="relationship" relationship="rootViewController" id="2fu-TM-Ctm"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rt5-Sl-juX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-403" y="872"/>
+            <point key="canvasLocation" x="383" y="-535"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="3Xt-ak-BzF">
+            <objects>
+                <viewController id="YcM-eI-Y59" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nu7-oT-h82">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="frM-yl-Bm7"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6sg-NL-Nnh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="384" y="127"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="LeC-Re-BYd">
+            <objects>
+                <splitViewController id="f10-bt-IF1" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="YcM-eI-Y59" kind="relationship" relationship="detailViewController" id="N4T-uI-94v"/>
+                        <segue destination="YDe-xF-Ni5" kind="relationship" relationship="masterViewController" id="P6s-Mv-eJs"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FBd-cI-gl5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-535" y="-197"/>
         </scene>
         <!--To Do-->
         <scene sceneID="suI-Wv-54m">
@@ -74,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="78Z-2V-cmB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="573.91304347826087" y="871.875"/>
+            <point key="canvasLocation" x="1483" y="-535"/>
         </scene>
     </scenes>
     <resources>
