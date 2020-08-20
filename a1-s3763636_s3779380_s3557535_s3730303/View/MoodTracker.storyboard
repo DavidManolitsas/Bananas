@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Os-mV-BTR">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,16 +15,27 @@
             <objects>
                 <viewController id="Dy3-aQ-iCX" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g4b-Nt-HW6">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5A-Jw-839">
+                                <rect key="frame" x="15" y="98" width="386" height="776"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="c5A-Jw-839" firstAttribute="leading" secondItem="Mrs-o3-f3D" secondAttribute="leading" constant="15" id="BA4-bO-d3K"/>
+                            <constraint firstItem="Mrs-o3-f3D" firstAttribute="trailing" secondItem="c5A-Jw-839" secondAttribute="trailing" constant="13" id="DQp-rS-WQY"/>
+                            <constraint firstItem="c5A-Jw-839" firstAttribute="bottom" secondItem="Mrs-o3-f3D" secondAttribute="bottom" constant="12" id="X3n-Cn-jgK"/>
+                            <constraint firstItem="c5A-Jw-839" firstAttribute="top" secondItem="Mrs-o3-f3D" secondAttribute="top" constant="10" id="yv1-oH-Bgt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Mrs-o3-f3D"/>
                     </view>
                     <navigationItem key="navigationItem" title="Mood Tracker" id="asB-FR-ttC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Nt-us-JM2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1377" y="1696"/>
+            <point key="canvasLocation" x="1376.8115942028987" y="1695.5357142857142"/>
         </scene>
         <!--Mood Tracker-->
         <scene sceneID="KDz-Px-eTh">
