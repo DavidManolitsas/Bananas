@@ -10,6 +10,12 @@ import UIKit
 
 class WeatherMoodTableViewCell: UITableViewCell {
 
+
+    
+    @IBOutlet weak var dateLbl: UILabel!
+    @IBOutlet weak var weatherImg: UIImageView!
+    @IBOutlet weak var dailyGreetingLbl: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
