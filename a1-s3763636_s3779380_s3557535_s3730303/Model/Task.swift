@@ -14,10 +14,20 @@ class Task {
     var description: String
     var priority: TaskPriority
     
+//    var _priority: TaskPriority {
+//        get {
+//            return priority
+//        }
+//        set {
+//            priority = newValue
+//        }
+//    }
+    
     init(description: String) {
         self.description = description
         self.priority = .none
         self.completed = false;
     }
+    
     
 }

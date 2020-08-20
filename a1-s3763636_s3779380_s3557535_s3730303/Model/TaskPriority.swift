@@ -15,4 +15,17 @@ enum TaskPriority {
     case medium
     case high
     
+    var detail: (value:Int, colorCode:String) {
+        switch self {
+        case .none:
+            return (4, "none")
+        case .low:
+            return (3, "#c9cba3")
+        case .medium:
+            return (2, "#ffe1a8")
+        case .high:
+            return (1, "#f08a7a")
+        }
+    }
+    
 }
