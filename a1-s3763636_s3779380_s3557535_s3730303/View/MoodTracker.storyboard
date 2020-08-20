@@ -18,17 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c5A-Jw-839">
-                                <rect key="frame" x="6" y="74" width="308" height="674"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5A-Jw-839">
+                                <rect key="frame" x="6" y="74" width="308" height="474"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCg-lM-dJa" customClass="FSCalendar">
-                                        <rect key="frame" x="8" y="8" width="292" height="202"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="172" id="UBe-fQ-x86"/>
-                                            <constraint firstAttribute="height" constant="202" id="iZV-vE-HwH"/>
-                                        </constraints>
-                                    </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xoq-oH-cRR">
                                         <rect key="frame" x="8" y="218" width="292" height="91"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,6 +36,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCg-lM-dJa" customClass="FSCalendar">
+                                        <rect key="frame" x="8" y="8" width="292" height="202"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="172" id="UBe-fQ-x86"/>
+                                            <constraint firstAttribute="height" constant="202" id="iZV-vE-HwH"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="5Gw-Rl-vHn" secondAttribute="trailing" constant="8" id="1R2-pA-kbZ"/>
@@ -54,8 +54,8 @@
                                     <constraint firstItem="jCg-lM-dJa" firstAttribute="leading" secondItem="c5A-Jw-839" secondAttribute="leading" constant="8" id="Me1-Qq-uDo"/>
                                     <constraint firstItem="5Gw-Rl-vHn" firstAttribute="trailing" secondItem="Xoq-oH-cRR" secondAttribute="trailing" id="Rhr-5s-f51"/>
                                     <constraint firstAttribute="trailing" secondItem="jCg-lM-dJa" secondAttribute="trailing" constant="8" id="TH8-ej-KvM"/>
-                                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="5Gw-Rl-vHn" secondAttribute="bottom" constant="222" id="VCR-li-wCx"/>
                                     <constraint firstItem="5Gw-Rl-vHn" firstAttribute="leading" secondItem="Xoq-oH-cRR" secondAttribute="leading" id="XA5-qi-wxK"/>
+                                    <constraint firstAttribute="bottom" secondItem="5Gw-Rl-vHn" secondAttribute="bottom" constant="22" id="Y15-bB-lwX"/>
                                     <constraint firstItem="5Gw-Rl-vHn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Xoq-oH-cRR" secondAttribute="bottom" constant="8" id="bWQ-Dm-Qcp"/>
                                     <constraint firstItem="Xoq-oH-cRR" firstAttribute="top" secondItem="jCg-lM-dJa" secondAttribute="bottom" constant="8" id="gvh-vW-Apy"/>
                                     <constraint firstItem="5Gw-Rl-vHn" firstAttribute="leading" secondItem="c5A-Jw-839" secondAttribute="leading" constant="8" id="nL4-0M-3Wh"/>
@@ -67,7 +67,7 @@
                         <constraints>
                             <constraint firstItem="c5A-Jw-839" firstAttribute="leading" secondItem="Mrs-o3-f3D" secondAttribute="leading" constant="6" id="86L-I1-zwW"/>
                             <constraint firstItem="c5A-Jw-839" firstAttribute="centerX" secondItem="Mrs-o3-f3D" secondAttribute="centerX" id="AGr-0L-NeS"/>
-                            <constraint firstItem="c5A-Jw-839" firstAttribute="bottom" secondItem="Mrs-o3-f3D" secondAttribute="bottom" constant="180" id="X3n-Cn-jgK"/>
+                            <constraint firstItem="Mrs-o3-f3D" firstAttribute="bottom" secondItem="c5A-Jw-839" secondAttribute="bottom" constant="20" id="B5S-wQ-8f3"/>
                             <constraint firstItem="c5A-Jw-839" firstAttribute="top" secondItem="Mrs-o3-f3D" secondAttribute="top" constant="10" id="yv1-oH-Bgt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mrs-o3-f3D"/>
