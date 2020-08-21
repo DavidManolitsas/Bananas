@@ -45,22 +45,96 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         // the size of overall view
         blurview.bounds = self.view.bounds
     }
+    
+    // convert for printing label
+    
+    func convertSeconds(sec:Int) -> String{
+        let minutesCount = seconds / 60
+        let secondsCount = seconds % 60
+        var minutesText = "\(minutesCount)"
+        var secondsText = "\(secondsCount)"
+        
+        if (minutesCount < 10){
+            minutesText = "0\(minutesCount)"
+        }
+        if (secondsCount < 10){
+            secondsText = "0\(secondsCount)"
+        }
+        
+        return "\(minutesText):\(secondsText)"
+    }
  
     
     @IBAction func slider(_ sender: UISlider) {
-       
+        //convert float to int
+        seconds = Int(sender.value)
+        
+        timeLabel.text = convertSeconds(sec: seconds)
     }
     
     @IBAction func startTimer(_ sender: Any) {
-
+        durations = seconds
+        // make sure timer only starts if duration more than 0
+        if(seconds > 0){
+            // create timer
+            // selector, you define class where the function sits
+            // currently we use ViewController.
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerViewController.counter), userInfo: nil, repeats: true)
+            
+            // disable slider when timer starts and hide the start button
+            // show the stop button
+            slideOutlet.isEnabled = false;
+            startBtn.isHidden = true;
+            startBtn.isEnabled = false;
+            stopBtn.isHidden = false;
+            stopBtn.isEnabled = true;
+            
+            setupAudioPlayer()
+        }
     }
     
     @objc func counter(){
-       
+        if(seconds > 0){
+            // minus by one second
+            seconds -= 1
+            timeLabel.text = convertSeconds(sec: seconds)
+        }
+        
+        
+        // check if seconds are zero
+        // if its true stop timer
+        if (seconds == 0)
+        {
+            timer.invalidate()
+            // enable slider again and show start button again
+            // hide the stop button
+            slideOutlet.isEnabled = true;
+            startBtn.isHidden = false;
+            startBtn.isEnabled = true;
+            stopBtn.isHidden = true;
+            stopBtn.isEnabled = false;
+            
+            audioPlayer.play()
+        }
     }
     
     @IBAction func stopTimer(_ sender: Any) {
+        // stop the timer
+        timer.invalidate()
+        // update the seconds
+        seconds = 3600
+        slideOutlet.setValue(3600, animated: true)
+        timeLabel.text = "60:00"
         
+        // enable slider again and show start button again
+        // hide the stop button
+        slideOutlet.isEnabled = true;
+        startBtn.isHidden = false;
+        startBtn.isEnabled = true;
+        stopBtn.isHidden = true;
+        stopBtn.isEnabled = false;
+        
+        audioPlayer.stop()
        
     }
     
@@ -71,7 +145,13 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     
     
     private func setupAudioPlayer(){
-       
+        do{
+            let audioPath = Bundle.main.path(forResource: songText, ofType: ".mp3")
+            try audioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
+        }
+        catch{
+            //ERROR
+        }
     }
     
     // for the pop overs
