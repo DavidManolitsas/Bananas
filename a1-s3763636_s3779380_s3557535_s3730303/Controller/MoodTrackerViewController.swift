@@ -9,61 +9,89 @@
 import Foundation
 import FSCalendar
 import UIKit
+//
 
-class MoodTrackerViewController: UIViewController, FSCalendarDelegate, UITableViewDataSource, UITableViewDelegate { //, FSCalendarDataSource {
+class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, UITableViewDelegate, UITableViewDataSource  {
     
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var weatherTableView: UITableView!
     
-    let moodGreeting: String = "How are you feeling today?"
-
-override func viewDidLoad() {
-    super.viewDidLoad()
-    calendar.delegate = self;
     
-    calendar.appearance.todayColor = .orange;
-    //        6D634F
-    let customBrown = UIColor(hexString: "#544B39")
-    calendar.appearance.headerTitleColor = customBrown;
-    calendar.appearance.weekdayTextColor = customBrown;
+    private let moodGreeting: String = "" //"How are you feeling today?"
+    private var selectedDate: String? //: String = "Date was not selected"
+    private var weatherIcon: UIImage?
+    //    private
     
-    let weatherNib = UINib(nibName:"WeatherMoodTableViewCell", bundle:nil)
-    weatherTableView.register(weatherNib, forCellReuseIdentifier: "WeatherMoodTableViewCell")
-    weatherTableView.delegate = self
-    weatherTableView.dataSource = self
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        calendar.delegate = self;
+        calendar.dataSource = self;
+        
+        weatherTableView.delegate = self
+        weatherTableView.dataSource = self
+        
+        customiseCalendarView()
+        
+        let weatherNib = UINib(nibName:"WeatherMoodTableViewCell", bundle:nil)
+        weatherTableView.register(weatherNib, forCellReuseIdentifier: "WeatherMoodTableViewCell")
+        
+    }
+    
+    // **** start calendar region ****
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let selected = formatDate(date: date)
+        updateTableView(selection: selected)
+        //        print("date selected is \(selected)")
+    }
+    
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        //        <#code#>
+        return 0
+    }
+    
+    func customiseCalendarView() {
+        //        6D634F
+        let customBrown = UIColor(hexString: "#544B39")
+        calendar.appearance.todayColor = .orange;
+        calendar.appearance.headerTitleColor = customBrown;
+        calendar.appearance.weekdayTextColor = customBrown;
+    }
+    // **** end calendar region ****
+    
+    
+    
+    // **** start tableView region ****
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let weatherCell = tableView.dequeueReusableCell(withIdentifier: "WeatherMoodTableViewCell", for: indexPath) as! WeatherMoodTableViewCell
+        
+        weatherCell.dailyGreetingLbl.text = moodGreeting
+        
+        guard let chosenDate = selectedDate else {
+            weatherCell.dateLbl.text = formatDate(date: calendar.today!) // todo: forced unwrap fix
+            return weatherCell
+        }
+        
+        weatherCell.dateLbl.text = chosenDate
+        return weatherCell
+    }
+    // **** end tableView region ****
+    
+    func formatDate(date: Date) -> String {
+        let formatter = DateFormatter();
+        formatter.dateFormat = "dd MMMM yyyy";
+        return formatter.string(from: date);
+    }
+    
+    func updateTableView(selection: String) {
+        selectedDate = selection
+        weatherTableView.reloadData()
+    }
     
 }
-
-func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
-}
-
-func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let weatherCell = tableView.dequeueReusableCell(withIdentifier: "WeatherMoodTableViewCell", for: indexPath) as! WeatherMoodTableViewCell
-    
-    // todo: forced unwrap fix
-    weatherCell.dateLbl.text = formatDate(date: calendar.today!)
-//    calendar.selectedDate
-    
-    weatherCell.dailyGreetingLbl.text = moodGreeting
-
-    return weatherCell
-}
-
-func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-    //        print("selected")
-    let dateStr = formatDate(date: date)
-    print("date selected is \(dateStr)")
-}
-   
-
-func formatDate(date: Date) -> String {
-    let formatter = DateFormatter();
-    formatter.dateFormat = "dd MMMM yyyy";
-    return formatter.string(from: date);
-}
-}
-
 
 
 //https://www.iosapptemplates.com/blog/swift-programming/convert-hex-colors-to-uicolor-swift-4
@@ -85,6 +113,7 @@ extension UIColor {
         let blue  = CGFloat(b) / 255.0
         self.init(red:red, green:green, blue:blue, alpha:alpha)
     }
+    
     func toHexString() -> String {
         var r:CGFloat = 0
         var g:CGFloat = 0
