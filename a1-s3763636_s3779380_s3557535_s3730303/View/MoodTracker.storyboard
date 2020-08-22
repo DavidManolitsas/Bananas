@@ -21,20 +21,13 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5A-Jw-839">
                                 <rect key="frame" x="6" y="74" width="308" height="474"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xoq-oH-cRR">
-                                        <rect key="frame" x="8" y="218" width="292" height="126"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Gw-Rl-vHn">
-                                        <rect key="frame" x="8" y="352" width="292" height="100"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xoq-oH-cRR">
+                                        <rect key="frame" x="8" y="218" width="292" height="121"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="Ctp-xT-0ea"/>
+                                            <constraint firstAttribute="height" constant="248" id="0Mb-nX-6bn"/>
                                         </constraints>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                    </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCg-lM-dJa" customClass="FSCalendar">
                                         <rect key="frame" x="8" y="8" width="292" height="202"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -43,22 +36,25 @@
                                             <constraint firstAttribute="height" constant="202" id="iZV-vE-HwH"/>
                                         </constraints>
                                     </view>
+                                    <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Notes" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FF4-Rl-1LC">
+                                        <rect key="frame" x="8" y="367" width="292" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="jCg-lM-dJa" firstAttribute="top" secondItem="c5A-Jw-839" secondAttribute="top" constant="8" id="2x1-hm-Mwf"/>
-                                    <constraint firstItem="5Gw-Rl-vHn" firstAttribute="top" secondItem="c5A-Jw-839" secondAttribute="top" constant="352" id="GOK-GF-tzi"/>
+                                    <constraint firstAttribute="trailing" secondItem="FF4-Rl-1LC" secondAttribute="trailing" constant="8" id="6ig-Yx-sF2"/>
+                                    <constraint firstItem="FF4-Rl-1LC" firstAttribute="leading" secondItem="c5A-Jw-839" secondAttribute="leading" constant="8" id="80x-l9-sMg"/>
+                                    <constraint firstItem="FF4-Rl-1LC" firstAttribute="top" secondItem="Xoq-oH-cRR" secondAttribute="bottom" constant="28" id="HcP-5Y-0bp"/>
                                     <constraint firstItem="Xoq-oH-cRR" firstAttribute="centerX" secondItem="c5A-Jw-839" secondAttribute="centerX" id="Ii6-RF-1d5"/>
                                     <constraint firstItem="jCg-lM-dJa" firstAttribute="leading" secondItem="c5A-Jw-839" secondAttribute="leading" constant="8" id="Me1-Qq-uDo"/>
-                                    <constraint firstItem="5Gw-Rl-vHn" firstAttribute="top" secondItem="Xoq-oH-cRR" secondAttribute="bottom" constant="8" symbolic="YES" id="P4P-83-4v0"/>
-                                    <constraint firstItem="5Gw-Rl-vHn" firstAttribute="leading" secondItem="Xoq-oH-cRR" secondAttribute="leading" id="SPA-SJ-9bC"/>
+                                    <constraint firstAttribute="bottom" secondItem="FF4-Rl-1LC" secondAttribute="bottom" constant="77" id="SV1-jj-RY7"/>
                                     <constraint firstAttribute="trailing" secondItem="jCg-lM-dJa" secondAttribute="trailing" constant="8" id="TH8-ej-KvM"/>
-                                    <constraint firstItem="5Gw-Rl-vHn" firstAttribute="trailing" secondItem="Xoq-oH-cRR" secondAttribute="trailing" id="W2I-A4-DmM"/>
                                     <constraint firstItem="Xoq-oH-cRR" firstAttribute="top" secondItem="jCg-lM-dJa" secondAttribute="bottom" constant="8" id="gvh-vW-Apy"/>
                                     <constraint firstAttribute="trailing" secondItem="Xoq-oH-cRR" secondAttribute="trailing" constant="8" id="ldf-Eg-sWr"/>
-                                    <constraint firstAttribute="bottom" secondItem="5Gw-Rl-vHn" secondAttribute="bottom" constant="22" id="lgJ-2E-jq0"/>
                                     <constraint firstItem="Xoq-oH-cRR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jCg-lM-dJa" secondAttribute="bottom" constant="8" id="p5P-94-Ku8"/>
-                                    <constraint firstItem="5Gw-Rl-vHn" firstAttribute="trailing" secondItem="jCg-lM-dJa" secondAttribute="trailing" id="rbD-Yg-HzD"/>
-                                    <constraint firstItem="5Gw-Rl-vHn" firstAttribute="leading" secondItem="jCg-lM-dJa" secondAttribute="leading" id="ruB-Dj-XVe"/>
                                     <constraint firstItem="Xoq-oH-cRR" firstAttribute="leading" secondItem="c5A-Jw-839" secondAttribute="leading" constant="8" id="zb7-7T-UXc"/>
                                 </constraints>
                             </scrollView>

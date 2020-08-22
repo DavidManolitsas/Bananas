@@ -20,7 +20,6 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
     private let moodGreeting: String = "" //"How are you feeling today?"
     private var selectedDate: String? //: String = "Date was not selected"
     private var weatherIcon: UIImage?
-    //    private
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,17 +37,21 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
     }
     
     // **** start calendar region ****
+    
+    // selecting a date
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let selected = formatDate(date: date)
+        let selected = formatDate(date: date, asFormat: "dd-MMMM-yy")
         updateTableView(selection: selected)
         //        print("date selected is \(selected)")
     }
     
+    // display events as dots
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         //        <#code#>
         return 0
     }
     
+    // changing the colour scheme
     func customiseCalendarView() {
         //        6D634F
         let customBrown = UIColor(hexString: "#544B39")
@@ -61,17 +64,20 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
     
     
     // **** start tableView region ****
+    
+    // one row
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
+    // retrieve the cell and populate it with data
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let weatherCell = tableView.dequeueReusableCell(withIdentifier: "WeatherMoodTableViewCell", for: indexPath) as! WeatherMoodTableViewCell
         
         weatherCell.dailyGreetingLbl.text = moodGreeting
         
         guard let chosenDate = selectedDate else {
-            weatherCell.dateLbl.text = formatDate(date: calendar.today!) // todo: forced unwrap fix
+            weatherCell.dateLbl.text = formatDate(date: calendar.today!, asFormat: "dd-MMMM-yy") // todo: forced unwrap fix
             return weatherCell
         }
         
@@ -80,12 +86,14 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
     }
     // **** end tableView region ****
     
-    func formatDate(date: Date) -> String {
+    // format date to string
+    func formatDate(date: Date, asFormat format: String) -> String {
         let formatter = DateFormatter();
-        formatter.dateFormat = "dd MMMM yyyy";
+        formatter.dateFormat = format;
         return formatter.string(from: date);
     }
     
+    // dynamically updating view based on date selected
     func updateTableView(selection: String) {
         selectedDate = selection
         weatherTableView.reloadData()
