@@ -19,6 +19,11 @@
 		63AD4D8424EA0E8D00CAAEB4 /* MoodTracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AD4D8324EA0E8D00CAAEB4 /* MoodTracker.storyboard */; };
 		63AD4D8624EA0EA800CAAEB4 /* StudyRecords.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AD4D8524EA0EA800CAAEB4 /* StudyRecords.storyboard */; };
 		63AD4D8824EA0EC100CAAEB4 /* Profiles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AD4D8724EA0EC100CAAEB4 /* Profiles.storyboard */; };
+		CB9C781E24F0E064007878A3 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C781C24F0E064007878A3 /* TimerViewController.swift */; };
+		CB9C782124F0E078007878A3 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C782024F0E078007878A3 /* SongList.swift */; };
+		CB9C782E24F0E337007878A3 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB9C782B24F0E337007878A3 /* 1.mp3 */; };
+		CB9C782F24F0E337007878A3 /* 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB9C782C24F0E337007878A3 /* 3.mp3 */; };
+		CB9C783024F0E337007878A3 /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB9C782D24F0E337007878A3 /* 2.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,11 @@
 		63AD4D8324EA0E8D00CAAEB4 /* MoodTracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MoodTracker.storyboard; sourceTree = "<group>"; };
 		63AD4D8524EA0EA800CAAEB4 /* StudyRecords.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StudyRecords.storyboard; sourceTree = "<group>"; };
 		63AD4D8724EA0EC100CAAEB4 /* Profiles.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profiles.storyboard; sourceTree = "<group>"; };
+		CB9C781C24F0E064007878A3 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		CB9C782024F0E078007878A3 /* SongList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongList.swift; path = "a1-s3763636_s3779380_s3557535_s3730303/Model/SongList.swift"; sourceTree = SOURCE_ROOT; };
+		CB9C782B24F0E337007878A3 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
+		CB9C782C24F0E337007878A3 /* 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3.mp3; sourceTree = "<group>"; };
+		CB9C782D24F0E337007878A3 /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +62,7 @@
 		631E2A9424E4D7A900D90097 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CB9C782024F0E078007878A3 /* SongList.swift */,
 				63818FB824E4E91D00E15655 /* Model.swift */,
 			);
 			path = Model;
@@ -60,6 +71,7 @@
 		631E2A9524E4D7B400D90097 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CB9C781C24F0E064007878A3 /* TimerViewController.swift */,
 				6348D72224DBC158004B0476 /* ViewController.swift */,
 			);
 			path = Controller;
@@ -106,6 +118,9 @@
 		6348D71F24DBC158004B0476 /* a1-s3763636_s3779380_s3557535_s3730303 */ = {
 			isa = PBXGroup;
 			children = (
+				CB9C782B24F0E337007878A3 /* 1.mp3 */,
+				CB9C782D24F0E337007878A3 /* 2.mp3 */,
+				CB9C782C24F0E337007878A3 /* 3.mp3 */,
 				631E2A9824E4D7D900D90097 /* ViewModel */,
 				631E2A9724E4D7CB00D90097 /* View */,
 				631E2A9524E4D7B400D90097 /* Controller */,
@@ -178,6 +193,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB9C783024F0E337007878A3 /* 2.mp3 in Resources */,
+				CB9C782F24F0E337007878A3 /* 3.mp3 in Resources */,
+				CB9C782E24F0E337007878A3 /* 1.mp3 in Resources */,
 				63AD4D8224EA0E6900CAAEB4 /* StudyTracker.storyboard in Resources */,
 				63AD4D8024EA0E3E00CAAEB4 /* Todo.storyboard in Resources */,
 				63818FAF24E4E60800E15655 /* Main.storyboard in Resources */,
@@ -196,7 +214,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB9C781E24F0E064007878A3 /* TimerViewController.swift in Sources */,
 				63818FB924E4E91D00E15655 /* Model.swift in Sources */,
+				CB9C782124F0E078007878A3 /* SongList.swift in Sources */,
 				6348D72324DBC158004B0476 /* ViewController.swift in Sources */,
 				63818FBB24E4E92400E15655 /* ViewModel.swift in Sources */,
 				6348D72124DBC158004B0476 /* AppDelegate.swift in Sources */,
@@ -325,9 +345,9 @@
 		6348D73024DBC15C004B0476 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CQV92MJ6Y3;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "a1-s3763636_s3779380_s3557535_s3730303/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -344,9 +364,9 @@
 		6348D73124DBC15C004B0476 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CQV92MJ6Y3;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "a1-s3763636_s3779380_s3557535_s3730303/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

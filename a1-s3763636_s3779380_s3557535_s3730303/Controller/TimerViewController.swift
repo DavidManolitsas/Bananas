@@ -17,7 +17,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     // audio player for the alarm
     var audioPlayer = AVAudioPlayer()
     // get song title
-    var songText:String = "dingbell"
+    var songText:String = "1"
     
     var durations = 0
     
