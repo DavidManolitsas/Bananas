@@ -17,7 +17,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     // audio player for the alarm
     var audioPlayer = AVAudioPlayer()
     // get song title
-    var songText:String = "default"
+    var songText:String = "dingbell"
     
     var durations = 0
     
@@ -44,6 +44,10 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         //set size of blurview to equal
         // the size of overall view
         blurview.bounds = self.view.bounds
+        
+        //initialise pickerview content
+        pickerView.dataSource = self
+        pickerView.delegate = self
     }
     
     // convert for printing label

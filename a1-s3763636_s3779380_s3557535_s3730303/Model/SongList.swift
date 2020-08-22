@@ -7,7 +7,7 @@
 //
 
 import Foundation
-private let songList = ["default", "2", "3"]
+private let songList = ["dingbell", "dingbell2", "dingbell3"]
 
 func getSongList() -> [String] {
     return songList;
