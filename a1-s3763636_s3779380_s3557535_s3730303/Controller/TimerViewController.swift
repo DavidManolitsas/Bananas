@@ -9,29 +9,34 @@
 import UIKit
 import AVFoundation
 
-class TimerViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class TimerViewController: UIViewController, UIPopoverPresentationControllerDelegate, PopViewControllerDelegate{
     
+    func updateSong(name: String) {
+        receivedSong = name
+        songLabelDummy.text = name
+    }
+    
+
     var seconds = 10
     // create global variable of timer
     var timer = Timer()
     // audio player for the alarm
     var audioPlayer = AVAudioPlayer()
 
-    
     var durations = 0
     
     private var songList = getSongList()
+    var receivedSong:String = ""
     
     @IBOutlet weak var popBtn: UIBarButtonItem!
-    
-    
-    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var slideOutlet: UISlider!
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var stopBtn: UIButton!
     @IBOutlet var blurview: UIVisualEffectView!
     
+    @IBOutlet weak var songLabelDummy: UILabel!
+    var source : PopViewController?
     
     
     
@@ -41,6 +46,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         //set size of blurview to equal
         // the size of overall view
         blurview.bounds = self.view.bounds
+        songLabelDummy.text = receivedSong
 
     }
     
@@ -88,7 +94,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
             
             setupAudioPlayer()
             
-            print("start Timer with song\(PopViewController().getSongTitle())")
+            print("start Timer with song\(receivedSong)")
         }
     }
     
@@ -140,12 +146,11 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     func getDuration()-> Int {
         return durations;
     }
-    
-    
+
     
     private func setupAudioPlayer(){
         do{
-            let audioPath = Bundle.main.path(forResource: PopViewController().getSongTitle(), ofType: ".mp3")
+            let audioPath = Bundle.main.path(forResource: receivedSong, ofType: ".mp3")
             try audioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
         }
         catch{
@@ -159,12 +164,18 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
                 {
                     let popoverViewController = segue.destination
                     popoverViewController.popoverPresentationController?.delegate = self
+                    
+                    source = segue.destination as? PopViewController
+                    
                 }
+        
         
     }
     
     
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+       
+        self.receivedSong = source!.songText
         animateOut(desiredView: blurview)
     }
     

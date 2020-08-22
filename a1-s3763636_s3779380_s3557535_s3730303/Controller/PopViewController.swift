@@ -8,7 +8,15 @@
 
 import UIKit
 
-class PopViewController: UIViewController {
+protocol PopViewControllerDelegate : NSObjectProtocol {
+    func updateSong(name:String)
+}
+
+
+class PopViewController: UIViewController{
+    
+    weak var delegate : PopViewControllerDelegate?
+    
     var labelText:String = "Alarm"
     var durationText:Int = 0
     var songText:String = "1"
@@ -20,6 +28,8 @@ class PopViewController: UIViewController {
     @IBOutlet weak var songPicker: UIPickerView!
     @IBOutlet weak var userInputStack: UIStackView!
     @IBOutlet weak var durationPicker: UIPickerView!
+    @IBOutlet weak var dummySongTitle: UILabel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +44,12 @@ class PopViewController: UIViewController {
 
     }
     
+    
     // if user make changes on the labelField
     @IBAction func changeLabelField(_ sender: UITextField) {
         labelText = labelField.text!
         print(labelField.text!)
     }
-
-
     
     
     // only allow user to select duration if
@@ -57,23 +66,23 @@ class PopViewController: UIViewController {
             durationText = 0
         }
     }
-    
 
-    
-    
-    public func getLabelText() -> String{
+    func getLabelText() -> String{
         return labelText
     }
     
-    public func getDuration() -> Int{
+    func getDuration() -> Int{
         return durationText
     }
     
-    public func getSongTitle() -> String{
+    func getSongTitle() -> String{
+        print("getSongTitle method is invoked \(String(describing: songText))")
         return songText
     }
     
-    
+    func setSongTitle(name : String){
+        songText = name
+    }
 
     
 }
@@ -103,7 +112,9 @@ extension PopViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         }
         if(pickerView.tag == 2){
             songText = songList[row]
-             print("song selected \(songText)")
+            dummySongTitle.text = songText
+           
+            
         }
         
        

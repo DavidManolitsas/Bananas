@@ -13,7 +13,7 @@
         <!--Study Tracker-->
         <scene sceneID="oPg-YW-net">
             <objects>
-                <viewController id="Ohn-Lj-sdJ" customClass="TimerViewController" customModule="a1_s3763636_s3779380_s3557535_s3730303" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimerVC" id="Ohn-Lj-sdJ" customClass="TimerViewController" customModule="a1_s3763636_s3779380_s3557535_s3730303" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kSG-ev-JB9" userLabel="SuperView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -69,6 +69,12 @@
                                                     <action selector="slider:" destination="Ohn-Lj-sdJ" eventType="valueChanged" id="eFG-ck-YWR"/>
                                                 </connections>
                                             </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="song label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8q-ZM-yNo" userLabel="Time Label">
+                                                <rect key="frame" x="247" y="460" width="150" height="58"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
@@ -92,6 +98,7 @@
                         <outlet property="blurview" destination="UlK-jy-TTA" id="otf-6J-lOX"/>
                         <outlet property="popBtn" destination="KX7-Ne-5yF" id="1Ld-pm-oxA"/>
                         <outlet property="slideOutlet" destination="jTC-33-sGC" id="QzN-4e-99C"/>
+                        <outlet property="songLabelDummy" destination="i8q-ZM-yNo" id="cta-yg-QOh"/>
                         <outlet property="startBtn" destination="ODH-eB-chS" id="Caa-Km-0yg"/>
                         <outlet property="stopBtn" destination="bfv-hr-zLg" id="3hh-Hc-kq4"/>
                         <outlet property="timeLabel" destination="U4S-J2-2f5" id="dzC-Ff-kog"/>
@@ -224,6 +231,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="songtitle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhi-Du-bdE">
+                                <rect key="frame" x="0.0" y="73" width="100" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -242,6 +256,7 @@
                     <size key="freeformSize" width="300" height="300"/>
                     <connections>
                         <outlet property="breakToggle" destination="UFi-0g-sFm" id="dRx-Fc-SRr"/>
+                        <outlet property="dummySongTitle" destination="Zhi-Du-bdE" id="hiX-eo-7wv"/>
                         <outlet property="durationPicker" destination="Wto-MQ-M1e" id="Pa9-0S-bZA"/>
                         <outlet property="labelField" destination="kKR-QB-38k" id="PUT-KF-uUE"/>
                         <outlet property="songPicker" destination="Pyh-kK-rf0" id="LoC-OD-mwl"/>
