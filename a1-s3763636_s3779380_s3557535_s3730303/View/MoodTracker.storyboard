@@ -21,13 +21,6 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5A-Jw-839">
                                 <rect key="frame" x="6" y="74" width="308" height="474"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xoq-oH-cRR">
-                                        <rect key="frame" x="8" y="218" width="292" height="121"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="248" id="0Mb-nX-6bn"/>
-                                        </constraints>
-                                    </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCg-lM-dJa" customClass="FSCalendar">
                                         <rect key="frame" x="8" y="8" width="292" height="202"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -36,26 +29,36 @@
                                             <constraint firstAttribute="height" constant="202" id="iZV-vE-HwH"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Notes" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FF4-Rl-1LC">
-                                        <rect key="frame" x="8" y="367" width="292" height="30"/>
-                                        <nil key="textColor"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wZ4-U1-kXY">
+                                        <rect key="frame" x="8" y="332" width="292" height="134"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="134" id="drs-dB-kbm"/>
+                                        </constraints>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h8S-pi-ClK">
+                                        <rect key="frame" x="8" y="218" width="292" height="106"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="106" id="jrW-98-rEa"/>
+                                        </constraints>
+                                    </tableView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="jCg-lM-dJa" firstAttribute="top" secondItem="c5A-Jw-839" secondAttribute="top" constant="8" id="2x1-hm-Mwf"/>
-                                    <constraint firstAttribute="trailing" secondItem="FF4-Rl-1LC" secondAttribute="trailing" constant="8" id="6ig-Yx-sF2"/>
-                                    <constraint firstItem="FF4-Rl-1LC" firstAttribute="leading" secondItem="c5A-Jw-839" secondAttribute="leading" constant="8" id="80x-l9-sMg"/>
-                                    <constraint firstItem="FF4-Rl-1LC" firstAttribute="top" secondItem="Xoq-oH-cRR" secondAttribute="bottom" constant="28" id="HcP-5Y-0bp"/>
-                                    <constraint firstItem="Xoq-oH-cRR" firstAttribute="centerX" secondItem="c5A-Jw-839" secondAttribute="centerX" id="Ii6-RF-1d5"/>
+                                    <constraint firstAttribute="trailing" secondItem="h8S-pi-ClK" secondAttribute="trailing" constant="8" id="8ht-s8-fgS"/>
+                                    <constraint firstItem="jCg-lM-dJa" firstAttribute="centerX" secondItem="c5A-Jw-839" secondAttribute="centerX" id="9zx-Do-9iw"/>
+                                    <constraint firstAttribute="bottom" secondItem="wZ4-U1-kXY" secondAttribute="bottom" constant="8" id="Ect-R0-4W0"/>
+                                    <constraint firstAttribute="trailing" secondItem="wZ4-U1-kXY" secondAttribute="trailing" constant="8" id="JFf-gJ-PDa"/>
                                     <constraint firstItem="jCg-lM-dJa" firstAttribute="leading" secondItem="c5A-Jw-839" secondAttribute="leading" constant="8" id="Me1-Qq-uDo"/>
-                                    <constraint firstAttribute="bottom" secondItem="FF4-Rl-1LC" secondAttribute="bottom" constant="77" id="SV1-jj-RY7"/>
+                                    <constraint firstItem="h8S-pi-ClK" firstAttribute="top" secondItem="jCg-lM-dJa" secondAttribute="bottom" constant="8" id="OlY-wg-Kak"/>
                                     <constraint firstAttribute="trailing" secondItem="jCg-lM-dJa" secondAttribute="trailing" constant="8" id="TH8-ej-KvM"/>
-                                    <constraint firstItem="Xoq-oH-cRR" firstAttribute="top" secondItem="jCg-lM-dJa" secondAttribute="bottom" constant="8" id="gvh-vW-Apy"/>
-                                    <constraint firstAttribute="trailing" secondItem="Xoq-oH-cRR" secondAttribute="trailing" constant="8" id="ldf-Eg-sWr"/>
-                                    <constraint firstItem="Xoq-oH-cRR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jCg-lM-dJa" secondAttribute="bottom" constant="8" id="p5P-94-Ku8"/>
-                                    <constraint firstItem="Xoq-oH-cRR" firstAttribute="leading" secondItem="c5A-Jw-839" secondAttribute="leading" constant="8" id="zb7-7T-UXc"/>
+                                    <constraint firstItem="h8S-pi-ClK" firstAttribute="leading" secondItem="c5A-Jw-839" secondAttribute="leading" constant="8" id="jgX-SN-ADu"/>
+                                    <constraint firstItem="wZ4-U1-kXY" firstAttribute="top" secondItem="h8S-pi-ClK" secondAttribute="bottom" constant="8" id="nL4-fE-8oM"/>
+                                    <constraint firstItem="wZ4-U1-kXY" firstAttribute="leading" secondItem="c5A-Jw-839" secondAttribute="leading" constant="8" id="uD3-Q2-Xf4"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -72,7 +75,7 @@
                     <navigationItem key="navigationItem" title="Mood Tracker" id="asB-FR-ttC"/>
                     <connections>
                         <outlet property="calendar" destination="jCg-lM-dJa" id="qjV-SM-vew"/>
-                        <outlet property="weatherTableView" destination="Xoq-oH-cRR" id="Pg1-YU-IE7"/>
+                        <outlet property="weatherTableView" destination="h8S-pi-ClK" id="dfz-Ki-arE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Nt-us-JM2" userLabel="First Responder" sceneMemberID="firstResponder"/>

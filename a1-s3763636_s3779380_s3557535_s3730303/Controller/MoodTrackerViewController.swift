@@ -16,7 +16,6 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var weatherTableView: UITableView!
     
-    
     private let moodGreeting: String = "" //"How are you feeling today?"
     private var selectedDate: String? //: String = "Date was not selected"
     private var weatherIcon: UIImage?
@@ -40,7 +39,7 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
     
     // selecting a date
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let selected = formatDate(date: date, asFormat: "dd-MMMM-yy")
+        let selected = formatDate(date: date, asFormat: "dd MMMM, yyyy")
         updateTableView(selection: selected)
         //        print("date selected is \(selected)")
     }
@@ -77,7 +76,7 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
         weatherCell.dailyGreetingLbl.text = moodGreeting
         
         guard let chosenDate = selectedDate else {
-            weatherCell.dateLbl.text = formatDate(date: calendar.today!, asFormat: "dd-MMMM-yy") // todo: forced unwrap fix
+            weatherCell.dateLbl.text = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy") // todo: forced unwrap fix
             return weatherCell
         }
         
