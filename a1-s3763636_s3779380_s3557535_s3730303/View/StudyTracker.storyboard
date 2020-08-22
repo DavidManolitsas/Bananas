@@ -202,10 +202,16 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="MyanmarSangamMN" family="Myanmar Sangam MN" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="changeLabelField:" destination="SDC-Qq-3o8" eventType="editingDidEnd" id="doV-Pa-wgv"/>
+                                        </connections>
                                     </textField>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UFi-0g-sFm">
                                         <rect key="frame" x="0.0" y="31" width="51" height="31"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.94999999999999996" height="1"/>
+                                        <connections>
+                                            <action selector="checkToggle:" destination="SDC-Qq-3o8" eventType="valueChanged" id="WEd-WV-fZY"/>
+                                        </connections>
                                     </switch>
                                     <textField opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00:00" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nX4-3a-qiJ">
                                         <rect key="frame" x="11" y="62" width="38" height="31"/>
@@ -233,6 +239,11 @@
                     <value key="contentSizeForViewInPopover" type="size" width="230" height="250"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="230" height="250"/>
+                    <connections>
+                        <outlet property="breakToggle" destination="UFi-0g-sFm" id="dRx-Fc-SRr"/>
+                        <outlet property="durationField" destination="nX4-3a-qiJ" id="K0V-bJ-90g"/>
+                        <outlet property="labelField" destination="kKR-QB-38k" id="PUT-KF-uUE"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1177" y="1540"/>

@@ -9,12 +9,37 @@
 import UIKit
 
 class PopViewController: UIViewController {
+    var labelText:String = "Alarm"
 
+    @IBOutlet weak var labelField: UITextField!
+    @IBOutlet weak var breakToggle: UISwitch!
+    @IBOutlet weak var durationField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func changeLabelField(_ sender: UITextField) {
+        labelText = labelField.text!
+        print(labelField.text!)
+    }
+    
+    func getLabelText() -> String{
+        return labelText
+    }
     
 
+    
+    @IBAction func checkToggle(_ sender: UISwitch) {
+        if(breakToggle.isOn == true){
+            print("break toggle is on")
+            durationField.isUserInteractionEnabled = true
+        }
+        else{
+             print("break toggle is off")
+            durationField.isUserInteractionEnabled = false
+        }
+    }
+    
 }
