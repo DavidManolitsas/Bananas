@@ -37,6 +37,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     
     @IBOutlet weak var songLabelDummy: UILabel!
     var source : PopViewController?
+    var breakduration:Int = 0
     
     
     
@@ -46,7 +47,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         //set size of blurview to equal
         // the size of overall view
         blurview.bounds = self.view.bounds
-        songLabelDummy.text = receivedSong
+        
 
     }
     
@@ -176,6 +177,10 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
        
         self.receivedSong = source!.songText
+        songLabelDummy.text = receivedSong
+        
+        self.breakduration = source!.durationText
+
         animateOut(desiredView: blurview)
     }
     
