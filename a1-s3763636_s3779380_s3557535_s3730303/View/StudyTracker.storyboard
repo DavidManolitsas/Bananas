@@ -144,12 +144,12 @@
             </objects>
             <point key="canvasLocation" x="494" y="872"/>
         </scene>
-        <!--View Controller-->
+        <!--Pop View Controller-->
         <scene sceneID="3FF-67-uoj">
             <objects>
                 <exit id="VnE-95-l2X" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vou-Mx-ou6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="popDetails" id="SDC-Qq-3o8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="popDetails" id="SDC-Qq-3o8" customClass="PopViewController" customModule="a1_s3763636_s3779380_s3557535_s3730303" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zUv-BC-s77">
                         <rect key="frame" x="0.0" y="0.0" width="230" height="250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

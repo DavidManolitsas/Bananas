@@ -24,6 +24,7 @@
 		CB9C782E24F0E337007878A3 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB9C782B24F0E337007878A3 /* 1.mp3 */; };
 		CB9C782F24F0E337007878A3 /* 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB9C782C24F0E337007878A3 /* 3.mp3 */; };
 		CB9C783024F0E337007878A3 /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB9C782D24F0E337007878A3 /* 2.mp3 */; };
+		CB9C783324F0EEAB007878A3 /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C783224F0EEAB007878A3 /* PopViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		CB9C782B24F0E337007878A3 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
 		CB9C782C24F0E337007878A3 /* 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3.mp3; sourceTree = "<group>"; };
 		CB9C782D24F0E337007878A3 /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
+		CB9C783224F0EEAB007878A3 /* PopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				CB9C781C24F0E064007878A3 /* TimerViewController.swift */,
+				CB9C783224F0EEAB007878A3 /* PopViewController.swift */,
 				6348D72224DBC158004B0476 /* ViewController.swift */,
 			);
 			path = Controller;
@@ -216,6 +219,7 @@
 			files = (
 				CB9C781E24F0E064007878A3 /* TimerViewController.swift in Sources */,
 				63818FB924E4E91D00E15655 /* Model.swift in Sources */,
+				CB9C783324F0EEAB007878A3 /* PopViewController.swift in Sources */,
 				CB9C782124F0E078007878A3 /* SongList.swift in Sources */,
 				6348D72324DBC158004B0476 /* ViewController.swift in Sources */,
 				63818FBB24E4E92400E15655 /* ViewModel.swift in Sources */,
