@@ -16,8 +16,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     var timer = Timer()
     // audio player for the alarm
     var audioPlayer = AVAudioPlayer()
-    // get song title
-    var songText:String = "1"
+
     
     var durations = 0
     
@@ -31,8 +30,6 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     @IBOutlet weak var slideOutlet: UISlider!
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var stopBtn: UIButton!
-    @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var songTitle: UILabel!
     @IBOutlet var blurview: UIVisualEffectView!
     
     
@@ -44,14 +41,10 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         //set size of blurview to equal
         // the size of overall view
         blurview.bounds = self.view.bounds
-        
-        //initialise pickerview content
-        pickerView.dataSource = self
-        pickerView.delegate = self
+
     }
     
     // convert for printing label
-    
     func convertSeconds(sec:Int) -> String{
         let minutesCount = seconds / 60
         let secondsCount = seconds % 60
@@ -94,6 +87,8 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
             stopBtn.isEnabled = true;
             
             setupAudioPlayer()
+            
+            print("start Timer with song\(PopViewController().getSongTitle())")
         }
     }
     
@@ -150,7 +145,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     
     private func setupAudioPlayer(){
         do{
-            let audioPath = Bundle.main.path(forResource: songText, ofType: ".mp3")
+            let audioPath = Bundle.main.path(forResource: PopViewController().getSongTitle(), ofType: ".mp3")
             try audioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
         }
         catch{
@@ -216,29 +211,6 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         })
     }
     
-    
-    
-    
 
 }
 
-// for picker view
-extension TimerViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return songList.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        songTitle.text = songList[row]
-        songText = songList[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return songList[row]
-    }
-    
-    
-}
