@@ -19,8 +19,16 @@ struct Forecast {
 
     }
     
-    func getIconName() -> String {
+    public func getIconName() -> String {
         return iconName
+    }
+    
+    public func getMaxTemp() -> Double {
+        return maxTemp
+    }
+    
+    public func getMinTemp() -> Double {
+        return minTemp
     }
 }
 
