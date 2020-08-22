@@ -18,7 +18,8 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
     
     private let moodGreeting: String = "" //"How are you feeling today?"
     private var selectedDate: String? //: String = "Date was not selected"
-    private var weatherIcon: UIImage?
+    
+    private var moodTrackerViewModel = MoodTrackerViewModel();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,8 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
         
         let weatherNib = UINib(nibName:"WeatherMoodTableViewCell", bundle:nil)
         weatherTableView.register(weatherNib, forCellReuseIdentifier: "WeatherMoodTableViewCell")
+        
+     
         
     }
     
@@ -77,9 +80,11 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
         
         guard let chosenDate = selectedDate else {
             weatherCell.dateLbl.text = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy") // todo: forced unwrap fix
+            weatherCell.weatherImg.image = moodTrackerViewModel.getNextImg()
             return weatherCell
         }
         
+        weatherCell.weatherImg.image = moodTrackerViewModel.getNextImg()
         weatherCell.dateLbl.text = chosenDate
         return weatherCell
     }
