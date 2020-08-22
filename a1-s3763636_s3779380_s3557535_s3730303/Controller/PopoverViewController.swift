@@ -9,22 +9,20 @@
 import UIKit
 
 class PopoverViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+//    var alarmText : String = ""
+//
+//    @IBOutlet weak var alarmLabel: UITextField!
+//    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        // Do any additional setup after loading the view.
+//    }
+//    
+//    @IBAction func changeAlarmLabel(_ sender: Any) {
+//        alarmText = alarmLabel.text!
+//        print(alarmText)
+//        
+//    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -242,6 +242,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="MyanmarSangamMN" family="Myanmar Sangam MN" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="changeAlamLabel:" destination="SDC-Qq-3o8" eventType="editingDidEnd" id="Iri-GT-DWi"/>
+                                        </connections>
                                     </textField>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UFi-0g-sFm">
                                         <rect key="frame" x="0.0" y="31" width="51" height="31"/>
@@ -273,6 +276,9 @@
                     <value key="contentSizeForViewInPopover" type="size" width="230" height="250"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="230" height="250"/>
+                    <connections>
+                        <outlet property="alarmLabel" destination="kKR-QB-38k" id="wTu-2i-93z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vou-Mx-ou6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="VnE-95-l2X" userLabel="Exit" sceneMemberID="exit"/>
