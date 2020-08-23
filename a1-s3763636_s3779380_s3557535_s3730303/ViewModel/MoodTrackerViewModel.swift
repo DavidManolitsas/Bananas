@@ -12,6 +12,10 @@ import UIKit
 struct MoodTrackerViewModel {
     // reference to the model object
     private var weather = Weather()
+//    private var dailyRecord = DailyRecord()
+//    private var moodTrackerDatabase = MoodTrackerDatabase()
+    private var moodTracker = MoodTracker()
+    
     //    private var details: (iconName: String, maxTemp: Double, minTemp: Double) = ("01d", 15.32, 6.04)
     private var currentIdx: Int = 0
     
@@ -31,26 +35,10 @@ struct MoodTrackerViewModel {
         
     }
     
-    //
-    //    public mutating func getImg() -> UIImage? {
-    //        return UIImage(named: iconName)
-    //    }
-    //
-    //    public mutating func getMaxTemp() -> Double {
-    //        guard let max = maxTemp else { return 0}
-    //        return max
-    //    }
-    //
-    //    public mutating func getMinTemp() -> Double {
-    //        guard let min = minTemp else { return 0}
-    //        return min
-    //    }
-    //
-    //    private mutating func incrementIndex() -> Int{
-    //        if currentIdx == 4 {currentIdx = 0}
-    //        else { currentIdx += 1 }
-    //
-    //        return currentIdx
-    //    }
+    
+//    public func updateRecords(forDate date: String) {
+//        moodTrackerDatabase.addNewRecord(newRecord: <#T##DailyRecord#>, forDate: <#T##String#>)
+//    }
+    
     
 }

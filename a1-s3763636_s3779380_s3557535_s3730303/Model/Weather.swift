@@ -14,7 +14,6 @@ struct Weather {
     
     init() {
         initForecasts()
-        
     }
     
     private mutating func initForecasts()  {

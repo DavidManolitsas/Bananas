@@ -28,6 +28,8 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
     @IBOutlet weak var awfulBtn: UIButton!
     
     
+    @IBOutlet weak var notesText: UITextView!
+    
     private let moodGreeting: String = "How are you feeling today?"
     private var selectedDate: String? //: String = "Date was not selected"
     

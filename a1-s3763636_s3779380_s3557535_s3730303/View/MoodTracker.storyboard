@@ -179,6 +179,7 @@
                         <outlet property="greetingsLbl" destination="fss-DR-NDL" id="eyF-nn-KlI"/>
                         <outlet property="maxTempLbl" destination="1Sv-Vd-e2v" id="ZmZ-Cd-hfP"/>
                         <outlet property="minTempLbl" destination="ACC-Jt-Zvu" id="bQO-H2-d4H"/>
+                        <outlet property="notesText" destination="rLK-kM-qMO" id="knV-rn-sWc"/>
                         <outlet property="okBtn" destination="Ss3-St-auG" id="EI1-0t-u4B"/>
                         <outlet property="weatherImg" destination="qhK-qg-8Lw" id="dlQ-WZ-rFi"/>
                     </connections>
