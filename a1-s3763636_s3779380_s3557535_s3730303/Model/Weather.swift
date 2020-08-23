@@ -14,6 +14,7 @@ struct Weather {
     
     init() {
         initForecasts()
+        
     }
     
     private mutating func initForecasts()  {
@@ -24,22 +25,31 @@ struct Weather {
         let thunder = Forecast(main: "Thunder", description: "thunder storms", iconName: "11d", maxTemp: 10.93, minTemp: 8.73)
         
         forecasts.append(contentsOf: [clouds, clouds2, clear, rain, thunder])
-        //print(mockForecasts)
-        //print(mockForecasts[3].getIconName())
-        
-//        forecasts.updateValue(clouds, forKey: "20-Aug-2020")
-//        forecasts.updateValue(clouds2, forKey: "21-Aug-2020")
-//        forecasts.updateValue(clear, forKey: "22-Aug-2020")
-//        forecasts.updateValue(rain, forKey: "23-Aug-2020")
-//        forecasts.updateValue(thunder, forKey: "24-Aug-2020")
-
     }
     
-    public mutating func getNextForecast() -> Forecast {
+    public mutating func getNextForecastDetails() -> (iconName: String, maxTemp: Double, minTemp: Double) {
         // basically looping through the image names array
         if currentIdx == 4 {currentIdx = 0}
         else { currentIdx += 1 }
         
-        return forecasts[currentIdx]
+        return (forecasts[currentIdx].getIconName(), forecasts[currentIdx].getMaxTemp(), forecasts[currentIdx].getMinTemp())
+    }
+    
+//    public mutating func getForecastDetails() -> (iconName: String, maxTemp: Double, minTemp: Double) {
+//        let forecast = getNextForecast()
+//
+//        return (forecast.getIconName(), forecast.getMaxTemp(), forecast.getMinTemp())
+//    }
+    
+    public func getIconName(atIndex currentIdx: Int) -> String {
+        return forecasts[currentIdx].getIconName()
+    }
+    
+    public func getMaxTemp(atIndex currentIdx: Int) -> Double {
+        return forecasts[currentIdx].getMaxTemp()
+    }
+    
+    public func getMinTemp(atIndex currentIdx: Int) -> Double {
+        return forecasts[currentIdx].getMinTemp()
     }
 }

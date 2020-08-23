@@ -11,12 +11,24 @@ import FSCalendar
 import UIKit
 //
 
-class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource, UITableViewDelegate, UITableViewDataSource  {
+class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
     
     @IBOutlet weak var calendar: FSCalendar!
-    @IBOutlet weak var weatherTableView: UITableView!
     
-    private let moodGreeting: String = "" //"How are you feeling today?"
+    @IBOutlet weak var dateLbl: UILabel!
+    @IBOutlet weak var maxTempLbl: UILabel!
+    @IBOutlet weak var minTempLbl: UILabel!
+    @IBOutlet weak var weatherImg: UIImageView!
+    @IBOutlet weak var greetingsLbl: UILabel!
+    
+    @IBOutlet weak var greatBtn: UIButton!
+    @IBOutlet weak var goodBtn: UIButton!
+    @IBOutlet weak var okBtn: UIButton!
+    @IBOutlet weak var badBtn: UIButton!
+    @IBOutlet weak var awfulBtn: UIButton!
+    
+    
+    private let moodGreeting: String = "How are you feeling today?"
     private var selectedDate: String? //: String = "Date was not selected"
     
     private var moodTrackerViewModel = MoodTrackerViewModel();
@@ -26,27 +38,43 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
         calendar.delegate = self;
         calendar.dataSource = self;
         
-        weatherTableView.delegate = self
-        weatherTableView.dataSource = self
-        
         customiseCalendarView()
+        customiseBtns()
         
-        let weatherNib = UINib(nibName:"WeatherMoodTableViewCell", bundle:nil)
-        weatherTableView.register(weatherNib, forCellReuseIdentifier: "WeatherMoodTableViewCell")
+       initDateMoodView()
         
-     
-        
+    }
+    
+    private func initDateMoodView() {
+        greetingsLbl.text = moodGreeting
+        selectedDate = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy")
+        updateDateMoodView()
     }
     
     // **** start calendar region ****
     
     // selecting a date
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let selected = formatDate(date: date, asFormat: "dd MMMM, yyyy")
-        updateTableView(selection: selected)
+        selectedDate = formatDate(date: date, asFormat: "dd MMMM, yyyy")
+        updateDateMoodView()
+        //        updateTableView(selection: selected)
         //        print("date selected is \(selected)")
     }
     
+    private func updateDateMoodView() {
+//        guard let chosenDate = selectedDate else {
+////            dateLbl.text = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy") // todo: forced unwrap fix
+//            weatherImg.image = moodTrackerViewModel.getNextImg()
+//
+//        }
+        let details = moodTrackerViewModel.getWeatherDetails()
+        weatherImg.image = details.uiImage
+        maxTempLbl.text = details.maxTemp
+        minTempLbl.text = details.minTemp
+        dateLbl.text = selectedDate
+        
+        
+    }
     // display events as dots
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         //        <#code#>
@@ -67,41 +95,46 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
     
     // **** start tableView region ****
     
-    // one row
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    // retrieve the cell and populate it with data
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let weatherCell = tableView.dequeueReusableCell(withIdentifier: "WeatherMoodTableViewCell", for: indexPath) as! WeatherMoodTableViewCell
-        
-        weatherCell.dailyGreetingLbl.text = moodGreeting
-        
-        guard let chosenDate = selectedDate else {
-            weatherCell.dateLbl.text = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy") // todo: forced unwrap fix
-            weatherCell.weatherImg.image = moodTrackerViewModel.getNextImg()
-            return weatherCell
-        }
-        
-        weatherCell.weatherImg.image = moodTrackerViewModel.getNextImg()
-        weatherCell.dateLbl.text = chosenDate
-        return weatherCell
-    }
-    // **** end tableView region ****
+    //    // one row
+    //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    //        return 1
+    //    }
+    //
+    //    // retrieve the cell and populate it with data
+    //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    //        let weatherCell = tableView.dequeueReusableCell(withIdentifier: "WeatherMoodTableViewCell", for: indexPath) as! WeatherMoodTableViewCell
+    //
+    //        weatherCell.dailyGreetingLbl.text = moodGreeting
+    //
+    //        guard let chosenDate = selectedDate else {
+    //            weatherCell.dateLbl.text = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy") // todo: forced unwrap fix
+    //            weatherCell.weatherImg.image = moodTrackerViewModel.getNextImg()
+    //            return weatherCell
+    //        }
+    //
+    //        weatherCell.weatherImg.image = moodTrackerViewModel.getNextImg()
+    //        weatherCell.dateLbl.text = chosenDate
+    //        return weatherCell
+    //    }
+    //    // **** end tableView region ****
     
     // format date to string
-    func formatDate(date: Date, asFormat format: String) -> String {
+    private func formatDate(date: Date, asFormat format: String) -> String {
         let formatter = DateFormatter();
         formatter.dateFormat = format;
         return formatter.string(from: date);
     }
     
-    // dynamically updating view based on date selected
-    func updateTableView(selection: String) {
-        selectedDate = selection
-        weatherTableView.reloadData()
+    private func customiseBtns() {
+        let btnsArr: [UIButton] = [greatBtn, goodBtn, okBtn, badBtn, awfulBtn]
+        
+        for btn in btnsArr {
+            btn.layer.cornerRadius = 0.5 * btn.bounds.size.width
+            btn.clipsToBounds = true
+        }
+        
     }
+    
     
 }
 
