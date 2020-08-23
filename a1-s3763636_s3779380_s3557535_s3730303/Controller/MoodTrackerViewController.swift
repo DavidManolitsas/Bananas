@@ -47,6 +47,8 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
     
     private func initDateMoodView() {
         greetingsLbl.text = moodGreeting
+        dateLbl.font = UIFont.boldSystemFont(ofSize: 18.0)
+        
         selectedDate = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy")
         updateDateMoodView()
     }
@@ -57,7 +59,6 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         selectedDate = formatDate(date: date, asFormat: "dd MMMM, yyyy")
         updateDateMoodView()
-        //        updateTableView(selection: selected)
         //        print("date selected is \(selected)")
     }
     
