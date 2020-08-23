@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F6258C924F2BA9A0085DDF0 /* profileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6258C824F2BA9A0085DDF0 /* profileModel.swift */; };
+		5F6258CB24F2BD240085DDF0 /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6258CA24F2BD240085DDF0 /* profileViewController.swift */; };
 		6348D72124DBC158004B0476 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D72024DBC158004B0476 /* AppDelegate.swift */; };
 		6348D72324DBC158004B0476 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D72224DBC158004B0476 /* ViewController.swift */; };
 		6348D72824DBC15C004B0476 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6348D72724DBC15C004B0476 /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F6258C824F2BA9A0085DDF0 /* profileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileModel.swift; sourceTree = "<group>"; };
+		5F6258CA24F2BD240085DDF0 /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		6348D71D24DBC158004B0476 /* a1-s3763636_s3779380_s3557535_s3730303.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "a1-s3763636_s3779380_s3557535_s3730303.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6348D72024DBC158004B0476 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6348D72224DBC158004B0476 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				63818FB824E4E91D00E15655 /* Model.swift */,
+				5F6258C824F2BA9A0085DDF0 /* profileModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -61,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				6348D72224DBC158004B0476 /* ViewController.swift */,
+				5F6258CA24F2BD240085DDF0 /* profileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -196,7 +202,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F6258C924F2BA9A0085DDF0 /* profileModel.swift in Sources */,
 				63818FB924E4E91D00E15655 /* Model.swift in Sources */,
+				5F6258CB24F2BD240085DDF0 /* profileViewController.swift in Sources */,
 				6348D72324DBC158004B0476 /* ViewController.swift in Sources */,
 				63818FBB24E4E92400E15655 /* ViewModel.swift in Sources */,
 				6348D72124DBC158004B0476 /* AppDelegate.swift in Sources */,
@@ -327,7 +335,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CQV92MJ6Y3;
+				DEVELOPMENT_TEAM = WUD2XN37C4;
 				INFOPLIST_FILE = "a1-s3763636_s3779380_s3557535_s3730303/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -346,7 +354,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CQV92MJ6Y3;
+				DEVELOPMENT_TEAM = WUD2XN37C4;
 				INFOPLIST_FILE = "a1-s3763636_s3779380_s3557535_s3730303/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
