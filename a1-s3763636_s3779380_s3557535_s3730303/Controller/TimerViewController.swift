@@ -107,6 +107,8 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         }
         
         if (seconds == 0 && breakduration != 0){
+            audioPlayer.play()
+            songLabelDummy.text = "Break Time"
             seconds = breakduration
         }
         
@@ -124,6 +126,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
             stopBtn.isHidden = true;
             stopBtn.isEnabled = false;
             
+            songLabelDummy.text = ""
             audioPlayer.play()
         }
     }
@@ -146,6 +149,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         stopBtn.isHidden = true;
         stopBtn.isEnabled = false;
         
+        songLabelDummy.text = ""
         audioPlayer.stop()
        
     }
@@ -185,7 +189,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         self.receivedSong = source!.songText
         songLabelDummy.text = receivedSong
          // get the modified break duration from popover
-        self.breakduration = source!.durationText
+        self.breakduration = source!.durationText*60
 
         animateOut(desiredView: blurview)
     }
