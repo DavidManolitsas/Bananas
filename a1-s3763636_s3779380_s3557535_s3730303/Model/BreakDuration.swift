@@ -9,5 +9,5 @@
 import Foundation
 
 enum BreakDuration: String, CaseIterable {
-    case zero = "0", ten = "10" , fifteen = "15", twenty = "20"
+    case zero = "0", ten = "10" , fifteen = "15", twenty = "20", thirty = "30"
 }

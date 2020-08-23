@@ -106,10 +106,14 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
             timeLabel.text = convertSeconds(sec: seconds)
         }
         
+        if (seconds == 0 && breakduration != 0){
+            seconds = breakduration
+        }
+        
         
         // check if seconds are zero
         // if its true stop timer
-        if (seconds == 0)
+        if (seconds == 0 && breakduration == 0)
         {
             timer.invalidate()
             // enable slider again and show start button again
@@ -127,6 +131,8 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     @IBAction func stopTimer(_ sender: Any) {
         // stop the timer
         timer.invalidate()
+
+        
         // update the seconds
         seconds = 3600
         slideOutlet.setValue(3600, animated: true)
@@ -175,10 +181,10 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     
     
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-       
+       // get the modified song from popover
         self.receivedSong = source!.songText
         songLabelDummy.text = receivedSong
-        
+         // get the modified break duration from popover
         self.breakduration = source!.durationText
 
         animateOut(desiredView: blurview)
