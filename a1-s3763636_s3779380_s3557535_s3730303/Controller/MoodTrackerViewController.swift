@@ -31,7 +31,7 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
     @IBOutlet weak var notesText: UITextView!
     
     private let moodGreeting: String = "How are you feeling today?"
-    private var selectedDate: String? //: String = "Date was not selected"
+//    private var selectedDate: Date? //: String = "Date was not selected"
     
     private var moodTrackerViewModel = MoodTrackerViewModel();
     
@@ -43,7 +43,8 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
         customiseCalendarView()
         customiseBtns()
         
-       initDateMoodView()
+        initDateMoodView()
+//        notesText.text = "hello world"
         
     }
     
@@ -51,33 +52,42 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
         greetingsLbl.text = moodGreeting
         dateLbl.font = UIFont.boldSystemFont(ofSize: 18.0)
         
-        selectedDate = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy")
-        updateDateMoodView()
+//        selectedDate = calendar.Today!
+        //        selectedDate = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy")
+        updateDateMoodView(forDate: calendar.today!)
     }
     
     // **** start calendar region ****
     
     // selecting a date
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        selectedDate = formatDate(date: date, asFormat: "dd MMMM, yyyy")
-        updateDateMoodView()
+        //        selectedDate = formatDate(date: date, asFormat: "dd MMMM, yyyy")
+//        selectedDate = date
+        updateDateMoodView(forDate: date)
         //        print("date selected is \(selected)")
     }
     
-    private func updateDateMoodView() {
-//        guard let chosenDate = selectedDate else {
-////            dateLbl.text = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy") // todo: forced unwrap fix
-//            weatherImg.image = moodTrackerViewModel.getNextImg()
-//
-//        }
+    private func updateDateMoodView(forDate chosenDate: Date) {
+        //        guard let chosenDate = selectedDate else {
+        ////            dateLbl.text = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy") // todo: forced unwrap fix
+        //            weatherImg.image = moodTrackerViewModel.getNextImg()
+        //
+        //        }
         let details = moodTrackerViewModel.getWeatherDetails()
         weatherImg.image = details.uiImage
         maxTempLbl.text = details.maxTemp
         minTempLbl.text = details.minTemp
-        dateLbl.text = selectedDate
+        
+//        if let chosenDate = selectedDate {
+            var dt = formatDate(date: chosenDate, asFormat: "dd-MM-yy")
+            print(dt)
+            notesText.text = moodTrackerViewModel.getNotes(forDate: dt)
+            dateLbl.text = formatDate(date: chosenDate, asFormat: "dd MMMM, yyyy")
+//        }
         
         
     }
+    
     // display events as dots
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         //        <#code#>

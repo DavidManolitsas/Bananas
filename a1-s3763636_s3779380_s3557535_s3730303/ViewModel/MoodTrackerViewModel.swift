@@ -24,6 +24,10 @@ struct MoodTrackerViewModel {
     private var minTemp: Double = 7.32
     private let celsius = "°C"
     
+    init() {
+        moodTracker.initMockRecords()
+    }
+    
     public mutating func getWeatherDetails() -> (uiImage: UIImage?, maxTemp: String, minTemp: String) {
         let details = weather.getNextForecastDetails()
         
@@ -34,6 +38,36 @@ struct MoodTrackerViewModel {
         return (image, maxTemp, minTemp)
         
     }
+    
+//    public func setMood(moodStr: String) {
+//        moodTracker.setMood(asMood: moodStr)
+//    }
+//
+//    public func setNotes(notes: String) {
+//        moodtracker.setNotes(text: notes)
+//    }
+    
+    public mutating func createRecord(forDate date: String, notes: String, mood: String) {
+        moodTracker.setNotes(text: notes)
+        moodTracker.setMood(asMood: mood)
+        
+        moodTracker.createRecord(forDate: date)
+    }
+    
+    public mutating func getMood(forDate date: String) -> String {
+        var record = moodTracker.getRecord(forDate: date)
+        return record.getMood().rawValue
+    }
+    
+    public mutating func getNotes(forDate date: String) -> String {
+        var record = moodTracker.getRecord(forDate: date)
+        return record.getNotes()
+    }
+    
+    public mutating func getWeatherDetails(forDate date: String) -> (iconName: String, maxTemp: Double, minTemp: Double) {
+        return moodTracker.getWeatherDetails()
+    }
+    
     
     
 //    public func updateRecords(forDate date: String) {

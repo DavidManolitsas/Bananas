@@ -29,10 +29,22 @@ struct DailyRecord {
         self.notes = notes
     }
     
-    public mutating func getRecord() ->  (mood: Moods, weatherDetails: (iconName: String, maxTemp: Double, minTemp: Double), notes: String)? {
-        
+    public mutating func getMood() -> Moods {
+        return mood
+    }
+    
+//    public mutating func getWeatherDetails() -> (iconName: String, maxTemp: Double, minTemp: Double) {
+////        return weatherDetails
+//    }
+    
+    public mutating func getNotes() -> String {
+        return notes
+    }
+    
+    public mutating func getWeatherDetails() ->  (iconName: String, maxTemp: Double, minTemp: Double)? {
         guard let details = weatherDetails else { return nil }
-        return (mood, details, notes)
+//        return (mood, details, notes)
+        return details
     }
     
 //    
