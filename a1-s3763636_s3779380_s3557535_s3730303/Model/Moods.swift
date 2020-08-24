@@ -14,6 +14,6 @@ enum Moods: String, CaseIterable {
     case ok = "Ok"
     case bad = "Bad"
     case awful = "Awful"
-    case none
+    case none = "None"
 }
 

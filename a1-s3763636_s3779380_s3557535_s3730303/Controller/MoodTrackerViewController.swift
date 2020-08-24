@@ -26,12 +26,10 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
     @IBOutlet weak var badBtn: UIButton!
     @IBOutlet weak var awfulBtn: UIButton!
     
-    
     @IBOutlet weak var notesText: UITextView!
     
     private let moodGreeting: String = "How are you feeling today?"
-    
-    private var moodTrackerViewModel = MoodTrackerViewModel();
+    private var moodTrackerViewModel = MoodTrackerViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,22 +57,25 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
     }
     
     private func updateDateMoodView(forDate chosenDate: Date) {
-        let details = moodTrackerViewModel.getWeatherDetails()
+        let details = moodTrackerViewModel.getWeatherDetails(forDate: chosenDate)
         weatherImg.image = details.uiImage
         maxTempLbl.text = details.maxTemp
         minTempLbl.text = details.minTemp
         
         let dt = formatDate(date: chosenDate, asFormat: "dd-MM-yy")
         print(dt)
-        notesText.text = moodTrackerViewModel.getNotes(forDate: dt)
+        notesText.text = moodTrackerViewModel.getNotes(forDate: chosenDate)
         dateLbl.text = formatDate(date: chosenDate, asFormat: "dd MMMM, yyyy")
         
     }
     
+    
     // display events as dots
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        return 0
+//        if moodTrackerViewModel.getRecord(forDate: date)
+        return moodTrackerViewModel.getRecordEvent(forDate: date)
     }
+    
     
     // changing the colour scheme
     func customiseCalendarView() {

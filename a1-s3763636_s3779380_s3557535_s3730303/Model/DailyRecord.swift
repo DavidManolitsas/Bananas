@@ -18,7 +18,7 @@ import Foundation
 // DailyRecord (weather, mood, note objects)
 struct DailyRecord {
     private var mood: Moods = Moods.none
-    private var weatherDetails: (iconName: String, maxTemp: Double, minTemp: Double)? = nil
+    private var weatherDetails: (iconName: String, maxTemp: Double, minTemp: Double) = (iconName: "transparent", maxTemp: 0.00, minTemp: 0.00)
     private var notes: String = ""
     
 //    private var record: (mood: Moods, weatherDetails: (iconName: String, maxTemp: Double, minTemp: Double), notes: String)?
@@ -29,23 +29,23 @@ struct DailyRecord {
         self.notes = notes
     }
     
-    public mutating func getMood() -> Moods {
+    public func getMood() -> Moods {
         return mood
     }
     
-//    public mutating func getWeatherDetails() -> (iconName: String, maxTemp: Double, minTemp: Double) {
-////        return weatherDetails
-//    }
-    
-    public mutating func getNotes() -> String {
+    public func getNotes() -> String {
         return notes
     }
     
-    public mutating func getWeatherDetails() ->  (iconName: String, maxTemp: Double, minTemp: Double)? {
-        guard let details = weatherDetails else { return nil }
-//        return (mood, details, notes)
-        return details
+    public func getWeatherDetails() ->  (iconName: String, maxTemp: Double, minTemp: Double) {
+        return weatherDetails
+
     }
+//    public mutating func getWeatherDetails() ->  (iconName: String, maxTemp: Double, minTemp: Double)? {
+//        guard let details = weatherDetails else { return nil }
+////        return (mood, details, notes)
+//        return details
+//    }
     
 //    
 }

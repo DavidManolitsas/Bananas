@@ -44,11 +44,9 @@ struct MoodTracker {
         //guard
         guard let record = moodTrackerDatabase.getRecord(forDate: date)  else {
             let tuple = (iconName: "transparent", maxTemp: 0.00, minTemp: 0.00)
-            return DailyRecord(mood: Moods.none, weatherDetails: tuple, notes: "Nothing stored yet") }
+            return DailyRecord(mood: Moods.none, weatherDetails: tuple, notes: "") }
         return record
     }
-    //  dailyRecord: init (mood: Moods, weatherDetails: (iconName: String, maxTemp: Double, minTemp: Double), notes: String) {
-    
     
     public mutating func setMood(asMood moodStr: String) {
         for moodEnum in Moods.allCases {
