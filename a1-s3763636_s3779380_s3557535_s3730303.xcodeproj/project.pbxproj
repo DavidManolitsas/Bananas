@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F6258C924F2BA9A0085DDF0 /* profileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6258C824F2BA9A0085DDF0 /* profileModel.swift */; };
+		5F6258CB24F2BD240085DDF0 /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6258CA24F2BD240085DDF0 /* profileViewController.swift */; };
 		6348D72124DBC158004B0476 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D72024DBC158004B0476 /* AppDelegate.swift */; };
 		6348D72324DBC158004B0476 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D72224DBC158004B0476 /* ViewController.swift */; };
 		6348D72824DBC15C004B0476 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6348D72724DBC15C004B0476 /* Assets.xcassets */; };
+		63652DD124ECFA96005C0BC1 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63652DD024ECFA96005C0BC1 /* Task.swift */; };
+		63652DD924ED1029005C0BC1 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63652DD824ED1029005C0BC1 /* TodoViewController.swift */; };
+		63652DDD24ED1CA0005C0BC1 /* TaskPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63652DDC24ED1CA0005C0BC1 /* TaskPriority.swift */; };
 		63818FAD24E4E5FD00E15655 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63818FAC24E4E5FD00E15655 /* LaunchScreen.storyboard */; };
 		63818FAF24E4E60800E15655 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63818FAE24E4E60800E15655 /* Main.storyboard */; };
 		63818FB924E4E91D00E15655 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63818FB824E4E91D00E15655 /* Model.swift */; };
@@ -34,11 +39,31 @@
 
 /* Begin PBXFileReference section */
 		2D7F2DCE304674AD2C109068 /* Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig"; path = "Target Support Files/Pods-a1-s3763636_s3779380_s3557535_s3730303/Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig"; sourceTree = "<group>"; };
+		CB9C781E24F0E064007878A3 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C781C24F0E064007878A3 /* TimerViewController.swift */; };
+		CB9C782124F0E078007878A3 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C782024F0E078007878A3 /* SongList.swift */; };
+		CB9C782E24F0E337007878A3 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB9C782B24F0E337007878A3 /* 1.mp3 */; };
+		CB9C782F24F0E337007878A3 /* 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB9C782C24F0E337007878A3 /* 3.mp3 */; };
+		CB9C783024F0E337007878A3 /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB9C782D24F0E337007878A3 /* 2.mp3 */; };
+		CB9C783324F0EEAB007878A3 /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C783224F0EEAB007878A3 /* PopViewController.swift */; };
+		CB9C783524F10EAB007878A3 /* BreakDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C783424F10EAB007878A3 /* BreakDuration.swift */; };
+
+		63D0528224EE5AD900665E67 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0528124EE5AD900665E67 /* SplitViewController.swift */; };
+		63FA777E24F240F4009F47B7 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FA777D24F240F4009F47B7 /* TodoCell.swift */; };
+		63FA778024F262B4009F47B7 /* TodoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FA777F24F262B4009F47B7 /* TodoDetail.swift */; };
+
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5F6258C824F2BA9A0085DDF0 /* profileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileModel.swift; sourceTree = "<group>"; };
+		5F6258CA24F2BD240085DDF0 /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		6348D71D24DBC158004B0476 /* a1-s3763636_s3779380_s3557535_s3730303.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "a1-s3763636_s3779380_s3557535_s3730303.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6348D72024DBC158004B0476 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6348D72224DBC158004B0476 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6348D72724DBC15C004B0476 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6348D72C24DBC15C004B0476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63652DD024ECFA96005C0BC1 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		63652DD824ED1029005C0BC1 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		63652DDC24ED1CA0005C0BC1 /* TaskPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPriority.swift; sourceTree = "<group>"; };
 		63818FAC24E4E5FD00E15655 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63818FAE24E4E60800E15655 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		63818FB824E4E91D00E15655 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -60,6 +85,19 @@
 		C8E1403524F142800024F572 /* MoodTrackerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodTrackerViewModel.swift; sourceTree = "<group>"; };
 		C8E1403724F142EC0024F572 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		DF1B939875A39D6CA2A620B7 /* Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig"; path = "Target Support Files/Pods-a1-s3763636_s3779380_s3557535_s3730303/Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig"; sourceTree = "<group>"; };
+		CB9C781C24F0E064007878A3 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		CB9C782024F0E078007878A3 /* SongList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongList.swift; path = "a1-s3763636_s3779380_s3557535_s3730303/Model/SongList.swift"; sourceTree = SOURCE_ROOT; };
+		CB9C782B24F0E337007878A3 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
+		CB9C782C24F0E337007878A3 /* 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3.mp3; sourceTree = "<group>"; };
+		CB9C782D24F0E337007878A3 /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
+		CB9C783224F0EEAB007878A3 /* PopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
+		CB9C783424F10EAB007878A3 /* BreakDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakDuration.swift; sourceTree = "<group>"; };
+
+		63D0528124EE5AD900665E67 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		63FA777D24F240F4009F47B7 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
+		63FA777F24F262B4009F47B7 /* TodoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetail.swift; sourceTree = "<group>"; };
+
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +123,8 @@
 		631E2A9424E4D7A900D90097 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CB9C782024F0E078007878A3 /* SongList.swift */,
+				CB9C783424F10EAB007878A3 /* BreakDuration.swift */,
 				63818FB824E4E91D00E15655 /* Model.swift */,
 				C85D57BA24EFA30F00C8AF13 /* Weather.swift */,
 				C8E1403724F142EC0024F572 /* Forecast.swift */,
@@ -92,6 +132,9 @@
 				C8949E7624F2667200FE6A64 /* DailyRecord.swift */,
 				C8949E7824F26F7200FE6A64 /* MoodTracker.swift */,
 				C8949E7A24F2709E00FE6A64 /* Moods.swift */,
+				5F6258C824F2BA9A0085DDF0 /* profileModel.swift */,
+				63652DD024ECFA96005C0BC1 /* Task.swift */,
+				63652DDC24ED1CA0005C0BC1 /* TaskPriority.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,8 +142,14 @@
 		631E2A9524E4D7B400D90097 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CB9C781C24F0E064007878A3 /* TimerViewController.swift */,
+				CB9C783224F0EEAB007878A3 /* PopViewController.swift */,
 				6348D72224DBC158004B0476 /* ViewController.swift */,
 				C8BB0D2624EE13A500E027B1 /* MoodTrackerViewController.swift */,
+				5F6258CA24F2BD240085DDF0 /* profileViewController.swift */,
+				63652DD824ED1029005C0BC1 /* TodoViewController.swift */,
+				63D0528124EE5AD900665E67 /* SplitViewController.swift */,
+				63FA777F24F262B4009F47B7 /* TodoDetail.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -109,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				C8BB0D2124EE059000E027B1 /* MoodTrackerView */,
+				63FA777A24F23C57009F47B7 /* Custom UI */,
 				63818FAE24E4E60800E15655 /* Main.storyboard */,
 				63AD4D8724EA0EC100CAAEB4 /* Profiles.storyboard */,
 				63AD4D8524EA0EA800CAAEB4 /* StudyRecords.storyboard */,
@@ -150,6 +200,9 @@
 		6348D71F24DBC158004B0476 /* a1-s3763636_s3779380_s3557535_s3730303 */ = {
 			isa = PBXGroup;
 			children = (
+				CB9C782B24F0E337007878A3 /* 1.mp3 */,
+				CB9C782D24F0E337007878A3 /* 2.mp3 */,
+				CB9C782C24F0E337007878A3 /* 3.mp3 */,
 				631E2A9824E4D7D900D90097 /* ViewModel */,
 				631E2A9724E4D7CB00D90097 /* View */,
 				631E2A9524E4D7B400D90097 /* Controller */,
@@ -177,6 +230,12 @@
 				C8BB0D1E24EE058400E027B1 /* WeatherMoodTableViewCell.xib */,
 			);
 			path = MoodTrackerView;
+		63FA777A24F23C57009F47B7 /* Custom UI */ = {
+			isa = PBXGroup;
+			children = (
+				63FA777D24F240F4009F47B7 /* TodoCell.swift */,
+			);
+			path = "Custom UI";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +301,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB9C783024F0E337007878A3 /* 2.mp3 in Resources */,
+				CB9C782F24F0E337007878A3 /* 3.mp3 in Resources */,
+				CB9C782E24F0E337007878A3 /* 1.mp3 in Resources */,
 				63AD4D8224EA0E6900CAAEB4 /* StudyTracker.storyboard in Resources */,
 				63AD4D8024EA0E3E00CAAEB4 /* Todo.storyboard in Resources */,
 				C8BB0D2024EE058400E027B1 /* WeatherMoodTableViewCell.xib in Resources */,
@@ -303,10 +365,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
+				5F6258C924F2BA9A0085DDF0 /* profileModel.swift in Sources */,
+				63818FB924E4E91D00E15655 /* Model.swift in Sources */,
+				5F6258CB24F2BD240085DDF0 /* profileViewController.swift in Sources */,
+
+
+				CB9C781E24F0E064007878A3 /* TimerViewController.swift in Sources */,
+				CB9C783524F10EAB007878A3 /* BreakDuration.swift in Sources */,
 				63818FB924E4E91D00E15655 /* Model.swift in Sources */,
 				C8BB0D1F24EE058400E027B1 /* WeatherMoodTableViewCell.swift in Sources */,
 				C8949E7B24F2709E00FE6A64 /* Moods.swift in Sources */,
 				C8E1403624F142800024F572 /* MoodTrackerViewModel.swift in Sources */,
+				CB9C783324F0EEAB007878A3 /* PopViewController.swift in Sources */,
+				CB9C782124F0E078007878A3 /* SongList.swift in Sources */,
+				63652DDD24ED1CA0005C0BC1 /* TaskPriority.swift in Sources */,
+				63818FB924E4E91D00E15655 /* Model.swift in Sources */,
+				63FA777E24F240F4009F47B7 /* TodoCell.swift in Sources */,
 				6348D72324DBC158004B0476 /* ViewController.swift in Sources */,
 				C8E1403824F142EC0024F572 /* Forecast.swift in Sources */,
 				63818FBB24E4E92400E15655 /* ViewModel.swift in Sources */,
@@ -316,6 +391,11 @@
 				C85D57BB24EFA30F00C8AF13 /* Weather.swift in Sources */,
 				C8949E7724F2667200FE6A64 /* DailyRecord.swift in Sources */,
 				C8949E7524F2662100FE6A64 /* MoodTrackerDatabase.swift in Sources */,
+				63FA778024F262B4009F47B7 /* TodoDetail.swift in Sources */,
+				63652DD124ECFA96005C0BC1 /* Task.swift in Sources */,
+				63652DD924ED1029005C0BC1 /* TodoViewController.swift in Sources */,
+				6348D72124DBC158004B0476 /* AppDelegate.swift in Sources */,
+				63D0528224EE5AD900665E67 /* SplitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,9 +522,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2D7F2DCE304674AD2C109068 /* Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CQV92MJ6Y3;
+
+			
+
+				DEVELOPMENT_TEAM = "";
+
 				INFOPLIST_FILE = "a1-s3763636_s3779380_s3557535_s3730303/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -462,9 +546,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DF1B939875A39D6CA2A620B7 /* Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CQV92MJ6Y3;
+
+			
+
+				DEVELOPMENT_TEAM = "";
+
 				INFOPLIST_FILE = "a1-s3763636_s3779380_s3557535_s3730303/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
