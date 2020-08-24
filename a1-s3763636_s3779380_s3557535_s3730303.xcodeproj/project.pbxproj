@@ -230,6 +230,7 @@
 				C8BB0D1E24EE058400E027B1 /* WeatherMoodTableViewCell.xib */,
 			);
 			path = MoodTrackerView;
+   };
 		63FA777A24F23C57009F47B7 /* Custom UI */ = {
 			isa = PBXGroup;
 			children = (
