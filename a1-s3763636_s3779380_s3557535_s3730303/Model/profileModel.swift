@@ -8,10 +8,10 @@
 
 import Foundation
 
-private let profile = ["David Manolitsas",
-                      "Jessica Cui",
-                      "Peng Xiong",
-                      "Winnie Siwan"]
+private let profile = ["   David Manolitsas",
+                      "   Jessica Cui",
+                      "   Peng Xiong",
+                      "   Winnie Siwan"]
 
 func getProfile() -> [String] {
     return profile;

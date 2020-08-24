@@ -16,6 +16,7 @@ class profileViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         profile.delegate = self
         profile.dataSource = self
+        profile.rowHeight = 50
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
