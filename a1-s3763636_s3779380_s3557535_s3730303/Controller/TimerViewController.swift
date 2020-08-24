@@ -39,9 +39,6 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     var source : PopViewController?
     var breakduration:Int = 0
     
-    @IBOutlet weak var timerScrollView: UIScrollView!
-    @IBOutlet weak var dataView: UIView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,9 +47,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         // the size of overall view
         blurview.bounds = self.view.bounds
         
-        timerScrollView.delegate = self as? UIScrollViewDelegate
-        
-        timerScrollView.contentSize = dataView.frame.size
+
 
     }
     
