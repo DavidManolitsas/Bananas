@@ -13,17 +13,14 @@ class TodoViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    
+    var currDetail = TodoDetail()
     var count = 0;
     var tasks = [Task]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
         tableView.dataSource = self
-        
-        tasks.append(Task(description: "Get milk"))
-        tasks.append(Task(description: "Walk the dog"))
-        
         
     }
     
@@ -73,10 +70,12 @@ class TodoViewController: UIViewController {
         // Sort the tasks array based on priority
         for i in 0..<tasks.count {
             for j in 0..<tasks.count {
-                if (tasks[i].priority.detail.value < tasks[j].priority.detail.value) {
-                    temp = tasks[i]
-                    tasks[i] = tasks[j]
-                    tasks[j] = temp
+                if (tasks[i].completed == false) {
+                    if (tasks[i].priority.detail.value < tasks[j].priority.detail.value) {
+                        temp = tasks[i]
+                        tasks[i] = tasks[j]
+                        tasks[j] = temp
+                    }
                 }
             }
         }
@@ -86,7 +85,7 @@ class TodoViewController: UIViewController {
 }
 
 
-extension TodoViewController: UITableViewDataSource {
+extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -97,24 +96,12 @@ extension TodoViewController: UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath)
-        cell.textLabel?.text = tasks[indexPath.row].description
         
-        let taskPriority = tasks[indexPath.row].priority
+        let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath) as! TodoCell
         
-        // UIColor(red: 0.79, green: 0.80, blue: 0.64, alpha: 1.00) (low)
-        // UIColor(red: 1.00, green: 0.88, blue: 0.66, alpha: 1.00) (medium)
-        // UIColor(red: 0.94, green: 0.54, blue: 0.48, alpha: 1.00) (high)
-        
-        if taskPriority == TaskPriority.none {
-            cell.backgroundColor = UIColor.clear
-        } else if taskPriority == TaskPriority.low {
-            cell.backgroundColor = UIColor(red: 0.79, green: 0.80, blue: 0.64, alpha: 1.00)
-        } else if taskPriority == TaskPriority.medium {
-            cell.backgroundColor = UIColor(red: 1.00, green: 0.88, blue: 0.66, alpha: 1.00)
-        } else if taskPriority == TaskPriority.high {
-            cell.backgroundColor = UIColor(red: 0.94, green: 0.54, blue: 0.48, alpha: 1.00)
-        }
+        let task = tasks[indexPath.row]
+        cell.setTodoTask(task: task)
+        cell.task = task
 
         return cell
     }
@@ -126,4 +113,20 @@ extension TodoViewController: UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if UIDevice.current.orientation.isPortrait {
+            performSegue(withIdentifier: "showDetail", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? TodoDetail {
+            vc.task = tasks[(tableView.indexPathForSelectedRow?.row)!]
+
+        }
+       
+    }
+
 }
