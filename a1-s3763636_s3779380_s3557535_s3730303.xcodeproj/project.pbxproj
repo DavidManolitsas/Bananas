@@ -24,21 +24,17 @@
 		63AD4D8424EA0E8D00CAAEB4 /* MoodTracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AD4D8324EA0E8D00CAAEB4 /* MoodTracker.storyboard */; };
 		63AD4D8624EA0EA800CAAEB4 /* StudyRecords.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AD4D8524EA0EA800CAAEB4 /* StudyRecords.storyboard */; };
 		63AD4D8824EA0EC100CAAEB4 /* Profiles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AD4D8724EA0EC100CAAEB4 /* Profiles.storyboard */; };
+		63D0528224EE5AD900665E67 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0528124EE5AD900665E67 /* SplitViewController.swift */; };
+		63FA777E24F240F4009F47B7 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FA777D24F240F4009F47B7 /* TodoCell.swift */; };
+		63FA778024F262B4009F47B7 /* TodoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FA777F24F262B4009F47B7 /* TodoDetail.swift */; };
 		C85D57BB24EFA30F00C8AF13 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85D57BA24EFA30F00C8AF13 /* Weather.swift */; };
 		C8949E7524F2662100FE6A64 /* MoodTrackerDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8949E7424F2662100FE6A64 /* MoodTrackerDatabase.swift */; };
 		C8949E7724F2667200FE6A64 /* DailyRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8949E7624F2667200FE6A64 /* DailyRecord.swift */; };
 		C8949E7924F26F7200FE6A64 /* MoodTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8949E7824F26F7200FE6A64 /* MoodTracker.swift */; };
 		C8949E7B24F2709E00FE6A64 /* Moods.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8949E7A24F2709E00FE6A64 /* Moods.swift */; };
-		C8BB0D1F24EE058400E027B1 /* WeatherMoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB0D1D24EE058400E027B1 /* WeatherMoodTableViewCell.swift */; };
-		C8BB0D2024EE058400E027B1 /* WeatherMoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8BB0D1E24EE058400E027B1 /* WeatherMoodTableViewCell.xib */; };
 		C8BB0D2724EE13A500E027B1 /* MoodTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB0D2624EE13A500E027B1 /* MoodTrackerViewController.swift */; };
 		C8E1403624F142800024F572 /* MoodTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E1403524F142800024F572 /* MoodTrackerViewModel.swift */; };
 		C8E1403824F142EC0024F572 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E1403724F142EC0024F572 /* Forecast.swift */; };
-		F6C182B5F7AC4984B54203F7 /* Pods_a1_s3763636_s3779380_s3557535_s3730303.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD0CFFEC536B1C0A945079B6 /* Pods_a1_s3763636_s3779380_s3557535_s3730303.framework */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXFileReference section */
-		2D7F2DCE304674AD2C109068 /* Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig"; path = "Target Support Files/Pods-a1-s3763636_s3779380_s3557535_s3730303/Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig"; sourceTree = "<group>"; };
 		CB9C781E24F0E064007878A3 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C781C24F0E064007878A3 /* TimerViewController.swift */; };
 		CB9C782124F0E078007878A3 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C782024F0E078007878A3 /* SongList.swift */; };
 		CB9C782E24F0E337007878A3 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB9C782B24F0E337007878A3 /* 1.mp3 */; };
@@ -46,14 +42,11 @@
 		CB9C783024F0E337007878A3 /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB9C782D24F0E337007878A3 /* 2.mp3 */; };
 		CB9C783324F0EEAB007878A3 /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C783224F0EEAB007878A3 /* PopViewController.swift */; };
 		CB9C783524F10EAB007878A3 /* BreakDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C783424F10EAB007878A3 /* BreakDuration.swift */; };
-
-		63D0528224EE5AD900665E67 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0528124EE5AD900665E67 /* SplitViewController.swift */; };
-		63FA777E24F240F4009F47B7 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FA777D24F240F4009F47B7 /* TodoCell.swift */; };
-		63FA778024F262B4009F47B7 /* TodoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FA777F24F262B4009F47B7 /* TodoDetail.swift */; };
-
+		F6C182B5F7AC4984B54203F7 /* Pods_a1_s3763636_s3779380_s3557535_s3730303.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD0CFFEC536B1C0A945079B6 /* Pods_a1_s3763636_s3779380_s3557535_s3730303.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D7F2DCE304674AD2C109068 /* Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig"; path = "Target Support Files/Pods-a1-s3763636_s3779380_s3557535_s3730303/Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig"; sourceTree = "<group>"; };
 		5F6258C824F2BA9A0085DDF0 /* profileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileModel.swift; sourceTree = "<group>"; };
 		5F6258CA24F2BD240085DDF0 /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		6348D71D24DBC158004B0476 /* a1-s3763636_s3779380_s3557535_s3730303.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "a1-s3763636_s3779380_s3557535_s3730303.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,18 +66,18 @@
 		63AD4D8324EA0E8D00CAAEB4 /* MoodTracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MoodTracker.storyboard; sourceTree = "<group>"; };
 		63AD4D8524EA0EA800CAAEB4 /* StudyRecords.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StudyRecords.storyboard; sourceTree = "<group>"; };
 		63AD4D8724EA0EC100CAAEB4 /* Profiles.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profiles.storyboard; sourceTree = "<group>"; };
+		63D0528124EE5AD900665E67 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		63FA777D24F240F4009F47B7 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
+		63FA777F24F262B4009F47B7 /* TodoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetail.swift; sourceTree = "<group>"; };
 		BD0CFFEC536B1C0A945079B6 /* Pods_a1_s3763636_s3779380_s3557535_s3730303.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_a1_s3763636_s3779380_s3557535_s3730303.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C85D57BA24EFA30F00C8AF13 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C8949E7424F2662100FE6A64 /* MoodTrackerDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerDatabase.swift; sourceTree = "<group>"; };
 		C8949E7624F2667200FE6A64 /* DailyRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRecord.swift; sourceTree = "<group>"; };
 		C8949E7824F26F7200FE6A64 /* MoodTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTracker.swift; sourceTree = "<group>"; };
 		C8949E7A24F2709E00FE6A64 /* Moods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moods.swift; sourceTree = "<group>"; };
-		C8BB0D1D24EE058400E027B1 /* WeatherMoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMoodTableViewCell.swift; sourceTree = "<group>"; };
-		C8BB0D1E24EE058400E027B1 /* WeatherMoodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherMoodTableViewCell.xib; sourceTree = "<group>"; };
 		C8BB0D2624EE13A500E027B1 /* MoodTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerViewController.swift; sourceTree = "<group>"; };
 		C8E1403524F142800024F572 /* MoodTrackerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodTrackerViewModel.swift; sourceTree = "<group>"; };
 		C8E1403724F142EC0024F572 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
-		DF1B939875A39D6CA2A620B7 /* Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig"; path = "Target Support Files/Pods-a1-s3763636_s3779380_s3557535_s3730303/Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig"; sourceTree = "<group>"; };
 		CB9C781C24F0E064007878A3 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		CB9C782024F0E078007878A3 /* SongList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongList.swift; path = "a1-s3763636_s3779380_s3557535_s3730303/Model/SongList.swift"; sourceTree = SOURCE_ROOT; };
 		CB9C782B24F0E337007878A3 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
@@ -92,12 +85,7 @@
 		CB9C782D24F0E337007878A3 /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
 		CB9C783224F0EEAB007878A3 /* PopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
 		CB9C783424F10EAB007878A3 /* BreakDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakDuration.swift; sourceTree = "<group>"; };
-
-		63D0528124EE5AD900665E67 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
-		63FA777D24F240F4009F47B7 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
-		63FA777F24F262B4009F47B7 /* TodoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetail.swift; sourceTree = "<group>"; };
-
-
+		DF1B939875A39D6CA2A620B7 /* Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig"; path = "Target Support Files/Pods-a1-s3763636_s3779380_s3557535_s3730303/Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +145,6 @@
 		631E2A9724E4D7CB00D90097 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C8BB0D2124EE059000E027B1 /* MoodTrackerView */,
 				63FA777A24F23C57009F47B7 /* Custom UI */,
 				63818FAE24E4E60800E15655 /* Main.storyboard */,
 				63AD4D8724EA0EC100CAAEB4 /* Profiles.storyboard */,
@@ -214,6 +201,14 @@
 			path = "a1-s3763636_s3779380_s3557535_s3730303";
 			sourceTree = "<group>";
 		};
+		63FA777A24F23C57009F47B7 /* Custom UI */ = {
+			isa = PBXGroup;
+			children = (
+				63FA777D24F240F4009F47B7 /* TodoCell.swift */,
+			);
+			path = "Custom UI";
+			sourceTree = "<group>";
+		};
 		8215C53CAF62303F0AEC3A29 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,22 +216,6 @@
 				DF1B939875A39D6CA2A620B7 /* Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		C8BB0D2124EE059000E027B1 /* MoodTrackerView */ = {
-			isa = PBXGroup;
-			children = (
-				C8BB0D1D24EE058400E027B1 /* WeatherMoodTableViewCell.swift */,
-				C8BB0D1E24EE058400E027B1 /* WeatherMoodTableViewCell.xib */,
-			);
-			path = MoodTrackerView;
-   };
-		63FA777A24F23C57009F47B7 /* Custom UI */ = {
-			isa = PBXGroup;
-			children = (
-				63FA777D24F240F4009F47B7 /* TodoCell.swift */,
-			);
-			path = "Custom UI";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,7 +286,6 @@
 				CB9C782E24F0E337007878A3 /* 1.mp3 in Resources */,
 				63AD4D8224EA0E6900CAAEB4 /* StudyTracker.storyboard in Resources */,
 				63AD4D8024EA0E3E00CAAEB4 /* Todo.storyboard in Resources */,
-				C8BB0D2024EE058400E027B1 /* WeatherMoodTableViewCell.xib in Resources */,
 				63818FAF24E4E60800E15655 /* Main.storyboard in Resources */,
 				63AD4D8624EA0EA800CAAEB4 /* StudyRecords.storyboard in Resources */,
 				6348D72824DBC15C004B0476 /* Assets.xcassets in Resources */,
@@ -366,16 +344,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				5F6258C924F2BA9A0085DDF0 /* profileModel.swift in Sources */,
 				63818FB924E4E91D00E15655 /* Model.swift in Sources */,
 				5F6258CB24F2BD240085DDF0 /* profileViewController.swift in Sources */,
-
-
 				CB9C781E24F0E064007878A3 /* TimerViewController.swift in Sources */,
 				CB9C783524F10EAB007878A3 /* BreakDuration.swift in Sources */,
 				63818FB924E4E91D00E15655 /* Model.swift in Sources */,
-				C8BB0D1F24EE058400E027B1 /* WeatherMoodTableViewCell.swift in Sources */,
 				C8949E7B24F2709E00FE6A64 /* Moods.swift in Sources */,
 				C8E1403624F142800024F572 /* MoodTrackerViewModel.swift in Sources */,
 				CB9C783324F0EEAB007878A3 /* PopViewController.swift in Sources */,
@@ -525,11 +499,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-
-			
-
 				DEVELOPMENT_TEAM = "";
-
 				INFOPLIST_FILE = "a1-s3763636_s3779380_s3557535_s3730303/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -549,11 +519,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-
-			
-
 				DEVELOPMENT_TEAM = "";
-
 				INFOPLIST_FILE = "a1-s3763636_s3779380_s3557535_s3730303/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
