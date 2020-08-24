@@ -33,10 +33,10 @@
         <!--Todo-->
         <scene sceneID="MpB-bC-OZo">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e3F-yU-RDn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Todo" id="ufd-I0-QXO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="xRm-nE-JNv"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e3F-yU-RDn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-403" y="872"/>
         </scene>
