@@ -62,6 +62,9 @@
                                                         <rect key="frame" x="0.0" y="4" width="36.5" height="22"/>
                                                         <color key="backgroundColor" red="0.54678374529999996" green="0.75248956680000001" blue="0.66300100090000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                        <connections>
+                                                            <action selector="greatBtn:" destination="Dy3-aQ-iCX" eventType="touchUpInside" id="geb-9S-P4y"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryp-1v-8bf">
                                                         <rect key="frame" x="44.5" y="4" width="36.5" height="22"/>

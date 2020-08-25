@@ -25,6 +25,7 @@ struct MoodTrackerViewModel {
     private let celsius = "°C"
     
     private let dtFormat = "dd-MM-yy"
+    
     init() {
         moodTracker.initMockRecords()
     }
@@ -39,6 +40,15 @@ struct MoodTrackerViewModel {
         return count
     }
     
+    public mutating func setMood(forDate date: Date, as mood: String) {
+        let dateStr = formatDate(date: date)
+//        moodTracker.setMood(as: mood, forDate: dateStr)
+    }
+    
+    public mutating func updateNotes(forDate date: Date, as notes: String) {
+        let dateStr = formatDate(date: date)
+        moodTracker.updateNotes(as: notes, forDate: dateStr)
+    }
     //    public mutating func getWeatherDetails() -> (uiImage: UIImage?, maxTemp: String, minTemp: String) {
     //        let details = weather.getNextForecastDetails()
     //
@@ -58,12 +68,12 @@ struct MoodTrackerViewModel {
     //        moodtracker.setNotes(text: notes)
     //    }
     
-    public mutating func createRecord(forDate date: String, notes: String, mood: String) {
-        moodTracker.setNotes(text: notes)
-        moodTracker.setMood(asMood: mood)
-        
-        moodTracker.createRecord(forDate: date)
-    }
+//    public mutating func createRecord(forDate date: String, notes: String, mood: String) {
+//        moodTracker.setNotes(text: notes)
+//        moodTracker.setMood(asMood: mood)
+//
+//        moodTracker.createRecord(forDate: date)
+//    }
     
     public mutating func getMood(forDate date: Date) -> String {
         let record = moodTracker.getRecord(forDate: formatDate(date: date))
@@ -72,6 +82,7 @@ struct MoodTrackerViewModel {
     
     public mutating func getNotes(forDate date: Date) -> String {
         let record = moodTracker.getRecord(forDate: formatDate(date: date))
+        print("On this date: \(date) the record was : \(record.getMood()) " + record.getNotes())
         return record.getNotes()
     }
     
@@ -93,6 +104,7 @@ struct MoodTrackerViewModel {
         
                 return (image, maxTemp, minTemp)
     }
+    
     private func formatDate(date: Date) -> String {
         let formatter = DateFormatter();
         formatter.dateFormat = dtFormat;

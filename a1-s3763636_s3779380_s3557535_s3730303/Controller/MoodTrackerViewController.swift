@@ -10,7 +10,7 @@ import Foundation
 import FSCalendar
 import UIKit
 
-class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
+class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalendarDelegate, FSCalendarDataSource {
     
     @IBOutlet weak var calendar: FSCalendar!
     
@@ -26,20 +26,30 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
     @IBOutlet weak var badBtn: UIButton!
     @IBOutlet weak var awfulBtn: UIButton!
     
+    
+    
+    
     @IBOutlet weak var notesText: UITextView!
     
+    private var chosenDate: Date?
     private let moodGreeting: String = "How are you feeling today?"
     private var moodTrackerViewModel = MoodTrackerViewModel()
     
+    @IBAction func greatBtn(_ sender: Any) {
+        //        moodTrackerViewModel.updateMood(as: "Great")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         calendar.delegate = self;
         calendar.dataSource = self;
+        notesText.delegate = self;
         
         customiseCalendarView()
         customiseBtns()
         
+        //        chosenDate = calendar.today!
         initDateMoodView()
+        
         
     }
     
@@ -50,11 +60,31 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
         updateDateMoodView(forDate: calendar.today!)
     }
     
+    func textViewDidChange(_ textView: UITextView) {
+        //        print("new text: " + notesText.text)
+        if let date = chosenDate {
+//            print(date)
+            moodTrackerViewModel.updateNotes(forDate: date, as: notesText.text)
+//            print(notesText.text)
+        } else {
+            print(calendar.today!)
+            moodTrackerViewModel.updateNotes(forDate: calendar.today!, as: notesText.text)
+        }
+        
+        
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        print("new text: " + notesText.text)
+    }
+    
     // **** start calendar region ****
     // selecting a date
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        chosenDate = date
         updateDateMoodView(forDate: date)
     }
+    
     
     private func updateDateMoodView(forDate chosenDate: Date) {
         let details = moodTrackerViewModel.getWeatherDetails(forDate: chosenDate)
@@ -62,8 +92,8 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
         maxTempLbl.text = details.maxTemp
         minTempLbl.text = details.minTemp
         
-        let dt = formatDate(date: chosenDate, asFormat: "dd-MM-yy")
-        print(dt)
+//        let dt = formatDate(date: chosenDate, asFormat: "dd-MM-yy")
+//        print(dt)
         notesText.text = moodTrackerViewModel.getNotes(forDate: chosenDate)
         dateLbl.text = formatDate(date: chosenDate, asFormat: "dd MMMM, yyyy")
         
@@ -72,7 +102,7 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
     
     // display events as dots
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-//        if moodTrackerViewModel.getRecord(forDate: date)
+        //        if moodTrackerViewModel.getRecord(forDate: date)
         return moodTrackerViewModel.getRecordEvent(forDate: date)
     }
     

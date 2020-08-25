@@ -37,6 +37,14 @@ struct DailyRecord {
         return notes
     }
     
+    public mutating func updateMood(as mood: Moods) {
+        self.mood = mood
+    }
+    
+    public mutating func updateNotes(as notes: String) {
+        self.notes = notes
+    }
+    
     public func getWeatherDetails() ->  (iconName: String, maxTemp: Double, minTemp: Double) {
         return weatherDetails
 

@@ -13,12 +13,17 @@ struct MoodTrackerDatabase {
     private var dailyRecords: [String:DailyRecord] = [:]
 //    private var record: DailyRecord? = nil
     
-    public mutating func addNewRecord(newRecord record: DailyRecord, forDate date: String) {
+    public mutating func updateRecord(for record: DailyRecord, forDate date: String) {
         dailyRecords.updateValue(record, forKey: date)
     }
     
     public func getRecord(forDate date: String) -> DailyRecord? {
         guard let record = dailyRecords[date] else {return nil }
         return record
+    }
+    
+    public func recordDoesExist(forDate key: String) -> Bool {
+        let keyExists = dailyRecords[key] != nil
+        return keyExists
     }
 }
