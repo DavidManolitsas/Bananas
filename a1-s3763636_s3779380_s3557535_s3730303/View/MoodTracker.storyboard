@@ -70,21 +70,33 @@
                                                         <rect key="frame" x="44.5" y="4" width="36.5" height="22"/>
                                                         <color key="backgroundColor" red="0.78928661349999996" green="0.7962698936" blue="0.63755947349999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                        <connections>
+                                                            <action selector="goodBtn:" destination="Dy3-aQ-iCX" eventType="touchUpInside" id="ecc-R6-538"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ss3-St-auG">
                                                         <rect key="frame" x="89" y="4" width="36" height="22"/>
                                                         <color key="backgroundColor" red="0.9886229634" green="0.8772029281" blue="0.65525186059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                        <connections>
+                                                            <action selector="okBtn:" destination="Dy3-aQ-iCX" eventType="touchUpInside" id="fgx-xg-EtO"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R20-Ef-zeB">
                                                         <rect key="frame" x="133" y="4" width="36.5" height="22"/>
                                                         <color key="backgroundColor" red="0.96860188250000001" green="0.75484019520000001" blue="0.65772086380000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                        <connections>
+                                                            <action selector="badBtn:" destination="Dy3-aQ-iCX" eventType="touchUpInside" id="hf3-Mj-Wau"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbR-EL-X9V">
                                                         <rect key="frame" x="177.5" y="4" width="36.5" height="22"/>
                                                         <color key="backgroundColor" red="0.94297981259999997" green="0.5171610713" blue="0.5180886388" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                        <connections>
+                                                            <action selector="awfulBtn:" destination="Dy3-aQ-iCX" eventType="touchUpInside" id="MUB-Co-QwX"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -173,17 +185,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Mood Tracker" id="asB-FR-ttC"/>
                     <connections>
-                        <outlet property="awfulBtn" destination="FbR-EL-X9V" id="FpA-6i-BeK"/>
-                        <outlet property="badBtn" destination="R20-Ef-zeB" id="tmq-NM-fK1"/>
                         <outlet property="calendar" destination="jCg-lM-dJa" id="qjV-SM-vew"/>
                         <outlet property="dateLbl" destination="Ev8-cI-AIN" id="ShG-Uq-v8M"/>
-                        <outlet property="goodBtn" destination="Ryp-1v-8bf" id="Wb7-er-EMN"/>
-                        <outlet property="greatBtn" destination="pFW-hi-cv3" id="JNk-iL-llD"/>
                         <outlet property="greetingsLbl" destination="fss-DR-NDL" id="eyF-nn-KlI"/>
                         <outlet property="maxTempLbl" destination="1Sv-Vd-e2v" id="ZmZ-Cd-hfP"/>
                         <outlet property="minTempLbl" destination="ACC-Jt-Zvu" id="bQO-H2-d4H"/>
                         <outlet property="notesText" destination="rLK-kM-qMO" id="knV-rn-sWc"/>
-                        <outlet property="okBtn" destination="Ss3-St-auG" id="EI1-0t-u4B"/>
                         <outlet property="weatherImg" destination="qhK-qg-8Lw" id="dlQ-WZ-rFi"/>
                     </connections>
                 </viewController>

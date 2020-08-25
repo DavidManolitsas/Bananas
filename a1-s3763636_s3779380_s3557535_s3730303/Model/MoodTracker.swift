@@ -12,9 +12,9 @@ struct MoodTracker {
     
     private var moodTrackerDatabase = MoodTrackerDatabase()
     
-    private var mood: Moods = Moods.none
+//    private var mood: Moods = Moods.none
     private var weather: Weather = Weather()
-    private var notes: String = ""
+//    private var notes: String = ""
     
     private mutating func updateRecord(forDate date: String, forRecord record: DailyRecord) {
         moodTrackerDatabase.updateRecord(for: record, forDate: date)
@@ -36,7 +36,7 @@ struct MoodTracker {
     }
     
     public mutating func createRecord(forDate date: String) {
-        let record = DailyRecord(mood: self.mood, weatherDetails: getWeatherDetails(), notes: self.notes)
+        let record = DailyRecord(mood: Moods.none, weatherDetails: getWeatherDetails(), notes: "")
         updateRecord(forDate: date, forRecord: record)
     }
     
@@ -48,11 +48,22 @@ struct MoodTracker {
         return record
     }
     
-    public mutating func updateMood(as newMood: String, forDate date: String) {
-        for moodEnum in Moods.allCases {
-            if newMood == moodEnum.rawValue {
-                self.mood = moodEnum
-            }
+    public mutating func updateMood(as newMood: Moods, forDate date: String) {
+//        for moodEnum in Moods.allCases {
+//            if newMood == moodEnum.rawValue {
+//                self.mood = moodEnum
+//            }
+//        }
+        if var record = moodTrackerDatabase.getRecord(forDate: date) {
+            // now val is not nil and the Optional has been unwrapped, so use it
+            record.updateMood(as: newMood)
+            moodTrackerDatabase.updateRecord(for: record, forDate: date)
+            print("after UPDATING the record - new mood is:\t" + record.getMood().rawValue)
+            
+        } else {
+            let newRecord = DailyRecord(mood: newMood, weatherDetails: getWeatherDetails(), notes: "")
+            moodTrackerDatabase.updateRecord(for: newRecord, forDate: date)
+            print("after CREATING NEW record - new mood is:\t" + newRecord.getMood().rawValue)
         }
     }
     
@@ -68,7 +79,7 @@ struct MoodTracker {
             moodTrackerDatabase.updateRecord(for: record, forDate: date)
             print("after updating the record: " + record.getNotes())
         } else {
-            let newRecord = DailyRecord(mood: self.mood, weatherDetails: getWeatherDetails(), notes: notes)
+            let newRecord = DailyRecord(mood: Moods.none, weatherDetails: getWeatherDetails(), notes: notes)
             moodTrackerDatabase.updateRecord(for: newRecord, forDate: date)
             print("after creating a new record: " + newRecord.getNotes())
         }

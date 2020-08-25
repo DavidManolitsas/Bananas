@@ -20,24 +20,33 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
     @IBOutlet weak var weatherImg: UIImageView!
     @IBOutlet weak var greetingsLbl: UILabel!
     
-    @IBOutlet weak var greatBtn: UIButton!
-    @IBOutlet weak var goodBtn: UIButton!
-    @IBOutlet weak var okBtn: UIButton!
-    @IBOutlet weak var badBtn: UIButton!
-    @IBOutlet weak var awfulBtn: UIButton!
-    
-    
-    
-    
     @IBOutlet weak var notesText: UITextView!
     
     private var chosenDate: Date?
     private let moodGreeting: String = "How are you feeling today?"
     private var moodTrackerViewModel = MoodTrackerViewModel()
     
+    
     @IBAction func greatBtn(_ sender: Any) {
-        //        moodTrackerViewModel.updateMood(as: "Great")
+        updateMood(as: "Great")
     }
+    
+    @IBAction func goodBtn(_ sender: Any) {
+        updateMood(as: "Good")
+    }
+    
+    @IBAction func okBtn(_ sender: Any) {
+        updateMood(as: "OK")
+    }
+    
+    @IBAction func badBtn(_ sender: Any) {
+        updateMood(as: "Bad")
+    }
+    
+    @IBAction func awfulBtn(_ sender: Any) {
+        updateMood(as: "Awful")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         calendar.delegate = self;
@@ -50,6 +59,15 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
         //        chosenDate = calendar.today!
         initDateMoodView()
         
+    }
+    
+    private func updateMood(as newMoodStr: String) {
+        if let date = chosenDate {
+            moodTrackerViewModel.updateMood( forDate: date, as: newMoodStr)
+            
+        } else {
+            moodTrackerViewModel.updateMood( forDate: calendar.today!, as: newMoodStr)
+        }
         
     }
     
@@ -74,10 +92,6 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
         
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        print("new text: " + notesText.text)
-    }
-    
     // **** start calendar region ****
     // selecting a date
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
@@ -98,7 +112,6 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
         notesText.text = moodTrackerViewModel.getNotes(forDate: chosenDate)
         dateLbl.text = formatDate(date: chosenDate, asFormat: "dd MMMM, yyyy")
         calendar.reloadData()
-//        calendar.
     }
     
     
@@ -130,12 +143,12 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
     }
     
     private func customiseBtns() {
-        let btnsArr: [UIButton] = [greatBtn, goodBtn, okBtn, badBtn, awfulBtn]
-        
-        for btn in btnsArr {
-            btn.layer.cornerRadius = 0.5 * btn.bounds.size.width
-            btn.clipsToBounds = true
-        }
+//        let btnsArr: [UIButton] = [greatBtn, goodBtn, okBtn, badBtn, awfulBtn]
+//        
+//        for btn in btnsArr {
+//            btn.layer.cornerRadius = 0.5 * btn.bounds.size.width
+//            btn.clipsToBounds = true
+//        }
         
     }
     

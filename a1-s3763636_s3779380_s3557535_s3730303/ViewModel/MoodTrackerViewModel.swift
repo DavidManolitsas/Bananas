@@ -40,8 +40,15 @@ struct MoodTrackerViewModel {
         return count
     }
     
-    public mutating func setMood(forDate date: Date, as mood: String) {
+    public mutating func updateMood(forDate date: Date, as mood: String) {
         let dateStr = formatDate(date: date)
+        
+        for moodEnum in Moods.allCases {
+            if mood == moodEnum.rawValue {
+                moodTracker.updateMood(as: moodEnum, forDate: dateStr)
+            }
+        }
+        
 //        moodTracker.setMood(as: mood, forDate: dateStr)
     }
     
