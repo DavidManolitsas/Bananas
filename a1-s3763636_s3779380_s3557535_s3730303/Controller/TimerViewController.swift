@@ -17,7 +17,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     // audio player for the alarm
     var audioPlayer = AVAudioPlayer()
 
-    var durations = 0
+    var durations = 10
     
     private var songList = getSongList()
     var receivedSong:String = ""
@@ -31,8 +31,9 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     
     @IBOutlet weak var breaktimeLabel: UILabel!
     var source : PopViewController?
+    var destination : StudyRecordViewController?
     var breakduration:Int = 0
-    
+    var alarmName = "alarm"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -174,6 +175,12 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
                     
                 }
         
+        if segue.identifier == "showStudyRecord"{
+            destination = segue.destination as? StudyRecordViewController
+            
+            
+        }
+        
         
     }
     
@@ -184,7 +191,21 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
 //        breaktimeLabel.text = receivedSong
          // get the modified break duration from popover
         self.breakduration = source!.durationText*60
+        self.alarmName = source!.labelField.text ?? "Alarm"
+        
+        //transfer to study record
+//        destination!.alarmLabel.text = alarmName
+//        destination!.timerDuration.text = String(durations)
+//        destination!.breakDuration.text = String(breakduration)
+        
+        print(self.alarmName)
+        print(self.durations)
+        print(self.breakduration)
 
+//        print(destination!.alarmLabel.text)
+//        print(destination!.timerDuration.text)
+//        print(destination!.breakDuration.text)
+        
         animateOut(desiredView: blurview)
     }
     

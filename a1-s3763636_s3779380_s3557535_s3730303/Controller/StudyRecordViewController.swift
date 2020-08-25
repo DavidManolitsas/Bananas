@@ -11,6 +11,8 @@ import UIKit
 class StudyRecordViewController: UIViewController {
 
     @IBOutlet weak var alarmLabel: UILabel!
+    @IBOutlet weak var timerDuration: UILabel!
+    @IBOutlet weak var breakDuration: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
