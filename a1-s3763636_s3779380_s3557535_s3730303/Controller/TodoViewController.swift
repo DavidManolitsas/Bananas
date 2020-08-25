@@ -78,22 +78,19 @@ class TodoViewController: UIViewController {
     
     
     func sortTasks() {
-        var temp:Task
-        
-        // Sort the tasks array based on priority
+        //Bubble Sort
         for i in 0..<tasks.count {
-            for j in 0..<tasks.count {
-                if (tasks[i].completed == false) {
-                    if (tasks[i].getTaskPriorityValue() < tasks[j].getTaskPriorityValue()) {
-                        temp = tasks[i]
-                        tasks[i] = tasks[j]
-                        tasks[j] = temp
-                    }
+            for j in 1..<tasks.count - i {
+                if tasks[j].getTaskPriorityValue() < tasks[j-1].getTaskPriorityValue() {
+                    let temp = tasks[j-1]
+                    tasks[j-1] = tasks[j]
+                    tasks[j] = temp
                 }
             }
         }
         
         tableView.reloadData()
+        
     }
 }
 
