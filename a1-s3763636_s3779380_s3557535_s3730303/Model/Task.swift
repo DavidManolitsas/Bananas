@@ -29,5 +29,22 @@ class Task {
         self.completed = false;
     }
     
+    func getTaskPriorityValue() -> Int {
+        
+        if completed {
+            return 5
+        } else if priority == TaskPriority.none {
+            return 4
+        } else if priority == TaskPriority.low {
+            return 3
+        } else if priority == TaskPriority.medium {
+            return 2
+        } else if priority == TaskPriority.high {
+            return 1
+        }
+        
+        return -1
+    }
+    
     
 }

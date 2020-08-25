@@ -21,11 +21,27 @@ class TodoDetail: UIViewController {
     }
     
     @IBAction func lowPriorityClicked(_ sender: Any) {
-        
         if task!.priority == TaskPriority.low {
             tableViewController!.setTaskPriority(searchedTask: task!, priority: TaskPriority.none)
         } else {
             tableViewController!.setTaskPriority(searchedTask: task!, priority: TaskPriority.low)
+        }
+    }
+    
+    @IBAction func medPriorityClicked(_ sender: Any) {
+        if task!.priority == TaskPriority.medium {
+            tableViewController!.setTaskPriority(searchedTask: task!, priority: TaskPriority.none)
+        } else {
+            tableViewController!.setTaskPriority(searchedTask: task!, priority: TaskPriority.medium)
+        }
+    }
+    
+    
+    @IBAction func highPriorityClicked(_ sender: Any) {
+        if task!.priority == TaskPriority.high {
+            tableViewController!.setTaskPriority(searchedTask: task!, priority: TaskPriority.none)
+        } else {
+            tableViewController!.setTaskPriority(searchedTask: task!, priority: TaskPriority.high)
         }
     }
     

@@ -84,7 +84,7 @@ class TodoViewController: UIViewController {
         for i in 0..<tasks.count {
             for j in 0..<tasks.count {
                 if (tasks[i].completed == false) {
-                    if (tasks[i].priority.detail.value < tasks[j].priority.detail.value) {
+                    if (tasks[i].getTaskPriorityValue() < tasks[j].getTaskPriorityValue()) {
                         temp = tasks[i]
                         tasks[i] = tasks[j]
                         tasks[j] = temp
@@ -112,9 +112,12 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath) as! TodoCell
         
+        cell.todoViewController = self
+        
         let task = tasks[indexPath.row]
         cell.setTodoTask(task: task)
         cell.task = task
+        
 
         return cell
     }

@@ -13,16 +13,45 @@ class TodoCell: UITableViewCell {
     @IBOutlet weak var taskDescription: UILabel!
     @IBOutlet weak var checkbox: UIButton!
     var task:Task?
+    var todoViewController:TodoViewController?
     
     
     func setTodoTask(task: Task) {
-        
         self.task = task
         taskDescription.text = task.description
+        setBackgroundColor()
+    }
+    
+    @IBAction func checkboxClicked(_ sender: Any) {
+        setCheckbox()
+        setBackgroundColor()
+    }
+    
+    
+    func setCheckbox() {
+        if let task = self.task {
+            if task.completed {
+                task.completed = false
+                checkbox.setImage(UIImage(named: "checkBoxOUTLINE.png"), for: UIControl.State.normal)
+            }
+            else {
+                task.completed = true
+                checkbox.setImage(UIImage(named: "checkBoxFILLED.png"), for: UIControl.State.normal)
+            }
+        }
         
-        let taskPriority = task.priority
+        todoViewController?.sortTasks()
+    }
+    
+    func setBackgroundColor() {
+        let taskPriority = task!.priority
         
-        if taskPriority == TaskPriority.none {
+        checkbox.setImage(UIImage(named: "checkBoxOUTLINE.png"), for: UIControl.State.normal)
+        
+        if self.task!.completed {
+            self.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 0.5)
+            checkbox.setImage(UIImage(named: "checkBoxFILLED.png"), for: UIControl.State.normal)
+        } else if taskPriority == TaskPriority.none {
             self.backgroundColor = UIColor.clear
         } else if taskPriority == TaskPriority.low {
             self.backgroundColor = UIColor(red: 0.79, green: 0.80, blue: 0.64, alpha: 1.00)
@@ -35,21 +64,6 @@ class TodoCell: UITableViewCell {
         // UIColor(red: 0.79, green: 0.80, blue: 0.64, alpha: 1.00) (low)
         // UIColor(red: 1.00, green: 0.88, blue: 0.66, alpha: 1.00) (medium)
         // UIColor(red: 0.94, green: 0.54, blue: 0.48, alpha: 1.00) (high)
-    }
-    
-    @IBAction func checkboxClicked(_ sender: Any) {
-        if let task = self.task {
-            if task.completed {
-                task.completed = false
-                checkbox.setImage(UIImage(named: "checkBoxOUTLINE.png"), for: UIControl.State.normal)
-            }
-            else {
-                task.completed = true
-                checkbox.setImage(UIImage(named: "checkBoxFILLED.png"), for: UIControl.State.normal)
-            }
-            
-            print("task: \(task.description) is completed: \(task.completed) ")
-        }
     }
     
 }
