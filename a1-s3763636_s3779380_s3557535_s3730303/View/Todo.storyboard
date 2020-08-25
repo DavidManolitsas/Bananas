@@ -114,7 +114,7 @@
                                     <constraint firstAttribute="height" constant="31" id="EfK-vE-NNo"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="reminderSwitch:" destination="K8k-T4-Dxf" eventType="valueChanged" id="xmU-wO-I9H"/>
+                                    <action selector="reminderSwitchToggled:" destination="K8k-T4-Dxf" eventType="primaryActionTriggered" id="ptZ-gY-oAh"/>
                                 </connections>
                             </switch>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hBH-A2-wrX">
@@ -225,6 +225,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="checkbox" destination="qe0-24-anA" id="ZT0-fz-PD1"/>
+                                            <outlet property="reminderLabel" destination="6DR-Eb-d56" id="Mkk-l8-1IS"/>
                                             <outlet property="taskDescription" destination="HHR-Sy-aLM" id="a4f-Oj-avz"/>
                                         </connections>
                                     </tableViewCell>

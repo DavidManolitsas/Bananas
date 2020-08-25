@@ -12,6 +12,8 @@ class TodoCell: UITableViewCell {
 
     @IBOutlet weak var taskDescription: UILabel!
     @IBOutlet weak var checkbox: UIButton!
+    @IBOutlet weak var reminderLabel: UILabel!
+    
     var task:Task?
     var todoViewController:TodoViewController?
     
@@ -22,6 +24,7 @@ class TodoCell: UITableViewCell {
     func setTodoTask(task: Task) {
         self.task = task
         taskDescription.text = task.description
+        reminderLabel.text = reminderOff
         setBackgroundColor()
     }
     
@@ -30,6 +33,15 @@ class TodoCell: UITableViewCell {
         setBackgroundColor()
     }
     
+    func setReminder() {
+        if let task = self.task {
+            if task.reminderOn {
+                reminderLabel.text = reminderOn
+            } else {
+                reminderLabel.text = reminderOff
+            }
+        }
+    }
     
     func setCheckbox() {
         if let task = self.task {

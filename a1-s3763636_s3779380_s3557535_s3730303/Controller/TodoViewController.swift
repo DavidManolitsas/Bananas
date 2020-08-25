@@ -63,8 +63,20 @@ class TodoViewController: UIViewController {
         self.sortTasks()
     }
     
+    func setTaskReminder(currTask: Task, isOn: Bool) {
+        for task in tasks {
+            if task.description == currTask.description {
+                task.reminderOn = isOn
+                print("reminder is on: \(task.reminderOn)")
+            }
+        }
+        
+        
+        
+        tableView.reloadData()
+    }
+    
     func setTaskPriority(searchedTask: Task, priority: TaskPriority) {
-        print("Setting task priority")
         
         for task in tasks {
             if task.description == searchedTask.description {
@@ -113,6 +125,7 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
         
         let task = tasks[indexPath.row]
         cell.setTodoTask(task: task)
+        cell.setReminder()
         cell.task = task
         
 

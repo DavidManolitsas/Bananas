@@ -11,8 +11,10 @@ import Foundation
 class Task {
     
     var completed: Bool
+    var reminderOn: Bool
     var description: String
     var priority: TaskPriority
+    
     
 //    var _priority: TaskPriority {
 //        get {
@@ -27,6 +29,7 @@ class Task {
         self.description = description
         self.priority = .none
         self.completed = false;
+        self.reminderOn = false;
     }
     
     func getTaskPriorityValue() -> Int {

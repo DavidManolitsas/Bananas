@@ -25,14 +25,28 @@ class TodoDetail: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setReminderStatus()
         taskNameLabel.text = task?.description
         loadPriorityStatus()
     }
     
+    func setReminderStatus() {
+        if let task = self.task {
+            reminderSwitch.setOn(task.reminderOn, animated: false)
+        }
+    }
     
     @IBAction func reminderSwitchToggled(_ sender: Any) {
-        
+        if let tableView = self.tableViewController, let task = self.task {
+            if reminderSwitch.isOn {
+                tableView.setTaskReminder(currTask: task, isOn: true)
+            } else {
+                tableView.setTaskReminder(currTask: task, isOn: false)
+            }
+        }
+
     }
+    
     
     @IBAction func lowPriorityClicked(_ sender: Any) {
         if let task = self.task {
