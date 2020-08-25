@@ -11,7 +11,6 @@
 		5F6258CB24F2BD240085DDF0 /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6258CA24F2BD240085DDF0 /* profileViewController.swift */; };
 		6348D72124DBC158004B0476 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D72024DBC158004B0476 /* AppDelegate.swift */; };
 		6348D72324DBC158004B0476 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6348D72224DBC158004B0476 /* ViewController.swift */; };
-		6348D72824DBC15C004B0476 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6348D72724DBC15C004B0476 /* Assets.xcassets */; };
 		63652DD124ECFA96005C0BC1 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63652DD024ECFA96005C0BC1 /* Task.swift */; };
 		63652DD924ED1029005C0BC1 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63652DD824ED1029005C0BC1 /* TodoViewController.swift */; };
 		63652DDD24ED1CA0005C0BC1 /* TaskPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63652DDC24ED1CA0005C0BC1 /* TaskPriority.swift */; };
@@ -52,7 +51,6 @@
 		6348D71D24DBC158004B0476 /* a1-s3763636_s3779380_s3557535_s3730303.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "a1-s3763636_s3779380_s3557535_s3730303.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6348D72024DBC158004B0476 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6348D72224DBC158004B0476 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6348D72724DBC15C004B0476 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6348D72C24DBC15C004B0476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63652DD024ECFA96005C0BC1 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		63652DD824ED1029005C0BC1 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
@@ -196,7 +194,6 @@
 				631E2A9424E4D7A900D90097 /* Model */,
 				6348D72024DBC158004B0476 /* AppDelegate.swift */,
 				6348D72C24DBC15C004B0476 /* Info.plist */,
-				6348D72724DBC15C004B0476 /* Assets.xcassets */,
 			);
 			path = "a1-s3763636_s3779380_s3557535_s3730303";
 			sourceTree = "<group>";
@@ -288,7 +285,6 @@
 				63AD4D8024EA0E3E00CAAEB4 /* Todo.storyboard in Resources */,
 				63818FAF24E4E60800E15655 /* Main.storyboard in Resources */,
 				63AD4D8624EA0EA800CAAEB4 /* StudyRecords.storyboard in Resources */,
-				6348D72824DBC15C004B0476 /* Assets.xcassets in Resources */,
 				63AD4D8424EA0E8D00CAAEB4 /* MoodTracker.storyboard in Resources */,
 				63AD4D8824EA0EC100CAAEB4 /* Profiles.storyboard in Resources */,
 				63818FAD24E4E5FD00E15655 /* LaunchScreen.storyboard in Resources */,

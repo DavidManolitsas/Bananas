@@ -128,10 +128,12 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TodoDetail") as? TodoDetail
-        vc!.task = tasks[(tableView.indexPathForSelectedRow?.row)!]
-        vc!.tableViewController = self
-        splitViewController?.showDetailViewController(vc!, sender: nil)
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "TodoDetail") as? TodoDetail {
+            vc.task = tasks[(tableView.indexPathForSelectedRow?.row)!]
+            vc.tableViewController = self
+            splitViewController?.showDetailViewController(vc, sender: nil)
+        }
+        
     }
     
 

@@ -15,6 +15,9 @@ class TodoCell: UITableViewCell {
     var task:Task?
     var todoViewController:TodoViewController?
     
+    // Reminder symbol
+    let reminderOn:String = "!"
+    let reminderOff:String = ""
     
     func setTodoTask(task: Task) {
         self.task = task
