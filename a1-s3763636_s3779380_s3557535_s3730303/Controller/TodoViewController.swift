@@ -63,6 +63,19 @@ class TodoViewController: UIViewController {
         self.sortTasks()
     }
     
+    func setTaskPriority(searchedTask: Task, priority: TaskPriority) {
+        print("Setting task priority")
+        
+        for task in tasks {
+            if task.description == searchedTask.description {
+                task.priority = priority
+            }
+        }
+        
+        self.sortTasks()
+    
+    }
+    
     
     func sortTasks() {
         var temp:Task
@@ -115,18 +128,11 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if UIDevice.current.orientation.isPortrait {
-            performSegue(withIdentifier: "showDetail", sender: self)
-        }
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TodoDetail") as? TodoDetail
+        vc!.task = tasks[(tableView.indexPathForSelectedRow?.row)!]
+        vc!.tableViewController = self
+        splitViewController?.showDetailViewController(vc!, sender: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? TodoDetail {
-            vc.task = tasks[(tableView.indexPathForSelectedRow?.row)!]
-
-        }
-       
-    }
 
 }

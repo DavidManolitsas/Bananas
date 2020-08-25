@@ -49,13 +49,40 @@
         <!--Todo Detail-->
         <scene sceneID="5xr-62-3QA">
             <objects>
-                <viewController id="K8k-T4-Dxf" customClass="TodoDetail" customModule="a1_s3763636_s3779380_s3557535_s3730303" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TodoDetail" id="K8k-T4-Dxf" customClass="TodoDetail" customModule="a1_s3763636_s3779380_s3557535_s3730303" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Edd-8D-pF9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xU9-En-PEW">
+                                <rect key="frame" x="24" y="112" width="366" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="geF-0Q-c8u">
+                                <rect key="frame" x="192" y="157" width="30" height="30"/>
+                                <state key="normal" title="L"/>
+                                <connections>
+                                    <action selector="lowPriorityClicked:" destination="K8k-T4-Dxf" eventType="touchUpInside" id="63Q-mV-Coz"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xU9-En-PEW" firstAttribute="top" secondItem="BHC-Le-TK2" secondAttribute="top" constant="24" id="4at-5V-gho"/>
+                            <constraint firstItem="xU9-En-PEW" firstAttribute="leading" secondItem="BHC-Le-TK2" secondAttribute="leading" constant="24" id="CUn-Cg-wAk"/>
+                            <constraint firstItem="xU9-En-PEW" firstAttribute="centerX" secondItem="Edd-8D-pF9" secondAttribute="centerX" id="Suc-l7-CAz"/>
+                            <constraint firstItem="geF-0Q-c8u" firstAttribute="top" secondItem="xU9-En-PEW" secondAttribute="bottom" constant="24" id="fx1-4E-MUD"/>
+                            <constraint firstItem="geF-0Q-c8u" firstAttribute="leading" secondItem="BHC-Le-TK2" secondAttribute="leading" constant="192" id="ldr-yI-vgv"/>
+                            <constraint firstItem="BHC-Le-TK2" firstAttribute="trailing" secondItem="xU9-En-PEW" secondAttribute="trailing" constant="24" id="mCm-M7-osX"/>
+                            <constraint firstItem="BHC-Le-TK2" firstAttribute="trailing" secondItem="geF-0Q-c8u" secondAttribute="trailing" constant="192" id="wuF-nI-t0g"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="BHC-Le-TK2"/>
                     </view>
+                    <connections>
+                        <outlet property="taskNameLabel" destination="xU9-En-PEW" id="Dnu-gd-qek"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eii-vT-jhM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

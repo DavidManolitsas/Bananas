@@ -7,14 +7,14 @@
 		<key>FSCalendar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
 		<key>Pods-a1-s3763636_s3779380_s3557535_s3730303.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<true/>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>

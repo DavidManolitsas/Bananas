@@ -10,12 +10,23 @@ import UIKit
 
 class TodoDetail: UIViewController {
 
+    @IBOutlet weak var taskNameLabel: UILabel!
     var task:Task?
+    var tableViewController:TodoViewController?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        taskNameLabel.text = task?.description
     }
     
-
+    @IBAction func lowPriorityClicked(_ sender: Any) {
+        
+        if task!.priority == TaskPriority.low {
+            tableViewController!.setTaskPriority(searchedTask: task!, priority: TaskPriority.none)
+        } else {
+            tableViewController!.setTaskPriority(searchedTask: task!, priority: TaskPriority.low)
+        }
+    }
+    
 }
