@@ -8,27 +8,19 @@
 
 import UIKit
 
-protocol PopViewControllerDelegate : NSObjectProtocol {
-    func updateSong(name:String)
-}
-
 
 class PopViewController: UIViewController{
-    
-    weak var delegate : PopViewControllerDelegate?
     
     var labelText:String = "Alarm"
     var durationText:Int = 0
     var songText:String = "1"
     private var songList = getSongList()
-//    private var durationList = BreakDuration.
 
     @IBOutlet weak var labelField: UITextField!
     @IBOutlet weak var breakToggle: UISwitch!
     @IBOutlet weak var songPicker: UIPickerView!
     @IBOutlet weak var userInputStack: UIStackView!
     @IBOutlet weak var durationPicker: UIPickerView!
-    @IBOutlet weak var dummySongTitle: UILabel!
 
     
     override func viewDidLoad() {
@@ -112,7 +104,6 @@ extension PopViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         }
         if(pickerView.tag == 2){
             songText = songList[row]
-            dummySongTitle.text = songText
            
             
         }

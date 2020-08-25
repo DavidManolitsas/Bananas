@@ -9,13 +9,7 @@
 import UIKit
 import AVFoundation
 
-class TimerViewController: UIViewController, UIPopoverPresentationControllerDelegate, PopViewControllerDelegate{
-    
-    func updateSong(name: String) {
-        receivedSong = name
-        songLabelDummy.text = name
-    }
-    
+class TimerViewController: UIViewController, UIPopoverPresentationControllerDelegate{
 
     var seconds = 10
     // create global variable of timer
@@ -35,7 +29,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     @IBOutlet weak var stopBtn: UIButton!
     @IBOutlet var blurview: UIVisualEffectView!
     
-    @IBOutlet weak var songLabelDummy: UILabel!
+    @IBOutlet weak var breaktimeLabel: UILabel!
     var source : PopViewController?
     var breakduration:Int = 0
     
@@ -108,7 +102,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         
         if (seconds == 0 && breakduration != 0){
             audioPlayer.play()
-            songLabelDummy.text = "Break Time"
+            breaktimeLabel.text = "Break Time"
             seconds = breakduration
         }
         
@@ -126,7 +120,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
             stopBtn.isHidden = true;
             stopBtn.isEnabled = false;
             
-            songLabelDummy.text = ""
+            breaktimeLabel.text = ""
             audioPlayer.play()
         }
     }
@@ -149,7 +143,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         stopBtn.isHidden = true;
         stopBtn.isEnabled = false;
         
-        songLabelDummy.text = ""
+        breaktimeLabel.text = ""
         audioPlayer.stop()
        
     }
@@ -187,7 +181,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
        // get the modified song from popover
         self.receivedSong = source!.songText
-        songLabelDummy.text = receivedSong
+//        breaktimeLabel.text = receivedSong
          // get the modified break duration from popover
         self.breakduration = source!.durationText*60
 
