@@ -87,6 +87,7 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
     
     
     private func updateDateMoodView(forDate chosenDate: Date) {
+//        calendar(_: FSCalendar, numberOfEventsFor: chosenDate)
         let details = moodTrackerViewModel.getWeatherDetails(forDate: chosenDate)
         weatherImg.image = details.uiImage
         maxTempLbl.text = details.maxTemp
@@ -96,7 +97,8 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
 //        print(dt)
         notesText.text = moodTrackerViewModel.getNotes(forDate: chosenDate)
         dateLbl.text = formatDate(date: chosenDate, asFormat: "dd MMMM, yyyy")
-        
+        calendar.reloadData()
+//        calendar.
     }
     
     
@@ -110,6 +112,8 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
     // changing the colour scheme
     func customiseCalendarView() {
         //        6D634F
+        
+    
         let customBrown = UIColor(hexString: "#544B39")
         calendar.appearance.todayColor = .orange;
         calendar.appearance.headerTitleColor = customBrown;
