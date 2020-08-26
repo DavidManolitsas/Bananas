@@ -32,8 +32,8 @@ class Task {
         self.reminderOn = false;
     }
     
+    
     func getTaskPriorityValue() -> Int {
-        
         if completed {
             return 5
         } else if priority == TaskPriority.none {

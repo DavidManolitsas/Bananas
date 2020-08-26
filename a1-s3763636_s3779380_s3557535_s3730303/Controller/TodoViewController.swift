@@ -63,6 +63,7 @@ class TodoViewController: UIViewController {
         self.sortTasks()
     }
     
+    
     func setTaskReminder(currTask: Task, isOn: Bool) {
         for task in tasks {
             if task.description == currTask.description {
@@ -75,6 +76,7 @@ class TodoViewController: UIViewController {
         
         tableView.reloadData()
     }
+    
     
     func setTaskPriority(searchedTask: Task, priority: TaskPriority) {
         
@@ -112,6 +114,7 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
         return 1
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
     }
@@ -120,10 +123,9 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath) as! TodoCell
+        let task = tasks[indexPath.row]
         
         cell.todoViewController = self
-        
-        let task = tasks[indexPath.row]
         cell.setTodoTask(task: task)
         cell.setReminder()
         cell.task = task
