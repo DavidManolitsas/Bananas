@@ -15,8 +15,9 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
     @IBOutlet weak var calendar: FSCalendar!
     
     @IBOutlet weak var dateLbl: UILabel!
-    @IBOutlet weak var maxTempLbl: UILabel!
-    @IBOutlet weak var minTempLbl: UILabel!
+
+    @IBOutlet weak var tempLbl: UILabel!
+
     @IBOutlet weak var weatherImg: UIImageView!
     @IBOutlet weak var greetingsLbl: UILabel!
     
@@ -104,8 +105,9 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
 //        calendar(_: FSCalendar, numberOfEventsFor: chosenDate)
         let details = moodTrackerViewModel.getWeatherDetails(forDate: chosenDate)
         weatherImg.image = details.uiImage
-        maxTempLbl.text = details.maxTemp
-        minTempLbl.text = details.minTemp
+        tempLbl.text = "\(details.minTemp) - \(details.maxTemp)"
+//        maxTempLbl.text = details.maxTemp
+//        minTempLbl.text = details.minTemp
         
 //        let dt = formatDate(date: chosenDate, asFormat: "dd-MM-yy")
 //        print(dt)

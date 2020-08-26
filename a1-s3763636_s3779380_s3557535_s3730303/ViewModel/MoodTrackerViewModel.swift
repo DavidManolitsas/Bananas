@@ -13,15 +13,15 @@ struct MoodTrackerViewModel {
     // reference to the model object
     //    private var weather = Weather()
     //    private var dailyRecord = DailyRecord()
-    private var moodTrackerDatabase = MoodTrackerDatabase()
+//    private var moodTrackerDatabase = MoodTrackerDatabase()
     private var moodTracker = MoodTracker()
     
     //    private var details: (iconName: String, maxTemp: Double, minTemp: Double) = ("01d", 15.32, 6.04)
     private var currentIdx: Int = 0
     
-    private var iconName: String = "01d"
-    private var maxTemp: Double = 13.42
-    private var minTemp: Double = 7.32
+//    private var iconName: String = "01d"
+//    private var maxTemp: Double = 13.42
+//    private var minTemp: Double = 7.32
     private let celsius = "°C"
     
     private let dtFormat = "dd-MM-yy"
@@ -106,8 +106,8 @@ struct MoodTrackerViewModel {
         let record = moodTracker.getRecord(forDate: formatDate(date: date))
         let details = record.getWeatherDetails()
         let image = UIImage(named: details.iconName)
-                let maxTemp = String(details.maxTemp) + celsius
-                let minTemp = String(details.minTemp) + celsius
+                let maxTemp = String(round(details.maxTemp)) + celsius
+                let minTemp = String(round(details.minTemp)) + celsius
         
                 return (image, maxTemp, minTemp)
     }
