@@ -10,7 +10,7 @@ import Foundation
 import FSCalendar
 import UIKit
 
-class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalendarDelegate, FSCalendarDataSource {
+class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
     @IBOutlet weak var calendar: FSCalendar!
     
@@ -26,13 +26,84 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
     private var chosenDate: Date?
     private let moodGreeting: String = "How are you feeling today?"
     private var moodTrackerViewModel = MoodTrackerViewModel()
+    private let greatHexCode = "#8cc0a8"
+    private let goodHexCode = "#c9cba3"
+    private let okHexCode = "#ffe1a8"
+    private let badHexCode = "#ffc2a8"
+    private let awfulHexCode = "#ff8585"
     
+    private let customBrown = UIColor(hexString: "#544B39")
     
+    public func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor?
+    {
+        let mood = moodTrackerViewModel.getMood(forDate: date)
+
+        if mood == Moods.great.rawValue {
+            return UIColor(hexString: greatHexCode)
+        } else if mood == Moods.good.rawValue {
+            return UIColor(hexString: goodHexCode)
+        } else if mood == Moods.ok.rawValue {
+            print(mood)
+            return UIColor(hexString: okHexCode)
+        } else if mood == Moods.bad.rawValue {
+            return UIColor(hexString: badHexCode)
+        } else if mood == Moods.awful.rawValue {
+            return UIColor(hexString: awfulHexCode)
+        }
+
+        return appearance.eventDefaultColor
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
+        
+        let mood = moodTrackerViewModel.getMood(forDate: date)
+
+        var moodEventColor: UIColor = customBrown
+        if mood == Moods.great.rawValue {
+            moodEventColor = UIColor(hexString: greatHexCode)
+        } else if mood == Moods.good.rawValue {
+            moodEventColor = UIColor(hexString: goodHexCode)
+        } else if mood == Moods.ok.rawValue {
+            moodEventColor = UIColor(hexString: okHexCode)
+        } else if mood == Moods.bad.rawValue {
+            moodEventColor = UIColor(hexString: badHexCode)
+        } else if mood == Moods.awful.rawValue {
+            moodEventColor = UIColor(hexString: awfulHexCode)
+        }
+        return [moodEventColor, UIColor.systemYellow, customBrown]
+    }
     @IBAction func greatBtn(_ sender: Any) {
+         let customColour = UIColor(hexString: "#8cc0a8")
+//        calendar.appearance.selectionColor = customColour
+//        calendar:appearance:eventDefaultColorsForDate
+//        calendar.appearance.eventSelectionColor = .red
+//        calendar.allowsMultipleSelection = true
+        greatBtn.isSelected ? print("******yes") : print("******no")
+//        greatBtn.isSelected = true
+        
+                if greatBtn.isSelected {
+                    calendar(calendar, appearance: calendar.appearance, fillSelectionColorFor: chosenDate!)
+//            greatBtn.setImage(UIImage(named: "greenbtn"), for: .normal)
+//            greatBtn.isSelected = false
+        }else {
+//            greatBtn.setImage(UIImage(named: "yellowbtn"), for: .selected)
+            greatBtn.isSelected = true
+        }
         updateMood(as: "Great")
     }
     
+
+//    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
+//
+//        if self.somedays.contains(dateString) {
+//            return .green
+//        } else {
+//            return nil
+//        }
+//    }
+    
     @IBAction func goodBtn(_ sender: Any) {
+//        let imageName = goodBtn.isSelected ?
         updateMood(as: "Good")
     }
     
@@ -48,20 +119,43 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
         updateMood(as: "Awful")
     }
     
+
+    
+    @IBOutlet weak var greatBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         calendar.delegate = self;
         calendar.dataSource = self;
+        
         notesText.delegate = self;
         
         customiseCalendarView()
         customiseBtns()
         
+        
+        greatBtn.showsTouchWhenHighlighted = true
+//        goodBtn.showsTouchWhenHighlighted = true
         //        chosenDate = calendar.today!
+//        goodBtn.adjustsImageWhenHighlighted = true
+//        goodBtn.adjustsImageWhenDisabled = true
+        
+        
+//        goodBtn.adjustsImageWhenHighlighted = true
+//        let imageName = goodBtn.isHighlighted ?  print("true") : print("false")
+//        goodBtn.setImage(UIImage(named: imageName), for: .highlighted)
+        
+        
         initDateMoodView()
         
     }
     
+    
+    func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
+        cell.appearance.selectionColor = .green
+        
+    
+    }
     private func updateMood(as newMoodStr: String) {
         if let date = chosenDate {
             moodTrackerViewModel.updateMood( forDate: date, as: newMoodStr)
@@ -129,7 +223,7 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
         //        6D634F
         
     
-        let customBrown = UIColor(hexString: "#544B39")
+        
         calendar.appearance.todayColor = .orange;
         calendar.appearance.headerTitleColor = customBrown;
         calendar.appearance.weekdayTextColor = customBrown;
@@ -157,7 +251,16 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
     
 }
 
-
+extension UIButton {
+    override open var isHighlighted: Bool {
+        didSet {
+            
+//            let imageName = isHighlighted ?  "greenBtn" : "3"
+//            goodBtn.setBackgroundImage(UIImage(named: imageName), for: .highlighted)
+//            backgroundColor = isHighlighted ? .red : .green
+        }
+    }
+}
 //https://www.iosapptemplates.com/blog/swift-programming/convert-hex-colors-to-uicolor-swift-4
 extension UIColor {
     convenience init(hexString: String, alpha: CGFloat = 1.0) {

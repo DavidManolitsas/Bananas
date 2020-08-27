@@ -1,21 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
+   uuid = "CEB1A243-438C-4720-B3EE-4AB8DB297498"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            uuid = "1B216B65-E036-4DC8-B741-33F5AC01FFC8"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "a1-s3763636_s3779380_s3557535_s3730303/ViewModel/MoodTrackerViewModel.swift"
-            timestampString = "620105441.615818"
+            timestampString = "620122290.333257"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
             endingLineNumber = "91"
             landmarkName = "getNotes(forDate:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FBBF0395-17FD-4A20-89BA-03175B157A98"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "a1-s3763636_s3779380_s3557535_s3730303/Controller/MoodTrackerViewController.swift"
+            timestampString = "620122290.335325"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "calendar(_:appearance:fillSelectionColorFor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

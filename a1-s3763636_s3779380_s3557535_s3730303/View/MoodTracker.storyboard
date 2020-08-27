@@ -64,7 +64,6 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFW-hi-cv3">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="pFW-hi-cv3" secondAttribute="height" multiplier="1:1" id="YC8-Yf-VBY"/>
                                                             <constraint firstAttribute="width" constant="30" id="mc7-EF-19t"/>
@@ -203,6 +202,7 @@
                     <connections>
                         <outlet property="calendar" destination="jCg-lM-dJa" id="qjV-SM-vew"/>
                         <outlet property="dateLbl" destination="Ev8-cI-AIN" id="ShG-Uq-v8M"/>
+                        <outlet property="greatBtn" destination="pFW-hi-cv3" id="95c-Gx-70H"/>
                         <outlet property="greetingsLbl" destination="fss-DR-NDL" id="eyF-nn-KlI"/>
                         <outlet property="notesText" destination="rLK-kM-qMO" id="knV-rn-sWc"/>
                         <outlet property="tempLbl" destination="ACC-Jt-Zvu" id="B2M-pf-TC1"/>
