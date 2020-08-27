@@ -48,8 +48,7 @@ struct MoodTrackerViewModel {
                 moodTracker.updateMood(as: moodEnum, forDate: dateStr)
             }
         }
-        
-        //        moodTracker.setMood(as: mood, forDate: dateStr)
+    
     }
     
     public mutating func updateNotes(forDate date: Date, as notes: String) {
