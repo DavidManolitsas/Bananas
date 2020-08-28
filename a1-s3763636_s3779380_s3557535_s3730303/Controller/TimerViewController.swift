@@ -31,7 +31,6 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     
     @IBOutlet weak var breaktimeLabel: UILabel!
     var source : PopViewController?
-    var destination : StudyRecordViewController?
     var breakduration:Int = 0
     var alarmName = "alarm"
     
@@ -175,12 +174,6 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
                     
                 }
         
-        if segue.identifier == "showStudyRecord"{
-            destination = segue.destination as? StudyRecordViewController
-            
-            
-        }
-        
         
     }
     
@@ -188,23 +181,15 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
        // get the modified song from popover
         self.receivedSong = source!.songText
-//        breaktimeLabel.text = receivedSong
+
          // get the modified break duration from popover
         self.breakduration = source!.durationText*60
         self.alarmName = source!.labelField.text ?? "Alarm"
-        
-        //transfer to study record
-//        destination!.alarmLabel.text = alarmName
-//        destination!.timerDuration.text = String(durations)
-//        destination!.breakDuration.text = String(breakduration)
         
         print(self.alarmName)
         print(self.durations)
         print(self.breakduration)
 
-//        print(destination!.alarmLabel.text)
-//        print(destination!.timerDuration.text)
-//        print(destination!.breakDuration.text)
         
         animateOut(desiredView: blurview)
     }
@@ -226,7 +211,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         backgroundView?.addSubview(desiredView)
         
         // set darker color
-        backgroundView?.backgroundColor = .darkGray
+//        backgroundView?.backgroundColor = .lightGray
         
         //set scaling to 120%
         desiredView.transform = CGAffineTransform(scaleX: 1.2 , y: 1.2)
@@ -237,7 +222,6 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
             desiredView.transform = CGAffineTransform(scaleX: 1.0 , y: 1.0)
             desiredView.alpha = 0.6
             desiredView.center = backgroundView!.center
-            //            desiredView.backgroundColor = .black
         })
     }
     
