@@ -9,6 +9,7 @@
 import Foundation
 
 struct DailyRecord {
+    
     private var mood: Moods = Moods.none
     private var weatherDetails: (iconName: String, maxTemp: Double, minTemp: Double) = (iconName: "transparent", maxTemp: 0.00, minTemp: 0.00)
     private var notes: String = ""

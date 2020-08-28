@@ -27,7 +27,7 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
     private let awfulHexCode = "#ff8585"
     
     private let customBrown = UIColor(hexString: "#544B39")
-    private let customDotColour = UIColor(hexString: "#B4A789")
+//    private let customDotColour = UIColor(hexString: "#B4A789")
     
     private var moodTrackerViewModel = MoodTrackerViewModel()
     private var chosenDate: Date?
@@ -46,22 +46,27 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
     
     @IBAction func greatBtn(_ sender: Any) {
         updateMood(as: Moods.great.rawValue)
+        updateMoodView()
     }
     
     @IBAction func goodBtn(_ sender: Any) {
         updateMood(as: Moods.good.rawValue)
+        updateMoodView()
     }
     
     @IBAction func okBtn(_ sender: Any) {
         updateMood(as: Moods.ok.rawValue)
+        updateMoodView()
     }
     
     @IBAction func badBtn(_ sender: Any) {
         updateMood(as: Moods.bad.rawValue)
+        updateMoodView()
     }
     
     @IBAction func awfulBtn(_ sender: Any) {
         updateMood(as: Moods.awful.rawValue)
+        updateMoodView()
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -161,12 +166,23 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
     }
     
     // changing the colour scheme of calendar
-    func customiseCalendarView() {
+    private func customiseCalendarView() {
         calendar.appearance.todayColor = .orange;
         calendar.appearance.headerTitleColor = customBrown;
         calendar.appearance.weekdayTextColor = customBrown;
     }
+    
+    private func updateMoodView() {
+        if let date = chosenDate {
+            updateDateMoodView(forDate: date)
+        } else {
+            updateDateMoodView(forDate: calendar.today!)
+        }
+    }
     // **** end calendar region ****
+    
+    
+    
     
     // format date to string
     private func formatDate(date: Date, asFormat format: String) -> String {
