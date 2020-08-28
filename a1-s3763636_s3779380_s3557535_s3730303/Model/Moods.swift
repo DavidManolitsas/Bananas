@@ -11,7 +11,7 @@ import Foundation
 enum Moods: String, CaseIterable {
     case great = "Great"
     case good = "Good"
-    case ok = "Ok"
+    case ok = "OK"
     case bad = "Bad"
     case awful = "Awful"
     case none = "None"

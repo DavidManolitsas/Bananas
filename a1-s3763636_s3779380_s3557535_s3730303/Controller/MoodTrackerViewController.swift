@@ -10,36 +10,71 @@ import Foundation
 import FSCalendar
 import UIKit
 
-class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
+class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
     @IBOutlet weak var calendar: FSCalendar!
-    
     @IBOutlet weak var dateLbl: UILabel!
-    @IBOutlet weak var maxTempLbl: UILabel!
-    @IBOutlet weak var minTempLbl: UILabel!
+    @IBOutlet weak var tempLbl: UILabel!
     @IBOutlet weak var weatherImg: UIImageView!
     @IBOutlet weak var greetingsLbl: UILabel!
-    
-    @IBOutlet weak var greatBtn: UIButton!
-    @IBOutlet weak var goodBtn: UIButton!
-    @IBOutlet weak var okBtn: UIButton!
-    @IBOutlet weak var badBtn: UIButton!
-    @IBOutlet weak var awfulBtn: UIButton!
-    
     @IBOutlet weak var notesText: UITextView!
     
     private let moodGreeting: String = "How are you feeling today?"
+    private let greatHexCode = "#8cc0a8"
+    private let goodHexCode = "#c9cba3"
+    private let okHexCode = "#ffe1a8"
+    private let badHexCode = "#ffc2a8"
+    private let awfulHexCode = "#ff8585"
+    
+    private let customBrown = UIColor(hexString: "#544B39")
+//    private let customDotColour = UIColor(hexString: "#B4A789")
+    
     private var moodTrackerViewModel = MoodTrackerViewModel()
+    private var chosenDate: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         calendar.delegate = self;
         calendar.dataSource = self;
         
-        customiseCalendarView()
-        customiseBtns()
+        notesText.delegate = self;
         
+        customiseCalendarView()
         initDateMoodView()
+        
+    }
+    
+    @IBAction func greatBtn(_ sender: Any) {
+        updateMood(as: Moods.great.rawValue)
+        updateMoodView()
+    }
+    
+    @IBAction func goodBtn(_ sender: Any) {
+        updateMood(as: Moods.good.rawValue)
+        updateMoodView()
+    }
+    
+    @IBAction func okBtn(_ sender: Any) {
+        updateMood(as: Moods.ok.rawValue)
+        updateMoodView()
+    }
+    
+    @IBAction func badBtn(_ sender: Any) {
+        updateMood(as: Moods.bad.rawValue)
+        updateMoodView()
+    }
+    
+    @IBAction func awfulBtn(_ sender: Any) {
+        updateMood(as: Moods.awful.rawValue)
+        updateMoodView()
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if let date = chosenDate {
+            moodTrackerViewModel.updateNotes(forDate: date, as: notesText.text)
+        } else {
+            moodTrackerViewModel.updateNotes(forDate: calendar.today!, as: notesText.text)
+        }
         
     }
     
@@ -50,42 +85,103 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
         updateDateMoodView(forDate: calendar.today!)
     }
     
+    private func updateMood(as newMoodStr: String) {
+        if let date = chosenDate {
+            moodTrackerViewModel.updateMood( forDate: date, as: newMoodStr)
+        } else {
+            moodTrackerViewModel.updateMood( forDate: calendar.today!, as: newMoodStr)
+        }
+        
+    }
+    
     // **** start calendar region ****
-    // selecting a date
+    // customise date selection colour to match any mood entry for that date
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
+        let mood = moodTrackerViewModel.getMood(forDate: date)
+        
+        if mood == Moods.great.rawValue {
+            return UIColor(hexString: greatHexCode)
+        } else if mood == Moods.good.rawValue {
+            return UIColor(hexString: goodHexCode)
+        } else if mood == Moods.ok.rawValue {
+            return UIColor(hexString: okHexCode)
+        } else if mood == Moods.bad.rawValue {
+            return UIColor(hexString: badHexCode)
+        } else if mood == Moods.awful.rawValue {
+            return UIColor(hexString: awfulHexCode)
+        }
+        
+        return appearance.eventDefaultColor
+    }
+    
+    // customise event dot colours when date is not selected
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
+        return customiseEventColours(forDate: date)
+    }
+    
+    // customise event dot colours when date is is selected
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventSelectionColorsFor date: Date) -> [UIColor]? {
+        return customiseEventColours(forDate: date)
+    }
+    
+    // customse event dot colours to reflect a mood event colour
+    private func customiseEventColours(forDate date: Date) -> [UIColor]?{
+        let mood = moodTrackerViewModel.getMood(forDate: date)
+        
+        var moodEventColor: UIColor = customBrown
+        
+        if mood == Moods.great.rawValue {
+            moodEventColor = UIColor(hexString: greatHexCode)
+        } else if mood == Moods.good.rawValue {
+            moodEventColor = UIColor(hexString: goodHexCode)
+        } else if mood == Moods.ok.rawValue {
+            moodEventColor = UIColor(hexString: okHexCode)
+        } else if mood == Moods.bad.rawValue {
+            moodEventColor = UIColor(hexString: badHexCode)
+        } else if mood == Moods.awful.rawValue {
+            moodEventColor = UIColor(hexString: awfulHexCode)
+        }
+        return [moodEventColor, customBrown]
+    }
+    
+    // selecting a date and loading the view for that date
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        chosenDate = date
         updateDateMoodView(forDate: date)
     }
     
+    // update the view with details from the 'database'
     private func updateDateMoodView(forDate chosenDate: Date) {
         let details = moodTrackerViewModel.getWeatherDetails(forDate: chosenDate)
         weatherImg.image = details.uiImage
-        maxTempLbl.text = details.maxTemp
-        minTempLbl.text = details.minTemp
-        
-        let dt = formatDate(date: chosenDate, asFormat: "dd-MM-yy")
-        print(dt)
+        tempLbl.text = "\(details.minTemp) - \(details.maxTemp)"
         notesText.text = moodTrackerViewModel.getNotes(forDate: chosenDate)
         dateLbl.text = formatDate(date: chosenDate, asFormat: "dd MMMM, yyyy")
-        
+        calendar.reloadData()
     }
     
-    
-    // display events as dots
+    // display mood and note entries as dots
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-//        if moodTrackerViewModel.getRecord(forDate: date)
         return moodTrackerViewModel.getRecordEvent(forDate: date)
     }
     
-    
-    // changing the colour scheme
-    func customiseCalendarView() {
-        //        6D634F
-        let customBrown = UIColor(hexString: "#544B39")
+    // changing the colour scheme of calendar
+    private func customiseCalendarView() {
         calendar.appearance.todayColor = .orange;
         calendar.appearance.headerTitleColor = customBrown;
         calendar.appearance.weekdayTextColor = customBrown;
     }
+    
+    private func updateMoodView() {
+        if let date = chosenDate {
+            updateDateMoodView(forDate: date)
+        } else {
+            updateDateMoodView(forDate: calendar.today!)
+        }
+    }
     // **** end calendar region ****
+    
+    
     
     
     // format date to string
@@ -95,21 +191,17 @@ class MoodTrackerViewController: UIViewController, FSCalendarDelegate, FSCalenda
         return formatter.string(from: date);
     }
     
-    private func customiseBtns() {
-        let btnsArr: [UIButton] = [greatBtn, goodBtn, okBtn, badBtn, awfulBtn]
-        
-        for btn in btnsArr {
-            btn.layer.cornerRadius = 0.5 * btn.bounds.size.width
-            btn.clipsToBounds = true
-        }
-        
-    }
-    
-    
 }
 
-
-//https://www.iosapptemplates.com/blog/swift-programming/convert-hex-colors-to-uicolor-swift-4
+/*
+*    Title: How to convert HEX colors to UIColor in Swift 5?
+*    Author: Florian
+*    Date: 12 April 2020
+*    Code version: n/a
+*    Availability: https://www.iosapptemplates.com/blog/swift-programming/convert-hex-colors-to-uicolor-swift-4
+*
+*/
+// creates custom UIColor objects
 extension UIColor {
     convenience init(hexString: String, alpha: CGFloat = 1.0) {
         let hexString: String = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
