@@ -10,10 +10,21 @@ import Foundation
 
 struct TodoList {
     
-    private var tasks:[Task]
+    private var _tasks:[Task]
+    
+    var tasks:[Task] {
+        get {
+            return _tasks
+        }
+        set (newTasks) {
+            _tasks = newTasks
+        }
+    
+    }
+    
     
     init() {
-        tasks = [Task]()
+        _tasks = [Task]()
     }
     
     
@@ -38,34 +49,16 @@ struct TodoList {
     }
     
     
-    func setTaskReminder(currTask: Task, isOn: Bool) {
-        for task in tasks {
-            if task.description == currTask.description {
-                task.reminderOn = isOn
-                print("reminder is on: \(task.reminderOn)")
-            }
-        }
-    }
-    
-    
-    func setTaskPriority(searchedTask: Task, priority: TaskPriority) {
-        
+    mutating func updateTask(updatedTask: Task) {
         for i in 0..<tasks.count {
-            if searchedTask === tasks[i] {
-                tasks[i].priority = priority
+            if updatedTask === tasks[i] {
+                tasks[i] = updatedTask
             }
         }
-        
     }
     
     mutating func removeTask(at: Int) {
         tasks.remove(at: at)
-    }
-    
-    
-    
-    public mutating func getTasks() -> [Task] {
-        return tasks
     }
     
 }

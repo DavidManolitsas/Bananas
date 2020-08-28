@@ -10,10 +10,40 @@ import Foundation
 
 struct TodoViewModel {
     
-    var todoList = TodoList()
+    private var _todoList = TodoList()
+    
+    var todoList:TodoList {
+        get {
+            return _todoList
+        }
+        set {
+            _todoList = newValue
+        }
+    }
     
     
+    public mutating func setTaskReminder(currTask: Task, isOn: Bool) {
+        for task in todoList.tasks {
+            if task === currTask {
+                task.reminderOn = isOn
+                todoList.updateTask(updatedTask: task)
+                print("reminder is on: \(task.reminderOn)")
+                break
+            }
+        }
+    }
     
+    
+    public mutating func setTaskPriority(searchedTask: Task, priority: TaskPriority) {
+        for task in todoList.tasks {
+            if searchedTask === task {
+                task.priority = priority
+                todoList.updateTask(updatedTask: task)
+                break
+            }
+        }
+        
+    }
 
 }
 

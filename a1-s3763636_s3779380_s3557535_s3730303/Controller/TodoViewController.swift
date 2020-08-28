@@ -13,9 +13,8 @@ class TodoViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var todoViewModel = TodoViewModel()
-    var currDetail = TodoDetail()
-    var count = 0;
+    private var todoViewModel = TodoViewModel()
+    private var currDetail = TodoDetailController()
 
     
     override func viewDidLoad() {
@@ -55,8 +54,10 @@ class TodoViewController: UIViewController {
     
     
     func addTask(insertedTask:Task) {
+        // Update model
         todoViewModel.todoList.addTask(insertedTask: insertedTask)
         
+        // Update view
         let index:Int = 0
         let indexPath = IndexPath(row: index, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
@@ -66,13 +67,13 @@ class TodoViewController: UIViewController {
     
     
     func setTaskReminder(currTask: Task, isOn: Bool) {
-        todoViewModel.todoList.setTaskReminder(currTask: currTask, isOn: isOn)
+        todoViewModel.setTaskReminder(currTask: currTask, isOn: isOn)
         tableView.reloadData()
     }
     
     
     func setTaskPriority(searchedTask: Task, priority: TaskPriority) {
-        todoViewModel.todoList.setTaskPriority(searchedTask: searchedTask, priority: priority)
+        todoViewModel.setTaskPriority(searchedTask: searchedTask, priority: priority)
         self.sortTasks()
     }
     
@@ -91,14 +92,14 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todoViewModel.todoList.getTasks().count
+        return todoViewModel.todoList.tasks.count
     }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath) as! TodoCell
-        let task = todoViewModel.todoList.getTasks()[indexPath.row]
+        let task = todoViewModel.todoList.tasks[indexPath.row]
         
         cell.todoViewController = self
         cell.setTodoTask(task: task)
@@ -119,8 +120,8 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "TodoDetail") as? TodoDetail {
-            vc.task = todoViewModel.todoList.getTasks()[(tableView.indexPathForSelectedRow?.row)!]
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "TodoDetail") as? TodoDetailController {
+            vc.task = todoViewModel.todoList.tasks[(tableView.indexPathForSelectedRow?.row)!]
             vc.tableViewController = self
             splitViewController?.showDetailViewController(vc, sender: nil)
         }
