@@ -10,25 +10,17 @@ import Foundation
 import UIKit
 
 struct MoodTrackerViewModel {
-    // reference to the model object
-    //    private var weather = Weather()
-    //    private var dailyRecord = DailyRecord()
-    private var moodTrackerDatabase = MoodTrackerDatabase()
     private var moodTracker = MoodTracker()
-    
-    //    private var details: (iconName: String, maxTemp: Double, minTemp: Double) = ("01d", 15.32, 6.04)
     private var currentIdx: Int = 0
     
-    private var iconName: String = "01d"
-    private var maxTemp: Double = 13.42
-    private var minTemp: Double = 7.32
     private let celsius = "°C"
-    
     private let dtFormat = "dd-MM-yy"
+    
     init() {
         moodTracker.initMockRecords()
     }
     
+    // check if there is a mood or note entry for a given date
     public mutating func getRecordEvent(forDate date: Date) -> Int{
         let record = moodTracker.getRecord(forDate: formatDate(date: date))
         var count = 0
@@ -39,30 +31,20 @@ struct MoodTrackerViewModel {
         return count
     }
     
-    //    public mutating func getWeatherDetails() -> (uiImage: UIImage?, maxTemp: String, minTemp: String) {
-    //        let details = weather.getNextForecastDetails()
-    //
-    //        let image = UIImage(named: details.iconName)
-    //        let maxTemp = String(details.maxTemp) + celsius
-    //        let minTemp = String(details.minTemp) + celsius
-    //
-    //        return (image, maxTemp, minTemp)
-    //
-    //    }
-    
-    //    public func setMood(moodStr: String) {
-    //        moodTracker.setMood(asMood: moodStr)
-    //    }
-    //
-    //    public func setNotes(notes: String) {
-    //        moodtracker.setNotes(text: notes)
-    //    }
-    
-    public mutating func createRecord(forDate date: String, notes: String, mood: String) {
-        moodTracker.setNotes(text: notes)
-        moodTracker.setMood(asMood: mood)
+    public mutating func updateMood(forDate date: Date, as mood: String) {
+        let dateStr = formatDate(date: date)
         
-        moodTracker.createRecord(forDate: date)
+        for moodEnum in Moods.allCases {
+            if mood == moodEnum.rawValue {
+                moodTracker.updateMood(as: moodEnum, forDate: dateStr)
+            }
+        }
+        
+    }
+    
+    public mutating func updateNotes(forDate date: Date, as notes: String) {
+        let dateStr = formatDate(date: date)
+        moodTracker.updateNotes(as: notes, forDate: dateStr)
     }
     
     public mutating func getMood(forDate date: Date) -> String {
@@ -75,24 +57,19 @@ struct MoodTrackerViewModel {
         return record.getNotes()
     }
     
-    //    public mutating func getWeatherDetails(forDate date: Date) -> (iconName: String, maxTemp: Double, minTemp: Double) {
-    //
     public mutating func getWeatherDetails(forDate date: Date) -> (uiImage: UIImage?, maxTemp: String, minTemp: String) {
-//        let details = moodTracker.getWeatherDetails()
-//
-//        let image = UIImage(named: details.iconName)
-//        let maxTemp = String(details.maxTemp) + celsius
-//        let minTemp = String(details.minTemp) + celsius
-//
-//        return (image, maxTemp, minTemp)
         let record = moodTracker.getRecord(forDate: formatDate(date: date))
         let details = record.getWeatherDetails()
         let image = UIImage(named: details.iconName)
-                let maxTemp = String(details.maxTemp) + celsius
-                let minTemp = String(details.minTemp) + celsius
         
-                return (image, maxTemp, minTemp)
+        let maxInt = Int(round(details.maxTemp))
+        let minInt = Int(round(details.minTemp))
+        let maxTemp = String(maxInt) + celsius
+        let minTemp = String(minInt) + celsius
+        
+        return (image, maxTemp, minTemp)
     }
+    
     private func formatDate(date: Date) -> String {
         let formatter = DateFormatter();
         formatter.dateFormat = dtFormat;
