@@ -30,7 +30,7 @@
                                         <rect key="frame" x="8" y="218" width="386" height="133"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ev8-cI-AIN">
-                                                <rect key="frame" x="10" y="10.000000000000002" width="146" height="19.666666666666671"/>
+                                                <rect key="frame" x="10" y="10" width="146" height="19.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="146" id="CPj-X0-uKe"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="146" id="U4j-9i-e3Z"/>
@@ -41,7 +41,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACC-Jt-Zvu">
-                                                <rect key="frame" x="342.66666666666669" y="10" width="33.333333333333314" height="17"/>
+                                                <rect key="frame" x="342.5" y="10" width="33.5" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="95" id="ItX-hd-Q2Z"/>
                                                     <constraint firstAttribute="height" constant="17" id="dHc-SP-AsT"/>
@@ -51,7 +51,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="13d" translatesAutoresizingMaskIntoConstraints="NO" id="qhK-qg-8Lw">
-                                                <rect key="frame" x="302.66666666666669" y="3" width="30" height="30"/>
+                                                <rect key="frame" x="302.5" y="3" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="1rQ-yz-Ek0"/>
                                                     <constraint firstAttribute="width" constant="30" id="WsT-qi-BtC"/>
@@ -124,7 +124,7 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Greetings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fss-DR-NDL">
-                                                <rect key="frame" x="43" y="57.666666666666686" width="300" height="18"/>
+                                                <rect key="frame" x="43" y="57.5" width="300" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="300" id="mxo-SI-HeE"/>
                                                     <constraint firstAttribute="height" constant="18" id="ttj-ga-X4O"/>

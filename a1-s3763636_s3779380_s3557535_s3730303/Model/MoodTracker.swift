@@ -11,10 +11,7 @@ import Foundation
 struct MoodTracker {
     
     private var moodTrackerDatabase = MoodTrackerDatabase()
-    
-//    private var mood: Moods = Moods.none
     private var weather: Weather = Weather()
-//    private var notes: String = ""
     
     private mutating func updateRecord(forDate date: String, forRecord record: DailyRecord) {
         moodTrackerDatabase.updateRecord(for: record, forDate: date)
@@ -41,7 +38,6 @@ struct MoodTracker {
     }
     
     public mutating func getRecord(forDate date: String) -> DailyRecord {
-        //guard
         guard let record = moodTrackerDatabase.getRecord(forDate: date)  else {
             let tuple = (iconName: "transparent", maxTemp: 0.00, minTemp: 0.00)
             return DailyRecord(mood: Moods.none, weatherDetails: tuple, notes: "") }
@@ -49,39 +45,27 @@ struct MoodTracker {
     }
     
     public mutating func updateMood(as newMood: Moods, forDate date: String) {
-//        for moodEnum in Moods.allCases {
-//            if newMood == moodEnum.rawValue {
-//                self.mood = moodEnum
-//            }
-//        }
         if var record = moodTrackerDatabase.getRecord(forDate: date) {
-            // now val is not nil and the Optional has been unwrapped, so use it
             record.updateMood(as: newMood)
             moodTrackerDatabase.updateRecord(for: record, forDate: date)
-            print("after UPDATING the record - new mood is:\t" + record.getMood().rawValue)
-            
+    
         } else {
             let newRecord = DailyRecord(mood: newMood, weatherDetails: getWeatherDetails(), notes: "")
             moodTrackerDatabase.updateRecord(for: newRecord, forDate: date)
-            print("after CREATING NEW record - new mood is:\t" + newRecord.getMood().rawValue)
         }
     }
     
     public mutating func getWeatherDetails() -> (iconName: String, maxTemp: Double, minTemp: Double) {
-        //        var weatherDetails = weather.getNextForecastDetails()
         return weather.getNextForecastDetails()
     }
     
     public mutating func updateNotes(as notes: String, forDate date: String) {
         if var record = moodTrackerDatabase.getRecord(forDate: date) {
-            // now val is not nil and the Optional has been unwrapped, so use it
             record.updateNotes(as: notes)
             moodTrackerDatabase.updateRecord(for: record, forDate: date)
-            print("after updating the record: " + record.getNotes())
         } else {
             let newRecord = DailyRecord(mood: Moods.none, weatherDetails: getWeatherDetails(), notes: notes)
             moodTrackerDatabase.updateRecord(for: newRecord, forDate: date)
-            print("after creating a new record: " + newRecord.getNotes())
         }
         
     }

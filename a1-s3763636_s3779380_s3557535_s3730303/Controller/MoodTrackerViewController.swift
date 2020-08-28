@@ -13,19 +13,13 @@ import UIKit
 class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
     @IBOutlet weak var calendar: FSCalendar!
-    
     @IBOutlet weak var dateLbl: UILabel!
-    
     @IBOutlet weak var tempLbl: UILabel!
-    
     @IBOutlet weak var weatherImg: UIImageView!
     @IBOutlet weak var greetingsLbl: UILabel!
-    
     @IBOutlet weak var notesText: UITextView!
     
-    private var chosenDate: Date?
     private let moodGreeting: String = "How are you feeling today?"
-    private var moodTrackerViewModel = MoodTrackerViewModel()
     private let greatHexCode = "#8cc0a8"
     private let goodHexCode = "#c9cba3"
     private let okHexCode = "#ffe1a8"
@@ -35,8 +29,69 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
     private let customBrown = UIColor(hexString: "#544B39")
     private let customDotColour = UIColor(hexString: "#B4A789")
     
+    private var moodTrackerViewModel = MoodTrackerViewModel()
+    private var chosenDate: Date?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        calendar.delegate = self;
+        calendar.dataSource = self;
+        
+        notesText.delegate = self;
+        
+        customiseCalendarView()
+        initDateMoodView()
+        
+    }
+    
+    @IBAction func greatBtn(_ sender: Any) {
+        updateMood(as: Moods.great.rawValue)
+    }
+    
+    @IBAction func goodBtn(_ sender: Any) {
+        updateMood(as: Moods.good.rawValue)
+    }
+    
+    @IBAction func okBtn(_ sender: Any) {
+        updateMood(as: Moods.ok.rawValue)
+    }
+    
+    @IBAction func badBtn(_ sender: Any) {
+        updateMood(as: Moods.bad.rawValue)
+    }
+    
+    @IBAction func awfulBtn(_ sender: Any) {
+        updateMood(as: Moods.awful.rawValue)
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if let date = chosenDate {
+            moodTrackerViewModel.updateNotes(forDate: date, as: notesText.text)
+        } else {
+            moodTrackerViewModel.updateNotes(forDate: calendar.today!, as: notesText.text)
+        }
+        
+    }
+    
+    private func initDateMoodView() {
+        greetingsLbl.text = moodGreeting
+        dateLbl.font = UIFont.boldSystemFont(ofSize: 18.0)
+        
+        updateDateMoodView(forDate: calendar.today!)
+    }
+    
+    private func updateMood(as newMoodStr: String) {
+        if let date = chosenDate {
+            moodTrackerViewModel.updateMood( forDate: date, as: newMoodStr)
+        } else {
+            moodTrackerViewModel.updateMood( forDate: calendar.today!, as: newMoodStr)
+        }
+        
+    }
+    
+    // **** start calendar region ****
     // customise date selection colour to match any mood entry for that date
-    public func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
         let mood = moodTrackerViewModel.getMood(forDate: date)
         
         if mood == Moods.great.rawValue {
@@ -84,82 +139,7 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
         return [moodEventColor, customBrown]
     }
     
-    @IBAction func greatBtn(_ sender: Any) {
-        updateMood(as: Moods.great.rawValue)
-    }
-    
-    @IBAction func goodBtn(_ sender: Any) {
-        updateMood(as: Moods.good.rawValue)
-    }
-    
-    @IBAction func okBtn(_ sender: Any) {
-        updateMood(as: Moods.ok.rawValue)
-    }
-    
-    @IBAction func badBtn(_ sender: Any) {
-        updateMood(as: Moods.bad.rawValue)
-    }
-    
-    @IBAction func awfulBtn(_ sender: Any) {
-        updateMood(as: Moods.awful.rawValue)
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        calendar.delegate = self;
-        calendar.dataSource = self;
-        
-        notesText.delegate = self;
-        
-        customiseCalendarView()
-        initDateMoodView()
-        //        goodBtn.showsTouchWhenHighlighted = true
-        //        chosenDate = calendar.today!
-        //        goodBtn.adjustsImageWhenHighlighted = true
-        //        goodBtn.adjustsImageWhenDisabled = true
-        
-        
-        //        goodBtn.adjustsImageWhenHighlighted = true
-        //        let imageName = goodBtn.isHighlighted ?  print("true") : print("false")
-        //        goodBtn.setImage(UIImage(named: imageName), for: .highlighted)
-
-        
-    }
-    
-    
-    //    func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
-    //        cell.appearance.selectionColor = .green
-    //
-    //
-    //    }
-    private func initDateMoodView() {
-        greetingsLbl.text = moodGreeting
-        dateLbl.font = UIFont.boldSystemFont(ofSize: 18.0)
-        
-        updateDateMoodView(forDate: calendar.today!)
-    }
-    
-    private func updateMood(as newMoodStr: String) {
-        if let date = chosenDate {
-            moodTrackerViewModel.updateMood( forDate: date, as: newMoodStr)
-        } else {
-            moodTrackerViewModel.updateMood( forDate: calendar.today!, as: newMoodStr)
-        }
-        
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        if let date = chosenDate {
-            moodTrackerViewModel.updateNotes(forDate: date, as: notesText.text)
-        } else {
-            moodTrackerViewModel.updateNotes(forDate: calendar.today!, as: notesText.text)
-        }
-        
-    }
-    
-    // **** start calendar region ****
-    // selecting a date
+    // selecting a date and loading the view for that date
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         chosenDate = date
         updateDateMoodView(forDate: date)
@@ -167,7 +147,6 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
     
     // update the view with details from the 'database'
     private func updateDateMoodView(forDate chosenDate: Date) {
-        //        calendar(_: FSCalendar, numberOfEventsFor: chosenDate)
         let details = moodTrackerViewModel.getWeatherDetails(forDate: chosenDate)
         weatherImg.image = details.uiImage
         tempLbl.text = "\(details.minTemp) - \(details.maxTemp)"
@@ -183,7 +162,6 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
     
     // changing the colour scheme of calendar
     func customiseCalendarView() {
-        //        6D634F
         calendar.appearance.todayColor = .orange;
         calendar.appearance.headerTitleColor = customBrown;
         calendar.appearance.weekdayTextColor = customBrown;
@@ -199,7 +177,14 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
     
 }
 
-//https://www.iosapptemplates.com/blog/swift-programming/convert-hex-colors-to-uicolor-swift-4
+/*
+*    Title: How to convert HEX colors to UIColor in Swift 5?
+*    Author: Florian
+*    Date: 12 April 2020
+*    Code version: n/a
+*    Availability: https://www.iosapptemplates.com/blog/swift-programming/convert-hex-colors-to-uicolor-swift-4
+*
+*/
 // creates custom UIColor objects
 extension UIColor {
     convenience init(hexString: String, alpha: CGFloat = 1.0) {

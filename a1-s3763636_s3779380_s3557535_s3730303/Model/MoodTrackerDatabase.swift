@@ -9,10 +9,7 @@
 import Foundation
 
 struct MoodTrackerDatabase {
-    // dictionary - key: date, value: DailyRecord
     private var dailyRecords: [String:DailyRecord] = [:]
-//    private var record: DailyRecord? = nil
-    
     public mutating func updateRecord(for record: DailyRecord, forDate date: String) {
         dailyRecords.updateValue(record, forKey: date)
     }

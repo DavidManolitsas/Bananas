@@ -27,19 +27,12 @@ struct Weather {
     }
     
     public mutating func getNextForecastDetails() -> (iconName: String, maxTemp: Double, minTemp: Double) {
-        // basically looping through the image names array
         if currentIdx == 4 {currentIdx = 0}
         else { currentIdx += 1 }
         
         return (forecasts[currentIdx].getIconName(), forecasts[currentIdx].getMaxTemp(), forecasts[currentIdx].getMinTemp())
     }
-    
-//    public mutating func getForecastDetails() -> (iconName: String, maxTemp: Double, minTemp: Double) {
-//        let forecast = getNextForecast()
-//
-//        return (forecast.getIconName(), forecast.getMaxTemp(), forecast.getMinTemp())
-//    }
-    
+
     public func getIconName(atIndex currentIdx: Int) -> String {
         return forecasts[currentIdx].getIconName()
     }
