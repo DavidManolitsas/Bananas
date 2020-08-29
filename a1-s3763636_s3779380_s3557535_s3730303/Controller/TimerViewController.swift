@@ -39,7 +39,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
 
         //set size of blurview to equal
         // the size of overall view
-        blurview.bounds = self.view.bounds
+        blurview.bounds = super.view.bounds
         
 
 
@@ -179,7 +179,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
                     
                     popoverViewController.popoverPresentationController?.sourceRect = CGRect(x: 0, y: 0, width: 300, height: 300)
                     
-                   
+                   blurview.bounds = super.view.bounds
 
                 }
         
