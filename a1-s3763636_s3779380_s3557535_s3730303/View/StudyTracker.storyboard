@@ -165,7 +165,7 @@
         <!--Pop View Controller-->
         <scene sceneID="3FF-67-uoj">
             <objects>
-                <viewController storyboardIdentifier="popDetails" modalPresentationStyle="currentContext" id="SDC-Qq-3o8" customClass="PopViewController" customModule="a1_s3763636_s3779380_s3557535_s3730303" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="popDetails" modalPresentationStyle="formSheet" id="SDC-Qq-3o8" customClass="PopViewController" customModule="a1_s3763636_s3779380_s3557535_s3730303" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zUv-BC-s77">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

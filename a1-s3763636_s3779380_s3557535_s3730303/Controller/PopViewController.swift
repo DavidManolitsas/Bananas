@@ -33,8 +33,11 @@ class PopViewController: UIViewController{
         //initialise break duration pickerview content
         durationPicker.dataSource = self
         durationPicker.delegate = self
+        
+       super.preferredContentSize = CGSize(width: 300, height: 300)
 
     }
+
     
     
     // if user make changes on the labelField

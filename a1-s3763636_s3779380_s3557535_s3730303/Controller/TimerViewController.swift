@@ -170,8 +170,17 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
                     let popoverViewController = segue.destination
                     popoverViewController.popoverPresentationController?.delegate = self
                     
-                    source = segue.destination as? PopViewController
+                  super.preferredContentSize = CGSize(width:300, height:300)
                     
+                    source = segue.destination as? PopViewController
+  
+                    
+                    popoverViewController.popoverPresentationController?.sourceView = self.view
+                    
+                    popoverViewController.popoverPresentationController?.sourceRect = CGRect(x: 0, y: 0, width: 300, height: 300)
+                    
+                   
+
                 }
         
         
@@ -194,14 +203,23 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         animateOut(desiredView: blurview)
     }
     
-    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
-        animateIn(desiredView: blurview)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        super.preferredContentSize = self.view.systemLayoutSizeFitting(
+            UIView.layoutFittingCompressedSize)
     }
     
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-       
-        return .none
+    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
+        animateIn(desiredView: blurview)
         
+    }
+    
+   func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
     }
     
     func animateIn(desiredView : UIView){
