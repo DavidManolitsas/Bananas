@@ -19,6 +19,8 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
 
     var durations = 10
     
+    var studyRecords = [records]()
+    
     private var songList = getSongList()
     var receivedSong:String = ""
     
@@ -41,7 +43,6 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         // the size of overall view
         blurview.bounds = super.view.bounds
         
-
 
     }
     
@@ -90,6 +91,8 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
             setupAudioPlayer()
             
             print("start Timer with song\(receivedSong)")
+            
+            studyRecords.insert(records(breaktime: breakduration, title: alarmName, timer: durations), at: 0)
         }
     }
     
@@ -182,6 +185,12 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
                    blurview.bounds = super.view.bounds
 
                 }
+        
+        // pass the array to study records controller
+        if segue.identifier == "studyRecords"{
+            let recordsController = segue.destination as! studyRecordsController
+            recordsController.studyRecords2 = studyRecords
+        }
         
         
     }
