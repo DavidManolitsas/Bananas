@@ -13,15 +13,14 @@ class TodoViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var currDetail = TodoDetail()
-    var count = 0;
-    var tasks = [Task]()
+    private var todoViewModel = TodoViewModel()
+    private var currDetail = TodoDetailController()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
     }
     
     
@@ -42,6 +41,7 @@ class TodoViewController: UIViewController {
             
             let task = Task(description: userInput)
             self.addTask(insertedTask: task)
+            
         }
         alert.addAction(action)
         present(alert, animated: true)
@@ -54,9 +54,11 @@ class TodoViewController: UIViewController {
     
     
     func addTask(insertedTask:Task) {
-        let index:Int = 0
+        // Update model
+        todoViewModel.todoList.addTask(insertedTask: insertedTask)
         
-        self.tasks.insert(insertedTask, at: index)
+        // Update view
+        let index:Int = 0
         let indexPath = IndexPath(row: index, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
         
@@ -64,22 +66,20 @@ class TodoViewController: UIViewController {
     }
     
     
+    func setTaskReminder(currTask: Task, isOn: Bool) {
+        todoViewModel.setTaskReminder(currTask: currTask, isOn: isOn)
+        tableView.reloadData()
+    }
+    
+    
+    func setTaskPriority(searchedTask: Task, priority: TaskPriority) {
+        todoViewModel.setTaskPriority(searchedTask: searchedTask, priority: priority)
+        self.sortTasks()
+    }
+    
+    
     func sortTasks() {
-        var temp:Task
-        
-        // Sort the tasks array based on priority
-        for i in 0..<tasks.count {
-            for j in 0..<tasks.count {
-                if (tasks[i].completed == false) {
-                    if (tasks[i].priority.detail.value < tasks[j].priority.detail.value) {
-                        temp = tasks[i]
-                        tasks[i] = tasks[j]
-                        tasks[j] = temp
-                    }
-                }
-            }
-        }
-        
+        todoViewModel.todoList.sortTasks()
         tableView.reloadData()
     }
 }
@@ -90,18 +90,22 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
         return 1
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
+        return todoViewModel.todoList.tasks.count
     }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath) as! TodoCell
+        let task = todoViewModel.todoList.tasks[indexPath.row]
         
-        let task = tasks[indexPath.row]
+        cell.todoViewController = self
         cell.setTodoTask(task: task)
+        cell.setReminder()
         cell.task = task
+        
 
         return cell
     }
@@ -109,24 +113,20 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            tasks.remove(at: indexPath.row)
+            
+            todoViewModel.todoList.removeTask(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if UIDevice.current.orientation.isPortrait {
-            performSegue(withIdentifier: "showDetail", sender: self)
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "TodoDetail") as? TodoDetailController {
+            vc.task = todoViewModel.todoList.tasks[(tableView.indexPathForSelectedRow?.row)!]
+            vc.tableViewController = self
+            splitViewController?.showDetailViewController(vc, sender: nil)
         }
+        
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? TodoDetail {
-            vc.task = tasks[(tableView.indexPathForSelectedRow?.row)!]
-
-        }
-       
-    }
 
 }

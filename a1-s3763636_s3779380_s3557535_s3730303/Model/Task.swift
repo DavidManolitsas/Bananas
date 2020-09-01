@@ -10,24 +10,69 @@ import Foundation
 
 class Task {
     
-    var completed: Bool
-    var description: String
-    var priority: TaskPriority
-    
-//    var _priority: TaskPriority {
-//        get {
-//            return priority
-//        }
-//        set {
-//            priority = newValue
-//        }
-//    }
+    private var _completed: Bool
+    private var _reminderOn: Bool
+    private var _description: String
+    private var _priority: TaskPriority
     
     init(description: String) {
-        self.description = description
-        self.priority = .none
-        self.completed = false;
+        self._description = description
+        self._priority = .none
+        self._completed = false;
+        self._reminderOn = false;
     }
     
+    
+    func getTaskPriorityValue() -> Int {
+        if completed {
+            return 5
+        } else if priority == TaskPriority.none {
+            return 4
+        } else if priority == TaskPriority.low {
+            return 3
+        } else if priority == TaskPriority.medium {
+            return 2
+        } else if priority == TaskPriority.high {
+            return 1
+        }
+        
+        return -1
+    }
+    
+    var description: String {
+        get {
+            return _description
+        }
+        set (newDescription) {
+            _description = newDescription
+        }
+    }
+    
+    var priority: TaskPriority {
+        get {
+            return _priority
+        }
+        set (newPriority) {
+            _priority = newPriority
+        }
+    }
+    
+    var completed: Bool {
+        get {
+            return _completed
+        }
+        set (newCompleted) {
+            _completed = newCompleted
+        }
+    }
+    
+    var reminderOn: Bool {
+        get {
+            return _reminderOn
+        }
+        set (newReminderOn) {
+            _reminderOn = newReminderOn
+        }
+    }
     
 }
