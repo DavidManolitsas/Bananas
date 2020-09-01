@@ -9,13 +9,7 @@
 import UIKit
 import AVFoundation
 
-class TimerViewController: UIViewController, UIPopoverPresentationControllerDelegate, PopViewControllerDelegate{
-    
-    func updateSong(name: String) {
-        receivedSong = name
-        songLabelDummy.text = name
-    }
-    
+class TimerViewController: UIViewController, UIPopoverPresentationControllerDelegate{
 
     var seconds = 10
     // create global variable of timer
@@ -23,7 +17,9 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     // audio player for the alarm
     var audioPlayer = AVAudioPlayer()
 
-    var durations = 0
+    var durations = 10
+    
+    var studyRecords = [records]()
     
     private var songList = getSongList()
     var receivedSong:String = ""
@@ -35,19 +31,18 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     @IBOutlet weak var stopBtn: UIButton!
     @IBOutlet var blurview: UIVisualEffectView!
     
-    @IBOutlet weak var songLabelDummy: UILabel!
+    @IBOutlet weak var breaktimeLabel: UILabel!
     var source : PopViewController?
     var breakduration:Int = 0
-    
+    var alarmName = "alarm"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //set size of blurview to equal
         // the size of overall view
-        blurview.bounds = self.view.bounds
+        blurview.bounds = super.view.bounds
         
-
 
     }
     
@@ -96,6 +91,8 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
             setupAudioPlayer()
             
             print("start Timer with song\(receivedSong)")
+            
+            studyRecords.insert(records(breaktime: breakduration, title: alarmName, timer: durations), at: 0)
         }
     }
     
@@ -108,7 +105,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         
         if (seconds == 0 && breakduration != 0){
             audioPlayer.play()
-            songLabelDummy.text = "Break Time"
+            breaktimeLabel.text = "Break Time"
             seconds = breakduration
         }
         
@@ -126,7 +123,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
             stopBtn.isHidden = true;
             stopBtn.isEnabled = false;
             
-            songLabelDummy.text = ""
+            breaktimeLabel.text = ""
             audioPlayer.play()
         }
     }
@@ -149,7 +146,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         stopBtn.isHidden = true;
         stopBtn.isEnabled = false;
         
-        songLabelDummy.text = ""
+        breaktimeLabel.text = ""
         audioPlayer.stop()
        
     }
@@ -176,9 +173,24 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
                     let popoverViewController = segue.destination
                     popoverViewController.popoverPresentationController?.delegate = self
                     
-                    source = segue.destination as? PopViewController
+                  super.preferredContentSize = CGSize(width:300, height:300)
                     
+                    source = segue.destination as? PopViewController
+  
+                    
+                    popoverViewController.popoverPresentationController?.sourceView = self.view
+                    
+                    popoverViewController.popoverPresentationController?.sourceRect = CGRect(x: 0, y: 0, width: 300, height: 300)
+                    
+                   blurview.bounds = super.view.bounds
+
                 }
+        
+        // pass the array to study records controller
+        if segue.identifier == "studyRecords"{
+            let recordsController = segue.destination as! studyRecordsController
+            recordsController.studyRecords2 = studyRecords
+        }
         
         
     }
@@ -187,21 +199,36 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
        // get the modified song from popover
         self.receivedSong = source!.songText
-        songLabelDummy.text = receivedSong
+
          // get the modified break duration from popover
         self.breakduration = source!.durationText*60
+        self.alarmName = source!.labelField.text ?? "Alarm"
+        
+        print(self.alarmName)
+        print(self.durations)
+        print(self.breakduration)
 
+        
         animateOut(desiredView: blurview)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        super.preferredContentSize = self.view.systemLayoutSizeFitting(
+            UIView.layoutFittingCompressedSize)
     }
     
     func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
         animateIn(desiredView: blurview)
+        
     }
     
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-       
+   func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return .none
-        
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
     }
     
     func animateIn(desiredView : UIView){
@@ -211,7 +238,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         backgroundView?.addSubview(desiredView)
         
         // set darker color
-        backgroundView?.backgroundColor = .darkGray
+//        backgroundView?.backgroundColor = .lightGray
         
         //set scaling to 120%
         desiredView.transform = CGAffineTransform(scaleX: 1.2 , y: 1.2)
@@ -222,7 +249,6 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
             desiredView.transform = CGAffineTransform(scaleX: 1.0 , y: 1.0)
             desiredView.alpha = 0.6
             desiredView.center = backgroundView!.center
-            //            desiredView.backgroundColor = .black
         })
     }
     
