@@ -10,7 +10,7 @@ import Foundation
 import FSCalendar
 import UIKit
 
-class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+class MoodTrackerViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var dateLbl: UILabel!
@@ -94,7 +94,16 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
         
     }
     
-    // **** start calendar region ****
+    // format date to string
+    private func formatDate(date: Date, asFormat format: String) -> String {
+        let formatter = DateFormatter();
+        formatter.dateFormat = format;
+        return formatter.string(from: date);
+    }
+    
+}
+
+extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     // customise date selection colour to match any mood entry for that date
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
         let mood = moodTrackerViewModel.getMood(forDate: date)
@@ -179,20 +188,8 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate, FSCalenda
             updateDateMoodView(forDate: calendar.today!)
         }
     }
-    // **** end calendar region ****
-    
-    
-    
-    
-    // format date to string
-    private func formatDate(date: Date, asFormat format: String) -> String {
-        let formatter = DateFormatter();
-        formatter.dateFormat = format;
-        return formatter.string(from: date);
-    }
     
 }
-
 /*
 *    Title: How to convert HEX colors to UIColor in Swift 5?
 *    Author: Florian
