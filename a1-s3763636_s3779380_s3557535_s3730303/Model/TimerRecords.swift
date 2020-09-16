@@ -13,7 +13,12 @@ class TimerRecords{
     
     public func updateRecord(breakduration: Int, alarmName: String, durations: Int){
          studyRecords.insert(records(breaktime: breakduration, title: alarmName, timer: durations), at: 0)
+         print(studyRecords)
     }
     
-    
+    public func getRecordsDetails() ->[records]{
+        print(studyRecords)
+        return studyRecords
+        
+    }
 }

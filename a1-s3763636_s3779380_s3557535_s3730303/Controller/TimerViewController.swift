@@ -194,7 +194,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         // pass the array to study records controller
         if segue.identifier == "studyRecords"{
             let recordsController = segue.destination as! studyRecordsController
-//            recordsController.studyRecords2 = studyRecords
+            recordsController.studyRecords2 = timerVM.getRecordsFromModel()
         }
         
         

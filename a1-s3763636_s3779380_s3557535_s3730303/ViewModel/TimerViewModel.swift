@@ -15,7 +15,8 @@ struct TimerViewModel {
     public mutating func updateRecord(breakduration: Int, alarmName: String, durations: Int){
        timerRecords.updateRecord(breakduration: breakduration, alarmName: alarmName, durations: durations)
     }
-  
+    public func getRecordsFromModel() -> [records]{
+        return timerRecords.getRecordsDetails()
+    }
     
-   
 }
