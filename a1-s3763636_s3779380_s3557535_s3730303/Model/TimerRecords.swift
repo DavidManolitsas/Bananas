@@ -17,7 +17,6 @@ class TimerRecords{
     }
     
     public func getRecordsDetails() ->[records]{
-        print(studyRecords)
         return studyRecords
         
     }
