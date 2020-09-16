@@ -85,12 +85,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
             
             setStartState()
             setupAudioPlayer()
-            
-            print("start Timer with song\(receivedSong)")
-            
-            
-            
-//            studyRecords.insert(records(breaktime: breakduration, title: alarmName, timer: durations), at: 0)
+
         }
     }
     
@@ -208,12 +203,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
          // get the modified break duration from popover
         self.breakduration = source!.durationText*60
         self.alarmName = source!.labelField.text ?? "Alarm"
-        
-        print(self.alarmName)
-        print(self.durations)
-        print(self.breakduration)
 
-        
         animateOut(desiredView: blurview)
     }
     
