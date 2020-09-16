@@ -9,6 +9,7 @@
 import Foundation
 import FSCalendar
 import UIKit
+import CoreLocation
 
 class MoodTrackerViewController: UIViewController, Refresh {
     
@@ -29,6 +30,9 @@ class MoodTrackerViewController: UIViewController, Refresh {
     private let customBrown = UIColor(hexString: "#544B39")
         private let customDotColour = UIColor(hexString: "#B4A789")
     
+    private let locationMangager = CLLocationManager()
+    private var currentLocation: CLLocation?
+    
     private var moodTrackerViewModel = MoodTrackerViewModel()
     private var chosenDate: Date?
     
@@ -36,8 +40,8 @@ class MoodTrackerViewController: UIViewController, Refresh {
         super.viewDidLoad()
 //        let request = RESTRequest.shared
         //        request.getWeatherFor(lat: "", lon: "")
-        
-        moodTrackerViewModel.getWeatherFor(-37.840935, 144.946457)
+        setUpLocation()
+//        moodTrackerViewModel.getWeatherFor(-37.840935, 144.946457)
         moodTrackerViewModel.delegate = self
         calendar.delegate = self;
         calendar.dataSource = self;
@@ -49,19 +53,25 @@ class MoodTrackerViewController: UIViewController, Refresh {
         
     }
     
+    func setUpLocation() {
+           locationMangager.delegate = self
+           locationMangager.requestWhenInUseAuthorization()
+           locationMangager.startUpdatingLocation()
+       }
+    
     func updateUI() {
 
         //        notesText.text = moodTrackerViewModel.getNotes(forDate: chosenDate)
 //
-//        if let date = chosenDate {
-//                dateLbl.text = formatDate(date: date, asFormat: "dd MMMM, yyyy")
+        if let date = chosenDate {
+                dateLbl.text = formatDate(date: date, asFormat: "dd MMMM, yyyy")
 //            // else retrieve from database
 ////            weatherImg.image = UIImage(named: "01d")
 ////            tempLbl.text = "no dice"
-//        } else {
+        } else {
             dateLbl.text = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy")
 //
-//        }
+        }
         print(moodTrackerViewModel.getTempDetails())
         weatherImg.image = moodTrackerViewModel.getImage()
         tempLbl.text = moodTrackerViewModel.getTempDetails()
@@ -240,6 +250,28 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, F
         return calendar.today!
     }
     
+}
+
+extension MoodTrackerViewController: CLLocationManagerDelegate {
+   
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Location manager")
+        if !locations.isEmpty, currentLocation == nil {
+            print("inside if manager")
+            currentLocation = locations.first
+            locationMangager.stopUpdatingLocation()
+           requestWeatherForLocation()
+        }
+    }
+    
+    func requestWeatherForLocation() {
+        guard let location = currentLocation else { return }
+        let lat = location.coordinate.latitude
+        let lon = location.coordinate.longitude
+        print("\(lat) and \(lon)")
+        moodTrackerViewModel.getWeatherFor(lat, lon)
+    }
 }
 /*
  *    Title: How to convert HEX colors to UIColor in Swift 5?
