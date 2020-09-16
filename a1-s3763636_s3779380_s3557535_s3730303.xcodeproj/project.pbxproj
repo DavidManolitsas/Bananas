@@ -36,6 +36,7 @@
 		C8BB0D2724EE13A500E027B1 /* MoodTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB0D2624EE13A500E027B1 /* MoodTrackerViewController.swift */; };
 		C8E1403624F142800024F572 /* MoodTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E1403524F142800024F572 /* MoodTrackerViewModel.swift */; };
 		C8E1403824F142EC0024F572 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E1403724F142EC0024F572 /* Forecast.swift */; };
+		CB29B3C02511D5D000B8646A /* DatabaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB29B3BE2511D5D000B8646A /* DatabaseModel.xcdatamodeld */; };
 		CB36EEB7251063B6009EF4AC /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB36EEB6251063B6009EF4AC /* TimerViewModel.swift */; };
 		CB36EEB925106A5B009EF4AC /* TimerRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB36EEB825106A5B009EF4AC /* TimerRecords.swift */; };
 		CB9C781E24F0E064007878A3 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C781C24F0E064007878A3 /* TimerViewController.swift */; };
@@ -82,6 +83,7 @@
 		C8BB0D2624EE13A500E027B1 /* MoodTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerViewController.swift; sourceTree = "<group>"; };
 		C8E1403524F142800024F572 /* MoodTrackerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodTrackerViewModel.swift; sourceTree = "<group>"; };
 		C8E1403724F142EC0024F572 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		CB29B3BF2511D5D000B8646A /* DatabaseModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DatabaseModel.xcdatamodel; sourceTree = "<group>"; };
 		CB36EEB6251063B6009EF4AC /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		CB36EEB825106A5B009EF4AC /* TimerRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRecords.swift; sourceTree = "<group>"; };
 		CB9C781C24F0E064007878A3 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				63652DDC24ED1CA0005C0BC1 /* TaskPriority.swift */,
 				636B875824F60C7300D4C644 /* TodoList.swift */,
 				CB36EEB825106A5B009EF4AC /* TimerRecords.swift */,
+				CB29B3BE2511D5D000B8646A /* DatabaseModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				5FAA268224FDD58600FE79D6 /* recordsModel.swift in Sources */,
 				63FA777E24F240F4009F47B7 /* TodoCell.swift in Sources */,
 				C8E1403824F142EC0024F572 /* Forecast.swift in Sources */,
+				CB29B3C02511D5D000B8646A /* DatabaseModel.xcdatamodeld in Sources */,
 				C8BB0D2724EE13A500E027B1 /* MoodTrackerViewController.swift in Sources */,
 				C8949E7924F26F7200FE6A64 /* MoodTracker.swift in Sources */,
 				6348D72124DBC158004B0476 /* AppDelegate.swift in Sources */,
@@ -565,6 +569,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CB29B3BE2511D5D000B8646A /* DatabaseModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CB29B3BF2511D5D000B8646A /* DatabaseModel.xcdatamodel */,
+			);
+			currentVersion = CB29B3BF2511D5D000B8646A /* DatabaseModel.xcdatamodel */;
+			path = DatabaseModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6348D71524DBC158004B0476 /* Project object */;
 }
