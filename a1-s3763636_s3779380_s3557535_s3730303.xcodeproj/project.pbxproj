@@ -34,6 +34,7 @@
 		C8949E7924F26F7200FE6A64 /* MoodTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8949E7824F26F7200FE6A64 /* MoodTracker.swift */; };
 		C8949E7B24F2709E00FE6A64 /* Moods.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8949E7A24F2709E00FE6A64 /* Moods.swift */; };
 		C8BB0D2724EE13A500E027B1 /* MoodTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB0D2624EE13A500E027B1 /* MoodTrackerViewController.swift */; };
+		C8CA4D6225107FF900467AEE /* RESTRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA4D6125107FF900467AEE /* RESTRequest.swift */; };
 		C8E1403624F142800024F572 /* MoodTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E1403524F142800024F572 /* MoodTrackerViewModel.swift */; };
 		C8E1403824F142EC0024F572 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E1403724F142EC0024F572 /* Forecast.swift */; };
 		CB9C781E24F0E064007878A3 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C781C24F0E064007878A3 /* TimerViewController.swift */; };
@@ -78,6 +79,7 @@
 		C8949E7824F26F7200FE6A64 /* MoodTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTracker.swift; sourceTree = "<group>"; };
 		C8949E7A24F2709E00FE6A64 /* Moods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moods.swift; sourceTree = "<group>"; };
 		C8BB0D2624EE13A500E027B1 /* MoodTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerViewController.swift; sourceTree = "<group>"; };
+		C8CA4D6125107FF900467AEE /* RESTRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTRequest.swift; sourceTree = "<group>"; };
 		C8E1403524F142800024F572 /* MoodTrackerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodTrackerViewModel.swift; sourceTree = "<group>"; };
 		C8E1403724F142EC0024F572 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		CB9C781C24F0E064007878A3 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				63652DD024ECFA96005C0BC1 /* Task.swift */,
 				63652DDC24ED1CA0005C0BC1 /* TaskPriority.swift */,
 				636B875824F60C7300D4C644 /* TodoList.swift */,
+				C8CA4D6125107FF900467AEE /* RESTRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				63652DDD24ED1CA0005C0BC1 /* TaskPriority.swift in Sources */,
 				636B875724F6040F00D4C644 /* TodoViewModel.swift in Sources */,
 				636B875924F60C7300D4C644 /* TodoList.swift in Sources */,
+				C8CA4D6225107FF900467AEE /* RESTRequest.swift in Sources */,
 				5FAA268424FDD5AD00FE79D6 /* studyRecordsController.swift in Sources */,
 				5FAA268224FDD58600FE79D6 /* recordsModel.swift in Sources */,
 				63FA777E24F240F4009F47B7 /* TodoCell.swift in Sources */,

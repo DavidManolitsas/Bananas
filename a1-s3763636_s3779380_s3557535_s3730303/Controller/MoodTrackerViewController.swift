@@ -10,7 +10,7 @@ import Foundation
 import FSCalendar
 import UIKit
 
-class MoodTrackerViewController: UIViewController, UITextViewDelegate {
+class MoodTrackerViewController: UIViewController, Refresh {
     
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var dateLbl: UILabel!
@@ -34,6 +34,8 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let request = RESTRequest.shared
+        request.getForecastFor(lat: "", lon: "")
         calendar.delegate = self;
         calendar.dataSource = self;
         
@@ -42,6 +44,9 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate {
         customiseCalendarView()
         initDateMoodView()
         
+    }
+    func updateUI() {
+        calendar.reloadData()
     }
     
     @IBAction func greatBtn(_ sender: Any) {
@@ -69,14 +74,7 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate {
         updateMoodView()
     }
     
-    func textViewDidChange(_ textView: UITextView) {
-        if let date = chosenDate {
-            moodTrackerViewModel.updateNotes(forDate: date, as: notesText.text)
-        } else {
-            moodTrackerViewModel.updateNotes(forDate: calendar.today!, as: notesText.text)
-        }
-        
-    }
+
     
     private func initDateMoodView() {
         greetingsLbl.text = moodGreeting
@@ -101,6 +99,17 @@ class MoodTrackerViewController: UIViewController, UITextViewDelegate {
         return formatter.string(from: date);
     }
     
+}
+
+extension MoodTrackerViewController:  UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        if let date = chosenDate {
+            moodTrackerViewModel.updateNotes(forDate: date, as: notesText.text)
+        } else {
+            moodTrackerViewModel.updateNotes(forDate: calendar.today!, as: notesText.text)
+        }
+        
+    }
 }
 
 extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {

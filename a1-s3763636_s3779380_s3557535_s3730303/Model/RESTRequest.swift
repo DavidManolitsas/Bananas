@@ -17,6 +17,10 @@ class RESTRequest {
     var delegate: Refresh?
     private let session = URLSession.shared
     
+    var forecasts:[Forecast] {
+        return _forecasts
+    }
+    
     private let baseUrl = "https://api.openweathermap.org/data/2.5/onecall?"
     private let paramLat = "lat="
     private let paramLon = "&lon="
@@ -58,11 +62,18 @@ class RESTRequest {
                         return
                     }
     
+                    let day = result.daily[0]
+                    print(result.daily[0].weather[0])
                     print(result.daily[0].temp.max)
+                    print(result.daily[0].temp.min)
+                    let forecast = Forecast(main: day.weather[0].main, description: day.weather[0].description, iconName: day.weather[0].icon, maxTemp: day.temp.max, minTemp: day.temp.min)
+                    self._forecasts.append(forecast)
+                    
                 }
             })
             task.resume()
     
+            
         }
     
 //    func getForecastFor(lat: String, lon: String) {

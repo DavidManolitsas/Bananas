@@ -13,7 +13,7 @@ struct Weather {
     private var currentIdx: Int = 0
     
     init() {
-        initForecasts()
+//        initForecasts()
     }
     
     private mutating func initForecasts()  {
