@@ -36,7 +36,8 @@ class MoodTrackerViewController: UIViewController, Refresh {
         super.viewDidLoad()
 //        let request = RESTRequest.shared
         //        request.getWeatherFor(lat: "", lon: "")
-        moodTrackerViewModel.getWeatherFor(0, 0)
+        
+        moodTrackerViewModel.getWeatherFor(-37.840935, 144.946457)
         moodTrackerViewModel.delegate = self
         calendar.delegate = self;
         calendar.dataSource = self;
@@ -52,16 +53,18 @@ class MoodTrackerViewController: UIViewController, Refresh {
 
         //        notesText.text = moodTrackerViewModel.getNotes(forDate: chosenDate)
 //
-        if let date = chosenDate {
-                dateLbl.text = formatDate(date: date, asFormat: "dd MMMM, yyyy")
-            // else retrieve from database
-//            weatherImg.image = UIImage(named: "01d")
-//            tempLbl.text = "no dice"
-        } else {
+//        if let date = chosenDate {
+//                dateLbl.text = formatDate(date: date, asFormat: "dd MMMM, yyyy")
+//            // else retrieve from database
+////            weatherImg.image = UIImage(named: "01d")
+////            tempLbl.text = "no dice"
+//        } else {
             dateLbl.text = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy")
-            weatherImg.image = moodTrackerViewModel.getImage()
-            tempLbl.text = moodTrackerViewModel.getTempDetails()
-        }
+//
+//        }
+        print(moodTrackerViewModel.getTempDetails())
+        weatherImg.image = moodTrackerViewModel.getImage()
+        tempLbl.text = moodTrackerViewModel.getTempDetails()
         calendar.reloadData()
     }
     
@@ -181,8 +184,12 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, F
     
     // selecting a date and loading the view for that date
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        if date.compare(calendar.today!) == .orderedSame {
+            print("today")
+            moodTrackerViewModel.getWeatherFor(0, 0)
+        }
         chosenDate = date
-        updateUI()
+        
 //        updateDateMoodView(forDate: date)
     }
     

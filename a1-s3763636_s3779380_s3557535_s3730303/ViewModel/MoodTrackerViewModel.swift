@@ -29,11 +29,6 @@ struct MoodTrackerViewModel {
         }
     }
     
-//    var count: Int {
-//        print(forecasts.count)
-//        return forecasts.count
-//    }
-    
     var forecasts: [Forecast] {
         return model.forecasts
         
