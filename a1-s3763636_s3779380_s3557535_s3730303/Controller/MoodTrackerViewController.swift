@@ -225,7 +225,7 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, F
     
     // display mood and note entries as dots
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        return 1
+        return 0
         //        return moodTrackerViewModel.getRecordEvent(forDate: date)
     }
     
@@ -263,7 +263,7 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
             print("inside if manager")
             currentLocation = locations.first
             locationMangager.stopUpdatingLocation()
-            
+            getLocation()
             
         }
     }
