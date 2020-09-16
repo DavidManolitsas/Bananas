@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Os-mV-BTR">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Os-mV-BTR">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +19,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5A-Jw-839">
                                 <rect key="frame" x="6" y="98" width="402" height="790"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCg-lM-dJa" customClass="FSCalendar">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCg-lM-dJa" customClass="FSCalendar">
                                         <rect key="frame" x="8" y="8" width="386" height="289"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -49,7 +47,7 @@
                                         <rect key="frame" x="8" y="314.5" width="386" height="161"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ev8-cI-AIN">
-                                                <rect key="frame" x="10" y="10" width="180" height="19.5"/>
+                                                <rect key="frame" x="10" y="30" width="180" height="19.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="180" id="U4j-9i-e3Z"/>
                                                     <constraint firstAttribute="height" constant="19.5" id="vWS-eF-DaS"/>
@@ -151,21 +149,41 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Et7-BS-t30">
+                                                <rect key="frame" x="22" y="10" width="252" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="EmE-I2-UCJ">
+                                                <rect key="frame" x="10" y="13" width="10" height="10"/>
+                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="10" id="AQZ-IM-2Q6"/>
+                                                    <constraint firstAttribute="width" secondItem="EmE-I2-UCJ" secondAttribute="height" multiplier="1:1" id="KNg-87-k5G"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="Ev8-cI-AIN" firstAttribute="leading" secondItem="zJd-cA-up5" secondAttribute="leading" constant="10" id="3N2-7m-SLQ"/>
-                                            <constraint firstItem="Ev8-cI-AIN" firstAttribute="top" secondItem="zJd-cA-up5" secondAttribute="top" constant="10" id="E9E-q8-MiT"/>
+                                            <constraint firstItem="Ev8-cI-AIN" firstAttribute="top" secondItem="Et7-BS-t30" secondAttribute="bottom" constant="4" id="7yY-BR-bZl"/>
+                                            <constraint firstItem="Ev8-cI-AIN" firstAttribute="top" secondItem="EmE-I2-UCJ" secondAttribute="bottom" constant="7" id="D2a-nA-FCL"/>
                                             <constraint firstItem="qhK-qg-8Lw" firstAttribute="top" secondItem="zJd-cA-up5" secondAttribute="top" constant="3" id="H0s-tt-kN1"/>
                                             <constraint firstAttribute="trailing" secondItem="ACC-Jt-Zvu" secondAttribute="trailing" constant="10" id="HVE-e9-SLh"/>
                                             <constraint firstItem="fss-DR-NDL" firstAttribute="centerY" secondItem="zJd-cA-up5" secondAttribute="centerY" constant="-14" id="IsN-P1-9SF"/>
                                             <constraint firstItem="2jH-yz-pNF" firstAttribute="centerX" secondItem="zJd-cA-up5" secondAttribute="centerX" id="Ktf-7J-6fh"/>
+                                            <constraint firstItem="EmE-I2-UCJ" firstAttribute="top" secondItem="zJd-cA-up5" secondAttribute="top" constant="13" id="LKS-NB-Ak8"/>
                                             <constraint firstItem="fss-DR-NDL" firstAttribute="centerX" secondItem="zJd-cA-up5" secondAttribute="centerX" id="ORf-sz-j1D"/>
                                             <constraint firstItem="ACC-Jt-Zvu" firstAttribute="leading" secondItem="qhK-qg-8Lw" secondAttribute="trailing" constant="10" id="OaY-Sp-CXo"/>
                                             <constraint firstAttribute="height" constant="161" id="PRd-Kk-vpC"/>
                                             <constraint firstItem="ACC-Jt-Zvu" firstAttribute="top" secondItem="zJd-cA-up5" secondAttribute="top" constant="10" id="URt-AZ-zc4"/>
                                             <constraint firstItem="2jH-yz-pNF" firstAttribute="top" secondItem="fss-DR-NDL" secondAttribute="bottom" constant="18.5" id="VZW-fA-nEm"/>
+                                            <constraint firstItem="Et7-BS-t30" firstAttribute="leading" secondItem="EmE-I2-UCJ" secondAttribute="trailing" constant="2" id="eBr-cF-7db"/>
+                                            <constraint firstItem="EmE-I2-UCJ" firstAttribute="leading" secondItem="zJd-cA-up5" secondAttribute="leading" constant="10" id="eJN-UN-DHU"/>
                                             <constraint firstAttribute="bottom" secondItem="2jH-yz-pNF" secondAttribute="bottom" constant="37" id="kbH-xO-6mt"/>
+                                            <constraint firstItem="Et7-BS-t30" firstAttribute="top" secondItem="zJd-cA-up5" secondAttribute="top" constant="10" id="qTp-wY-bqq"/>
+                                            <constraint firstItem="qhK-qg-8Lw" firstAttribute="leading" secondItem="Et7-BS-t30" secondAttribute="trailing" constant="28.5" id="tfq-SR-SXB"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -184,7 +202,7 @@
                                     <constraint firstItem="jCg-lM-dJa" firstAttribute="top" secondItem="c5A-Jw-839" secondAttribute="topMargin" id="rSU-Jj-jUX"/>
                                     <constraint firstItem="rLK-kM-qMO" firstAttribute="leading" secondItem="zJd-cA-up5" secondAttribute="leading" id="tYa-xS-DRj"/>
                                     <constraint firstAttribute="trailing" secondItem="zJd-cA-up5" secondAttribute="trailing" constant="8" id="wBj-67-DLZ"/>
-                                    <constraint firstItem="zJd-cA-up5" firstAttribute="top" secondItem="jCg-lM-dJa" secondAttribute="bottom" constant="8" id="xpY-Yq-hWx"/>
+                                    <constraint firstItem="zJd-cA-up5" firstAttribute="top" secondItem="jCg-lM-dJa" secondAttribute="bottom" constant="17.5" id="xpY-Yq-hWx"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -202,6 +220,7 @@
                         <outlet property="calendar" destination="jCg-lM-dJa" id="qjV-SM-vew"/>
                         <outlet property="dateLbl" destination="Ev8-cI-AIN" id="ShG-Uq-v8M"/>
                         <outlet property="greetingsLbl" destination="fss-DR-NDL" id="eyF-nn-KlI"/>
+                        <outlet property="locationLbl" destination="Et7-BS-t30" id="sso-ta-CJA"/>
                         <outlet property="notesText" destination="rLK-kM-qMO" id="knV-rn-sWc"/>
                         <outlet property="tempLbl" destination="ACC-Jt-Zvu" id="B2M-pf-TC1"/>
                         <outlet property="weatherImg" destination="qhK-qg-8Lw" id="dlQ-WZ-rFi"/>
@@ -236,6 +255,7 @@
         <image name="3" width="61" height="61"/>
         <image name="greenbtn-removebg-preview" width="61" height="61"/>
         <image name="lightgreenbtn-removebg-preview" width="61" height="61"/>
+        <image name="location" width="320" height="320"/>
         <image name="moodtracker" width="24" height="22.5"/>
         <image name="orangebtn-removebg-preview" width="61" height="61"/>
         <image name="redBtn-removebg-preview" width="61" height="61"/>

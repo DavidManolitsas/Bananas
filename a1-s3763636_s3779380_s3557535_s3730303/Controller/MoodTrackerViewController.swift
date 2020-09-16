@@ -19,7 +19,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
     @IBOutlet weak var weatherImg: UIImageView!
     @IBOutlet weak var greetingsLbl: UILabel!
     @IBOutlet weak var notesText: UITextView!
-    
+    @IBOutlet weak var locationLbl: UILabel!
     private let moodGreeting: String = "How are you feeling today?"
     private let greatHexCode = "#8cc0a8"
     private let goodHexCode = "#c9cba3"
@@ -28,20 +28,22 @@ class MoodTrackerViewController: UIViewController, Refresh {
     private let awfulHexCode = "#ff8585"
     
     private let customBrown = UIColor(hexString: "#544B39")
-        private let customDotColour = UIColor(hexString: "#B4A789")
+    private let customDotColour = UIColor(hexString: "#B4A789")
     
     private let locationMangager = CLLocationManager()
     private var currentLocation: CLLocation?
+    var placemark: CLPlacemark?
+    let geocoder = CLGeocoder()
     
     private var moodTrackerViewModel = MoodTrackerViewModel()
     private var chosenDate: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let request = RESTRequest.shared
+        //        let request = RESTRequest.shared
         //        request.getWeatherFor(lat: "", lon: "")
         setUpLocation()
-//        moodTrackerViewModel.getWeatherFor(-37.840935, 144.946457)
+        //        moodTrackerViewModel.getWeatherFor(-37.840935, 144.946457)
         moodTrackerViewModel.delegate = self
         calendar.delegate = self;
         calendar.dataSource = self;
@@ -54,23 +56,23 @@ class MoodTrackerViewController: UIViewController, Refresh {
     }
     
     func setUpLocation() {
-           locationMangager.delegate = self
-           locationMangager.requestWhenInUseAuthorization()
-           locationMangager.startUpdatingLocation()
-       }
+        locationMangager.delegate = self
+        locationMangager.requestWhenInUseAuthorization()
+        locationMangager.startUpdatingLocation()
+    }
     
     func updateUI() {
-
+        
         //        notesText.text = moodTrackerViewModel.getNotes(forDate: chosenDate)
-//
+        //
         if let date = chosenDate {
-                dateLbl.text = formatDate(date: date, asFormat: "dd MMMM, yyyy")
-//            // else retrieve from database
-////            weatherImg.image = UIImage(named: "01d")
-////            tempLbl.text = "no dice"
+            dateLbl.text = formatDate(date: date, asFormat: "dd MMMM, yyyy")
+            //            // else retrieve from database
+            ////            weatherImg.image = UIImage(named: "01d")
+            ////            tempLbl.text = "no dice"
         } else {
             dateLbl.text = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy")
-//
+            //
         }
         print(moodTrackerViewModel.getTempDetails())
         weatherImg.image = moodTrackerViewModel.getImage()
@@ -79,27 +81,27 @@ class MoodTrackerViewController: UIViewController, Refresh {
     }
     
     @IBAction func greatBtn(_ sender: Any) {
-//        updateMood(as: Moods.great.rawValue)
+        //        updateMood(as: Moods.great.rawValue)
         updateMoodView()
     }
     
     @IBAction func goodBtn(_ sender: Any) {
-//        updateMood(as: Moods.good.rawValue)
+        //        updateMood(as: Moods.good.rawValue)
         updateMoodView()
     }
     
     @IBAction func okBtn(_ sender: Any) {
-//        updateMood(as: Moods.ok.rawValue)
+        //        updateMood(as: Moods.ok.rawValue)
         updateMoodView()
     }
     
     @IBAction func badBtn(_ sender: Any) {
-//        updateMood(as: Moods.bad.rawValue)
+        //        updateMood(as: Moods.bad.rawValue)
         updateMoodView()
     }
     
     @IBAction func awfulBtn(_ sender: Any) {
-//        updateMood(as: Moods.awful.rawValue)
+        //        updateMood(as: Moods.awful.rawValue)
         updateMoodView()
     }
     
@@ -109,17 +111,17 @@ class MoodTrackerViewController: UIViewController, Refresh {
         greetingsLbl.text = moodGreeting
         dateLbl.font = UIFont.boldSystemFont(ofSize: 18.0)
         
-//        updateDateMoodView(forDate: calendar.today!)
+        //        updateDateMoodView(forDate: calendar.today!)
     }
     
-//    private func updateMood(as newMoodStr: String) {
-//        if let date = chosenDate {
-//            moodTrackerViewModel.updateMood( forDate: date, as: newMoodStr)
-//        } else {
-//            moodTrackerViewModel.updateMood( forDate: calendar.today!, as: newMoodStr)
-//        }
-//
-//    }
+    //    private func updateMood(as newMoodStr: String) {
+    //        if let date = chosenDate {
+    //            moodTrackerViewModel.updateMood( forDate: date, as: newMoodStr)
+    //        } else {
+    //            moodTrackerViewModel.updateMood( forDate: calendar.today!, as: newMoodStr)
+    //        }
+    //
+    //    }
     
     // format date to string
     private func formatDate(date: Date, asFormat format: String) -> String {
@@ -131,32 +133,32 @@ class MoodTrackerViewController: UIViewController, Refresh {
 }
 
 extension MoodTrackerViewController:  UITextViewDelegate {
-//    func textViewDidChange(_ textView: UITextView) {
-//        if let date = chosenDate {
-//            moodTrackerViewModel.updateNotes(forDate: date, as: notesText.text)
-//        } else {
-//            moodTrackerViewModel.updateNotes(forDate: calendar.today!, as: notesText.text)
-//        }
-//
-//    }
+    //    func textViewDidChange(_ textView: UITextView) {
+    //        if let date = chosenDate {
+    //            moodTrackerViewModel.updateNotes(forDate: date, as: notesText.text)
+    //        } else {
+    //            moodTrackerViewModel.updateNotes(forDate: calendar.today!, as: notesText.text)
+    //        }
+    //
+    //    }
 }
 
 extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     // customise date selection colour to match any mood entry for that date
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
-//        let mood = moodTrackerViewModel.getMood(forDate: date)
+        //        let mood = moodTrackerViewModel.getMood(forDate: date)
         
-//        if mood == Moods.great.rawValue {
-//            return UIColor(hexString: greatHexCode)
-//        } else if mood == Moods.good.rawValue {
-//            return UIColor(hexString: goodHexCode)
-//        } else if mood == Moods.ok.rawValue {
-//            return UIColor(hexString: okHexCode)
-//        } else if mood == Moods.bad.rawValue {
-//            return UIColor(hexString: badHexCode)
-//        } else if mood == Moods.awful.rawValue {
-//            return UIColor(hexString: awfulHexCode)
-//        }
+        //        if mood == Moods.great.rawValue {
+        //            return UIColor(hexString: greatHexCode)
+        //        } else if mood == Moods.good.rawValue {
+        //            return UIColor(hexString: goodHexCode)
+        //        } else if mood == Moods.ok.rawValue {
+        //            return UIColor(hexString: okHexCode)
+        //        } else if mood == Moods.bad.rawValue {
+        //            return UIColor(hexString: badHexCode)
+        //        } else if mood == Moods.awful.rawValue {
+        //            return UIColor(hexString: awfulHexCode)
+        //        }
         
         return appearance.eventDefaultColor
     }
@@ -173,22 +175,22 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, F
     
     // customse event dot colours to reflect a mood event colour
     private func customiseEventColours(forDate date: Date) -> [UIColor]?{
-//        let mood = moodTrackerViewModel.getMood(forDate: date)
-//
-//        var moodEventColor: UIColor = customBrown
-//
-//        if mood == Moods.great.rawValue {
-//            moodEventColor = UIColor(hexString: greatHexCode)
-//        } else if mood == Moods.good.rawValue {
-//            moodEventColor = UIColor(hexString: goodHexCode)
-//        } else if mood == Moods.ok.rawValue {
-//            moodEventColor = UIColor(hexString: okHexCode)
-//        } else if mood == Moods.bad.rawValue {
-//            moodEventColor = UIColor(hexString: badHexCode)
-//        } else if mood == Moods.awful.rawValue {
-//            moodEventColor = UIColor(hexString: awfulHexCode)
-//        }
-//        return [moodEventColor, customBrown]
+        //        let mood = moodTrackerViewModel.getMood(forDate: date)
+        //
+        //        var moodEventColor: UIColor = customBrown
+        //
+        //        if mood == Moods.great.rawValue {
+        //            moodEventColor = UIColor(hexString: greatHexCode)
+        //        } else if mood == Moods.good.rawValue {
+        //            moodEventColor = UIColor(hexString: goodHexCode)
+        //        } else if mood == Moods.ok.rawValue {
+        //            moodEventColor = UIColor(hexString: okHexCode)
+        //        } else if mood == Moods.bad.rawValue {
+        //            moodEventColor = UIColor(hexString: badHexCode)
+        //        } else if mood == Moods.awful.rawValue {
+        //            moodEventColor = UIColor(hexString: awfulHexCode)
+        //        }
+        //        return [moodEventColor, customBrown]
         return [customBrown, customDotColour]
     }
     
@@ -196,20 +198,20 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, F
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         if date.compare(calendar.today!) == .orderedSame {
             print("today")
-            moodTrackerViewModel.getWeatherFor(0, 0)
+            getLocation()
         }
         chosenDate = date
         
-//        updateDateMoodView(forDate: date)
+        //        updateDateMoodView(forDate: date)
     }
     
     private func updateDateMoodView(forDate chosenDate: Date) {
-//        notesText.text = moodTrackerViewModel.getNotes(forDate: chosenDate)
-//        dateLbl.text = formatDate(date: chosenDate, asFormat: "dd MMMM, yyyy")
-//        weatherImg.image = moodTrackerViewModel.getImage()
-//        tempLbl.text = moodTrackerViewModel.getTempDetails()
+        //        notesText.text = moodTrackerViewModel.getNotes(forDate: chosenDate)
+        //        dateLbl.text = formatDate(date: chosenDate, asFormat: "dd MMMM, yyyy")
+        //        weatherImg.image = moodTrackerViewModel.getImage()
+        //        tempLbl.text = moodTrackerViewModel.getTempDetails()
         //        tempLbl.text = "\(details.minTemp) - \(details.maxTemp)"
-//        calendar.reloadData()
+        //        calendar.reloadData()
     }
     // update the view with details from the 'database'
     //    private func updateDateMoodView(forDate chosenDate: Date) {
@@ -224,7 +226,7 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, F
     // display mood and note entries as dots
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         return 1
-//        return moodTrackerViewModel.getRecordEvent(forDate: date)
+        //        return moodTrackerViewModel.getRecordEvent(forDate: date)
     }
     
     private func getWeatherFor(_ lat: Double, _ lon: Double) {
@@ -239,11 +241,11 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, F
     }
     
     private func updateMoodView() {
-//        if let date = chosenDate {
-//            updateDateMoodView(forDate: date)
-//        } else {
-//            updateDateMoodView(forDate: calendar.today!)
-//        }
+        //        if let date = chosenDate {
+        //            updateDateMoodView(forDate: date)
+        //        } else {
+        //            updateDateMoodView(forDate: calendar.today!)
+        //        }
     }
     
     func maximumDate(for calendar: FSCalendar) -> Date {
@@ -253,25 +255,57 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, F
 }
 
 extension MoodTrackerViewController: CLLocationManagerDelegate {
-   
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        
         print("Location manager")
         if !locations.isEmpty, currentLocation == nil {
             print("inside if manager")
             currentLocation = locations.first
             locationMangager.stopUpdatingLocation()
-           requestWeatherForLocation()
+            
+            
         }
     }
     
-    func requestWeatherForLocation() {
+    
+    func getLocation() {
+        
         guard let location = currentLocation else { return }
         let lat = location.coordinate.latitude
         let lon = location.coordinate.longitude
         print("\(lat) and \(lon)")
         moodTrackerViewModel.getWeatherFor(lat, lon)
+        
+        //
+        geocoder.reverseGeocodeLocation(location) { placemarks, error in
+            
+            if let err = error {
+                print("geocoder error**: \(err)")
+            } else  {
+                if let placemarks = placemarks {
+                    self.placemark = placemarks.last
+                }
+                self.parsePlacemarks()
+            }
+        }
     }
+    
+    func parsePlacemarks() {
+        if let placemark = placemark {
+            // wow now you can get the city name. remember that apple refers to city name as locality not city
+            // again we have to unwrap the locality remember optionalllls also some times there is no text so we check that it should not be empty
+            if let city = placemark.locality, !city.isEmpty {
+                // here you have the city name
+                // assign city name to our iVar
+                locationLbl.text = city
+            }
+            
+        }
+        
+        
+    }
+    
 }
 /*
  *    Title: How to convert HEX colors to UIColor in Swift 5?
