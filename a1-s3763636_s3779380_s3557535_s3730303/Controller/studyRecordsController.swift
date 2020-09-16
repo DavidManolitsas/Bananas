@@ -16,8 +16,6 @@ class studyRecordsController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         recordsTableView.delegate = self
         recordsTableView.dataSource = self
         recordsTableView.rowHeight = 100

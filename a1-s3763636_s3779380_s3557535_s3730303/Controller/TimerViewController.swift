@@ -19,7 +19,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
 
     var durations = 10
     
-    var studyRecords = [records]()
+//    var studyRecords = [records]()
     
     private var songList = getSongList()
     var receivedSong:String = ""
@@ -36,6 +36,8 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     var breakduration:Int = 0
     var alarmName = "alarm"
     
+    private var timerVM = TimerViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,7 +45,6 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         // the size of overall view
         blurview.bounds = super.view.bounds
         
-
     }
     
     // convert for printing label
@@ -73,6 +74,8 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     
     @IBAction func startTimer(_ sender: Any) {
         durations = seconds
+        timerVM.updateRecord(breakduration: breakduration, alarmName: alarmName, durations: durations)
+        
         // make sure timer only starts if duration more than 0
         if(seconds > 0){
             // create timer
@@ -80,19 +83,9 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
             // currently we use ViewController.
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TimerViewController.counter), userInfo: nil, repeats: true)
             
-            // disable slider when timer starts and hide the start button
-            // show the stop button
-            slideOutlet.isEnabled = false;
-            startBtn.isHidden = true;
-            startBtn.isEnabled = false;
-            stopBtn.isHidden = false;
-            stopBtn.isEnabled = true;
-            
+            setStartState()
             setupAudioPlayer()
-            
-            print("start Timer with song\(receivedSong)")
-            
-            studyRecords.insert(records(breaktime: breakduration, title: alarmName, timer: durations), at: 0)
+
         }
     }
     
@@ -115,15 +108,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         if (seconds == 0 && breakduration == 0)
         {
             timer.invalidate()
-            // enable slider again and show start button again
-            // hide the stop button
-            slideOutlet.isEnabled = true;
-            startBtn.isHidden = false;
-            startBtn.isEnabled = true;
-            stopBtn.isHidden = true;
-            stopBtn.isEnabled = false;
-            
-            breaktimeLabel.text = ""
+            setStopState()
             audioPlayer.play()
         }
     }
@@ -138,6 +123,23 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         slideOutlet.setValue(3600, animated: true)
         timeLabel.text = "60:00"
         
+       setStopState()
+       
+        audioPlayer.stop()
+       
+    }
+    
+    private func setStartState(){
+        // disable slider when timer starts and hide the start button
+        // show the stop button
+        slideOutlet.isEnabled = false;
+        startBtn.isHidden = true;
+        startBtn.isEnabled = false;
+        stopBtn.isHidden = false;
+        stopBtn.isEnabled = true;
+    }
+    
+    private func setStopState(){
         // enable slider again and show start button again
         // hide the stop button
         slideOutlet.isEnabled = true;
@@ -147,8 +149,6 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         stopBtn.isEnabled = false;
         
         breaktimeLabel.text = ""
-        audioPlayer.stop()
-       
     }
     
     func getDuration()-> Int {
@@ -189,7 +189,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         // pass the array to study records controller
         if segue.identifier == "studyRecords"{
             let recordsController = segue.destination as! studyRecordsController
-            recordsController.studyRecords2 = studyRecords
+            recordsController.studyRecords2 = timerVM.getRecordsFromModel()
         }
         
         
@@ -203,12 +203,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
          // get the modified break duration from popover
         self.breakduration = source!.durationText*60
         self.alarmName = source!.labelField.text ?? "Alarm"
-        
-        print(self.alarmName)
-        print(self.durations)
-        print(self.breakduration)
 
-        
         animateOut(desiredView: blurview)
     }
     
@@ -236,9 +231,6 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         
         // attach desired view to screen
         backgroundView?.addSubview(desiredView)
-        
-        // set darker color
-//        backgroundView?.backgroundColor = .lightGray
         
         //set scaling to 120%
         desiredView.transform = CGAffineTransform(scaleX: 1.2 , y: 1.2)
