@@ -19,6 +19,7 @@
 		636B875524F5357400D4C644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636B875424F5357300D4C644 /* Assets.xcassets */; };
 		636B875724F6040F00D4C644 /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636B875624F6040F00D4C644 /* TodoViewModel.swift */; };
 		636B875924F60C7300D4C644 /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636B875824F60C7300D4C644 /* TodoList.swift */; };
+		6381649C2516E2220061EE95 /* AppIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6381649B2516E2220061EE95 /* AppIcon.jpg */; };
 		63818FAD24E4E5FD00E15655 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63818FAC24E4E5FD00E15655 /* LaunchScreen.storyboard */; };
 		63818FAF24E4E60800E15655 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63818FAE24E4E60800E15655 /* Main.storyboard */; };
 		63AD4D8024EA0E3E00CAAEB4 /* Todo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AD4D7F24EA0E3E00CAAEB4 /* Todo.storyboard */; };
@@ -62,6 +63,7 @@
 		636B875424F5357300D4C644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		636B875624F6040F00D4C644 /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
 		636B875824F60C7300D4C644 /* TodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
+		6381649B2516E2220061EE95 /* AppIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AppIcon.jpg; path = ../../../../../../Downloads/AppIcon.jpg; sourceTree = "<group>"; };
 		63818FAC24E4E5FD00E15655 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63818FAE24E4E60800E15655 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		63AD4D7F24EA0E3E00CAAEB4 /* Todo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Todo.storyboard; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				6348D72024DBC158004B0476 /* AppDelegate.swift */,
 				636B875424F5357300D4C644 /* Assets.xcassets */,
 				6348D72C24DBC15C004B0476 /* Info.plist */,
+				6381649B2516E2220061EE95 /* AppIcon.jpg */,
 			);
 			path = "a1-s3763636_s3779380_s3557535_s3730303";
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				63AD4D8224EA0E6900CAAEB4 /* StudyTracker.storyboard in Resources */,
 				63AD4D8024EA0E3E00CAAEB4 /* Todo.storyboard in Resources */,
 				63818FAF24E4E60800E15655 /* Main.storyboard in Resources */,
+				6381649C2516E2220061EE95 /* AppIcon.jpg in Resources */,
 				63AD4D8424EA0E8D00CAAEB4 /* MoodTracker.storyboard in Resources */,
 				63AD4D8824EA0EC100CAAEB4 /* Profiles.storyboard in Resources */,
 				63818FAD24E4E5FD00E15655 /* LaunchScreen.storyboard in Resources */,
