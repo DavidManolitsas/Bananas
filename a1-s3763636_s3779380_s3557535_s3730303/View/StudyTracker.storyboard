@@ -112,7 +112,7 @@
                         <viewLayoutGuide key="safeArea" id="YhW-34-kxb"/>
                     </view>
                     <navigationItem key="navigationItem" title="Study Tracker" id="LQ2-vu-DaU">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="setting icon" style="plain" id="KX7-Ne-5yF">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="setting icon" style="done" id="KX7-Ne-5yF">
                             <connections>
                                 <action selector="popBtnShow:" destination="Ohn-Lj-sdJ" id="3av-E6-IyM"/>
                                 <segue destination="SDC-Qq-3o8" kind="popoverPresentation" identifier="showPopover" popoverAnchorBarButtonItem="KX7-Ne-5yF" id="i6y-RD-jyc">
