@@ -1,5 +1,5 @@
 //
-//  Forecast+CoreDataClass.swift
+//  Weather+CoreDataClass.swift
 //  a1-s3763636_s3779380_s3557535_s3730303
 //
 //  Created by Jess Cui on 20/9/20.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(Forecast)
-public class Forecast: NSManagedObject {
+@objc(Weather)
+public class Weather: NSManagedObject {
 
 }

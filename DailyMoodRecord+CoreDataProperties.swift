@@ -17,9 +17,9 @@ extension DailyMoodRecord {
         return NSFetchRequest<DailyMoodRecord>(entityName: "DailyMoodRecord")
     }
 
-    @NSManaged public var notes: String?
-    @NSManaged public var mood: String?
     @NSManaged public var date: String?
-    @NSManaged public var forecast: Forecast?
+    @NSManaged public var mood: String?
+    @NSManaged public var notes: String?
+    @NSManaged public var weather: Weather?
 
 }

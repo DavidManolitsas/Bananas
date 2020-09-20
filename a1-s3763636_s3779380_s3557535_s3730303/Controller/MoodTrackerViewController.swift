@@ -42,7 +42,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
         super.viewDidLoad()
         //        let request = RESTRequest.shared
         //        request.getWeatherFor(lat: "", lon: "")
-        setUpLocation()
+//        setUpLocation()
         //        moodTrackerViewModel.getWeatherFor(-37.840935, 144.946457)
         moodTrackerViewModel.delegate = self
         setUpCalendar()
@@ -135,14 +135,20 @@ class MoodTrackerViewController: UIViewController, Refresh {
 }
 
 extension MoodTrackerViewController:  UITextViewDelegate {
-    //    func textViewDidChange(_ textView: UITextView) {
-    //        if let date = chosenDate {
-    //            moodTrackerViewModel.updateNotes(forDate: date, as: notesText.text)
-    //        } else {
-    //            moodTrackerViewModel.updateNotes(forDate: calendar.today!, as: notesText.text)
-    //        }
-    //
-    //    }
+        func textViewDidChange(_ textView: UITextView) {
+//            if let date = chosenDate {
+//                moodTrackerViewModel.updateNotes(forDate: date, as: notesText.text)
+//            } else {
+//                moodTrackerViewModel.updateNotes(forDate: calendar.today!, as: notesText.text)
+//            }
+            
+            if let date = chosenDate {
+                moodTrackerViewModel.addNotes(as: notesText.text, forDate: date)
+            } else {
+                moodTrackerViewModel.addNotes(as: notesText.text, forDate: calendar.today!)
+            }
+    
+        }
 }
 
 extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
@@ -206,17 +212,17 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, F
 //            getLocation()
         }
         chosenDate = date
-        
-        //        updateDateMoodView(forDate: date)
+//        updateUI()
+                updateDateMoodView(forDate: date)
     }
     
     private func updateDateMoodView(forDate chosenDate: Date) {
-        //        notesText.text = moodTrackerViewModel.getNotes(forDate: chosenDate)
+                notesText.text = moodTrackerViewModel.loadNotesFor(date: chosenDate)
         //        dateLbl.text = formatDate(date: chosenDate, asFormat: "dd MMMM, yyyy")
         //        weatherImg.image = moodTrackerViewModel.getImage()
         //        tempLbl.text = moodTrackerViewModel.getTempDetails()
         //        tempLbl.text = "\(details.minTemp) - \(details.maxTemp)"
-        //        calendar.reloadData()
+                calendar.reloadData()
     }
     // update the view with details from the 'database'
     //    private func updateDateMoodView(forDate chosenDate: Date) {

@@ -13,7 +13,7 @@ struct MoodTrackerViewModel {
 //    private var moodTracker = MoodTracker()
     private var RESTReq = RESTRequest.shared
 //    private var currentIdx: Int = 0
-    
+    private var moodTrackerManager = MoodTrackerManager.shared
     private let celsius = "°C"
     private let dtFormat = "dd-MM-yy"
     
@@ -66,6 +66,22 @@ struct MoodTrackerViewModel {
     }
 
 
+    func addNotes(as notes: String, forDate date: Date) {
+        print("adding notes for " + formatDate(date: date))
+        moodTrackerManager.addNotes(notes,formatDate(date: date)) 
+    }
+    
+    func loadNotesFor(date: Date) -> String {
+        let dt = formatDate(date: date)
+         moodTrackerManager.retrieveRecordFor(date: dt)
+        if let record = moodTrackerManager.record {
+            let notes = record.notes!
+            return notes
+        }
+        return ""
+        
+//        moodTrackerManager.records
+    }
     // check if there is a mood or note entry for a given date
 //    public mutating func getRecordEvent(forDate date: Date) -> Int{
 //        let record = moodTracker.getRecord(forDate: formatDate(date: date))
