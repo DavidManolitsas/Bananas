@@ -34,11 +34,11 @@ class RESTRequest {
     func getWeatherFor(lat: String, lon: String) {
         _forecasts = []
         let urlString = baseUrl + paramLat + lat + paramLon + lon + paramExtras
+        print("URL for weather request is: \(urlString)")
 //        let urlString = "https://api.openweathermap.org/data/2.5/onecall?lat=-37.840935&lon=144.946457&exclude=hourly,minutely&units=metric&appid=4cf9cf2abea6ca19629148287ffdd684"
         
         if let url = URL(string: urlString) {
             let request = URLRequest(url: url)
-            //            getData(request, element: "daily")
             getData(request)
         }
     }

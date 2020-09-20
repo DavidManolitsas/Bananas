@@ -45,20 +45,22 @@ class MoodTrackerViewController: UIViewController, Refresh {
         setUpLocation()
         //        moodTrackerViewModel.getWeatherFor(-37.840935, 144.946457)
         moodTrackerViewModel.delegate = self
-        calendar.delegate = self;
-        calendar.dataSource = self;
-        
+        setUpCalendar()
         notesText.delegate = self;
-        
-        customiseCalendarView()
         initDateMoodView()
-        
     }
     
     func setUpLocation() {
         locationMangager.delegate = self
         locationMangager.requestWhenInUseAuthorization()
         locationMangager.startUpdatingLocation()
+    }
+    
+    func setUpCalendar() {
+        calendar.delegate = self;
+        calendar.dataSource = self;
+        customiseCalendarView()
+        
     }
     
     func updateUI() {
@@ -198,7 +200,10 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, F
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         if date.compare(calendar.today!) == .orderedSame {
             print("today")
-            getLocation()
+            
+            locationMangager.startUpdatingLocation()
+//            locationManager(CLLocationManager, didUpdateLocations: [CLLocation])
+//            getLocation()
         }
         chosenDate = date
         
@@ -256,13 +261,12 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, F
 
 extension MoodTrackerViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        
         print("Location manager")
-        if !locations.isEmpty, currentLocation == nil {
+        if !locations.isEmpty{//, currentLocation == nil {
             print("inside if manager")
             currentLocation = locations.first
-            locationMangager.stopUpdatingLocation()
+            // commented out will continuously update location
+//            locationMangager.stopUpdatingLocation()
             getLocation()
             
         }
@@ -276,18 +280,24 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
         let lon = location.coordinate.longitude
         print("\(lat) and \(lon)")
         moodTrackerViewModel.getWeatherFor(lat, lon)
-        
-        //
+
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
             
             if let err = error {
                 print("geocoder error**: \(err)")
             } else  {
-                if let placemarks = placemarks {
-                    self.placemark = placemarks.last
+                if let placemark = placemarks {
+                    self.placemark = placemark.last
+//                    print("self.placemark?.locality \(self.placemark.locality)")
+//                    print("placemark.locality \(self.placemark.locality)")
+//                    print("placemark.subLocality) \(self.placemark.subLocality)")
                 }
                 self.parsePlacemarks()
+                
             }
+            
+            
+            
         }
     }
     
@@ -295,9 +305,8 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
         if let placemark = placemark {
             // wow now you can get the city name. remember that apple refers to city name as locality not city
             // again we have to unwrap the locality remember optionalllls also some times there is no text so we check that it should not be empty
+            print("placemark.locality \(placemark.locality)")
             if let city = placemark.locality, !city.isEmpty {
-                // here you have the city name
-                // assign city name to our iVar
                 locationLbl.text = city
             }
             
