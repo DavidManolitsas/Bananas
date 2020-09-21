@@ -57,7 +57,7 @@ class RESTRequest {
                 do {
                     json = try JSONDecoder().decode(WeatherResponse.self, from: data!)
                 } catch {
-                    print("error in do try: \(error)")
+                    print("error in do try line 60 RESTRequest: \(error)")
                 }
                 
                 guard let result = json else {

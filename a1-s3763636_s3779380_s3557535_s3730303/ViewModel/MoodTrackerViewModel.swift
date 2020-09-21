@@ -75,6 +75,7 @@ struct MoodTrackerViewModel {
         let dt = formatDate(date: date)
          moodTrackerManager.retrieveRecordFor(date: dt)
         if let record = moodTrackerManager.record {
+            print("there is a record for loading notes")
             let notes = record.notes!
             return notes
         }

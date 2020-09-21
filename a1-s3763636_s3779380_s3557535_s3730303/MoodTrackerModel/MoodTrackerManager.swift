@@ -127,6 +127,7 @@ class MoodTrackerManager {
             print("exists an entity at \(date)")
             loadRecordFor(date)
         } else {
+            record = nil
             print("no record, cannot retrieve")
         }
     }

@@ -70,16 +70,16 @@ class MoodTrackerViewController: UIViewController, Refresh {
         
         //        notesText.text = moodTrackerViewModel.getNotes(forDate: chosenDate)
         
-        if let date = chosenDate {
-            dateLbl.text = formatDate(date: date, asFormat: "dd MMMM, yyyy")
-            //            // else retrieve from database
-            ////            weatherImg.image = UIImage(named: "01d")
-            ////            tempLbl.text = "no dice"
-        } else {
-            dateLbl.text = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy")
-            //
-        }
-        print(moodTrackerViewModel.getTempDetails())
+//        if let date = chosenDate {
+//            dateLbl.text = formatDate(date: date, asFormat: "dd MMMM, yyyy")
+//            //            // else retrieve from database
+//            ////            weatherImg.image = UIImage(named: "01d")
+//            ////            tempLbl.text = "no dice"
+//        } else {
+//            dateLbl.text = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy")
+//            //
+//        }
+//        print(moodTrackerViewModel.getTempDetails())
         weatherImg.image = moodTrackerViewModel.getImage()
         tempLbl.text = moodTrackerViewModel.getTempDetails()
         calendar.reloadData()
@@ -110,13 +110,11 @@ class MoodTrackerViewController: UIViewController, Refresh {
         updateMoodView()
     }
     
-    
-    
     private func initDateMoodView() {
         greetingsLbl.text = moodGreeting
         dateLbl.font = UIFont.boldSystemFont(ofSize: 18.0)
         
-        updateDateMoodView(forDate: calendar.today!)
+        updateDateMoodViewFor(date: calendar.today!)
     }
     
     //    private func updateMood(as newMoodStr: String) {
@@ -207,6 +205,7 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, F
     
     // selecting a date and loading the view for that date
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
         if date.compare(calendar.today!) == .orderedSame {
             
             
@@ -215,12 +214,13 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, F
         }
         chosenDate = date
         //        updateUI()
-        updateDateMoodView(forDate: date)
+        updateDateMoodViewFor(date: date)
     }
     
-    private func updateDateMoodView(forDate chosenDate: Date) {
-        notesText.text = moodTrackerViewModel.loadNotesFor(date: chosenDate)
-        //        dateLbl.text = formatDate(date: chosenDate, asFormat: "dd MMMM, yyyy")
+    private func updateDateMoodViewFor(date: Date) {
+        dateLbl.text = formatDate(date: date, asFormat: "dd MMMM, yyyy")
+        notesText.text = moodTrackerViewModel.loadNotesFor(date: date)
+        
         //        weatherImg.image = moodTrackerViewModel.getImage()
         //        tempLbl.text = moodTrackerViewModel.getTempDetails()
         //        tempLbl.text = "\(details.minTemp) - \(details.maxTemp)"
