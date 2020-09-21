@@ -27,15 +27,11 @@ class RESTRequest {
     private let paramLat = "lat="
     private let paramLon = "&lon="
     private let paramExtras = "&exclude=hourly,minutely&units=metric&appid=4cf9cf2abea6ca19629148287ffdd684"
-    //    private let paramExclude = "&exclude=hourly,minutely"
-    //    private let paramUnits = "&units=metric"
-    //    private let paramKey = "&appid=&appid=4cf9cf2abea6ca19629148287ffdd684"
-    
-    func getWeatherFor(lat: String, lon: String) {
+
+    public func getWeatherFor(lat: String, lon: String) {
         _forecasts = []
         let urlString = baseUrl + paramLat + lat + paramLon + lon + paramExtras
 //        print("URL for weather request is: \(urlString)")
-//        let urlString = "https://api.openweathermap.org/data/2.5/onecall?lat=-37.840935&lon=144.946457&exclude=hourly,minutely&units=metric&appid=4cf9cf2abea6ca19629148287ffdd684"
         
         if let url = URL(string: urlString) {
             let request = URLRequest(url: url)
@@ -44,7 +40,6 @@ class RESTRequest {
     }
     
     private func getData(_ url:URLRequest) {
-        
         let task = session.dataTask(with: url, completionHandler: {
             data, response, error in
             

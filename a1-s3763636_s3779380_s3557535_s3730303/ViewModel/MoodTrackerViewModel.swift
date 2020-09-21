@@ -12,22 +12,20 @@ import UIKit
 struct MoodTrackerViewModel {
     //    private var moodTracker = MoodTracker()
     private var RESTReq = RESTRequest.shared
-    //    private var currentIdx: Int = 0
     private var moodTrackerManager = MoodTrackerManager.shared
     private let celsius = "°C"
     private let dtFormat = "dd-MM-yy"
     
-    private var model = RESTRequest.shared
     private var _mood: String
     private var _notes: String
     
     var delegate: Refresh? {
         get {
-            return model.delegate
+            return RESTReq.delegate
         }
         
         set (value) {
-            model.delegate = value
+            RESTReq.delegate = value
         }
     }
     
@@ -49,23 +47,13 @@ struct MoodTrackerViewModel {
         self._notes = ""
     }
     
-    //    private mutating func initEmptyEntry() {
-    //        self._mood = "None"
-    //        self._notes = ""
-    //    }
-    var forecasts: [Forecast] {
-        return model.forecasts
-        
-    }
-    
     private func formatDate(date: Date) -> String {
         let formatter = DateFormatter();
         formatter.dateFormat = dtFormat;
         return formatter.string(from: date);
     }
     
-    func getWeatherFor(_ lat: Double, _ lon: Double) {
-        //        print("\(lat) and \(lon)")
+    public func getWeatherFor(_ lat: Double, _ lon: Double) {
         RESTReq.getWeatherFor(lat: String(lat), lon: String(lon))
     }
     
@@ -73,15 +61,12 @@ struct MoodTrackerViewModel {
         return RESTReq.forecasts
     }
     
-    //    private var dailyForecast = forecast[0]
-    
     public func getImage() -> UIImage? {
         return UIImage(named: forecast[0].iconName)
     }
     
     public func getTempDetails() -> String {
         let maxInt = Int(round(forecast[0].maxTemp))
-        
         let minInt = Int(forecast[0].minTemp)
         let maxTemp = String(maxInt) + celsius
         let minTemp = String(minInt) + celsius
@@ -89,41 +74,32 @@ struct MoodTrackerViewModel {
         return "\(minTemp) - \(maxTemp)"
     }
     
-    
-    func addNotes(as notes: String, forDate date: Date) {
-        print("adding notes for " + formatDate(date: date))
+    public func updateNotesFor(_ date: Date, as notes: String) {
+//        print("adding notes for " + formatDate(date: date))
         moodTrackerManager.addNotes(notes,formatDate(date: date)) 
     }
     
     public func updateMoodFor(_ date: Date, as mood: Moods) {
-        
-        
         for moodEnum in Moods.allCases {
             if mood == moodEnum {
                 let dateStr = formatDate(date: date)
                 moodTrackerManager.addMood(moodEnum.rawValue, dateStr)
             }
-            //                     if mood == moodEnum.rawValue {
-            //                        let dateStr = formatDate(date: date)
-            ////                        moodTrackerManager.addMood(moodEnum.rawValue, dateStr)
-            //         //                moodTracker.updateMood(as: moodEnum, forDate: dateStr)
-            //                     }
         }
         
     }
     
-    
-    func loadNotesFor(date: Date) -> String {
-        let dt = formatDate(date: date)
-        moodTrackerManager.retrieveRecordFor(date: dt)
-        if let record = moodTrackerManager.record {
-            print("there is a record for loading notes")
-            let notes = record.notes!
-            return notes
-        }
-        return ""
-        
-    }
+//    func loadNotesFor(date: Date) -> String {
+//        let dt = formatDate(date: date)
+//        moodTrackerManager.retrieveRecordFor(date: dt)
+//        if let record = moodTrackerManager.record {
+//            print("there is a record for loading notes")
+//            let notes = record.notes!
+//            return notes
+//        }
+//        return ""
+//
+//    }
     
     public mutating func loadRecordFor(_ date: Date) {
         let dt = formatDate(date: date)

@@ -12,7 +12,6 @@ import UIKit
 import CoreLocation
 
 class MoodTrackerViewController: UIViewController, Refresh {
-    
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var tempLbl: UILabel!
@@ -21,7 +20,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
     @IBOutlet weak var notesText: UITextView!
     @IBOutlet weak var locationLbl: UILabel!
     
-    private let moodGreeting: String = "How are you feeling today?"
+    private let moodGreeting = "How are you feeling today?"
     private let greatHexCode = "#8cc0a8"
     private let goodHexCode = "#c9cba3"
     private let okHexCode = "#ffe1a8"
@@ -39,7 +38,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
     private var chosenDate: Date?
     
     @IBAction func greatBtn(_ sender: Any) {
-       updateMoodAs(Moods.great)
+        updateMoodAs(Moods.great)
     }
     
     @IBAction func goodBtn(_ sender: Any) {
@@ -84,10 +83,10 @@ class MoodTrackerViewController: UIViewController, Refresh {
     private func setUpCalendar() {
         calendar.delegate = self;
         calendar.dataSource = self;
-//        customiseCalendarView()
+        //        customiseCalendarView()
         calendar.appearance.todayColor = .orange;
-               calendar.appearance.headerTitleColor = customBrown;
-               calendar.appearance.weekdayTextColor = customBrown;
+        calendar.appearance.headerTitleColor = customBrown;
+        calendar.appearance.weekdayTextColor = customBrown;
     }
     
     private func initDateMoodView() {
@@ -97,29 +96,27 @@ class MoodTrackerViewController: UIViewController, Refresh {
         updateDateMoodViewFor(date: calendar.today!)
     }
     
-//    // changing the colour scheme of calendar
-//    private func customiseCalendarView() {
-//        calendar.appearance.todayColor = .orange;
-//        calendar.appearance.headerTitleColor = customBrown;
-//        calendar.appearance.weekdayTextColor = customBrown;
-//    }
+    //    // changing the colour scheme of calendar
+    //    private func customiseCalendarView() {
+    //        calendar.appearance.todayColor = .orange;
+    //        calendar.appearance.headerTitleColor = customBrown;
+    //        calendar.appearance.weekdayTextColor = customBrown;
+    //    }
     
     private func updateMoodAs(_ newMood: Moods) {
-         if let date = chosenDate {
-             moodTrackerViewModel.updateMoodFor(date, as: newMood)
-             updateDateMoodViewFor(date: date)
-         } else {
-             moodTrackerViewModel.updateMoodFor(calendar.today!, as: newMood)
-             updateDateMoodViewFor(date: calendar.today!)
-         }
-         
-     }
+        if let date = chosenDate {
+            moodTrackerViewModel.updateMoodFor(date, as: newMood)
+            updateDateMoodViewFor(date: date)
+        } else {
+            moodTrackerViewModel.updateMoodFor(calendar.today!, as: newMood)
+            updateDateMoodViewFor(date: calendar.today!)
+        }
+        
+    }
     
     private func getWeatherFor(_ lat: Double, _ lon: Double) {
         moodTrackerViewModel.getWeatherFor(lat, lon)
     }
-    
-    
     
     // format date to string
     private func formatDate(date: Date, asFormat format: String) -> String {
@@ -130,19 +127,23 @@ class MoodTrackerViewController: UIViewController, Refresh {
     
 }
 
-// TextView delegate
+/*
+ Textview delegate
+ */
 extension MoodTrackerViewController:  UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         if let date = chosenDate {
-            moodTrackerViewModel.addNotes(as: notesText.text, forDate: date)
+            moodTrackerViewModel.updateNotesFor(date, as: notesText.text)
         } else {
-            moodTrackerViewModel.addNotes(as: notesText.text, forDate: calendar.today!)
+            moodTrackerViewModel.updateNotesFor(calendar.today!, as: notesText.text)
         }
         
     }
 }
 
-// Calendar appearance
+/*
+ Calendar appearance delegate
+ */
 extension MoodTrackerViewController: FSCalendarDelegateAppearance {
     // customise date selection colour to match any mood entry for that date
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
@@ -198,15 +199,17 @@ extension MoodTrackerViewController: FSCalendarDelegateAppearance {
     
 }
 
-// Calendar delegate
+/*
+ Calendar delegate and datasource
+ */
 extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
     // selecting a date and loading the view for that date
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-//        if date.compare(calendar.today!) == .orderedSame {
-//
-//            //            locationMangager.startUpdatingLocation()
-//            //            getLocation()
-//        }
+        //        if date.compare(calendar.today!) == .orderedSame {
+        //
+        //            //            locationMangager.startUpdatingLocation()
+        //            //            getLocation()
+        //        }
         chosenDate = date
         //        updateUI()
         updateDateMoodViewFor(date: date)
@@ -246,6 +249,9 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
     
 }
 
+/*
+ Location manager delegate
+ */
 extension MoodTrackerViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if !locations.isEmpty{//, currentLocation == nil {
