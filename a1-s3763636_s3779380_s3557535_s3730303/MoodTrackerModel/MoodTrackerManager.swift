@@ -38,6 +38,19 @@ class MoodTrackerManager {
         
     }
     
+    public func addMood(_ mood: String, _ date: String) {
+        // if exists a record at that date, fetch and save
+        if entityDoesExistFor(date: date) {
+            print("updating an existing entity with mood: " + mood)
+            updateEntity(attribute: mood, keyPath: "mood", datePredicate: date)
+        } else {
+            // create new
+            print("creating a new entity for date: \(date)")
+            _ = createNSDailyMoodRecord(date, mood, "")
+        }
+        
+    }
+    
     private func updateEntity(attribute: String, keyPath: String, datePredicate: String) {
         do {
             let predicate = NSPredicate(format: "%K == %@", "date", datePredicate)
