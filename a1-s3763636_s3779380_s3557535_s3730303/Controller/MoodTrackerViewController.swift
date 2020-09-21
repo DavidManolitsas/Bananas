@@ -71,6 +71,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
     func updateUI() {
         weatherImg.image = moodTrackerViewModel.getImage()
         tempLbl.text = moodTrackerViewModel.getTempDetails()
+        // store details?
         calendar.reloadData()
     }
     
@@ -114,9 +115,9 @@ class MoodTrackerViewController: UIViewController, Refresh {
         
     }
     
-    private func getWeatherFor(_ lat: Double, _ lon: Double) {
-        moodTrackerViewModel.getWeatherFor(lat, lon)
-    }
+//    private func getWeatherFor(_ lat: Double, _ lon: Double) {
+//        moodTrackerViewModel.getWeatherFor(lat, lon)
+//    }
     
     // format date to string
     private func formatDate(date: Date, asFormat format: String) -> String {
@@ -127,6 +128,109 @@ class MoodTrackerViewController: UIViewController, Refresh {
     
 }
 
+/*
+ Calendar delegate and datasource
+ */
+extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
+    // selecting a date and loading the view for that date
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        //        if date.compare(calendar.today!) == .orderedSame {
+        //
+        //            //            locationMangager.startUpdatingLocation()
+        //            //            getLocation()
+        //        }
+        chosenDate = date
+        //        updateUI()
+        updateDateMoodViewFor(date: date)
+    }
+    
+    private func updateDateMoodViewFor(date: Date) {
+        dateLbl.text = formatDate(date: date, asFormat: "dd MMMM, yyyy")
+        moodTrackerViewModel.loadRecordFor(date)
+        notesText.text = moodTrackerViewModel.notes
+        
+        //        notesText.text = moodTrackerViewModel.loadNotesFor(date: date)
+        //        weatherImg.image = moodTrackerViewModel.getImage()
+        //        tempLbl.text = moodTrackerViewModel.getTempDetails()
+        //        tempLbl.text = "\(details.minTemp) - \(details.maxTemp)"
+        calendar.reloadData()
+    }
+    // update the view with details from the 'database'
+    //    private func updateDateMoodView(forDate chosenDate: Date) {
+    //        let details = moodTrackerViewModel.getWeatherDetails(forDate: chosenDate)
+    //        weatherImg.image = details.uiImage
+    //        tempLbl.text = "\(details.minTemp) - \(details.maxTemp)"
+    //        notesText.text = moodTrackerViewModel.getNotes(forDate: chosenDate)
+    //        dateLbl.text = formatDate(date: chosenDate, asFormat: "dd MMMM, yyyy")
+    //        calendar.reloadData()
+    //    }
+    
+    
+    
+    func maximumDate(for calendar: FSCalendar) -> Date {
+        return calendar.today!
+    }
+    
+    // display mood and note entries as dots
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        return moodTrackerViewModel.getEventCountFor(date)
+    }
+    
+}
+
+/*
+ Location manager delegate
+ */
+extension MoodTrackerViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // only get location if it's todays date
+        
+    
+        if !locations.isEmpty {//, currentLocation == nil {
+            currentLocation = locations.first
+            // if this is not commented, you will not be able to continuously update location
+            //            locationMangager.stopUpdatingLocation()
+            getLocation()
+            
+        }
+    }
+    
+    
+    func getLocation() {
+        guard let location = currentLocation else { return }
+        let lat = location.coordinate.latitude
+        let lon = location.coordinate.longitude
+        print("the lat is \(lat) and the lon is \(lon)")
+        moodTrackerViewModel.getWeatherFor(lat, lon)
+        // store lat/lon
+        
+        geocoder.reverseGeocodeLocation(location) { placemarks, error in
+            
+            if let err = error {
+                print("geocoder error**: \(err)")
+            } else  {
+                if let placemark = placemarks {
+                    self.placemark = placemark.last
+                    //                    print("self.placemark?.locality \(self.placemark.locality)")
+                    //                    print("placemark.locality \(self.placemark.locality)")
+                    //                    print("placemark.subLocality) \(self.placemark.subLocality)")
+                }
+                self.parsePlacemarks()
+            }
+        }
+    }
+    
+    func parsePlacemarks() {
+        if let placemark = placemark {
+            print("placemark.locality is = \(placemark.locality!)")
+            if let city = placemark.locality, !city.isEmpty {
+                locationLbl.text = city
+                // store city name to database
+            }
+        }
+    }
+    
+}
 /*
  Textview delegate
  */
@@ -199,104 +303,7 @@ extension MoodTrackerViewController: FSCalendarDelegateAppearance {
     
 }
 
-/*
- Calendar delegate and datasource
- */
-extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
-    // selecting a date and loading the view for that date
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        //        if date.compare(calendar.today!) == .orderedSame {
-        //
-        //            //            locationMangager.startUpdatingLocation()
-        //            //            getLocation()
-        //        }
-        chosenDate = date
-        //        updateUI()
-        updateDateMoodViewFor(date: date)
-    }
-    
-    private func updateDateMoodViewFor(date: Date) {
-        dateLbl.text = formatDate(date: date, asFormat: "dd MMMM, yyyy")
-        moodTrackerViewModel.loadRecordFor(date)
-        notesText.text = moodTrackerViewModel.notes
-        
-        //        notesText.text = moodTrackerViewModel.loadNotesFor(date: date)
-        //        weatherImg.image = moodTrackerViewModel.getImage()
-        //        tempLbl.text = moodTrackerViewModel.getTempDetails()
-        //        tempLbl.text = "\(details.minTemp) - \(details.maxTemp)"
-        calendar.reloadData()
-    }
-    // update the view with details from the 'database'
-    //    private func updateDateMoodView(forDate chosenDate: Date) {
-    //        let details = moodTrackerViewModel.getWeatherDetails(forDate: chosenDate)
-    //        weatherImg.image = details.uiImage
-    //        tempLbl.text = "\(details.minTemp) - \(details.maxTemp)"
-    //        notesText.text = moodTrackerViewModel.getNotes(forDate: chosenDate)
-    //        dateLbl.text = formatDate(date: chosenDate, asFormat: "dd MMMM, yyyy")
-    //        calendar.reloadData()
-    //    }
-    
-    
-    
-    func maximumDate(for calendar: FSCalendar) -> Date {
-        return calendar.today!
-    }
-    
-    // display mood and note entries as dots
-    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        return moodTrackerViewModel.getEventCountFor(date)
-    }
-    
-}
 
-/*
- Location manager delegate
- */
-extension MoodTrackerViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if !locations.isEmpty{//, currentLocation == nil {
-            currentLocation = locations.first
-            // if this is not commented, you will not be able to continuously update location
-            //            locationMangager.stopUpdatingLocation()
-            getLocation()
-            
-        }
-    }
-    
-    
-    func getLocation() {
-        guard let location = currentLocation else { return }
-        let lat = location.coordinate.latitude
-        let lon = location.coordinate.longitude
-        print("the lat is \(lat) and the lon is \(lon)")
-        moodTrackerViewModel.getWeatherFor(lat, lon)
-        
-        geocoder.reverseGeocodeLocation(location) { placemarks, error in
-            
-            if let err = error {
-                print("geocoder error**: \(err)")
-            } else  {
-                if let placemark = placemarks {
-                    self.placemark = placemark.last
-                    //                    print("self.placemark?.locality \(self.placemark.locality)")
-                    //                    print("placemark.locality \(self.placemark.locality)")
-                    //                    print("placemark.subLocality) \(self.placemark.subLocality)")
-                }
-                self.parsePlacemarks()
-            }
-        }
-    }
-    
-    func parsePlacemarks() {
-        if let placemark = placemark {
-            print("placemark.locality is = \(placemark.locality!)")
-            if let city = placemark.locality, !city.isEmpty {
-                locationLbl.text = city
-            }
-        }
-    }
-    
-}
 
 
 /*
