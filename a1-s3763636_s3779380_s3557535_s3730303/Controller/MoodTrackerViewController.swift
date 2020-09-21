@@ -20,6 +20,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
     @IBOutlet weak var greetingsLbl: UILabel!
     @IBOutlet weak var notesText: UITextView!
     @IBOutlet weak var locationLbl: UILabel!
+    
     private let moodGreeting: String = "How are you feeling today?"
     private let greatHexCode = "#8cc0a8"
     private let goodHexCode = "#c9cba3"
@@ -32,8 +33,8 @@ class MoodTrackerViewController: UIViewController, Refresh {
     
     private let locationMangager = CLLocationManager()
     private var currentLocation: CLLocation?
-    var placemark: CLPlacemark?
-    let geocoder = CLGeocoder()
+    private var placemark: CLPlacemark?
+    private let geocoder = CLGeocoder()
     
     private var moodTrackerViewModel = MoodTrackerViewModel()
     private var chosenDate: Date?
@@ -42,11 +43,13 @@ class MoodTrackerViewController: UIViewController, Refresh {
         super.viewDidLoad()
         //        let request = RESTRequest.shared
         //        request.getWeatherFor(lat: "", lon: "")
-//        setUpLocation()
         //        moodTrackerViewModel.getWeatherFor(-37.840935, 144.946457)
+        
+        setUpLocation()
+        
         moodTrackerViewModel.delegate = self
-        setUpCalendar()
         notesText.delegate = self;
+        setUpCalendar()
         initDateMoodView()
     }
     
@@ -66,7 +69,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
     func updateUI() {
         
         //        notesText.text = moodTrackerViewModel.getNotes(forDate: chosenDate)
-        //
+        
         if let date = chosenDate {
             dateLbl.text = formatDate(date: date, asFormat: "dd MMMM, yyyy")
             //            // else retrieve from database
@@ -113,7 +116,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
         greetingsLbl.text = moodGreeting
         dateLbl.font = UIFont.boldSystemFont(ofSize: 18.0)
         
-                updateDateMoodView(forDate: calendar.today!)
+        updateDateMoodView(forDate: calendar.today!)
     }
     
     //    private func updateMood(as newMoodStr: String) {
@@ -135,20 +138,20 @@ class MoodTrackerViewController: UIViewController, Refresh {
 }
 
 extension MoodTrackerViewController:  UITextViewDelegate {
-        func textViewDidChange(_ textView: UITextView) {
-//            if let date = chosenDate {
-//                moodTrackerViewModel.updateNotes(forDate: date, as: notesText.text)
-//            } else {
-//                moodTrackerViewModel.updateNotes(forDate: calendar.today!, as: notesText.text)
-//            }
-            
-            if let date = chosenDate {
-                moodTrackerViewModel.addNotes(as: notesText.text, forDate: date)
-            } else {
-                moodTrackerViewModel.addNotes(as: notesText.text, forDate: calendar.today!)
-            }
-    
+    func textViewDidChange(_ textView: UITextView) {
+        //            if let date = chosenDate {
+        //                moodTrackerViewModel.updateNotes(forDate: date, as: notesText.text)
+        //            } else {
+        //                moodTrackerViewModel.updateNotes(forDate: calendar.today!, as: notesText.text)
+        //            }
+        
+        if let date = chosenDate {
+            moodTrackerViewModel.addNotes(as: notesText.text, forDate: date)
+        } else {
+            moodTrackerViewModel.addNotes(as: notesText.text, forDate: calendar.today!)
         }
+        
+    }
 }
 
 extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
@@ -205,24 +208,23 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, F
     // selecting a date and loading the view for that date
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         if date.compare(calendar.today!) == .orderedSame {
-            print("today")
             
-            locationMangager.startUpdatingLocation()
-//            locationManager(CLLocationManager, didUpdateLocations: [CLLocation])
-//            getLocation()
+            
+            //            locationMangager.startUpdatingLocation()
+            //            getLocation()
         }
         chosenDate = date
-//        updateUI()
-                updateDateMoodView(forDate: date)
+        //        updateUI()
+        updateDateMoodView(forDate: date)
     }
     
     private func updateDateMoodView(forDate chosenDate: Date) {
-                notesText.text = moodTrackerViewModel.loadNotesFor(date: chosenDate)
+        notesText.text = moodTrackerViewModel.loadNotesFor(date: chosenDate)
         //        dateLbl.text = formatDate(date: chosenDate, asFormat: "dd MMMM, yyyy")
         //        weatherImg.image = moodTrackerViewModel.getImage()
         //        tempLbl.text = moodTrackerViewModel.getTempDetails()
         //        tempLbl.text = "\(details.minTemp) - \(details.maxTemp)"
-                calendar.reloadData()
+        calendar.reloadData()
     }
     // update the view with details from the 'database'
     //    private func updateDateMoodView(forDate chosenDate: Date) {
@@ -267,12 +269,10 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource, F
 
 extension MoodTrackerViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("Location manager")
         if !locations.isEmpty{//, currentLocation == nil {
-            print("inside if manager")
             currentLocation = locations.first
-            // commented out will continuously update location
-//            locationMangager.stopUpdatingLocation()
+            // if this is not commented, you will not be able to continuously update location
+            //            locationMangager.stopUpdatingLocation()
             getLocation()
             
         }
@@ -280,13 +280,12 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
     
     
     func getLocation() {
-        
         guard let location = currentLocation else { return }
         let lat = location.coordinate.latitude
         let lon = location.coordinate.longitude
-        print("\(lat) and \(lon)")
+        print("the lat is \(lat) and the lon is \(lon)")
         moodTrackerViewModel.getWeatherFor(lat, lon)
-
+        
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
             
             if let err = error {
@@ -294,9 +293,9 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
             } else  {
                 if let placemark = placemarks {
                     self.placemark = placemark.last
-//                    print("self.placemark?.locality \(self.placemark.locality)")
-//                    print("placemark.locality \(self.placemark.locality)")
-//                    print("placemark.subLocality) \(self.placemark.subLocality)")
+                    //                    print("self.placemark?.locality \(self.placemark.locality)")
+                    //                    print("placemark.locality \(self.placemark.locality)")
+                    //                    print("placemark.subLocality) \(self.placemark.subLocality)")
                 }
                 self.parsePlacemarks()
                 
@@ -309,9 +308,7 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
     
     func parsePlacemarks() {
         if let placemark = placemark {
-            // wow now you can get the city name. remember that apple refers to city name as locality not city
-            // again we have to unwrap the locality remember optionalllls also some times there is no text so we check that it should not be empty
-            print("placemark.locality \(placemark.locality)")
+            print("placemark.locality is = \(placemark.locality)")
             if let city = placemark.locality, !city.isEmpty {
                 locationLbl.text = city
             }
@@ -322,6 +319,8 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
     }
     
 }
+
+
 /*
  *    Title: How to convert HEX colors to UIColor in Swift 5?
  *    Author: Florian

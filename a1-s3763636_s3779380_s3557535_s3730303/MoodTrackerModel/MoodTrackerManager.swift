@@ -21,8 +21,8 @@ class MoodTrackerManager {
     
     private init() {
         managedContext = appDelegate.persistentContainer.viewContext
-        
     }
+    
     private let recordFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"DailyMoodRecord")
     
     public func addNotes(_ notes: String, _ date: String) {
@@ -49,7 +49,7 @@ class MoodTrackerManager {
             if (records.count != 0) {
                 records[0].setValue(attribute, forKeyPath: keyPath)
             }
-            //            return records
+            
         } catch let error as NSError {
             print("*** Retrieving from database error: \(error), \(error.userInfo)")
         }
@@ -145,12 +145,6 @@ class MoodTrackerManager {
         } catch let error as NSError {
             print("*** Retrieving from database error: \(error), \(error.userInfo)")
         }
-        // cast the results back into an array of books
-        //            record = result as! DailyMoodRecord
-        
-        //            return records
-        //            print(records[0])
-        
         
         return results.count > 0
     }

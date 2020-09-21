@@ -34,7 +34,7 @@ class RESTRequest {
     func getWeatherFor(lat: String, lon: String) {
         _forecasts = []
         let urlString = baseUrl + paramLat + lat + paramLon + lon + paramExtras
-        print("URL for weather request is: \(urlString)")
+//        print("URL for weather request is: \(urlString)")
 //        let urlString = "https://api.openweathermap.org/data/2.5/onecall?lat=-37.840935&lon=144.946457&exclude=hourly,minutely&units=metric&appid=4cf9cf2abea6ca19629148287ffdd684"
         
         if let url = URL(string: urlString) {
@@ -52,7 +52,6 @@ class RESTRequest {
                 print("completion handler error: \(err)")
             } else {
                 
-                // convert dat to some object
                 var json: WeatherResponse?
                 
                 do {
@@ -67,8 +66,8 @@ class RESTRequest {
                 
                 let day = result.daily[0]
                 print(result.daily[0].weather[0])
-                print(result.daily[0].temp.max)
-                print(result.daily[0].temp.min)
+//                print(result.daily[0].temp.max)
+//                print(result.daily[0].temp.min)
                 let forecast = Forecast(main: day.weather[0].main, description: day.weather[0].description, iconName: day.weather[0].icon, maxTemp: day.temp.max, minTemp: day.temp.min)
                 self._forecasts.append(forecast)
                 

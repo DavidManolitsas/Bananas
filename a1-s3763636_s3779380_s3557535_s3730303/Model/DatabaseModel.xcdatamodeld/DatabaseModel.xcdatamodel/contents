@@ -1,21 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="19F101" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DailyMoodRecord" representedClassName="DailyMoodRecord" syncable="YES">
-        <attribute name="date" optional="YES" attributeType="String"/>
-        <attribute name="mood" optional="YES" attributeType="String"/>
-        <attribute name="notes" optional="YES" attributeType="String"/>
-        <relationship name="weather" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Weather" inverseName="dailyMoodRecord" inverseEntity="Weather"/>
+        <attribute name="date" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="mood" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="notes" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <relationship name="weather" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Weather" inverseName="dailyMoodRecord" inverseEntity="Weather">
+            <userInfo/>
+        </relationship>
     </entity>
     <entity name="Weather" representedClassName="Weather" syncable="YES">
-        <attribute name="iconName" optional="YES" attributeType="String"/>
-        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="maxTemp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="minTemp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="dailyMoodRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DailyMoodRecord" inverseName="weather" inverseEntity="DailyMoodRecord"/>
+        <attribute name="iconName" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES">
+            <userInfo/>
+        </attribute>
+        <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES">
+            <userInfo/>
+        </attribute>
+        <attribute name="maxTemp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES">
+            <userInfo/>
+        </attribute>
+        <attribute name="minTemp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES">
+            <userInfo/>
+        </attribute>
+        <relationship name="dailyMoodRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DailyMoodRecord" inverseName="weather" inverseEntity="DailyMoodRecord">
+            <userInfo/>
+        </relationship>
     </entity>
     <elements>
-        <element name="DailyMoodRecord" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="DailyMoodRecord" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="Weather" positionX="314.42578125" positionY="-46.59375" width="128" height="133"/>
     </elements>
 </model>

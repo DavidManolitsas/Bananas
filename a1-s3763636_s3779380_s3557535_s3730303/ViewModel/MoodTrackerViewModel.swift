@@ -41,7 +41,7 @@ struct MoodTrackerViewModel {
     }
     
     func getWeatherFor(_ lat: Double, _ lon: Double) {
-        print("\(lat) and \(lon)")
+//        print("\(lat) and \(lon)")
         RESTReq.getWeatherFor(lat: String(lat), lon: String(lon))
     }
     
