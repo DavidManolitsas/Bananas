@@ -13,6 +13,12 @@ private let profile = ["   David Manolitsas",
                       "   Peng Xiong",
                       "   Winnie Siwan"]
 
+private let avatar = [""]
+
 func getProfile() -> [String] {
     return profile;
+}
+
+func getAvatar() -> [String]{
+    return avatar
 }

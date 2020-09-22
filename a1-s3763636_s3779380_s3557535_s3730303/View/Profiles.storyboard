@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7mF-e7-HCA">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7mF-e7-HCA">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
-
-
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,43 +13,71 @@
         <!--Profiles-->
         <scene sceneID="QGN-mM-2f5">
             <objects>
-                <viewController id="umj-hM-Hc5" customClass="profileViewController" customModule="a1_s3763636_s3779380_s3557535_s3730303" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="umj-hM-Hc5" customClass="ProfileMainViewController" customModule="a1_s3763636_s3779380_s3557535_s3730303" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mbP-zD-zMU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="31i-L1-eV4" userLabel="profile View" customClass="pro">
-                                <rect key="frame" x="0.0" y="88" width="414" height="767"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileCell" id="RpM-Gh-g8J" userLabel="profile View Cell">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RpM-Gh-g8J" id="h7R-Hs-1gO">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftC-ca-fD3">
+                                <rect key="frame" x="45" y="202" width="324" height="376"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="31i-L1-eV4" firstAttribute="top" secondItem="2mR-sT-GDC" secondAttribute="top" id="HaD-Df-pCg"/>
-                            <constraint firstItem="31i-L1-eV4" firstAttribute="leading" secondItem="2mR-sT-GDC" secondAttribute="leading" id="dec-q4-Crc"/>
-                            <constraint firstItem="31i-L1-eV4" firstAttribute="trailing" secondItem="2mR-sT-GDC" secondAttribute="trailing" id="u9c-rT-meE"/>
-                            <constraint firstItem="2mR-sT-GDC" firstAttribute="bottom" secondItem="31i-L1-eV4" secondAttribute="bottom" constant="7" id="zHr-ne-fBh"/>
+                            <constraint firstItem="ftC-ca-fD3" firstAttribute="top" secondItem="2mR-sT-GDC" secondAttribute="top" constant="114" id="85C-26-BSK"/>
+                            <constraint firstItem="ftC-ca-fD3" firstAttribute="leading" secondItem="2mR-sT-GDC" secondAttribute="leading" constant="45" id="Ybl-AN-GgG"/>
+                            <constraint firstItem="2mR-sT-GDC" firstAttribute="bottom" secondItem="ftC-ca-fD3" secondAttribute="bottom" constant="284" id="qKq-O8-8SX"/>
+                            <constraint firstItem="ftC-ca-fD3" firstAttribute="centerX" secondItem="mbP-zD-zMU" secondAttribute="centerX" id="wGQ-Hx-Pfw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2mR-sT-GDC"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profiles" id="19z-PS-QbB"/>
                     <connections>
-                        <outlet property="profile" destination="31i-L1-eV4" id="Ww2-m9-mkc"/>
+                        <outlet property="contentView" destination="ftC-ca-fD3" id="3Wd-dU-4rU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PKn-gx-2g9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3228.985507246377" y="1695.5357142857142"/>
+        </scene>
+        <!--Profile Data View Controller-->
+        <scene sceneID="ZXJ-lZ-G1h">
+            <objects>
+                <viewController storyboardIdentifier="ProfileDataViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QBF-gZ-fwu" customClass="ProfileDataViewController" customModule="a1_s3763636_s3779380_s3557535_s3730303" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vsG-8d-F5n" customClass="Profile">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVK-rZ-fTs">
+                                <rect key="frame" x="188.5" y="439" width="37.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="SVK-rZ-fTs" firstAttribute="centerX" secondItem="vsG-8d-F5n" secondAttribute="centerX" id="6dt-kA-UVA"/>
+                            <constraint firstItem="SVK-rZ-fTs" firstAttribute="centerY" secondItem="vsG-8d-F5n" secondAttribute="centerY" id="lqy-1w-2hD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Wzb-V6-5Zt"/>
+                    </view>
+                    <connections>
+                        <outlet property="displayLabel" destination="SVK-rZ-fTs" id="Vyq-Zc-3Vv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="De9-YC-70a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4209" y="2382"/>
+        </scene>
+        <!--Custom Page View Controller-->
+        <scene sceneID="ctB-Gy-jb8">
+            <objects>
+                <pageViewController storyboardIdentifier="CustomPageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="fiE-Af-CuS" customClass="CustomPageViewController" customModule="a1_s3763636_s3779380_s3557535_s3730303" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nwX-Hx-faf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4209" y="1696"/>
         </scene>
         <!--Profiles-->
         <scene sceneID="bZd-YW-Vdp">
