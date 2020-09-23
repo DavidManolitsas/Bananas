@@ -19,6 +19,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
     @IBOutlet weak var greetingsLbl: UILabel!
     @IBOutlet weak var notesText: UITextView!
     @IBOutlet weak var locationLbl: UILabel!
+    @IBOutlet weak var locationImg: UIImageView!
     
     private let moodGreeting = "How are you feeling today?"
     private let greatHexCode = "#8cc0a8"
@@ -69,10 +70,22 @@ class MoodTrackerViewController: UIViewController, Refresh {
     }
     
     func updateUI() {
+        
+        if let date = chosenDate {
+            if date.compare(calendar.today!) == .orderedSame  {
+                
         weatherImg.image = moodTrackerViewModel.getImage()
-        tempLbl.text = moodTrackerViewModel.getTempDetails()
+        tempLbl.text = moodTrackerViewModel.getTodayTempDetails()
         // store details?
-        calendar.reloadData()
+                calendar.reloadData()
+            }
+        
+        } else {
+            weatherImg.image = moodTrackerViewModel.getImage()
+            tempLbl.text = moodTrackerViewModel.getTodayTempDetails()
+            // store details?
+            calendar.reloadData()
+        }
     }
     
     private func setUpLocation() {
@@ -148,7 +161,10 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
         dateLbl.text = formatDate(date: date, asFormat: "dd MMMM, yyyy")
         moodTrackerViewModel.loadRecordFor(date)
         notesText.text = moodTrackerViewModel.notes
-        
+        tempLbl.text = moodTrackerViewModel.tempDetails
+        locationLbl.text = moodTrackerViewModel.location
+        locationImg.image = moodTrackerViewModel.locationOffImg
+        weatherImg.image = moodTrackerViewModel.weatherImg
         //        notesText.text = moodTrackerViewModel.loadNotesFor(date: date)
         //        weatherImg.image = moodTrackerViewModel.getImage()
         //        tempLbl.text = moodTrackerViewModel.getTempDetails()
@@ -225,6 +241,7 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
             print("placemark.locality is = \(placemark.locality!)")
             if let city = placemark.locality, !city.isEmpty {
                 locationLbl.text = city
+                locationImg.image = moodTrackerViewModel.locationOnImg
                 // store city name to database
             }
         }

@@ -18,6 +18,11 @@ struct MoodTrackerViewModel {
     
     private var _mood: String
     private var _notes: String
+    private var _tempDetails: String
+    private var _location: String
+    private var locationOffIcon: String
+    private var locationOnIcon: String
+    private var weatherIcon: String
     
     var delegate: Refresh? {
         get {
@@ -42,9 +47,46 @@ struct MoodTrackerViewModel {
         }
     }
     
+    var location: String {
+        get {
+            return _location
+        }
+    }
+    
+    var tempDetails: String {
+        get {
+            return _tempDetails
+        }
+    }
+    
+    var locationOffImg: UIImage? {
+        get {
+            return UIImage(named: locationOffIcon)
+        }
+    }
+    
+    var locationOnImg: UIImage? {
+        get {
+            return UIImage(named: locationOnIcon)
+        }
+    }
+    
+    var weatherImg: UIImage? {
+        get {
+            return UIImage(named: weatherIcon)
+        }
+    }
+    
+    
+
     init() {
         self._mood = Moods.none.rawValue
         self._notes = ""
+        self._tempDetails = "No weather data"
+        self._location = "No location data"
+        self.locationOffIcon = "location_off"
+        self.locationOnIcon = "location"
+        self.weatherIcon = "transparent"
     }
     
     private func formatDate(date: Date) -> String {
@@ -65,25 +107,25 @@ struct MoodTrackerViewModel {
         return UIImage(named: forecast[0].iconName)
     }
     
-    public func getTempDetails() -> String {
-        let maxInt = Int(round(forecast[0].maxTemp))
-        let minInt = Int(forecast[0].minTemp)
-        let maxTemp = String(maxInt) + celsius
-        let minTemp = String(minInt) + celsius
+    public func getTodayTempDetails() -> String {
+//        let maxInt = Int(round(forecast[0].maxTemp))
+//        let minInt = Int(forecast[0].minTemp)
+//        let maxTemp = String(maxInt) + celsius
+//        let minTemp = String(minInt) + celsius
         
-        return "\(minTemp) - \(maxTemp)"
+        return formatTempDetails(forecast[0].minTemp, forecast[0].maxTemp)
     }
     
     public func updateNotesFor(_ date: Date, as notes: String) {
 //        print("adding notes for " + formatDate(date: date))
-        moodTrackerManager.addNotes(notes,formatDate(date: date)) 
+        moodTrackerManager.updateNotes(notes,formatDate(date: date)) 
     }
     
     public func updateMoodFor(_ date: Date, as mood: Moods) {
         for moodEnum in Moods.allCases {
             if mood == moodEnum {
                 let dateStr = formatDate(date: date)
-                moodTrackerManager.addMood(moodEnum.rawValue, dateStr)
+                moodTrackerManager.updateMood(moodEnum.rawValue, dateStr)
             }
         }
         
@@ -107,11 +149,30 @@ struct MoodTrackerViewModel {
         if let record = moodTrackerManager.record {
             self._notes = record.notes!
             self._mood = record.mood!
+            
+            if let weather = record.weather {
+                self._tempDetails = formatTempDetails(weather.minTemp, weather.maxTemp)
+                self._location = weather.location!
+                self.weatherIcon = weather.iconName!
+            }
+        
         } else {
             self._notes = ""
             self._mood = Moods.none.rawValue
+            self._tempDetails = "No weather data"
+            self._location = "No location data"
+            self.weatherIcon = "transparent"
         }
         
+    }
+    
+    public func formatTempDetails(_ min: Double,_ max: Double) -> String {
+        let minInt = Int(round(min))
+        let maxInt = Int(round(max))
+        let minTemp = String(minInt) + celsius
+        let maxTemp = String(maxInt) + celsius
+
+        return "\(minTemp) - \(maxTemp)"
     }
     
     public mutating func getEventCountFor(_ date: Date) -> Int {

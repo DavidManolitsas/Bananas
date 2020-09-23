@@ -30,10 +30,10 @@
 		63FA778024F262B4009F47B7 /* TodoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FA777F24F262B4009F47B7 /* TodoDetailController.swift */; };
 		C85D57BB24EFA30F00C8AF13 /* WeatherM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85D57BA24EFA30F00C8AF13 /* WeatherM.swift */; };
 		C8800DD7251731D2003B2A10 /* MoodTrackerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8800DD6251731D2003B2A10 /* MoodTrackerManager.swift */; };
-		C8800DF025173B85003B2A10 /* Weather+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8800DEC25173B85003B2A10 /* Weather+CoreDataClass.swift */; };
-		C8800DF125173B85003B2A10 /* Weather+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8800DED25173B85003B2A10 /* Weather+CoreDataProperties.swift */; };
 		C8800DF225173B85003B2A10 /* DailyMoodRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8800DEE25173B85003B2A10 /* DailyMoodRecord+CoreDataClass.swift */; };
 		C8800DF325173B85003B2A10 /* DailyMoodRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8800DEF25173B85003B2A10 /* DailyMoodRecord+CoreDataProperties.swift */; };
+		C88F4BA0251AF04F00C68E1D /* Weather+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F4B9E251AF04F00C68E1D /* Weather+CoreDataClass.swift */; };
+		C88F4BA1251AF04F00C68E1D /* Weather+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F4B9F251AF04F00C68E1D /* Weather+CoreDataProperties.swift */; };
 		C8949E7524F2662100FE6A64 /* MoodTrackerDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8949E7424F2662100FE6A64 /* MoodTrackerDatabase.swift */; };
 		C8949E7724F2667200FE6A64 /* DailyRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8949E7624F2667200FE6A64 /* DailyRecord.swift */; };
 		C8949E7924F26F7200FE6A64 /* MoodTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8949E7824F26F7200FE6A64 /* MoodTracker.swift */; };
@@ -83,10 +83,10 @@
 		BD0CFFEC536B1C0A945079B6 /* Pods_a1_s3763636_s3779380_s3557535_s3730303.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_a1_s3763636_s3779380_s3557535_s3730303.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C85D57BA24EFA30F00C8AF13 /* WeatherM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherM.swift; sourceTree = "<group>"; };
 		C8800DD6251731D2003B2A10 /* MoodTrackerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerManager.swift; sourceTree = "<group>"; };
-		C8800DEC25173B85003B2A10 /* Weather+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		C8800DED25173B85003B2A10 /* Weather+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		C8800DEE25173B85003B2A10 /* DailyMoodRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailyMoodRecord+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		C8800DEF25173B85003B2A10 /* DailyMoodRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailyMoodRecord+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		C88F4B9E251AF04F00C68E1D /* Weather+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		C88F4B9F251AF04F00C68E1D /* Weather+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		C8949E7424F2662100FE6A64 /* MoodTrackerDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerDatabase.swift; sourceTree = "<group>"; };
 		C8949E7624F2667200FE6A64 /* DailyRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRecord.swift; sourceTree = "<group>"; };
 		C8949E7824F26F7200FE6A64 /* MoodTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTracker.swift; sourceTree = "<group>"; };
@@ -240,8 +240,8 @@
 		C8800DD52517020A003B2A10 /* MoodTrackerModel */ = {
 			isa = PBXGroup;
 			children = (
-				C8800DEC25173B85003B2A10 /* Weather+CoreDataClass.swift */,
-				C8800DED25173B85003B2A10 /* Weather+CoreDataProperties.swift */,
+				C88F4B9E251AF04F00C68E1D /* Weather+CoreDataClass.swift */,
+				C88F4B9F251AF04F00C68E1D /* Weather+CoreDataProperties.swift */,
 				C8800DEE25173B85003B2A10 /* DailyMoodRecord+CoreDataClass.swift */,
 				C8800DEF25173B85003B2A10 /* DailyMoodRecord+CoreDataProperties.swift */,
 				C85D57BA24EFA30F00C8AF13 /* WeatherM.swift */,
@@ -389,11 +389,12 @@
 				C8949E7B24F2709E00FE6A64 /* Moods.swift in Sources */,
 				C8E1403624F142800024F572 /* MoodTrackerViewModel.swift in Sources */,
 				CB9C783324F0EEAB007878A3 /* PopViewController.swift in Sources */,
+				C88F4BA1251AF04F00C68E1D /* Weather+CoreDataProperties.swift in Sources */,
 				CB9C782124F0E078007878A3 /* SongList.swift in Sources */,
 				63652DDD24ED1CA0005C0BC1 /* TaskPriority.swift in Sources */,
 				636B875724F6040F00D4C644 /* TodoViewModel.swift in Sources */,
+				C88F4BA0251AF04F00C68E1D /* Weather+CoreDataClass.swift in Sources */,
 				636B875924F60C7300D4C644 /* TodoList.swift in Sources */,
-				C8800DF025173B85003B2A10 /* Weather+CoreDataClass.swift in Sources */,
 				C8CA4D6225107FF900467AEE /* RESTRequest.swift in Sources */,
 				5FAA268424FDD5AD00FE79D6 /* studyRecordsController.swift in Sources */,
 				5FAA268224FDD58600FE79D6 /* recordsModel.swift in Sources */,
@@ -414,7 +415,6 @@
 				6348D72124DBC158004B0476 /* AppDelegate.swift in Sources */,
 				C8800DD7251731D2003B2A10 /* MoodTrackerManager.swift in Sources */,
 				63D0528224EE5AD900665E67 /* SplitViewController.swift in Sources */,
-				C8800DF125173B85003B2A10 /* Weather+CoreDataProperties.swift in Sources */,
 				CB36EEB925106A5B009EF4AC /* TimerRecords.swift in Sources */,
 				C8800DF225173B85003B2A10 /* DailyMoodRecord+CoreDataClass.swift in Sources */,
 			);
