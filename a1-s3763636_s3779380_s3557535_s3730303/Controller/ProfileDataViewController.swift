@@ -11,12 +11,18 @@ import UIKit
 class ProfileDataViewController: UIViewController {
 
     @IBOutlet weak var displayLabel: UILabel!
+    @IBOutlet var displayAvatar: UIImageView!
+    
+    
+    var avatarName:String = "dAvatar"
     var displayText:String?
     var dataIndex:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         displayLabel.text = displayText
+        
+       displayAvatar.image = UIImage(named: avatarName)
     }
     
 

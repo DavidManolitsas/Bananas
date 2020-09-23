@@ -20,7 +20,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftC-ca-fD3">
                                 <rect key="frame" x="45" y="202" width="324" height="376"/>
-                                <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.92549019607843142" green="0.76078431372549016" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="324" id="1sI-zU-bNy"/>
                                     <constraint firstAttribute="height" constant="376" id="VdV-F1-ynE"/>
@@ -58,7 +58,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellowbtn" translatesAutoresizingMaskIntoConstraints="NO" id="em1-qM-AIE">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="em1-qM-AIE">
                                 <rect key="frame" x="140" y="145" width="134" height="134"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="134" id="mKH-87-CDb"/>
@@ -66,7 +66,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.92549019607843142" green="0.76078431372549016" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="em1-qM-AIE" firstAttribute="centerX" secondItem="vsG-8d-F5n" secondAttribute="centerX" id="7Tq-8f-Ugi"/>
                             <constraint firstItem="em1-qM-AIE" firstAttribute="top" secondItem="Wzb-V6-5Zt" secondAttribute="top" constant="101" id="Bmc-qa-Kur"/>
@@ -76,6 +76,7 @@
                         <viewLayoutGuide key="safeArea" id="Wzb-V6-5Zt"/>
                     </view>
                     <connections>
+                        <outlet property="displayAvatar" destination="em1-qM-AIE" id="JGs-7y-wh5"/>
                         <outlet property="displayLabel" destination="SVK-rZ-fTs" id="Vyq-Zc-3Vv"/>
                     </connections>
                 </viewController>
@@ -115,6 +116,5 @@
     </scenes>
     <resources>
         <image name="profile" width="24" height="21.5"/>
-        <image name="yellowbtn" width="61" height="61"/>
     </resources>
 </document>

@@ -13,7 +13,7 @@ class ProfileMainViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     
 
-    var dataSource:[Profile] = ProfileViewModel().getRecordsFromModel()
+    var dataSource:[Profile] = TeamProfile().getPeople()
     var currentViewControllerIndex = 0
     
     override func viewDidLoad() {
@@ -63,8 +63,8 @@ class ProfileMainViewController: UIViewController {
         }
         
         dataViewController.dataIndex = index
-//        dataViewController.displayText = dataSource[index]
-         dataViewController.displayText = dataSource[index].name
+         dataViewController.displayText = dataSource[index].getProfileName()
+        dataViewController.avatarName = dataSource[index].getAvatarName()
         
         return dataViewController
     }
