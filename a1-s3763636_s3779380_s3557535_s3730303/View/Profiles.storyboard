@@ -48,7 +48,7 @@
         <scene sceneID="ZXJ-lZ-G1h">
             <objects>
                 <viewController storyboardIdentifier="ProfileDataViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QBF-gZ-fwu" customClass="ProfileDataViewController" customModule="a1_s3763636_s3779380_s3557535_s3730303" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vsG-8d-F5n" customClass="Profile">
+                    <view key="view" contentMode="scaleToFill" id="vsG-8d-F5n">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
