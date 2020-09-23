@@ -15,12 +15,16 @@ protocol Refresh {
 
 // responsible for making the REST request
 class RESTRequest {
-    private var _forecasts: [Forecast] = []
+//    private var _forecasts: [Forecast] = []
+        private var _forecast: Forecast?
     var delegate: Refresh?
     private let session = URLSession.shared
     
-    var forecasts:[Forecast] {
-        return _forecasts
+//    var forecasts:[Forecast] {
+//        return _forecasts
+//    }
+    var forecast: Forecast? {
+        return _forecast
     }
     
     private let baseUrl = "https://api.openweathermap.org/data/2.5/onecall?"
@@ -29,7 +33,7 @@ class RESTRequest {
     private let paramExtras = "&exclude=hourly,minutely&units=metric&appid=4cf9cf2abea6ca19629148287ffdd684"
 
     public func getWeatherFor(lat: String, lon: String) {
-        _forecasts = []
+//        _forecasts = []
         let urlString = baseUrl + paramLat + lat + paramLon + lon + paramExtras
 //        print("URL for weather request is: \(urlString)")
         
@@ -60,12 +64,12 @@ class RESTRequest {
                 }
                 
                 let day = result.daily[0]
-                print(result.daily[0].weather[0])
+//                print(result.daily[0].weather[0])
 //                print(result.daily[0].temp.max)
 //                print(result.daily[0].temp.min)
                 let forecast = Forecast(main: day.weather[0].main, description: day.weather[0].description, iconName: day.weather[0].icon, maxTemp: day.temp.max, minTemp: day.temp.min)
-                self._forecasts.append(forecast)
-                
+//                self._forecasts.append(forecast)
+                    self._forecast = forecast
                 DispatchQueue.main.async {
                     self.delegate?.updateUI()
                 }

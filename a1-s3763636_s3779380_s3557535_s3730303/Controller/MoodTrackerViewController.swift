@@ -76,6 +76,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
                 
         weatherImg.image = moodTrackerViewModel.getImage()
         tempLbl.text = moodTrackerViewModel.getTodayTempDetails()
+//                notesText.text = moodTrack
         // store details?
                 calendar.reloadData()
             }
@@ -147,14 +148,15 @@ class MoodTrackerViewController: UIViewController, Refresh {
 extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
     // selecting a date and loading the view for that date
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        //        if date.compare(calendar.today!) == .orderedSame {
-        //
-        //            //            locationMangager.startUpdatingLocation()
-        //            //            getLocation()
-        //        }
         chosenDate = date
-        //        updateUI()
+                if date.compare(calendar.today!) == .orderedSame {
+        
+//                                locationMangager.startUpdatingLocation()
+//                                getLocation()
+                } else {
+        
         updateDateMoodViewFor(date: date)
+        }
     }
     
     private func updateDateMoodViewFor(date: Date) {
@@ -205,7 +207,7 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
         if !locations.isEmpty {//, currentLocation == nil {
             currentLocation = locations.first
             // if this is not commented, you will not be able to continuously update location
-            //            locationMangager.stopUpdatingLocation()
+//                        locationMangager.stopUpdatingLocation()
             getLocation()
             
         }
@@ -238,11 +240,15 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
     
     func parsePlacemarks() {
         if let placemark = placemark {
-            print("placemark.locality is = \(placemark.locality!)")
+            
+            
             if let city = placemark.locality, !city.isEmpty {
+                print("placemark.locality is = \(city)")
                 locationLbl.text = city
                 locationImg.image = moodTrackerViewModel.locationOnImg
                 // store city name to database
+            } else {
+//                locationLbl.text = "No location data"
             }
         }
     }

@@ -99,21 +99,25 @@ struct MoodTrackerViewModel {
         RESTReq.getWeatherFor(lat: String(lat), lon: String(lon))
     }
     
-    var forecast: [Forecast] {
-        return RESTReq.forecasts
-    }
-    
+//    var forecast: Forecast {
+//        return RESTReq.forecasts
+//    }
+//    var forecast: Forecast {
+//        return RESTReq.forecasts
+//    }
     public func getImage() -> UIImage? {
-        return UIImage(named: forecast[0].iconName)
+        
+        if let forecast = RESTReq.forecast {
+        return UIImage(named: forecast.iconName)
+        }
+        return UIImage(named: self.weatherIcon)
     }
     
     public func getTodayTempDetails() -> String {
-//        let maxInt = Int(round(forecast[0].maxTemp))
-//        let minInt = Int(forecast[0].minTemp)
-//        let maxTemp = String(maxInt) + celsius
-//        let minTemp = String(minInt) + celsius
-        
-        return formatTempDetails(forecast[0].minTemp, forecast[0].maxTemp)
+        if let forecast = RESTReq.forecast {
+            return formatTempDetails(forecast.minTemp, forecast.maxTemp)
+        }
+        return self._tempDetails
     }
     
     public func updateNotesFor(_ date: Date, as notes: String) {
