@@ -54,6 +54,9 @@
 		CB9C783024F0E337007878A3 /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB9C782D24F0E337007878A3 /* 2.mp3 */; };
 		CB9C783324F0EEAB007878A3 /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C783224F0EEAB007878A3 /* PopViewController.swift */; };
 		CB9C783524F10EAB007878A3 /* BreakDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C783424F10EAB007878A3 /* BreakDuration.swift */; };
+		CBB4D8CD251B68940037C16C /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB4D8CC251B68940037C16C /* Profile.swift */; };
+		CBB4D8CF251B68B00037C16C /* TeamProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB4D8CE251B68B00037C16C /* TeamProfile.swift */; };
+		CBB4D8D1251B6C1E0037C16C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB4D8D0251B6C1E0037C16C /* ProfileViewModel.swift */; };
 		F6C182B5F7AC4984B54203F7 /* Pods_a1_s3763636_s3779380_s3557535_s3730303.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD0CFFEC536B1C0A945079B6 /* Pods_a1_s3763636_s3779380_s3557535_s3730303.framework */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +112,9 @@
 		CB9C782D24F0E337007878A3 /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
 		CB9C783224F0EEAB007878A3 /* PopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
 		CB9C783424F10EAB007878A3 /* BreakDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakDuration.swift; sourceTree = "<group>"; };
+		CBB4D8CC251B68940037C16C /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		CBB4D8CE251B68B00037C16C /* TeamProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamProfile.swift; sourceTree = "<group>"; };
+		CBB4D8D0251B6C1E0037C16C /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		DF1B939875A39D6CA2A620B7 /* Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig"; path = "Target Support Files/Pods-a1-s3763636_s3779380_s3557535_s3730303/Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +150,8 @@
 				636B875824F60C7300D4C644 /* TodoList.swift */,
 				CB36EEB825106A5B009EF4AC /* TimerRecords.swift */,
 				CB29B3BE2511D5D000B8646A /* DatabaseModel.xcdatamodeld */,
+				CBB4D8CC251B68940037C16C /* Profile.swift */,
+				CBB4D8CE251B68B00037C16C /* TeamProfile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,6 +194,7 @@
 				C8E1403524F142800024F572 /* MoodTrackerViewModel.swift */,
 				636B875624F6040F00D4C644 /* TodoViewModel.swift */,
 				CB36EEB6251063B6009EF4AC /* TimerViewModel.swift */,
+				CBB4D8D0251B6C1E0037C16C /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -391,6 +400,7 @@
 				CB36EEB7251063B6009EF4AC /* TimerViewModel.swift in Sources */,
 				5F6258C924F2BA9A0085DDF0 /* profileModel.swift in Sources */,
 				CB9C781E24F0E064007878A3 /* TimerViewController.swift in Sources */,
+				CBB4D8CF251B68B00037C16C /* TeamProfile.swift in Sources */,
 				CB9C783524F10EAB007878A3 /* BreakDuration.swift in Sources */,
 				C8949E7B24F2709E00FE6A64 /* Moods.swift in Sources */,
 				C8E1403624F142800024F572 /* MoodTrackerViewModel.swift in Sources */,
@@ -403,11 +413,13 @@
 				C8800DF025173B85003B2A10 /* Weather+CoreDataClass.swift in Sources */,
 				C8CA4D6225107FF900467AEE /* RESTRequest.swift in Sources */,
 				5FAA268424FDD5AD00FE79D6 /* studyRecordsController.swift in Sources */,
+				CBB4D8CD251B68940037C16C /* Profile.swift in Sources */,
 				CB92D042251A4535006D6A0E /* ProfileMainViewController.swift in Sources */,
 				5FAA268224FDD58600FE79D6 /* recordsModel.swift in Sources */,
 				63FA777E24F240F4009F47B7 /* TodoCell.swift in Sources */,
 				C8E1403824F142EC0024F572 /* Forecast.swift in Sources */,
 				CB29B3C02511D5D000B8646A /* DatabaseModel.xcdatamodeld in Sources */,
+				CBB4D8D1251B6C1E0037C16C /* ProfileViewModel.swift in Sources */,
 				C8BB0D2724EE13A500E027B1 /* MoodTrackerViewController.swift in Sources */,
 				C8949E7924F26F7200FE6A64 /* MoodTracker.swift in Sources */,
 				6348D72124DBC158004B0476 /* AppDelegate.swift in Sources */,

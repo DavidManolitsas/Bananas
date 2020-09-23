@@ -12,15 +12,13 @@ class ProfileMainViewController: UIViewController {
     
     @IBOutlet weak var contentView: UIView!
     
-    let dataSource = getProfile()
+
+    var dataSource:[Profile] = ProfileViewModel().getRecordsFromModel()
     var currentViewControllerIndex = 0
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configurePageViewController()
-       
     }
     
     func configurePageViewController(){
@@ -65,9 +63,8 @@ class ProfileMainViewController: UIViewController {
         }
         
         dataViewController.dataIndex = index
-        dataViewController.displayText = dataSource[index]
-        
-        
+//        dataViewController.displayText = dataSource[index]
+         dataViewController.displayText = dataSource[index].name
         
         return dataViewController
     }
