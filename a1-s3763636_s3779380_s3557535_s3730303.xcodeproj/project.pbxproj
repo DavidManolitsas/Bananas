@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5F6258C924F2BA9A0085DDF0 /* profileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6258C824F2BA9A0085DDF0 /* profileModel.swift */; };
-		5F6258CB24F2BD240085DDF0 /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6258CA24F2BD240085DDF0 /* profileViewController.swift */; };
 		5FAA268224FDD58600FE79D6 /* recordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA268124FDD58600FE79D6 /* recordsModel.swift */; };
 		5FAA268424FDD5AD00FE79D6 /* studyRecordsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA268324FDD5AD00FE79D6 /* studyRecordsController.swift */; };
 		5FAA268624FDD5C700FE79D6 /* recordsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA268524FDD5C700FE79D6 /* recordsViewCell.swift */; };
@@ -61,7 +60,6 @@
 /* Begin PBXFileReference section */
 		2D7F2DCE304674AD2C109068 /* Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig"; path = "Target Support Files/Pods-a1-s3763636_s3779380_s3557535_s3730303/Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig"; sourceTree = "<group>"; };
 		5F6258C824F2BA9A0085DDF0 /* profileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileModel.swift; sourceTree = "<group>"; };
-		5F6258CA24F2BD240085DDF0 /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		5FAA268124FDD58600FE79D6 /* recordsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recordsModel.swift; sourceTree = "<group>"; };
 		5FAA268324FDD5AD00FE79D6 /* studyRecordsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = studyRecordsController.swift; sourceTree = "<group>"; };
 		5FAA268524FDD5C700FE79D6 /* recordsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recordsViewCell.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 				CB9C781C24F0E064007878A3 /* TimerViewController.swift */,
 				CB9C783224F0EEAB007878A3 /* PopViewController.swift */,
 				C8BB0D2624EE13A500E027B1 /* MoodTrackerViewController.swift */,
-				5F6258CA24F2BD240085DDF0 /* profileViewController.swift */,
 				63652DD824ED1029005C0BC1 /* TodoViewController.swift */,
 				63D0528124EE5AD900665E67 /* SplitViewController.swift */,
 				63FA777F24F262B4009F47B7 /* TodoDetailController.swift */,
@@ -393,7 +390,6 @@
 				CB92D03E2519CFBD006D6A0E /* ProfileDataViewController.swift in Sources */,
 				CB36EEB7251063B6009EF4AC /* TimerViewModel.swift in Sources */,
 				5F6258C924F2BA9A0085DDF0 /* profileModel.swift in Sources */,
-				5F6258CB24F2BD240085DDF0 /* profileViewController.swift in Sources */,
 				CB9C781E24F0E064007878A3 /* TimerViewController.swift in Sources */,
 				CB9C783524F10EAB007878A3 /* BreakDuration.swift in Sources */,
 				C8949E7B24F2709E00FE6A64 /* Moods.swift in Sources */,

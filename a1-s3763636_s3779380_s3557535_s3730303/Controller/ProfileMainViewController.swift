@@ -43,8 +43,9 @@ class ProfileMainViewController: UIViewController {
        
        // for the page view, flush againsts the edges 0 poits away from super view through the horizontal and vertical constratins
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[pageView]-0-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: views))
-        
+
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[pageView]-0-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: views))
+        
         
         guard let startingViewController = detailViewControllerAt(index: currentViewControllerIndex) else{
             return
@@ -64,7 +65,6 @@ class ProfileMainViewController: UIViewController {
         }
         
         dataViewController.dataIndex = index
-//        dataViewController.index(ofAccessibilityElement: index)
         dataViewController.displayText = dataSource[index]
         
         

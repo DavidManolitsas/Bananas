@@ -20,14 +20,17 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftC-ca-fD3">
                                 <rect key="frame" x="45" y="202" width="324" height="376"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="324" id="1sI-zU-bNy"/>
+                                    <constraint firstAttribute="height" constant="376" id="VdV-F1-ynE"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ftC-ca-fD3" firstAttribute="top" secondItem="2mR-sT-GDC" secondAttribute="top" constant="114" id="85C-26-BSK"/>
                             <constraint firstItem="ftC-ca-fD3" firstAttribute="leading" secondItem="2mR-sT-GDC" secondAttribute="leading" constant="45" id="Ybl-AN-GgG"/>
-                            <constraint firstItem="2mR-sT-GDC" firstAttribute="bottom" secondItem="ftC-ca-fD3" secondAttribute="bottom" constant="284" id="qKq-O8-8SX"/>
                             <constraint firstItem="ftC-ca-fD3" firstAttribute="centerX" secondItem="mbP-zD-zMU" secondAttribute="centerX" id="wGQ-Hx-Pfw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2mR-sT-GDC"/>
@@ -50,16 +53,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVK-rZ-fTs">
-                                <rect key="frame" x="188.5" y="439" width="37.5" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <rect key="frame" x="186" y="310" width="42" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellowbtn" translatesAutoresizingMaskIntoConstraints="NO" id="em1-qM-AIE">
+                                <rect key="frame" x="140" y="145" width="134" height="134"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="134" id="mKH-87-CDb"/>
+                                    <constraint firstAttribute="width" constant="134" id="nmd-m9-l0b"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="SVK-rZ-fTs" firstAttribute="centerX" secondItem="vsG-8d-F5n" secondAttribute="centerX" id="6dt-kA-UVA"/>
-                            <constraint firstItem="SVK-rZ-fTs" firstAttribute="centerY" secondItem="vsG-8d-F5n" secondAttribute="centerY" id="lqy-1w-2hD"/>
+                            <constraint firstItem="em1-qM-AIE" firstAttribute="centerX" secondItem="vsG-8d-F5n" secondAttribute="centerX" id="7Tq-8f-Ugi"/>
+                            <constraint firstItem="em1-qM-AIE" firstAttribute="top" secondItem="Wzb-V6-5Zt" secondAttribute="top" constant="101" id="Bmc-qa-Kur"/>
+                            <constraint firstItem="SVK-rZ-fTs" firstAttribute="top" secondItem="em1-qM-AIE" secondAttribute="bottom" constant="31" id="Xju-ZM-17s"/>
+                            <constraint firstItem="SVK-rZ-fTs" firstAttribute="centerX" secondItem="vsG-8d-F5n" secondAttribute="centerX" id="ySO-vj-2fg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wzb-V6-5Zt"/>
                     </view>
@@ -69,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="De9-YC-70a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4209" y="2382"/>
+            <point key="canvasLocation" x="4207.2463768115949" y="2381.9196428571427"/>
         </scene>
         <!--Custom Page View Controller-->
         <scene sceneID="ctB-Gy-jb8">
@@ -103,5 +115,6 @@
     </scenes>
     <resources>
         <image name="profile" width="24" height="21.5"/>
+        <image name="yellowbtn" width="61" height="61"/>
     </resources>
 </document>
