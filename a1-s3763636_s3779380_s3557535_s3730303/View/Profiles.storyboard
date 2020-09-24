@@ -19,19 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftC-ca-fD3">
-                                <rect key="frame" x="45" y="202" width="324" height="376"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" red="0.92549019607843142" green="0.76078431372549016" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="324" id="1sI-zU-bNy"/>
-                                    <constraint firstAttribute="height" constant="376" id="VdV-F1-ynE"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ftC-ca-fD3" firstAttribute="top" secondItem="2mR-sT-GDC" secondAttribute="top" constant="114" id="85C-26-BSK"/>
-                            <constraint firstItem="ftC-ca-fD3" firstAttribute="leading" secondItem="2mR-sT-GDC" secondAttribute="leading" constant="45" id="Ybl-AN-GgG"/>
-                            <constraint firstItem="ftC-ca-fD3" firstAttribute="centerX" secondItem="mbP-zD-zMU" secondAttribute="centerX" id="wGQ-Hx-Pfw"/>
+                            <constraint firstAttribute="trailing" secondItem="ftC-ca-fD3" secondAttribute="trailing" id="5GV-dV-fvE"/>
+                            <constraint firstItem="ftC-ca-fD3" firstAttribute="top" secondItem="2mR-sT-GDC" secondAttribute="top" id="CXc-7L-Nft"/>
+                            <constraint firstItem="ftC-ca-fD3" firstAttribute="leading" secondItem="mbP-zD-zMU" secondAttribute="leading" id="QkU-2u-17A"/>
+                            <constraint firstItem="ftC-ca-fD3" firstAttribute="bottom" secondItem="2mR-sT-GDC" secondAttribute="bottom" id="YmR-bh-D5Y"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2mR-sT-GDC"/>
                     </view>
