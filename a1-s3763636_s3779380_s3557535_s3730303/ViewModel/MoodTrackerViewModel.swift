@@ -122,7 +122,7 @@ struct MoodTrackerViewModel {
     
     public func updateNotesFor(_ date: Date, as notes: String) {
 //        print("adding notes for " + formatDate(date: date))
-        moodTrackerManager.updateNotes(notes,formatDate(date: date)) 
+        moodTrackerManager.updateNotes(notes, formatDate(date: date))
     }
     
     public func updateMoodFor(_ date: Date, as mood: Moods) {
@@ -133,6 +133,16 @@ struct MoodTrackerViewModel {
             }
         }
         
+    }
+    
+    public func updateWeatherForLocation(_ date: Date,_ location: String) {
+        
+        moodTrackerManager.updateWeatherLocation(location: location, date: formatDate(date: date))
+        
+    }
+    public func updateWeatherForecastFor(_ date: Date, minTemp: String, iconName: String, maxTemp: String, _location: String) {
+//        moodTrackerManager.updateWeatherForecast(minTemp: minTemp, maxTemp: maxTemp, iconName: iconName, date: formatDate(date: date))
+
     }
     
 //    func loadNotesFor(date: Date) -> String {
@@ -156,8 +166,8 @@ struct MoodTrackerViewModel {
             
             if let weather = record.weather {
                 self._tempDetails = formatTempDetails(weather.minTemp, weather.maxTemp)
-                self._location = weather.location!
-                self.weatherIcon = weather.iconName!
+//                self._location = weather.location!
+//                self.weatherIcon = weather.iconName!
             }
         
         } else {

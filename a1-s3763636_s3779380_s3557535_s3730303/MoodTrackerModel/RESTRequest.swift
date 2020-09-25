@@ -38,12 +38,12 @@ class RESTRequest {
 //        print("URL for weather request is: \(urlString)")
         
         if let url = URL(string: urlString) {
-            let request = URLRequest(url: url)
-            getData(request)
+//            let request = URLRequest(url: url)
+            getData(url)
         }
     }
     
-    private func getData(_ url:URLRequest) {
+    private func getData(_ url: URL) {
         let task = session.dataTask(with: url, completionHandler: {
             data, response, error in
             

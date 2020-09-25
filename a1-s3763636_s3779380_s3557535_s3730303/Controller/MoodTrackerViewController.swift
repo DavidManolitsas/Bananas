@@ -75,6 +75,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
             if date.compare(calendar.today!) == .orderedSame  {
                 
         weatherImg.image = moodTrackerViewModel.getImage()
+                // store image
         tempLbl.text = moodTrackerViewModel.getTodayTempDetails()
 //                notesText.text = moodTrack
         // store details?
@@ -220,7 +221,7 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
         let lon = location.coordinate.longitude
         print("the lat is \(lat) and the lon is \(lon)")
         moodTrackerViewModel.getWeatherFor(lat, lon)
-        // store lat/lon
+//        moodTrackerViewModel.updateWeatherFor(
         
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
             
@@ -240,13 +241,13 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
     
     func parsePlacemarks() {
         if let placemark = placemark {
-            
-            
             if let city = placemark.locality, !city.isEmpty {
                 print("placemark.locality is = \(city)")
                 locationLbl.text = city
                 locationImg.image = moodTrackerViewModel.locationOnImg
+                moodTrackerViewModel.updateWeatherForLocation(calendar.today!, city)
                 // store city name to database
+                // store date and city name first
             } else {
 //                locationLbl.text = "No location data"
             }
