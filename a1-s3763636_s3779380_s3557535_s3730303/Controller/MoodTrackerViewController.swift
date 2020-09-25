@@ -27,8 +27,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
     private let okHexCode = "#ffe1a8"
     private let badHexCode = "#ffc2a8"
     private let awfulHexCode = "#ff8585"
-    
-    private let customBrown = UIColor(hexString: "#544B39")
+    private let customBrown = UIColor(hexString: "544B39")
     
     private let locationMangager = CLLocationManager()
     private var currentLocation: CLLocation?
@@ -101,9 +100,16 @@ class MoodTrackerViewController: UIViewController, Refresh {
     private func setUpCalendar() {
         calendar.delegate = self;
         calendar.dataSource = self;
-        calendar.appearance.todayColor = .orange;
-        calendar.appearance.headerTitleColor = customBrown;
-        calendar.appearance.weekdayTextColor = customBrown;
+        let appearance = calendar.appearance
+        appearance.todayColor = .orange;
+        appearance.headerTitleColor = customBrown;
+        appearance.weekdayTextColor = customBrown;
+        appearance.titleFont = UIFont.systemFont(ofSize:17.0)
+        appearance.headerTitleFont = UIFont.systemFont(ofSize:18.0)
+        appearance.weekdayFont = UIFont.systemFont(ofSize:16.0)
+        appearance.titleSelectionColor = UIColor(hexString: "4E5D97")
+        // 1. 566397
+//      2.  394989
     }
     
     private func initDateMoodView() {
@@ -241,6 +247,14 @@ extension MoodTrackerViewController:  UITextViewDelegate {
  Calendar appearance delegate
  */
 extension MoodTrackerViewController: FSCalendarDelegateAppearance {
+    
+    // change event dot size
+    func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let eventScaleFactor: CGFloat = 1.3
+        cell.eventIndicator.transform = CGAffineTransform(scaleX: eventScaleFactor, y: eventScaleFactor)
+        
+    }
+    
     // customise date selection colour to match any mood entry for that date
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
         moodTrackerViewModel.loadRecordFor(date)
@@ -265,6 +279,8 @@ extension MoodTrackerViewController: FSCalendarDelegateAppearance {
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
         return customiseEventColours(forDate: date)
     }
+    
+//    eventselection
     
     // customise event dot colours when date is is selected
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventSelectionColorsFor date: Date) -> [UIColor]? {
