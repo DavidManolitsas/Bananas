@@ -120,8 +120,8 @@ struct MoodTrackerViewModel {
     
     public func updateWeatherDetailsFor(_ today: Date) {
         if let forecast = RESTReq.forecast {
-//            moodTrackerManager.updateWeatherDetails(formatDate(today), forecast.minTemp, forecast.maxTemp, forecast.iconName)
-                        moodTrackerManager.updateWeatherDetails("02-09-20", forecast.minTemp, forecast.maxTemp, forecast.iconName)
+            moodTrackerManager.updateWeatherDetails(formatDate(today), forecast.minTemp, forecast.maxTemp, forecast.iconName)
+//                        moodTrackerManager.updateWeatherDetails("02-09-20", forecast.minTemp, forecast.maxTemp, forecast.iconName)
         }
         
     }
@@ -141,9 +141,8 @@ struct MoodTrackerViewModel {
     }
     
     public func updateWeatherForLocation(_ location: String, _ date: Date) {
-//        moodTrackerManager.updateWeatherLocation(location, formatDate(date: date))
-        moodTrackerManager.updateWeatherLocation(location, "02-09-20")
-        print(location)
+        moodTrackerManager.updateWeatherLocation(location, formatDate(date))
+//        moodTrackerManager.updateWeatherLocation(location, "02-09-20")
         
     }
     public func updateWeatherForecastFor(_ date: Date, minTemp: String, iconName: String, maxTemp: String, _location: String) {
