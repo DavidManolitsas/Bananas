@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 struct MoodTrackerViewModel {
-    //    private var moodTracker = MoodTracker()
     private var RESTReq = RESTRequest.shared
     private var moodTrackerManager = MoodTrackerManager.shared
     private let celsius = "°C"
@@ -96,15 +95,8 @@ struct MoodTrackerViewModel {
     public func getWeatherFor(_ lat: Double, _ lon: Double) {
         RESTReq.getWeatherFor(lat: String(lat), lon: String(lon))
     }
-    
-    //    var forecast: Forecast {
-    //        return RESTReq.forecasts
-    //    }
-    //    var forecast: Forecast {
-    //        return RESTReq.forecasts
-    //    }
+
     public func getImage() -> UIImage? {
-        
         if let forecast = RESTReq.forecast {
             return UIImage(named: forecast.iconName)
         }
@@ -121,7 +113,6 @@ struct MoodTrackerViewModel {
     public func updateWeatherDetailsFor(_ today: Date) {
         if let forecast = RESTReq.forecast {
             moodTrackerManager.updateWeatherDetails(formatDate(today), forecast.minTemp, forecast.maxTemp, forecast.iconName)
-//                        moodTrackerManager.updateWeatherDetails("02-09-20", forecast.minTemp, forecast.maxTemp, forecast.iconName)
         }
         
     }
@@ -142,12 +133,6 @@ struct MoodTrackerViewModel {
     
     public func updateWeatherForLocation(_ location: String, _ date: Date) {
         moodTrackerManager.updateWeatherLocation(location, formatDate(date))
-//        moodTrackerManager.updateWeatherLocation(location, "02-09-20")
-        
-    }
-    public func updateWeatherForecastFor(_ date: Date, minTemp: String, iconName: String, maxTemp: String, _location: String) {
-        //        moodTrackerManager.updateWeatherForecast(minTemp: minTemp, maxTemp: maxTemp, iconName: iconName, date: formatDate(date: date))
-        
     }
     
     public mutating func loadRecordFor(_ date: Date) {
