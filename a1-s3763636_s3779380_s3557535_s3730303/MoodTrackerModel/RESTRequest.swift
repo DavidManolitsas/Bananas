@@ -13,16 +13,11 @@ protocol Refresh {
     func updateUI()
 }
 
-// responsible for making the REST request
 class RESTRequest {
-//    private var _forecasts: [Forecast] = []
-        private var _forecast: Forecast?
+    private var _forecast: Forecast?
     var delegate: Refresh?
     private let session = URLSession.shared
-    
-//    var forecasts:[Forecast] {
-//        return _forecasts
-//    }
+
     var forecast: Forecast? {
         return _forecast
     }
@@ -35,8 +30,6 @@ class RESTRequest {
     public func getWeatherFor(lat: String, lon: String) {
 //        _forecasts = []
         let urlString = baseUrl + paramLat + lat + paramLon + lon + paramExtras
-//        print("URL for weather request is: \(urlString)")
-        
         if let url = URL(string: urlString) {
 //            let request = URLRequest(url: url)
             getData(url)
@@ -64,11 +57,7 @@ class RESTRequest {
                 }
                 
                 let day = result.daily[0]
-//                print(result.daily[0].weather[0])
-//                print(result.daily[0].temp.max)
-//                print(result.daily[0].temp.min)
                 let forecast = Forecast(main: day.weather[0].main, description: day.weather[0].description, iconName: day.weather[0].icon, maxTemp: day.temp.max, minTemp: day.temp.min)
-//                self._forecasts.append(forecast)
                     self._forecast = forecast
                 DispatchQueue.main.async {
                     self.delegate?.updateUI()
@@ -112,8 +101,6 @@ struct CurrentWeather: Codable {
     let wind_speed: Double
     let wind_deg: Int
     let weather: [WeatherEntry]
-    
-    
 }
 
 struct DailyEntry: Codable {

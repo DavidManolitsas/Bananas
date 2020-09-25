@@ -75,9 +75,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
             if date.compare(calendar.today!) == .orderedSame  {
                 
         weatherImg.image = moodTrackerViewModel.getImage()
-                // store image
         tempLbl.text = moodTrackerViewModel.getTodayTempDetails()
-//                notesText.text = moodTrack
         // store details?
                 calendar.reloadData()
             }
@@ -99,7 +97,6 @@ class MoodTrackerViewController: UIViewController, Refresh {
     private func setUpCalendar() {
         calendar.delegate = self;
         calendar.dataSource = self;
-        //        customiseCalendarView()
         calendar.appearance.todayColor = .orange;
         calendar.appearance.headerTitleColor = customBrown;
         calendar.appearance.weekdayTextColor = customBrown;
@@ -112,13 +109,6 @@ class MoodTrackerViewController: UIViewController, Refresh {
         updateDateMoodViewFor(date: calendar.today!)
     }
     
-    //    // changing the colour scheme of calendar
-    //    private func customiseCalendarView() {
-    //        calendar.appearance.todayColor = .orange;
-    //        calendar.appearance.headerTitleColor = customBrown;
-    //        calendar.appearance.weekdayTextColor = customBrown;
-    //    }
-    
     private func updateMoodAs(_ newMood: Moods) {
         if let date = chosenDate {
             moodTrackerViewModel.updateMoodFor(date, as: newMood)
@@ -129,11 +119,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
         }
         
     }
-    
-//    private func getWeatherFor(_ lat: Double, _ lon: Double) {
-//        moodTrackerViewModel.getWeatherFor(lat, lon)
-//    }
-    
+
     // format date to string
     private func formatDate(date: Date, asFormat format: String) -> String {
         let formatter = DateFormatter();
@@ -151,9 +137,8 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         chosenDate = date
                 if date.compare(calendar.today!) == .orderedSame {
-        
-//                                locationMangager.startUpdatingLocation()
-//                                getLocation()
+                                locationMangager.startUpdatingLocation()
+                                getLocation()
                 } else {
         
         updateDateMoodViewFor(date: date)
@@ -168,24 +153,9 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
         locationLbl.text = moodTrackerViewModel.location
         locationImg.image = moodTrackerViewModel.locationOffImg
         weatherImg.image = moodTrackerViewModel.weatherImg
-        //        notesText.text = moodTrackerViewModel.loadNotesFor(date: date)
-        //        weatherImg.image = moodTrackerViewModel.getImage()
-        //        tempLbl.text = moodTrackerViewModel.getTempDetails()
-        //        tempLbl.text = "\(details.minTemp) - \(details.maxTemp)"
         calendar.reloadData()
     }
-    // update the view with details from the 'database'
-    //    private func updateDateMoodView(forDate chosenDate: Date) {
-    //        let details = moodTrackerViewModel.getWeatherDetails(forDate: chosenDate)
-    //        weatherImg.image = details.uiImage
-    //        tempLbl.text = "\(details.minTemp) - \(details.maxTemp)"
-    //        notesText.text = moodTrackerViewModel.getNotes(forDate: chosenDate)
-    //        dateLbl.text = formatDate(date: chosenDate, asFormat: "dd MMMM, yyyy")
-    //        calendar.reloadData()
-    //    }
-    
-    
-    
+
     func maximumDate(for calendar: FSCalendar) -> Date {
         return calendar.today!
     }
@@ -203,8 +173,7 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
 extension MoodTrackerViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // only get location if it's todays date
-        
-    
+ 
         if !locations.isEmpty {//, currentLocation == nil {
             currentLocation = locations.first
             // if this is not commented, you will not be able to continuously update location
@@ -221,18 +190,13 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
         let lon = location.coordinate.longitude
         print("the lat is \(lat) and the lon is \(lon)")
         moodTrackerViewModel.getWeatherFor(lat, lon)
-//        moodTrackerViewModel.updateWeatherFor(
         
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
-            
             if let err = error {
                 print("geocoder error**: \(err)")
             } else  {
                 if let placemark = placemarks {
                     self.placemark = placemark.last
-                    //                    print("self.placemark?.locality \(self.placemark.locality)")
-                    //                    print("placemark.locality \(self.placemark.locality)")
-                    //                    print("placemark.subLocality) \(self.placemark.subLocality)")
                 }
                 self.parsePlacemarks()
             }
@@ -245,7 +209,7 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
                 print("placemark.locality is = \(city)")
                 locationLbl.text = city
                 locationImg.image = moodTrackerViewModel.locationOnImg
-                moodTrackerViewModel.updateWeatherForLocation(calendar.today!, city)
+                moodTrackerViewModel.updateWeatherForLocation(city, calendar.today!)
                 // store city name to database
                 // store date and city name first
             } else {

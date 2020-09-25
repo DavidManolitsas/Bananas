@@ -28,12 +28,10 @@ class MoodTrackerManager {
     private let recordFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"DailyMoodRecord")
     
     public func updateNotes(_ notes: String, _ date: String) {
-        // if exists a record at that date, fetch and save
         if entityDoesExistFor(date: date) {
             print("updating an existing entity with notes: " + notes)
             updateEntity(attribute:notes, keyPath: "notes", datePredicate: date)
         } else {
-            // create new
             print("creating a new entity for date: \(date)")
             _ = createNSDailyMoodRecord(date, "None", notes)
         }
@@ -41,18 +39,43 @@ class MoodTrackerManager {
     }
     
     public func updateMood(_ mood: String, _ date: String) {
-        // if exists a record at that date, fetch and save
         if entityDoesExistFor(date: date) {
             print("updating an existing entity with mood: " + mood)
             updateEntity(attribute: mood, keyPath: "mood", datePredicate: date)
         } else {
-            // create new
             print("creating a new entity for date: \(date)")
             _ = createNSDailyMoodRecord(date, mood, "")
         }
         
     }
     
+    public func updateWeatherLocation(_ location: String, _ date: String) {
+        let weather = createNSWeather(minTemp: 0.0, maxTemp: 0.0, iconName: "transparent", location: location)
+        if entityDoesExistFor(date: date) {
+            do {
+                let predicate = NSPredicate(format: "%K == %@", "date", date)
+                recordFetchRequest.predicate = predicate
+                
+                let result = try managedContext.fetch(recordFetchRequest)
+                records = result as! [DailyMoodRecord]
+                
+                if (records.count != 0) {
+                    records[0].setValue(weather, forKeyPath: "weather")
+                }
+                
+            } catch let error as NSError {
+                print("*** Retrieving from database error: \(error), \(error.userInfo)")
+            }
+            
+            
+        } else {
+            print("creating a new entity for date: \(date)")
+            _ = createNSDailyMoodRecord(date, Moods.none.rawValue, "", weather)
+        }
+        
+        saveToDatabase(errorMsg: "error saving update")
+        loadRecordFor()
+    }
 //    public func updateWeather(minTemp: Double, maxTemp: Double, iconName: String, location: String, date: String) {
 //        let weather = createNSWeather(minTemp: 40.0, maxTemp: 60.0, iconName: "01d", location: "Desert")
 //        if entityDoesExistFor(date: date) {
@@ -79,63 +102,61 @@ class MoodTrackerManager {
 //
 //    }
  
-    public func updateWeather(minTemp: Double, maxTemp: Double, iconName: String, date: String) {
-                let weather = createNSWeather(minTemp: 40.0, maxTemp: 60.0, iconName: "01d", location: "Desert")
-                if entityDoesExistFor(date: date) {
-                    do {
-                        let predicate = NSPredicate(format: "%K == %@", "date", date)
-                        recordFetchRequest.predicate = predicate
-        
-                        let result = try managedContext.fetch(recordFetchRequest)
-                        records = result as! [DailyMoodRecord]
-        
-                        if (records.count != 0) {
-                                records[0].setValue(weather, forKeyPath: "weather")
-                        }
-        
-                    } catch let error as NSError {
-                        print("*** Retrieving from database error: \(error), \(error.userInfo)")
-                    }
-        loadRecordFor()
-                    saveToDatabase(errorMsg: "error saving update")
-                } else {
-                    print("creating a new entity for date: \(date)")
-                    _ = createNSDailyMoodRecord(date, Moods.none.rawValue, "", weather)
-                    loadRecordFor()
-                }
-        
-            }
+//    public func updateWeather(minTemp: Double, maxTemp: Double, iconName: String, date: String) {
+//                let weather = createNSWeather(minTemp: 40.0, maxTemp: 60.0, iconName: "01d", location: "Desert")
+//                if entityDoesExistFor(date: date) {
+//                    do {
+//                        let predicate = NSPredicate(format: "%K == %@", "date", date)
+//                        recordFetchRequest.predicate = predicate
+//
+//                        let result = try managedContext.fetch(recordFetchRequest)
+//                        records = result as! [DailyMoodRecord]
+//
+//                        if (records.count != 0) {
+//                                records[0].setValue(weather, forKeyPath: "weather")
+//                        }
+//
+//                    } catch let error as NSError {
+//                        print("*** Retrieving from database error: \(error), \(error.userInfo)")
+//                    }
+//        loadRecordFor()
+//                    saveToDatabase(errorMsg: "error saving update")
+//                } else {
+//                    print("creating a new entity for date: \(date)")
+//                    _ = createNSDailyMoodRecord(date, Moods.none.rawValue, "", weather)
+//                    loadRecordFor()
+//                }
+//
+//            }
     
-    public func updateWeatherLocation(location: String, date: String) {
-        let weatherEntity = NSEntityDescription.entity(forEntityName: "Weather", in: managedContext)!
-        let nsWeather = NSManagedObject(entity: weatherEntity, insertInto: managedContext) as! Weather
-        
-        nsWeather.setValue(location, forKeyPath: "location")
-        
-
-        if entityDoesExistFor(date: date) {
-            do {
-                let predicate = NSPredicate(format: "%K == %@", "date", date)
-                recordFetchRequest.predicate = predicate
-                
-                let result = try managedContext.fetch(recordFetchRequest)
-                records = result as! [DailyMoodRecord]
-                
-                if (records.count != 0) {
-                    records[0].setValue(nsWeather, forKeyPath: "weather")
-                }
-                
-            } catch let error as NSError {
-                print("*** Retrieving from database error: \(error), \(error.userInfo)")
-            }
-            
-            saveToDatabase(errorMsg: "error saving update")
-        } else {
-            print("creating a new weather for date: \(date)")
-            _ = createNSDailyMoodRecord(date, Moods.none.rawValue, "", nsWeather)
-        }
-        
-    }
+//    public func updateWeatherLocation(location: String, date: String) {
+//        let weatherEntity = NSEntityDescription.entity(forEntityName: "Weather", in: managedContext)!
+//        let nsWeather = NSManagedObject(entity: weatherEntity, insertInto: managedContext) as! Weather
+//        nsWeather.setValue(location, forKeyPath: "location")
+//
+//        if entityDoesExistFor(date: date) {
+//            do {
+//                let predicate = NSPredicate(format: "%K == %@", "date", date)
+//                recordFetchRequest.predicate = predicate
+//
+//                let result = try managedContext.fetch(recordFetchRequest)
+//                records = result as! [DailyMoodRecord]
+//
+//                if (records.count != 0) {
+//                    records[0].setValue(nsWeather, forKeyPath: "weather")
+//                }
+//
+//            } catch let error as NSError {
+//                print("*** Retrieving from database error: \(error), \(error.userInfo)")
+//            }
+//
+//            saveToDatabase(errorMsg: "error saving update")
+//        } else {
+//            print("creating a new weather for date: \(date)")
+//            _ = createNSDailyMoodRecord(date, Moods.none.rawValue, "", nsWeather)
+//        }
+//
+//    }
     
     private func updateEntity(attribute: String, keyPath: String, datePredicate: String) {
         do {
@@ -181,7 +202,7 @@ class MoodTrackerManager {
         nsRecord.setValue(mood, forKeyPath: "mood")
         nsRecord.setValue(notes, forKeyPath: "notes")
         //        nsRecord.weather = weather
-        
+        saveToDatabase(errorMsg: "error creating daily mood record w/o weather")
         return nsRecord
         
     }
@@ -194,7 +215,7 @@ class MoodTrackerManager {
         nsRecord.setValue(mood, forKeyPath: "mood")
         nsRecord.setValue(notes, forKeyPath: "notes")
         nsRecord.weather = weather
-        
+        saveToDatabase(errorMsg: "error creating daily mood record with weather")
         //        return nsRecord
         
     }
@@ -218,7 +239,6 @@ class MoodTrackerManager {
     }
     
     private func createNSWeather(minTemp: Double, maxTemp: Double, iconName: String, location: String) -> Weather {
-        
         let weatherEntity = NSEntityDescription.entity(forEntityName: "Weather", in: managedContext)!
         let nsWeather = NSManagedObject(entity: weatherEntity, insertInto: managedContext) as! Weather
         
@@ -226,9 +246,7 @@ class MoodTrackerManager {
         nsWeather.setValue(minTemp, forKeyPath: "minTemp")
         nsWeather.setValue(iconName, forKeyPath: "iconName")
         nsWeather.setValue(location, forKeyPath: "location")
-        //        nsWeather.setValue(lat, forKeyPath: "lat")
-        //        nsWeather.setValue(lon, forKeyPath: "lon")
-        
+         saveToDatabase(errorMsg: "error creating weather")
         return nsWeather
     }
     //    private func createNSWeather(_ maxTemp: Double,_  minTemp: Double, _ iconName: String, _ lat: Double, _ lon: Double) -> Weather {

@@ -76,8 +76,6 @@ struct MoodTrackerViewModel {
             return UIImage(named: weatherIcon)
         }
     }
-    
-    
 
     init() {
         self._mood = Moods.none.rawValue
@@ -121,7 +119,6 @@ struct MoodTrackerViewModel {
     }
     
     public func updateNotesFor(_ date: Date, as notes: String) {
-//        print("adding notes for " + formatDate(date: date))
         moodTrackerManager.updateNotes(notes, formatDate(date: date))
     }
     
@@ -135,27 +132,15 @@ struct MoodTrackerViewModel {
         
     }
     
-    public func updateWeatherForLocation(_ date: Date,_ location: String) {
+    public func updateWeatherForLocation(_ location: String, _ date: Date) {
         
-        moodTrackerManager.updateWeatherLocation(location: location, date: formatDate(date: date))
+        moodTrackerManager.updateWeatherLocation(location, formatDate(date: date))
         
     }
     public func updateWeatherForecastFor(_ date: Date, minTemp: String, iconName: String, maxTemp: String, _location: String) {
 //        moodTrackerManager.updateWeatherForecast(minTemp: minTemp, maxTemp: maxTemp, iconName: iconName, date: formatDate(date: date))
 
     }
-    
-//    func loadNotesFor(date: Date) -> String {
-//        let dt = formatDate(date: date)
-//        moodTrackerManager.retrieveRecordFor(date: dt)
-//        if let record = moodTrackerManager.record {
-//            print("there is a record for loading notes")
-//            let notes = record.notes!
-//            return notes
-//        }
-//        return ""
-//
-//    }
     
     public mutating func loadRecordFor(_ date: Date) {
         let dt = formatDate(date: date)
@@ -197,56 +182,5 @@ struct MoodTrackerViewModel {
         
         return count
     }
-    
-    // check if there is a mood or note entry for a given date
-    //    public mutating func getRecordEvent(forDate date: Date) -> Int{
-    //        let record = moodTracker.getRecord(forDate: formatDate(date: date))
-    //        var count = 0
-    //
-    //        if record.getMood() != Moods.none { count += 1 }
-    //        if record.getNotes() != "" { count += 1 }
-    //
-    //        return count
-    //    }
-    //
-    //    public mutating func updateMood(forDate date: Date, as mood: String) {
-    //        let dateStr = formatDate(date: date)
-    //
-    //        for moodEnum in Moods.allCases {
-    //            if mood == moodEnum.rawValue {
-    ////                moodTracker.updateMood(as: moodEnum, forDate: dateStr)
-    //            }
-    //        }
-    //
-    //    }
-    //
-    //    public mutating func updateNotes(forDate date: Date, as notes: String) {
-    //        let dateStr = formatDate(date: date)
-    //        moodTracker.updateNotes(as: notes, forDate: dateStr)
-    //    }
-    
-    //    public mutating func getMood(forDate date: Date) -> String {
-    //        let record = moodTracker.getRecord(forDate: formatDate(date: date))
-    //        return record.getMood().rawValue
-    //    }
-    //
-    //    public mutating func getNotes(forDate date: Date) -> String {
-    //        let record = moodTracker.getRecord(forDate: formatDate(date: date))
-    //        return record.getNotes()
-    //    }
-    //
-    //    public mutating func getWeatherDetails(forDate date: Date) -> (uiImage: UIImage?, maxTemp: String, minTemp: String) {
-    //        let record = moodTracker.getRecord(forDate: formatDate(date: date))
-    //        let details = record.getWeatherDetails()
-    //        let image = UIImage(named: details.iconName)
-    //
-    //        let maxInt = Int(round(details.maxTemp))
-    //        let minInt = Int(round(details.minTemp))
-    //        let maxTemp = String(maxInt) + celsius
-    //        let minTemp = String(minInt) + celsius
-    //
-    //        return (image, maxTemp, minTemp)
-    //    }
-    
     
 }
