@@ -76,7 +76,7 @@ struct MoodTrackerViewModel {
             return UIImage(named: weatherIcon)
         }
     }
-
+    
     init() {
         self._mood = Moods.none.rawValue
         self._notes = ""
@@ -87,7 +87,7 @@ struct MoodTrackerViewModel {
         self.weatherIcon = "transparent"
     }
     
-    private func formatDate(date: Date) -> String {
+    private func formatDate(_ date: Date) -> String {
         let formatter = DateFormatter();
         formatter.dateFormat = dtFormat;
         return formatter.string(from: date);
@@ -97,16 +97,16 @@ struct MoodTrackerViewModel {
         RESTReq.getWeatherFor(lat: String(lat), lon: String(lon))
     }
     
-//    var forecast: Forecast {
-//        return RESTReq.forecasts
-//    }
-//    var forecast: Forecast {
-//        return RESTReq.forecasts
-//    }
+    //    var forecast: Forecast {
+    //        return RESTReq.forecasts
+    //    }
+    //    var forecast: Forecast {
+    //        return RESTReq.forecasts
+    //    }
     public func getImage() -> UIImage? {
         
         if let forecast = RESTReq.forecast {
-        return UIImage(named: forecast.iconName)
+            return UIImage(named: forecast.iconName)
         }
         return UIImage(named: self.weatherIcon)
     }
@@ -118,14 +118,22 @@ struct MoodTrackerViewModel {
         return self._tempDetails
     }
     
+    public func updateWeatherDetailsFor(_ today: Date) {
+        if let forecast = RESTReq.forecast {
+//            moodTrackerManager.updateWeatherDetails(formatDate(today), forecast.minTemp, forecast.maxTemp, forecast.iconName)
+                        moodTrackerManager.updateWeatherDetails("02-09-20", forecast.minTemp, forecast.maxTemp, forecast.iconName)
+        }
+        
+    }
+    
     public func updateNotesFor(_ date: Date, as notes: String) {
-        moodTrackerManager.updateNotes(notes, formatDate(date: date))
+        moodTrackerManager.updateNotes(notes, formatDate(date))
     }
     
     public func updateMoodFor(_ date: Date, as mood: Moods) {
         for moodEnum in Moods.allCases {
             if mood == moodEnum {
-                let dateStr = formatDate(date: date)
+                let dateStr = formatDate(date)
                 moodTrackerManager.updateMood(moodEnum.rawValue, dateStr)
             }
         }
@@ -133,17 +141,18 @@ struct MoodTrackerViewModel {
     }
     
     public func updateWeatherForLocation(_ location: String, _ date: Date) {
-        
-        moodTrackerManager.updateWeatherLocation(location, formatDate(date: date))
+//        moodTrackerManager.updateWeatherLocation(location, formatDate(date: date))
+        moodTrackerManager.updateWeatherLocation(location, "02-09-20")
+        print(location)
         
     }
     public func updateWeatherForecastFor(_ date: Date, minTemp: String, iconName: String, maxTemp: String, _location: String) {
-//        moodTrackerManager.updateWeatherForecast(minTemp: minTemp, maxTemp: maxTemp, iconName: iconName, date: formatDate(date: date))
-
+        //        moodTrackerManager.updateWeatherForecast(minTemp: minTemp, maxTemp: maxTemp, iconName: iconName, date: formatDate(date: date))
+        
     }
     
     public mutating func loadRecordFor(_ date: Date) {
-        let dt = formatDate(date: date)
+        let dt = formatDate(date)
         moodTrackerManager.retrieveRecordFor(date: dt)
         if let record = moodTrackerManager.record {
             self._notes = record.notes!
@@ -151,10 +160,10 @@ struct MoodTrackerViewModel {
             
             if let weather = record.weather {
                 self._tempDetails = formatTempDetails(weather.minTemp, weather.maxTemp)
-//                self._location = weather.location!
-//                self.weatherIcon = weather.iconName!
+                self._location = weather.location
+                self.weatherIcon = weather.iconName
             }
-        
+            
         } else {
             self._notes = ""
             self._mood = Moods.none.rawValue
@@ -170,7 +179,7 @@ struct MoodTrackerViewModel {
         let maxInt = Int(round(max))
         let minTemp = String(minInt) + celsius
         let maxTemp = String(maxInt) + celsius
-
+        
         return "\(minTemp) - \(maxTemp)"
     }
     

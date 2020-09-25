@@ -11,13 +11,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "a1-s3763636_s3779380_s3557535_s3730303/MoodTrackerModel/MoodTrackerManager.swift"
-            timestampString = "622703078.065541"
+            timestampString = "622710660.992202"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
-            landmarkName = "loadRecordFor()"
-            landmarkType = "7">
+            startingLineNumber = "336"
+            endingLineNumber = "336"
+            landmarkName = "MoodTrackerManager"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -27,13 +27,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "a1-s3763636_s3779380_s3557535_s3730303/MoodTrackerModel/MoodTrackerManager.swift"
-            timestampString = "622703078.06669"
+            timestampString = "622710660.992368"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
-            landmarkName = "loadRecordFor()"
-            landmarkType = "7">
+            startingLineNumber = "337"
+            endingLineNumber = "337"
+            landmarkName = "MoodTrackerManager"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

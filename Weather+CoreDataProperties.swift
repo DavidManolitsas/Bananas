@@ -18,8 +18,8 @@ extension Weather {
     }
 
     @NSManaged public var iconName: String
-    @NSManaged public var lat: Double
-    @NSManaged public var lon: Double
+//    @NSManaged public var lat: Double
+//    @NSManaged public var lon: Double
     @NSManaged public var maxTemp: Double
     @NSManaged public var minTemp: Double
     @NSManaged public var location: String

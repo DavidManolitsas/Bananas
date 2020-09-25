@@ -70,22 +70,26 @@ class MoodTrackerViewController: UIViewController, Refresh {
     }
     
     func updateUI() {
-        
-        if let date = chosenDate {
-            if date.compare(calendar.today!) == .orderedSame  {
-                
+//        if let date = chosenDate {
+//            if date.compare(calendar.today!) == .orderedSame  {
+//                displayWeatherRequest()
+//            }
+//            // no date selected, just for today
+//        } else {
+//            displayWeatherRequest()
+//        }
         weatherImg.image = moodTrackerViewModel.getImage()
         tempLbl.text = moodTrackerViewModel.getTodayTempDetails()
-        // store details?
-                calendar.reloadData()
-            }
+        moodTrackerViewModel.updateWeatherDetailsFor(calendar.today!)
+        calendar.reloadData()
+//    displayWeatherRequest()
+    }
+    
+    private func displayWeatherRequest() {
+        weatherImg.image = moodTrackerViewModel.getImage()
+        tempLbl.text = moodTrackerViewModel.getTodayTempDetails()
+        calendar.reloadData()
         
-        } else {
-            weatherImg.image = moodTrackerViewModel.getImage()
-            tempLbl.text = moodTrackerViewModel.getTodayTempDetails()
-            // store details?
-            calendar.reloadData()
-        }
     }
     
     private func setUpLocation() {
@@ -119,7 +123,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
         }
         
     }
-
+    
     // format date to string
     private func formatDate(date: Date, asFormat format: String) -> String {
         let formatter = DateFormatter();
@@ -136,12 +140,12 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
     // selecting a date and loading the view for that date
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         chosenDate = date
-                if date.compare(calendar.today!) == .orderedSame {
-                                locationMangager.startUpdatingLocation()
-                                getLocation()
-                } else {
-        
-        updateDateMoodViewFor(date: date)
+        if date.compare(calendar.today!) == .orderedSame {
+            locationMangager.startUpdatingLocation()
+            getLocation()
+        } else {
+            
+            updateDateMoodViewFor(date: date)
         }
     }
     
@@ -155,7 +159,7 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
         weatherImg.image = moodTrackerViewModel.weatherImg
         calendar.reloadData()
     }
-
+    
     func maximumDate(for calendar: FSCalendar) -> Date {
         return calendar.today!
     }
@@ -173,11 +177,11 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
 extension MoodTrackerViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // only get location if it's todays date
- 
+        
         if !locations.isEmpty {//, currentLocation == nil {
             currentLocation = locations.first
             // if this is not commented, you will not be able to continuously update location
-//                        locationMangager.stopUpdatingLocation()
+            //                        locationMangager.stopUpdatingLocation()
             getLocation()
             
         }
@@ -213,7 +217,7 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
                 // store city name to database
                 // store date and city name first
             } else {
-//                locationLbl.text = "No location data"
+                //                locationLbl.text = "No location data"
             }
         }
     }

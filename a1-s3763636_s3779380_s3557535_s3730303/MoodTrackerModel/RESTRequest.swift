@@ -57,8 +57,10 @@ class RESTRequest {
                 }
                 
                 let day = result.daily[0]
-                let forecast = Forecast(main: day.weather[0].main, description: day.weather[0].description, iconName: day.weather[0].icon, maxTemp: day.temp.max, minTemp: day.temp.min)
+//                let forecast = Forecast(main: day.weather[0].main, description: day.weather[0].description, iconName: day.weather[0].icon, maxTemp: day.temp.max, minTemp: day.temp.min)
+                let forecast = Forecast(iconName: day.weather[0].icon, maxTemp: day.temp.max, minTemp: day.temp.min)
                     self._forecast = forecast
+                
                 DispatchQueue.main.async {
                     self.delegate?.updateUI()
                 }

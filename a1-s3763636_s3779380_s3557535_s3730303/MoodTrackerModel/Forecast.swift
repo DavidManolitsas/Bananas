@@ -9,7 +9,8 @@ import Foundation
 
 struct Forecast {
 //    private
-    var main: String, description: String, iconName: String, maxTemp: Double, minTemp: Double
+//    var main: String, description: String, iconName: String, maxTemp: Double, minTemp: Double
+   var iconName: String, maxTemp: Double, minTemp: Double
 
 //    init(main: String, description: String, iconName: String, maxTemp: Double, minTemp: Double) {
 //        self.main = main
