@@ -37,12 +37,12 @@ class ProfileMainViewController: UIViewController {
         // add subview to content view
         contentView.addSubview(pageViewController.view)
         
-        let views: [String: Any] = ["pageView": pageViewController.view!]
+//        let views: [String: Any] = ["pageView": pageViewController.view!]
        
        // for the page view, flush againsts the edges 0 poits away from super view through the horizontal and vertical constratins
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[pageView]-0-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: views))
-
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[pageView]-0-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: views))
+//        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[pageView]-0-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: views))
+//
+//        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[pageView]-0-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: views))
         
         
         guard let startingViewController = detailViewControllerAt(index: currentViewControllerIndex) else{
