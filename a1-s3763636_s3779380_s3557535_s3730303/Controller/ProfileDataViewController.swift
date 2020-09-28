@@ -12,17 +12,21 @@ class ProfileDataViewController: UIViewController {
 
     @IBOutlet weak var displayLabel: UILabel!
     @IBOutlet var displayAvatar: UIImageView!
+    @IBOutlet var displayRecipe: UITextView!
     
     
     var avatarName:String = "dAvatar"
     var displayText:String?
     var dataIndex:Int?
+    var recipe:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         displayLabel.text = displayText
-        
+        displayRecipe.text = recipe
        displayAvatar.image = UIImage(named: avatarName)
+        
+        displayRecipe.textAlignment = .center
     }
     
 

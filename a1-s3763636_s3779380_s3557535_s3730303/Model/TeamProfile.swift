@@ -16,10 +16,10 @@ struct TeamProfile{
     }
     
     private mutating func initPeople(){
-        let profile1 = Profile(name: "David Manolitsas", avatarName: "dAvatar")
-        let profile2 = Profile(name: "Jessica Cui", avatarName: "jAvatar")
-        let profile3 = Profile(name: "Peng Xiong", avatarName: "kAvatar")
-        let profile4 = Profile(name: "Winnie Siwan", avatarName: "wAvatar")
+        let profile1 = Profile(name: "David Manolitsas", avatarName: "dAvatar", favRecipe: "Banana Bread")
+        let profile2 = Profile(name: "Jessica Cui", avatarName: "jAvatar", favRecipe: "Banana Milkshake \nCinnamon cooked bananas on pancakes")
+        let profile3 = Profile(name: "Peng Xiong", avatarName: "kAvatar", favRecipe: "Chocolate chip banana bar" )
+        let profile4 = Profile(name: "Winnie Siwan", avatarName: "wAvatar", favRecipe: "Banana Ice Cream \nBanana Milkist")
         
         people.append(contentsOf: [profile1, profile2, profile3, profile4])
     }

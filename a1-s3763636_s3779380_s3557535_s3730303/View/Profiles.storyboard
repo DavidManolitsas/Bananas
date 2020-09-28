@@ -62,31 +62,32 @@
                                     <constraint firstAttribute="width" constant="134" id="nmd-m9-l0b"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c4n-d1-jUn">
-                                <rect key="frame" x="87" y="478" width="240" height="307"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite Banana Recipe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kt-D5-40C">
                                 <rect key="frame" x="110.5" y="437" width="193" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="j8j-WV-LgD">
+                                <rect key="frame" x="87" y="480" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="dvx-Zj-fkz"/>
+                                    <constraint firstAttribute="width" constant="240" id="t7S-3i-c2X"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019607843142" green="0.76078431372549016" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="em1-qM-AIE" firstAttribute="centerX" secondItem="vsG-8d-F5n" secondAttribute="centerX" id="7Tq-8f-Ugi"/>
-                            <constraint firstItem="c4n-d1-jUn" firstAttribute="centerX" secondItem="SVK-rZ-fTs" secondAttribute="centerX" id="AQO-Og-fDd"/>
-                            <constraint firstItem="c4n-d1-jUn" firstAttribute="leading" secondItem="Wzb-V6-5Zt" secondAttribute="leading" constant="87" id="B2u-1P-zdJ"/>
                             <constraint firstItem="em1-qM-AIE" firstAttribute="top" secondItem="Wzb-V6-5Zt" secondAttribute="top" constant="101" id="Bmc-qa-Kur"/>
-                            <constraint firstItem="c4n-d1-jUn" firstAttribute="top" secondItem="6kt-D5-40C" secondAttribute="bottom" constant="20" id="IWM-qe-nV1"/>
                             <constraint firstItem="6kt-D5-40C" firstAttribute="top" secondItem="SVK-rZ-fTs" secondAttribute="bottom" constant="107" id="Psd-xX-oBC"/>
                             <constraint firstItem="6kt-D5-40C" firstAttribute="centerX" secondItem="vsG-8d-F5n" secondAttribute="centerX" id="Qfn-0R-Ogv"/>
                             <constraint firstItem="SVK-rZ-fTs" firstAttribute="top" secondItem="em1-qM-AIE" secondAttribute="bottom" constant="31" id="Xju-ZM-17s"/>
-                            <constraint firstItem="Wzb-V6-5Zt" firstAttribute="bottom" secondItem="c4n-d1-jUn" secondAttribute="bottom" constant="77" id="o30-ub-fbH"/>
+                            <constraint firstItem="j8j-WV-LgD" firstAttribute="top" secondItem="6kt-D5-40C" secondAttribute="bottom" constant="22" id="qKU-fG-Qjq"/>
+                            <constraint firstItem="j8j-WV-LgD" firstAttribute="leading" secondItem="Wzb-V6-5Zt" secondAttribute="leading" constant="87" id="y4O-6P-RaV"/>
                             <constraint firstItem="SVK-rZ-fTs" firstAttribute="centerX" secondItem="vsG-8d-F5n" secondAttribute="centerX" id="ySO-vj-2fg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wzb-V6-5Zt"/>
@@ -94,6 +95,7 @@
                     <connections>
                         <outlet property="displayAvatar" destination="em1-qM-AIE" id="JGs-7y-wh5"/>
                         <outlet property="displayLabel" destination="SVK-rZ-fTs" id="Vyq-Zc-3Vv"/>
+                        <outlet property="displayRecipe" destination="j8j-WV-LgD" id="ttB-Vt-Jx8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="De9-YC-70a" userLabel="First Responder" sceneMemberID="firstResponder"/>

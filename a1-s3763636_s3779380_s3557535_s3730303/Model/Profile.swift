@@ -11,10 +11,12 @@ import Foundation
 struct Profile{
     var name: String
     var avatarName: String
+    var favRecipe: String
     
-    init(name:String, avatarName:String){
+    init(name:String, avatarName:String, favRecipe:String){
         self.name = name
         self.avatarName = avatarName
+        self.favRecipe = favRecipe
     }
     
     func getProfileName() -> String{
@@ -23,5 +25,9 @@ struct Profile{
     
     func getAvatarName() -> String{
         return avatarName
+    }
+    
+    func getFavRecipe() -> String{
+        return favRecipe
     }
 }

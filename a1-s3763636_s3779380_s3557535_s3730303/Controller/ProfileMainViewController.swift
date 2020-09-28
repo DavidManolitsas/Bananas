@@ -65,6 +65,7 @@ class ProfileMainViewController: UIViewController {
         dataViewController.dataIndex = index
          dataViewController.displayText = dataSource[index].getProfileName()
         dataViewController.avatarName = dataSource[index].getAvatarName()
+        dataViewController.recipe = dataSource[index].getFavRecipe()
         
         return dataViewController
     }
