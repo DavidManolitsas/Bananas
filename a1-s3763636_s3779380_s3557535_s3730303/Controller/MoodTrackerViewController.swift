@@ -69,10 +69,22 @@ class MoodTrackerViewController: UIViewController, Refresh {
     }
     
     func updateUI() {
-        weatherImg.image = moodTrackerViewModel.getImage()
-        tempLbl.text = moodTrackerViewModel.getTodayTempDetails()
-        moodTrackerViewModel.updateWeatherDetailsFor(calendar.today!)
-        calendar.reloadData()
+        if let date = chosenDate {
+            
+            if date.compare(calendar.today!) == .orderedSame {
+               
+            weatherImg.image = moodTrackerViewModel.getImage()
+            tempLbl.text = moodTrackerViewModel.getTodayTempDetails()
+            moodTrackerViewModel.updateWeatherDetailsFor(calendar.today!)
+            calendar.reloadData()
+        }
+        } else {
+            // should just be calendar.today?
+            weatherImg.image = moodTrackerViewModel.getImage()
+            tempLbl.text = moodTrackerViewModel.getTodayTempDetails()
+            moodTrackerViewModel.updateWeatherDetailsFor(calendar.today!)
+            calendar.reloadData()
+        }
     }
     
     private func setUpLocation() {
