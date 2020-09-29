@@ -54,7 +54,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="13d" translatesAutoresizingMaskIntoConstraints="NO" id="qhK-qg-8Lw">
-                                                <rect key="frame" x="248" y="5" width="30" height="30"/>
+                                                <rect key="frame" x="228" y="5" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="qhK-qg-8Lw" secondAttribute="height" multiplier="1:1" id="0A4-b8-JMd"/>
                                                     <constraint firstAttribute="height" constant="30" id="beO-ua-nIA"/>
@@ -71,16 +71,16 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Et7-BS-t30">
-                                                <rect key="frame" x="20" y="8" width="210" height="24"/>
+                                                <rect key="frame" x="50" y="8" width="170" height="24"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="210" id="aZb-As-Jiw"/>
+                                                    <constraint firstAttribute="width" constant="170" id="aZb-As-Jiw"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="EmE-I2-UCJ">
-                                                <rect key="frame" x="3" y="15" width="10" height="10"/>
+                                                <rect key="frame" x="3" y="15" width="40" height="10"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="2jH-yz-pNF">
@@ -132,9 +132,9 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACC-Jt-Zvu">
-                                                <rect key="frame" x="286" y="8" width="90" height="24"/>
+                                                <rect key="frame" x="266" y="8" width="110" height="24"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="90" id="egu-xf-MUz"/>
+                                                    <constraint firstAttribute="width" constant="110" id="egu-xf-MUz"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
@@ -154,13 +154,11 @@
                                             <constraint firstItem="qhK-qg-8Lw" firstAttribute="centerY" secondItem="ACC-Jt-Zvu" secondAttribute="centerY" id="DW8-Ti-S0N"/>
                                             <constraint firstItem="Ev8-cI-AIN" firstAttribute="top" secondItem="EmE-I2-UCJ" secondAttribute="bottom" constant="37" id="DWf-KI-oCg"/>
                                             <constraint firstItem="Ev8-cI-AIN" firstAttribute="top" secondItem="ACC-Jt-Zvu" secondAttribute="bottom" constant="30" id="KyQ-8z-zWJ"/>
-                                            <constraint firstItem="qhK-qg-8Lw" firstAttribute="leading" secondItem="Et7-BS-t30" secondAttribute="trailing" constant="18" id="OXj-Am-j9j"/>
+                                            <constraint firstItem="qhK-qg-8Lw" firstAttribute="leading" secondItem="Et7-BS-t30" secondAttribute="trailing" constant="8" id="OXj-Am-j9j"/>
                                             <constraint firstItem="ACC-Jt-Zvu" firstAttribute="leading" secondItem="qhK-qg-8Lw" secondAttribute="trailing" constant="8" symbolic="YES" id="PFj-Xu-2V9"/>
-                                            <constraint firstItem="qhK-qg-8Lw" firstAttribute="leading" secondItem="Et7-BS-t30" secondAttribute="trailing" constant="18" id="Q6h-6o-xMr"/>
                                             <constraint firstItem="Ev8-cI-AIN" firstAttribute="leading" secondItem="zJd-cA-up5" secondAttribute="leadingMargin" id="RJO-Is-46Z"/>
                                             <constraint firstItem="fss-DR-NDL" firstAttribute="top" secondItem="Ev8-cI-AIN" secondAttribute="bottom" constant="10" id="Xe8-2V-hOI"/>
                                             <constraint firstItem="ACC-Jt-Zvu" firstAttribute="top" secondItem="zJd-cA-up5" secondAttribute="top" constant="8" id="gMx-jp-gsG"/>
-                                            <constraint firstItem="ACC-Jt-Zvu" firstAttribute="leading" secondItem="qhK-qg-8Lw" secondAttribute="trailing" constant="8" id="lBg-yD-Z0I"/>
                                             <constraint firstItem="Et7-BS-t30" firstAttribute="top" secondItem="zJd-cA-up5" secondAttribute="top" constant="8" id="nud-wy-KP0"/>
                                             <constraint firstItem="Ev8-cI-AIN" firstAttribute="trailing" secondItem="zJd-cA-up5" secondAttribute="trailingMargin" id="oUa-Hb-NVC"/>
                                             <constraint firstItem="Ev8-cI-AIN" firstAttribute="top" secondItem="Et7-BS-t30" secondAttribute="bottom" constant="30" id="wHa-Aa-YNZ"/>
@@ -202,6 +200,7 @@
                         <outlet property="calendar" destination="jCg-lM-dJa" id="qjV-SM-vew"/>
                         <outlet property="dateLbl" destination="Ev8-cI-AIN" id="ShG-Uq-v8M"/>
                         <outlet property="greetingsLbl" destination="fss-DR-NDL" id="eyF-nn-KlI"/>
+                        <outlet property="locationImg" destination="EmE-I2-UCJ" id="u2A-sD-2h6"/>
                         <outlet property="locationLbl" destination="Et7-BS-t30" id="sso-ta-CJA"/>
                         <outlet property="notesText" destination="rLK-kM-qMO" id="knV-rn-sWc"/>
                         <outlet property="tempLbl" destination="ACC-Jt-Zvu" id="B2M-pf-TC1"/>
