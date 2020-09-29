@@ -13,13 +13,19 @@ import CoreLocation
 
 class MoodTrackerViewController: UIViewController, Refresh {
     @IBOutlet weak var calendar: FSCalendar!
+    
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var tempLbl: UILabel!
     @IBOutlet weak var weatherImg: UIImageView!
-    @IBOutlet weak var greetingsLbl: UILabel!
-    @IBOutlet weak var notesText: UITextView!
     @IBOutlet weak var locationLbl: UILabel!
     @IBOutlet weak var locationImg: UIImageView!
+    @IBOutlet weak var feelsLikeLbl: UILabel!
+    @IBOutlet weak var sunriseLbl: UILabel!
+    @IBOutlet weak var sunsetLbl: UILabel!
+    
+    @IBOutlet weak var greetingsLbl: UILabel!
+    
+    @IBOutlet weak var notesText: UITextView!
     
     private let moodGreeting = "How are you feeling today?"
     private let greatHexCode = "#8cc0a8"
