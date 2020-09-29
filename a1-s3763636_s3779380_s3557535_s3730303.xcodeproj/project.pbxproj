@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F6258C924F2BA9A0085DDF0 /* profileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6258C824F2BA9A0085DDF0 /* profileModel.swift */; };
-		5F6258CB24F2BD240085DDF0 /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6258CA24F2BD240085DDF0 /* profileViewController.swift */; };
 		5FAA268224FDD58600FE79D6 /* recordsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA268124FDD58600FE79D6 /* recordsModel.swift */; };
 		5FAA268424FDD5AD00FE79D6 /* studyRecordsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA268324FDD5AD00FE79D6 /* studyRecordsController.swift */; };
 		5FAA268624FDD5C700FE79D6 /* recordsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA268524FDD5C700FE79D6 /* recordsViewCell.swift */; };
@@ -41,6 +39,9 @@
 		CB29B3C02511D5D000B8646A /* DatabaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB29B3BE2511D5D000B8646A /* DatabaseModel.xcdatamodeld */; };
 		CB36EEB7251063B6009EF4AC /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB36EEB6251063B6009EF4AC /* TimerViewModel.swift */; };
 		CB36EEB925106A5B009EF4AC /* TimerRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB36EEB825106A5B009EF4AC /* TimerRecords.swift */; };
+		CB92D03E2519CFBD006D6A0E /* ProfileDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB92D03D2519CFBD006D6A0E /* ProfileDataViewController.swift */; };
+		CB92D040251A4425006D6A0E /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB92D03F251A4425006D6A0E /* CustomPageViewController.swift */; };
+		CB92D042251A4535006D6A0E /* ProfileMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB92D041251A4535006D6A0E /* ProfileMainViewController.swift */; };
 		CB9C781E24F0E064007878A3 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C781C24F0E064007878A3 /* TimerViewController.swift */; };
 		CB9C782124F0E078007878A3 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C782024F0E078007878A3 /* SongList.swift */; };
 		CB9C782E24F0E337007878A3 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB9C782B24F0E337007878A3 /* 1.mp3 */; };
@@ -48,13 +49,13 @@
 		CB9C783024F0E337007878A3 /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB9C782D24F0E337007878A3 /* 2.mp3 */; };
 		CB9C783324F0EEAB007878A3 /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C783224F0EEAB007878A3 /* PopViewController.swift */; };
 		CB9C783524F10EAB007878A3 /* BreakDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C783424F10EAB007878A3 /* BreakDuration.swift */; };
+		CBB4D8CD251B68940037C16C /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB4D8CC251B68940037C16C /* Profile.swift */; };
+		CBB4D8CF251B68B00037C16C /* TeamProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB4D8CE251B68B00037C16C /* TeamProfile.swift */; };
 		F6C182B5F7AC4984B54203F7 /* Pods_a1_s3763636_s3779380_s3557535_s3730303.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD0CFFEC536B1C0A945079B6 /* Pods_a1_s3763636_s3779380_s3557535_s3730303.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2D7F2DCE304674AD2C109068 /* Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig"; path = "Target Support Files/Pods-a1-s3763636_s3779380_s3557535_s3730303/Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig"; sourceTree = "<group>"; };
-		5F6258C824F2BA9A0085DDF0 /* profileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileModel.swift; sourceTree = "<group>"; };
-		5F6258CA24F2BD240085DDF0 /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		5FAA268124FDD58600FE79D6 /* recordsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recordsModel.swift; sourceTree = "<group>"; };
 		5FAA268324FDD5AD00FE79D6 /* studyRecordsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = studyRecordsController.swift; sourceTree = "<group>"; };
 		5FAA268524FDD5C700FE79D6 /* recordsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recordsViewCell.swift; sourceTree = "<group>"; };
@@ -90,6 +91,9 @@
 		CB29B3BF2511D5D000B8646A /* DatabaseModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DatabaseModel.xcdatamodel; sourceTree = "<group>"; };
 		CB36EEB6251063B6009EF4AC /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		CB36EEB825106A5B009EF4AC /* TimerRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRecords.swift; sourceTree = "<group>"; };
+		CB92D03D2519CFBD006D6A0E /* ProfileDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataViewController.swift; sourceTree = "<group>"; };
+		CB92D03F251A4425006D6A0E /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
+		CB92D041251A4535006D6A0E /* ProfileMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainViewController.swift; sourceTree = "<group>"; };
 		CB9C781C24F0E064007878A3 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		CB9C782024F0E078007878A3 /* SongList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongList.swift; path = "a1-s3763636_s3779380_s3557535_s3730303/Model/SongList.swift"; sourceTree = SOURCE_ROOT; };
 		CB9C782B24F0E337007878A3 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 		CB9C782D24F0E337007878A3 /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
 		CB9C783224F0EEAB007878A3 /* PopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
 		CB9C783424F10EAB007878A3 /* BreakDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakDuration.swift; sourceTree = "<group>"; };
+		CBB4D8CC251B68940037C16C /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		CBB4D8CE251B68B00037C16C /* TeamProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamProfile.swift; sourceTree = "<group>"; };
 		DF1B939875A39D6CA2A620B7 /* Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig"; path = "Target Support Files/Pods-a1-s3763636_s3779380_s3557535_s3730303/Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,12 +132,13 @@
 				5FAA268124FDD58600FE79D6 /* recordsModel.swift */,
 				CB9C782024F0E078007878A3 /* SongList.swift */,
 				CB9C783424F10EAB007878A3 /* BreakDuration.swift */,
-				5F6258C824F2BA9A0085DDF0 /* profileModel.swift */,
 				63652DD024ECFA96005C0BC1 /* Task.swift */,
 				63652DDC24ED1CA0005C0BC1 /* TaskPriority.swift */,
 				636B875824F60C7300D4C644 /* TodoList.swift */,
 				CB36EEB825106A5B009EF4AC /* TimerRecords.swift */,
 				CB29B3BE2511D5D000B8646A /* DatabaseModel.xcdatamodeld */,
+				CBB4D8CC251B68940037C16C /* Profile.swift */,
+				CBB4D8CE251B68B00037C16C /* TeamProfile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -144,10 +151,12 @@
 				CB9C781C24F0E064007878A3 /* TimerViewController.swift */,
 				CB9C783224F0EEAB007878A3 /* PopViewController.swift */,
 				C8BB0D2624EE13A500E027B1 /* MoodTrackerViewController.swift */,
-				5F6258CA24F2BD240085DDF0 /* profileViewController.swift */,
 				63652DD824ED1029005C0BC1 /* TodoViewController.swift */,
 				63D0528124EE5AD900665E67 /* SplitViewController.swift */,
 				63FA777F24F262B4009F47B7 /* TodoDetailController.swift */,
+				CB92D03D2519CFBD006D6A0E /* ProfileDataViewController.swift */,
+				CB92D03F251A4425006D6A0E /* CustomPageViewController.swift */,
+				CB92D041251A4535006D6A0E /* ProfileMainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -369,10 +378,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB92D03E2519CFBD006D6A0E /* ProfileDataViewController.swift in Sources */,
 				CB36EEB7251063B6009EF4AC /* TimerViewModel.swift in Sources */,
-				5F6258C924F2BA9A0085DDF0 /* profileModel.swift in Sources */,
-				5F6258CB24F2BD240085DDF0 /* profileViewController.swift in Sources */,
 				CB9C781E24F0E064007878A3 /* TimerViewController.swift in Sources */,
+				CBB4D8CF251B68B00037C16C /* TeamProfile.swift in Sources */,
 				CB9C783524F10EAB007878A3 /* BreakDuration.swift in Sources */,
 				C8949E7B24F2709E00FE6A64 /* Moods.swift in Sources */,
 				C8E1403624F142800024F572 /* MoodTrackerViewModel.swift in Sources */,
@@ -381,10 +390,16 @@
 				CB9C782124F0E078007878A3 /* SongList.swift in Sources */,
 				63652DDD24ED1CA0005C0BC1 /* TaskPriority.swift in Sources */,
 				636B875724F6040F00D4C644 /* TodoViewModel.swift in Sources */,
+
+				CB92D040251A4425006D6A0E /* CustomPageViewController.swift in Sources */,
+
 				C88F4BA0251AF04F00C68E1D /* Weather+CoreDataClass.swift in Sources */,
+
 				636B875924F60C7300D4C644 /* TodoList.swift in Sources */,
 				C8CA4D6225107FF900467AEE /* RESTRequest.swift in Sources */,
 				5FAA268424FDD5AD00FE79D6 /* studyRecordsController.swift in Sources */,
+				CBB4D8CD251B68940037C16C /* Profile.swift in Sources */,
+				CB92D042251A4535006D6A0E /* ProfileMainViewController.swift in Sources */,
 				5FAA268224FDD58600FE79D6 /* recordsModel.swift in Sources */,
 				63FA777E24F240F4009F47B7 /* TodoCell.swift in Sources */,
 				C8E1403824F142EC0024F572 /* Forecast.swift in Sources */,
