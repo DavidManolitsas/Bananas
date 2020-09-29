@@ -20,14 +20,14 @@
                                 <rect key="frame" x="0.0" y="96" width="414" height="263"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCg-lM-dJa" customClass="FSCalendar">
-                                        <rect key="frame" x="15" y="8" width="384" height="247"/>
+                                        <rect key="frame" x="15" y="8" width="384" height="255"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="jCg-lM-dJa" firstAttribute="leading" secondItem="tbf-K6-FmS" secondAttribute="leading" constant="15" id="gl4-Ld-fjg"/>
-                                    <constraint firstAttribute="bottom" secondItem="jCg-lM-dJa" secondAttribute="bottom" constant="8" id="nSQ-JC-0lo"/>
+                                    <constraint firstAttribute="bottom" secondItem="jCg-lM-dJa" secondAttribute="bottom" id="nSQ-JC-0lo"/>
                                     <constraint firstAttribute="trailing" secondItem="jCg-lM-dJa" secondAttribute="trailing" constant="15" id="nfB-SD-MCc"/>
                                     <constraint firstItem="jCg-lM-dJa" firstAttribute="top" secondItem="tbf-K6-FmS" secondAttribute="top" constant="8" id="upa-Jc-gyp"/>
                                 </constraints>
@@ -60,8 +60,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWe-38-EB7">
                                         <rect key="frame" x="15" y="178" width="384" height="107"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="4P4-MJ-bT1">
-                                                <rect key="frame" x="76" y="52" width="259" height="35"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="4P4-MJ-bT1">
+                                                <rect key="frame" x="62.5" y="52" width="259" height="35"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHc-RC-cNa">
                                                         <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
@@ -127,15 +127,24 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How are you feeling today?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsT-6A-ffh">
-                                                <rect key="frame" x="83" y="8" width="245" height="26"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How are you feeling today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsT-6A-ffh">
+                                                <rect key="frame" x="8" y="8" width="368" height="26"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="368" id="Ix5-8k-UT5"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="rsT-6A-ffh" firstAttribute="top" secondItem="hWe-38-EB7" secondAttribute="top" constant="8" id="C1s-ke-beg"/>
+                                            <constraint firstItem="4P4-MJ-bT1" firstAttribute="top" secondItem="rsT-6A-ffh" secondAttribute="bottom" constant="18" id="EEJ-zJ-H71"/>
+                                            <constraint firstItem="rsT-6A-ffh" firstAttribute="centerX" secondItem="hWe-38-EB7" secondAttribute="centerX" id="LwH-Xg-5VN"/>
+                                            <constraint firstItem="4P4-MJ-bT1" firstAttribute="centerX" secondItem="hWe-38-EB7" secondAttribute="centerX" id="ljm-U5-4la"/>
+                                            <constraint firstAttribute="bottom" secondItem="4P4-MJ-bT1" secondAttribute="bottom" constant="20" id="ms3-pQ-ROs"/>
+                                        </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PjQ-S9-9b7">
                                         <rect key="frame" x="15" y="303" width="384" height="25.5"/>
@@ -229,7 +238,7 @@
                                                 </variation>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5I-bv-75x">
-                                                <rect key="frame" x="234" y="41" width="150" height="20.5"/>
+                                                <rect key="frame" x="236" y="41" width="150" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="142" id="H4P-m3-eMI">
                                                         <variation key="heightClass=regular-widthClass=compact" constant="150"/>
@@ -250,7 +259,7 @@
                                                 </variation>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="13d" translatesAutoresizingMaskIntoConstraints="NO" id="61k-6y-1XE">
-                                                <rect key="frame" x="199" y="34" width="35" height="35"/>
+                                                <rect key="frame" x="201" y="34" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="35" id="CYu-mS-vva"/>
                                                     <constraint firstAttribute="width" secondItem="61k-6y-1XE" secondAttribute="height" multiplier="1:1" id="zaa-WB-tqK"/>
@@ -351,7 +360,7 @@
                                                 <variation key="heightClass=regular-widthClass=compact" constant="1"/>
                                             </constraint>
                                             <constraint firstItem="C66-yy-Iid" firstAttribute="top" secondItem="9PQ-4B-IJW" secondAttribute="bottom" constant="8" id="ik9-Di-WSq"/>
-                                            <constraint firstItem="61k-6y-1XE" firstAttribute="leading" secondItem="7PY-X9-RNa" secondAttribute="trailing" constant="6" id="n6d-X2-dL3"/>
+                                            <constraint firstItem="61k-6y-1XE" firstAttribute="leading" secondItem="7PY-X9-RNa" secondAttribute="trailing" constant="8" id="n6d-X2-dL3"/>
                                             <constraint firstItem="bGe-cl-7qc" firstAttribute="bottom" secondItem="9PQ-4B-IJW" secondAttribute="bottom" id="ow6-Sn-N1D"/>
                                             <constraint firstAttribute="trailing" secondItem="Ex4-Ll-3PJ" secondAttribute="trailing" constant="8" id="qd2-xg-E2b"/>
                                             <constraint firstItem="ieO-WX-lKP" firstAttribute="leading" secondItem="rsH-6f-P0S" secondAttribute="leading" constant="23" id="uVG-4A-0fl"/>
