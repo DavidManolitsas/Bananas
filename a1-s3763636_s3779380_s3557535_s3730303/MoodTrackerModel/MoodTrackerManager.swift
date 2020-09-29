@@ -31,10 +31,10 @@ class MoodTrackerManager {
     
     public func updateNotes(_ notes: String, _ date: String) {
         if entityDoesExistFor(date: date) {
-            print("updating an existing entity with notes: " + notes)
+//            print("updating an existing entity with notes: " + notes)
             updateRecordEntity(attribute:notes, keyPath: "notes", datePredicate: date)
         } else {
-            print("creating a new entity for date: \(date)")
+//            print("creating a new entity for date: \(date)")
             _ = createNSDailyMoodRecord(date, "None", notes)
         }
         
@@ -42,10 +42,10 @@ class MoodTrackerManager {
     
     public func updateMood(_ mood: String, _ date: String) {
         if entityDoesExistFor(date: date) {
-            print("updating an existing entity with mood: " + mood)
+//            print("updating an existing entity with mood: " + mood)
             updateRecordEntity(attribute: mood, keyPath: "mood", datePredicate: date)
         } else {
-            print("creating a new entity for date: \(date)")
+//            print("creating a new entity for date: \(date)")
             _ = createNSDailyMoodRecord(date, mood, "")
         }
         
@@ -81,13 +81,13 @@ class MoodTrackerManager {
             
             
         } else {
-            print("creating a new entity for date: \(date)")
+//            print("creating a new entity for date: \(date)")
             _ = createNSDailyMoodRecord(date, Moods.none.rawValue, "", weather)
-            print("\(weather.location) at \(date)")
+//            print("\(weather.location) at \(date)")
         }
         
         saveToDatabase(errorMsg: "error saving update")
-        loadRecordFor()
+//        loadRecordForWeather(date)
     }
     
     private func updateRecordEntity(attribute: String, keyPath: String, datePredicate: String) {
@@ -214,22 +214,22 @@ class MoodTrackerManager {
         }
     }
     
-    private func loadRecordFor() {
-        do {
-            // creates the query request
-                        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Weather")
-//            let predicate = NSPredicate(format: "%K == %@", "date", date)
-//            recordFetchRequest.predicate = predicate
-            
-            let result = try managedContext.fetch(fetchRequest)
-            let records = result as! [Weather]
-//            record = records[0]
-            print("################## \(records)")
-            //            print("this is the notes saved: \(record!.notes!)")
-        } catch let error as NSError {
-            print("*** Retrieving from database error: \(error), \(error.userInfo)")
-        }
-    }
+//    private func loadRecordForWeather(_ date: String) {
+//        do {
+//            // creates the query request
+//                        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Weather")
+////            let predicate = NSPredicate(format: "%K == %@", "date", date)
+////            recordFetchRequest.predicate = predicate
+//
+//            let result = try managedContext.fetch(fetchRequest)
+//            let records = result as! [Weather]
+////            record = records[0]
+//            print("################## \(records)")
+//            //            print("this is the notes saved: \(record!.notes!)")
+//        } catch let error as NSError {
+//            print("*** Retrieving from database error: \(error), \(error.userInfo)")
+//        }
+//    }
     
     public func retrieveRecordFor(date: String) {
         if (entityDoesExistFor(date: date)) {
