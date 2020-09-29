@@ -22,6 +22,9 @@ struct MoodTrackerViewModel {
     private var locationOffIcon: String
     private var locationOnIcon: String
     private var weatherIcon: String
+    private var _sunriseTime: String
+    private var _sunsetTime: String
+    private var _feelsLike: String
     
     var delegate: Refresh? {
         get {
@@ -52,6 +55,24 @@ struct MoodTrackerViewModel {
         }
     }
     
+    var feelsLike: String {
+        get {
+            return _feelsLike
+        }
+    }
+    
+    var sunriseTime: String {
+        get {
+            return _sunriseTime
+        }
+    }
+    
+    var sunsetTime: String {
+        get {
+            return _sunsetTime
+        }
+    }
+    
     var tempDetails: String {
         get {
             return _tempDetails
@@ -79,11 +100,14 @@ struct MoodTrackerViewModel {
     init() {
         self._mood = Moods.none.rawValue
         self._notes = ""
-        self._tempDetails = "No weather data"
-        self._location = "No location data"
+        self._tempDetails = "No weather"
+        self._location = "No location"
         self.locationOffIcon = "location_off"
         self.locationOnIcon = "location"
         self.weatherIcon = "transparent"
+        self._sunsetTime = "No data"
+        self._sunriseTime = "No data"
+        self._feelsLike = "No data"
     }
     
     private func formatDate(_ date: Date) -> String {
@@ -95,7 +119,7 @@ struct MoodTrackerViewModel {
     public func getWeatherFor(_ lat: Double, _ lon: Double) {
         RESTReq.getWeatherFor(lat: String(lat), lon: String(lon))
     }
-
+    
     public func getImage() -> UIImage? {
         if let forecast = RESTReq.forecast {
             return UIImage(named: forecast.iconName)
@@ -110,11 +134,51 @@ struct MoodTrackerViewModel {
         return self._tempDetails
     }
     
+    public mutating func getSunriseTime() -> String {
+        if let forecast = RESTReq.forecast {
+            self._sunriseTime = formatTime(utc: forecast.sunrise)
+            return self._sunriseTime
+        }
+        return "No data"
+    }
+    
+    public mutating func getSunsetTime() -> String {
+        if let forecast = RESTReq.forecast {
+            self._sunsetTime = formatTime(utc: forecast.sunset)
+            return self._sunsetTime
+        }
+        return "No data"
+    }
+    
+    private func formatTime(utc: Int) -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(utc))
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        dateFormatter.timeZone = TimeZone.current
+        let localDate = dateFormatter.string(from: date)
+        return localDate
+        
+    }
+    
+    public func getFeelsLikeTemp()-> String {
+        if let forecast = RESTReq.forecast {
+            let temp = formatFeelsLikeTemp(forecast.feelsLike)
+            return temp + celsius
+        }
+        return "No data"
+        
+    }
+    
+    private func formatFeelsLikeTemp(_ feelsLike: Double) -> String {
+        let temp = Int(round(feelsLike))
+        return String(temp)
+    }
+    
     public func updateWeatherDetailsFor(_ today: Date) {
         if let forecast = RESTReq.forecast {
-//            moodTrackerManager.updateWeatherDetails("06-09-20", forecast.minTemp, forecast.maxTemp, forecast.iconName)
-
-            moodTrackerManager.updateWeatherDetails(formatDate(today), forecast.minTemp, forecast.maxTemp, forecast.iconName)
+           moodTrackerManager.updateWeatherDetails(formatDate(today), forecast.minTemp, forecast.maxTemp, forecast.iconName, forecast.feelsLike, self._sunriseTime, self._sunsetTime)
+            
+//            moodTrackerManager.updateWeatherDetails("09-09-20", forecast.minTemp, forecast.maxTemp, forecast.iconName, forecast.feelsLike, self.sunriseTime, self.sunsetTime)
         }
         
     }
@@ -135,7 +199,7 @@ struct MoodTrackerViewModel {
     
     public func updateWeatherForLocation(_ location: String, _ date: Date) {
         moodTrackerManager.updateWeatherLocation(location, formatDate(date))
-//        moodTrackerManager.updateWeatherLocation(location, "06-09-20")
+//                moodTrackerManager.updateWeatherLocation(location, "09-09-20")
     }
     
     public mutating func loadRecordFor(_ date: Date) {
@@ -149,14 +213,21 @@ struct MoodTrackerViewModel {
                 self._tempDetails = formatTempDetails(weather.minTemp, weather.maxTemp)
                 self._location = weather.location
                 self.weatherIcon = weather.iconName
+                self._feelsLike = formatFeelsLikeTemp(weather.feelsLike)
+                self._sunriseTime = weather.sunriseTime
+                self._sunsetTime = weather.sunsetTime
             }
             
         } else {
+            // reset to empty view
             self._notes = ""
             self._mood = Moods.none.rawValue
-            self._tempDetails = "No weather data"
-            self._location = "No location data"
+            self._tempDetails = "No weather"
+            self._location = "No location"
             self.weatherIcon = "transparent"
+            self._feelsLike = "No data"
+            self._sunriseTime = "No data"
+            self._sunsetTime = "No data"
         }
         
     }

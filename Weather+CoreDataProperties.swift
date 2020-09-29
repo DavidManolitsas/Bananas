@@ -21,6 +21,9 @@ extension Weather {
     @NSManaged public var maxTemp: Double
     @NSManaged public var minTemp: Double
     @NSManaged public var location: String
+    @NSManaged public var feelsLike: Double
+    @NSManaged public var sunriseTime: String
+    @NSManaged public var sunsetTime: String
     @NSManaged public var dailyMoodRecord: DailyMoodRecord?
 
 }

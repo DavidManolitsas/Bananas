@@ -53,12 +53,12 @@ class MoodTrackerManager {
     
     public func updateWeatherLocation(_ location: String, _ date: String) {
         self.location = location
-        let weather = createNSWeather(minTemp: 0.0, maxTemp: 0.0, iconName: "transparent", location: self.location)
+        let weather = createNSWeather(minTemp: 0.0, maxTemp: 0.0, iconName: "transparent", location: self.location, feelsLike: 0.0, sunriseTime: "00:00", sunsetTime: "00:00")
         updateWeatherEntity(date, weather)
     }
     
-    public func updateWeatherDetails(_ date: String, _ minTemp: Double, _ maxTemp: Double, _ iconName: String) {
-        let weather = createNSWeather(minTemp: minTemp, maxTemp: maxTemp, iconName: iconName, location: self.location)
+    public func updateWeatherDetails(_ date: String, _ minTemp: Double, _ maxTemp: Double, _ iconName: String, _ feelsLike: Double, _ sunriseTime: String, _ sunsetTime: String) {
+        let weather = createNSWeather(minTemp: minTemp, maxTemp: maxTemp, iconName: iconName, location: self.location, feelsLike: feelsLike, sunriseTime: sunriseTime, sunsetTime: sunsetTime)
         updateWeatherEntity(date, weather)
     }
     
@@ -156,8 +156,8 @@ class MoodTrackerManager {
     }
     
     private func initMockEntries() {
-        let w1 = createNSWeather(minTemp: 30.0, maxTemp: 50.0, iconName: "50d", location: "Mock location")
-        let w2 = createNSWeather(minTemp: 40.0, maxTemp: 60.0, iconName: "01d", location: "Desert")
+        let w1 = createNSWeather(minTemp: 30.0, maxTemp: 50.0, iconName: "50d", location: "Mock location", feelsLike: 102.00, sunriseTime: "05:43 am", sunsetTime: "6:01pm")
+        let w2 = createNSWeather(minTemp: 40.0, maxTemp: 60.0, iconName: "01d", location: "Desert", feelsLike: 32.00, sunriseTime: "9:00 am", sunsetTime: "7:01pm")
         
         createNSDailyMoodRecord("22-09-20", Moods.great.rawValue, "Wow it's boiling hot today", w1)
         createNSDailyMoodRecord("10-09-20", Moods.awful.rawValue, "Humans weren't built to survive 60 degrees... I don't feel so good... ooft", w2)
@@ -173,7 +173,7 @@ class MoodTrackerManager {
         }
     }
     
-    private func createNSWeather(minTemp: Double, maxTemp: Double, iconName: String, location: String) -> Weather {
+    private func createNSWeather(minTemp: Double, maxTemp: Double, iconName: String, location: String,feelsLike: Double,  sunriseTime: String, sunsetTime: String) -> Weather {
         let weatherEntity = NSEntityDescription.entity(forEntityName: "Weather", in: managedContext)!
         let nsWeather = NSManagedObject(entity: weatherEntity, insertInto: managedContext) as! Weather
         

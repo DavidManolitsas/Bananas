@@ -78,23 +78,17 @@ class MoodTrackerViewController: UIViewController, Refresh {
         if isToday() {
             weatherImg.image = moodTrackerViewModel.getImage()
             tempLbl.text = moodTrackerViewModel.getTodayTempDetails()
-            moodTrackerViewModel.updateWeatherDetailsFor(calendar.today!)
+            feelsLikeLbl.text = moodTrackerViewModel.getFeelsLikeTemp()
+            sunriseLbl.text = moodTrackerViewModel.getSunriseTime()
+            sunsetLbl.text = moodTrackerViewModel.getSunsetTime()
             
+            moodTrackerViewModel.updateWeatherDetailsFor(calendar.today!)
             moodTrackerViewModel.loadRecordFor(calendar.today!)
+            
             notesText.text = moodTrackerViewModel.notes
+            
             calendar.reloadData()
         }
-    }
-    
-    private func isToday() -> Bool {
-        if let date = chosenDate {
-            if date.compare(calendar.today!) == .orderedSame {
-                return true
-            }
-            return false
-        }
-        // otherwise it's calendar.today since chosenDate cannot be unwrapped
-        return true
     }
     
     private func setUpLocation() {
@@ -124,6 +118,17 @@ class MoodTrackerViewController: UIViewController, Refresh {
         dateLbl.font = UIFont.boldSystemFont(ofSize: 18.0)
         
         updateDateMoodViewFor(date: calendar.today!)
+    }
+    
+    private func isToday() -> Bool {
+        if let date = chosenDate {
+            if date.compare(calendar.today!) == .orderedSame {
+                return true
+            }
+            return false
+        }
+        // otherwise it's calendar.today since chosenDate cannot be unwrapped
+        return true
     }
     
     private func updateMoodAs(_ newMood: Moods) {
@@ -170,6 +175,9 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
         locationLbl.text = moodTrackerViewModel.location
         locationImg.image = moodTrackerViewModel.locationOffImg
         weatherImg.image = moodTrackerViewModel.weatherImg
+        feelsLikeLbl.text = moodTrackerViewModel.feelsLike
+        sunriseLbl.text = moodTrackerViewModel.sunriseTime
+        sunsetLbl.text = moodTrackerViewModel.sunsetTime
         
         calendar.reloadData()
     }
