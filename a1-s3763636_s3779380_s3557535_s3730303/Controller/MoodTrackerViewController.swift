@@ -69,10 +69,26 @@ class MoodTrackerViewController: UIViewController, Refresh {
     }
     
     func updateUI() {
-        weatherImg.image = moodTrackerViewModel.getImage()
-        tempLbl.text = moodTrackerViewModel.getTodayTempDetails()
-        moodTrackerViewModel.updateWeatherDetailsFor(calendar.today!)
-        calendar.reloadData()
+        if isToday() {
+            weatherImg.image = moodTrackerViewModel.getImage()
+            tempLbl.text = moodTrackerViewModel.getTodayTempDetails()
+            moodTrackerViewModel.updateWeatherDetailsFor(calendar.today!)
+            
+            moodTrackerViewModel.loadRecordFor(calendar.today!)
+            notesText.text = moodTrackerViewModel.notes
+            calendar.reloadData()
+        }
+    }
+    
+    private func isToday() -> Bool {
+        if let date = chosenDate {
+            if date.compare(calendar.today!) == .orderedSame {
+                return true
+            }
+            return false
+        }
+        // otherwise it's calendar.today since chosenDate cannot be unwrapped
+        return true
     }
     
     private func setUpLocation() {
@@ -84,6 +100,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
     private func setUpCalendar() {
         calendar.delegate = self;
         calendar.dataSource = self;
+        
         let appearance = calendar.appearance
         appearance.todayColor = .orange;
         appearance.headerTitleColor = customBrown;
@@ -93,7 +110,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
         appearance.weekdayFont = UIFont.systemFont(ofSize:16.0)
         appearance.titleSelectionColor = UIColor(hexString: "4E5D97")
         // 1. 566397
-//      2.  394989
+        //      2.  394989
     }
     
     private func initDateMoodView() {
@@ -197,9 +214,12 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
         if let placemark = placemark {
             if let city = placemark.locality, !city.isEmpty {
                 print("placemark.locality is = \(city)")
-                locationLbl.text = city
-                locationImg.image = moodTrackerViewModel.locationOnImg
-                moodTrackerViewModel.updateWeatherForLocation(city, calendar.today!)
+                
+                if isToday() {
+                    locationLbl.text = city
+                    locationImg.image = moodTrackerViewModel.locationOnImg
+                    moodTrackerViewModel.updateWeatherForLocation(city, calendar.today!)
+                }
             }
         }
     }
@@ -254,7 +274,7 @@ extension MoodTrackerViewController: FSCalendarDelegateAppearance {
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
         return customiseEventColours(forDate: date)
     }
-
+    
     // customise event dot colours when date is is selected
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventSelectionColorsFor date: Date) -> [UIColor]? {
         return customiseEventColours(forDate: date)
