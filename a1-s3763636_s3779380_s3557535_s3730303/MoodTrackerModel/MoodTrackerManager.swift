@@ -237,7 +237,7 @@ class MoodTrackerManager {
             loadRecordFor(date)
         } else {
             record = nil
-            print("no record, cannot retrieve")
+//            print("no record, cannot retrieve")
         }
     }
     

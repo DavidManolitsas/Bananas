@@ -73,6 +73,9 @@ class MoodTrackerViewController: UIViewController, Refresh {
             weatherImg.image = moodTrackerViewModel.getImage()
             tempLbl.text = moodTrackerViewModel.getTodayTempDetails()
             moodTrackerViewModel.updateWeatherDetailsFor(calendar.today!)
+            
+            moodTrackerViewModel.loadRecordFor(calendar.today!)
+            notesText.text = moodTrackerViewModel.notes
             calendar.reloadData()
         }
     }
