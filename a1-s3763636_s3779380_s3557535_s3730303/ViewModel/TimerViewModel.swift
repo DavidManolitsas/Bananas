@@ -6,17 +6,13 @@
 //  Copyright © 2020 David Manolitsas. All rights reserved.
 //
 
-import Foundation
-
 struct TimerViewModel {
-//    var studyRecords = [records]()
-    var timerRecords = TimerRecords()
     
-    public mutating func updateRecord(breakduration: Int, alarmName: String, durations: Int){
-       timerRecords.updateRecord(breakduration: breakduration, alarmName: alarmName, durations: durations)
-    }
-    public func getRecordsFromModel() -> [records]{
-        return timerRecords.getRecordsDetails()
-    }
     
+    private var trackerManager = RecordsManager.tracker
+    
+    public mutating func updateRecords(_ breaktime:Int,_ timer:Int,_ title: String){
+        trackerManager.addRecords(breaktime: breaktime, timer: timer, title: title)
+    }
+   
 }
