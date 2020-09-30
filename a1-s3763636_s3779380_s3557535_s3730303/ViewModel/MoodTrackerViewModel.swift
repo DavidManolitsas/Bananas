@@ -57,7 +57,7 @@ struct MoodTrackerViewModel {
     
     var feelsLike: String {
         get {
-            return _feelsLike
+            return _feelsLike + celsius
         }
     }
     
@@ -160,9 +160,10 @@ struct MoodTrackerViewModel {
         
     }
     
-    public func getFeelsLikeTemp()-> String {
+    public mutating func getFeelsLikeTemp()-> String {
         if let forecast = RESTReq.forecast {
             let temp = formatFeelsLikeTemp(forecast.feelsLike)
+            
             return temp + celsius
         }
         return "No data"
@@ -205,7 +206,9 @@ struct MoodTrackerViewModel {
     public mutating func loadRecordFor(_ date: Date) {
         let dt = formatDate(date)
         moodTrackerManager.retrieveRecordFor(date: dt)
+        
         if let record = moodTrackerManager.record {
+            
             self._notes = record.notes!
             self._mood = record.mood!
             
@@ -216,6 +219,7 @@ struct MoodTrackerViewModel {
                 self._feelsLike = formatFeelsLikeTemp(weather.feelsLike)
                 self._sunriseTime = weather.sunriseTime
                 self._sunsetTime = weather.sunsetTime
+//                print("the sunset time is \(weather.sunsetTime)")
             }
             
         } else {

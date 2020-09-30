@@ -114,8 +114,8 @@ class MoodTrackerViewController: UIViewController, Refresh {
     }
     
     private func initDateMoodView() {
-        greetingsLbl.text = moodGreeting
-        dateLbl.font = UIFont.boldSystemFont(ofSize: 18.0)
+//        greetingsLbl.text = moodGreeting
+//        dateLbl.font = UIFont.boldSystemFont(ofSize: 18.0)
         
         updateDateMoodViewFor(date: calendar.today!)
     }
