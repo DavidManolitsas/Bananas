@@ -2,7 +2,7 @@
 //  Records+CoreDataProperties.swift
 //  
 //
-//  Created by kerwin on 23/9/20.
+//  Created by kerwin on 1/10/20.
 //
 //
 
@@ -16,8 +16,8 @@ extension Records {
         return NSFetchRequest<Records>(entityName: "Records")
     }
 
-    @NSManaged public var title: String?
     @NSManaged public var breaktime: Int32
     @NSManaged public var timer: Int32
+    @NSManaged public var title: String?
 
 }
