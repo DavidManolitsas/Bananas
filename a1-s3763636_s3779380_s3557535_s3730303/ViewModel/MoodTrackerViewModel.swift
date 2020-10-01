@@ -57,7 +57,7 @@ struct MoodTrackerViewModel {
     
     var feelsLike: String {
         get {
-            return _feelsLike + celsius
+            return _feelsLike
         }
     }
     
@@ -172,7 +172,7 @@ struct MoodTrackerViewModel {
     
     private func formatFeelsLikeTemp(_ feelsLike: Double) -> String {
         let temp = Int(round(feelsLike))
-        return String(temp)
+        return String(temp) + celsius
     }
     
     public func updateWeatherDetailsFor(_ today: Date) {
