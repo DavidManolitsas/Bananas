@@ -23,13 +23,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aC4-wp-u3o">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aC4-wp-u3o">
                                 <rect key="frame" x="0.0" y="276" width="320" height="292"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rsH-6f-P0S" userLabel="DateWeatherView">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rsH-6f-P0S" userLabel="DateWeatherView">
                                         <rect key="frame" x="8" y="0.0" width="304" height="140"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" ambiguous="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PY-X9-RNa">
                                                 <rect key="frame" x="25" y="35" width="135" height="20"/>
@@ -225,17 +223,28 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XKW-Zr-J0j" userLabel="DividerView1">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XKW-Zr-J0j" userLabel="DividerView1">
                                         <rect key="frame" x="32" y="144" width="256" height="2"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="5YJ-T1-V4u"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="5YJ-T1-V4u"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="5YJ-T1-V4u"/>
+                                            </mask>
+                                        </variation>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hWe-38-EB7" userLabel="MoodView">
-                                        <rect key="frame" x="8" y="150" width="304" height="70"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hWe-38-EB7" userLabel="MoodView">
+                                        <rect key="frame" x="8" y="150" width="304" height="71"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="How are you feeling today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsT-6A-ffh">
-                                                <rect key="frame" x="15" y="0.0" width="274" height="22"/>
+                                                <rect key="frame" x="15" y="4" width="274" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="274" id="eWR-cy-YwC"/>
                                                 </constraints>
@@ -253,9 +262,8 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="4P4-MJ-bT1">
-                                                <rect key="frame" x="35" y="28" width="234" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="4P4-MJ-bT1">
+                                                <rect key="frame" x="35" y="35" width="234" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHc-RC-cNa">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -351,11 +359,48 @@
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="rsT-6A-ffh" firstAttribute="top" secondItem="hWe-38-EB7" secondAttribute="top" constant="4" id="7YS-Or-lOQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="4P4-MJ-bT1" secondAttribute="bottom" constant="7" id="XFy-IX-2oY"/>
+                                            <constraint firstItem="rsT-6A-ffh" firstAttribute="centerX" secondItem="hWe-38-EB7" secondAttribute="centerX" id="YAd-ia-9e4"/>
+                                            <constraint firstItem="4P4-MJ-bT1" firstAttribute="top" secondItem="rsT-6A-ffh" secondAttribute="bottom" constant="8" id="Z2k-z5-hjb"/>
+                                            <constraint firstItem="4P4-MJ-bT1" firstAttribute="centerX" secondItem="hWe-38-EB7" secondAttribute="centerX" id="ba6-6e-Ruk"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="7YS-Or-lOQ"/>
+                                                <exclude reference="YAd-ia-9e4"/>
+                                                <exclude reference="XFy-IX-2oY"/>
+                                                <exclude reference="Z2k-z5-hjb"/>
+                                                <exclude reference="ba6-6e-Ruk"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="7YS-Or-lOQ"/>
+                                                <include reference="YAd-ia-9e4"/>
+                                                <include reference="XFy-IX-2oY"/>
+                                                <include reference="Z2k-z5-hjb"/>
+                                                <include reference="ba6-6e-Ruk"/>
+                                            </mask>
+                                        </variation>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yvA-Xe-zLz" userLabel="DividerView2">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yvA-Xe-zLz" userLabel="DividerView2">
                                         <rect key="frame" x="32" y="225" width="256" height="2"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="crf-Hv-7pN"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="crf-Hv-7pN"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="crf-Hv-7pN"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PjQ-S9-9b7">
                                         <rect key="frame" x="133" y="231" width="54.5" height="22"/>
@@ -376,9 +421,8 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ljV-d6-mgS">
-                                        <rect key="frame" x="15" y="251" width="290" height="200"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ljV-d6-mgS">
+                                        <rect key="frame" x="15" y="256" width="290" height="195"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -386,8 +430,51 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ljV-d6-mgS" secondAttribute="trailing" constant="15" id="6AS-E0-hAd"/>
+                                    <constraint firstItem="yvA-Xe-zLz" firstAttribute="top" secondItem="hWe-38-EB7" secondAttribute="bottom" constant="4" id="7Qu-0d-VGF"/>
+                                    <constraint firstItem="PjQ-S9-9b7" firstAttribute="top" secondItem="yvA-Xe-zLz" secondAttribute="bottom" constant="4" id="7ui-e0-5X8"/>
+                                    <constraint firstAttribute="trailing" secondItem="rsH-6f-P0S" secondAttribute="trailing" constant="8" id="9dN-cb-rUY"/>
+                                    <constraint firstItem="XKW-Zr-J0j" firstAttribute="top" secondItem="rsH-6f-P0S" secondAttribute="bottom" constant="4" id="CvK-F6-7NC"/>
+                                    <constraint firstItem="rsH-6f-P0S" firstAttribute="top" secondItem="RiV-JA-zf9" secondAttribute="top" id="G7E-2D-sqT"/>
+                                    <constraint firstItem="ljV-d6-mgS" firstAttribute="leading" secondItem="aC4-wp-u3o" secondAttribute="leading" constant="15" id="OxE-3F-gmL"/>
+                                    <constraint firstItem="ljV-d6-mgS" firstAttribute="top" secondItem="PjQ-S9-9b7" secondAttribute="bottom" constant="3" id="YRL-tY-NLT"/>
+                                    <constraint firstItem="PjQ-S9-9b7" firstAttribute="centerX" secondItem="aC4-wp-u3o" secondAttribute="centerX" id="mNA-IB-USv"/>
+                                    <constraint firstItem="rsH-6f-P0S" firstAttribute="leading" secondItem="aC4-wp-u3o" secondAttribute="leading" constant="8" id="rU9-jU-fI4"/>
+                                    <constraint firstItem="hWe-38-EB7" firstAttribute="top" secondItem="XKW-Zr-J0j" secondAttribute="bottom" constant="4" id="s1k-bi-eAG"/>
+                                </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="RiV-JA-zf9"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="FRl-6B-mA2"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9dN-cb-rUY"/>
+                                        <exclude reference="G7E-2D-sqT"/>
+                                        <exclude reference="rU9-jU-fI4"/>
+                                        <exclude reference="CvK-F6-7NC"/>
+                                        <exclude reference="s1k-bi-eAG"/>
+                                        <exclude reference="7Qu-0d-VGF"/>
+                                        <exclude reference="6AS-E0-hAd"/>
+                                        <exclude reference="OxE-3F-gmL"/>
+                                        <exclude reference="YRL-tY-NLT"/>
+                                        <exclude reference="7ui-e0-5X8"/>
+                                        <exclude reference="mNA-IB-USv"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="9dN-cb-rUY"/>
+                                        <include reference="G7E-2D-sqT"/>
+                                        <include reference="rU9-jU-fI4"/>
+                                        <include reference="CvK-F6-7NC"/>
+                                        <include reference="s1k-bi-eAG"/>
+                                        <include reference="7Qu-0d-VGF"/>
+                                        <include reference="6AS-E0-hAd"/>
+                                        <include reference="OxE-3F-gmL"/>
+                                        <include reference="YRL-tY-NLT"/>
+                                        <include reference="7ui-e0-5X8"/>
+                                        <include reference="mNA-IB-USv"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
