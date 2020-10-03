@@ -13,15 +13,15 @@ class ProfileMainViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     
 
-    var dataSource:[Profile] = TeamProfile().getPeople()
-    var currentViewControllerIndex = 0
+    private var dataSource:[Profile] = TeamProfile().getPeople()
+    private var currentViewControllerIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configurePageViewController()
     }
     
-    func configurePageViewController(){
+    private func configurePageViewController(){
         guard let pageViewController = storyboard?.instantiateViewController(withIdentifier: String(describing: CustomPageViewController.self)) as? CustomPageViewController else{
             return
         }
@@ -50,7 +50,7 @@ class ProfileMainViewController: UIViewController {
         pageViewController.setViewControllers([startingViewController], direction: .forward, animated: true)
     }
     
-    func detailViewControllerAt(index: Int) -> ProfileDataViewController? {
+    private func detailViewControllerAt(index: Int) -> ProfileDataViewController? {
         
         if index >= dataSource.count || dataSource.count == 0{
             return nil
@@ -60,10 +60,15 @@ class ProfileMainViewController: UIViewController {
             return nil
         }
         
-        dataViewController.dataIndex = index
-         dataViewController.displayText = dataSource[index].getProfileName()
-        dataViewController.avatarName = dataSource[index].getAvatarName()
-        dataViewController.recipe = dataSource[index].getFavRecipe()
+//        dataViewController.dataIndex = index
+//         dataViewController.displayText = dataSource[index].getProfileName()
+//        dataViewController.avatarName = dataSource[index].getAvatarName()
+//        dataViewController.recipe = dataSource[index].getFavRecipe()
+        
+        dataViewController.setRecipe(_recipe: dataSource[index].getFavRecipe())
+        dataViewController.setAvatarName(_name: dataSource[index].getAvatarName())
+        dataViewController.setDisplayText(_text: dataSource[index].getProfileName())
+        dataViewController.setDataIndex(_index: index)
         
         return dataViewController
     }
@@ -81,13 +86,17 @@ extension ProfileMainViewController: UIPageViewControllerDelegate, UIPageViewCon
         return dataSource.count
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?{
+   func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?{
         let dataViewController = viewController as? ProfileDataViewController
         
-        guard var currentIndex = dataViewController?.dataIndex else{
-            return nil
-        }
-        
+//        guard var currentIndex = dataViewController?.dataIndex else{
+//            return nil
+//        }
+    
+    guard var currentIndex = dataViewController?.getIndex() else{
+        return nil
+    }
+    
         currentViewControllerIndex = currentIndex
         
         if currentIndex == 0{
@@ -101,7 +110,11 @@ extension ProfileMainViewController: UIPageViewControllerDelegate, UIPageViewCon
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let dataViewController = viewController as? ProfileDataViewController
         
-        guard var currentIndex = dataViewController?.dataIndex else{
+//        guard var currentIndex = dataViewController?.dataIndex else{
+//            return nil
+//        }
+        
+        guard var currentIndex = dataViewController?.getIndex() else{
             return nil
         }
         

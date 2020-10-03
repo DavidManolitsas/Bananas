@@ -9,9 +9,9 @@
 import Foundation
 
 struct Profile{
-    var name: String
-    var avatarName: String
-    var favRecipe: String
+    private var name: String
+    private var avatarName: String
+    private var favRecipe: String
     
     init(name:String, avatarName:String, favRecipe:String){
         self.name = name
