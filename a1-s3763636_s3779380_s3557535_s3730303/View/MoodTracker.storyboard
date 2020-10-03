@@ -56,9 +56,8 @@
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hWe-38-EB7" userLabel="MoodView">
+                                            <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hWe-38-EB7" userLabel="MoodView">
                                                 <rect key="frame" x="7" y="150" width="305" height="75"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="How are you feeling today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsT-6A-ffh">
                                                         <rect key="frame" x="15.5" y="5" width="274" height="23"/>
@@ -194,9 +193,8 @@
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rsH-6f-P0S" userLabel="DateWeatherView">
+                                            <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rsH-6f-P0S" userLabel="DateWeatherView">
                                                 <rect key="frame" x="7" y="0.0" width="305" height="140"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" ambiguous="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PY-X9-RNa">
                                                         <rect key="frame" x="25" y="31.5" width="135" height="20.5"/>
@@ -393,7 +391,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" ambiguous="YES" text="Notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PjQ-S9-9b7">
-                                                <rect key="frame" x="132" y="235" width="54.5" height="23"/>
+                                                <rect key="frame" x="133" y="235" width="54.5" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="54.5" id="YId-oO-05K"/>
                                                 </constraints>
@@ -411,9 +409,8 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ljV-d6-mgS">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ljV-d6-mgS">
                                                 <rect key="frame" x="15" y="266" width="290" height="200"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -423,9 +420,19 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="hWe-38-EB7" firstAttribute="centerX" secondItem="OdD-IA-6of" secondAttribute="centerX" id="Gea-YE-M0t"/>
+                                            <constraint firstAttribute="trailing" secondItem="ljV-d6-mgS" secondAttribute="trailing" constant="15" id="HId-N8-ojz"/>
+                                            <constraint firstItem="ljV-d6-mgS" firstAttribute="top" secondItem="PjQ-S9-9b7" secondAttribute="bottom" constant="6" id="Ntt-Du-aJS"/>
+                                            <constraint firstItem="XKW-Zr-J0j" firstAttribute="centerX" secondItem="OdD-IA-6of" secondAttribute="centerX" id="OZE-6S-adw"/>
+                                            <constraint firstItem="ljV-d6-mgS" firstAttribute="leading" secondItem="OdD-IA-6of" secondAttribute="leading" constant="15" id="Rw9-ai-76Y"/>
+                                            <constraint firstItem="rsH-6f-P0S" firstAttribute="centerX" secondItem="OdD-IA-6of" secondAttribute="centerX" id="U57-6V-Jmy"/>
+                                            <constraint firstItem="ljV-d6-mgS" firstAttribute="centerX" secondItem="OdD-IA-6of" secondAttribute="centerX" id="a7u-kV-meU"/>
                                             <constraint firstAttribute="height" constant="128" id="cK6-8N-5bS">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="295"/>
                                             </constraint>
+                                            <constraint firstAttribute="bottom" secondItem="ljV-d6-mgS" secondAttribute="bottom" constant="8" id="kKG-LL-h31"/>
+                                            <constraint firstItem="yvA-Xe-zLz" firstAttribute="centerX" secondItem="OdD-IA-6of" secondAttribute="centerX" id="lt9-4Q-xen"/>
+                                            <constraint firstItem="PjQ-S9-9b7" firstAttribute="centerX" secondItem="OdD-IA-6of" secondAttribute="centerX" id="nUc-kQ-RMO"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="subviews">
@@ -438,6 +445,16 @@
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="cK6-8N-5bS"/>
+                                                <exclude reference="U57-6V-Jmy"/>
+                                                <exclude reference="OZE-6S-adw"/>
+                                                <exclude reference="Gea-YE-M0t"/>
+                                                <exclude reference="lt9-4Q-xen"/>
+                                                <exclude reference="HId-N8-ojz"/>
+                                                <exclude reference="Ntt-Du-aJS"/>
+                                                <exclude reference="Rw9-ai-76Y"/>
+                                                <exclude reference="a7u-kV-meU"/>
+                                                <exclude reference="kKG-LL-h31"/>
+                                                <exclude reference="nUc-kQ-RMO"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
@@ -451,6 +468,16 @@
                                             </mask>
                                             <mask key="constraints">
                                                 <include reference="cK6-8N-5bS"/>
+                                                <include reference="U57-6V-Jmy"/>
+                                                <include reference="OZE-6S-adw"/>
+                                                <include reference="Gea-YE-M0t"/>
+                                                <include reference="lt9-4Q-xen"/>
+                                                <include reference="HId-N8-ojz"/>
+                                                <include reference="Ntt-Du-aJS"/>
+                                                <include reference="Rw9-ai-76Y"/>
+                                                <include reference="a7u-kV-meU"/>
+                                                <include reference="kKG-LL-h31"/>
+                                                <include reference="nUc-kQ-RMO"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -515,13 +542,13 @@
                                 <exclude reference="DqN-nP-7wh"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="yMi-jb-184"/>
-                                <exclude reference="zf8-up-UcR"/>
                                 <exclude reference="c3b-iX-uvq"/>
                                 <exclude reference="jSc-oD-PoG"/>
                                 <exclude reference="ydH-lA-9ER"/>
                                 <exclude reference="i7x-ew-feg"/>
                                 <exclude reference="rBX-cs-FX6"/>
+                                <exclude reference="yMi-jb-184"/>
+                                <exclude reference="zf8-up-UcR"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -529,13 +556,13 @@
                                 <include reference="DqN-nP-7wh"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="yMi-jb-184"/>
-                                <include reference="zf8-up-UcR"/>
                                 <include reference="c3b-iX-uvq"/>
                                 <include reference="jSc-oD-PoG"/>
                                 <include reference="ydH-lA-9ER"/>
                                 <include reference="i7x-ew-feg"/>
                                 <include reference="rBX-cs-FX6"/>
+                                <include reference="yMi-jb-184"/>
+                                <include reference="zf8-up-UcR"/>
                             </mask>
                         </variation>
                     </view>
