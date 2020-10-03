@@ -173,7 +173,11 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
         notesText.text = moodTrackerViewModel.notes
         tempLbl.text = moodTrackerViewModel.tempDetails
         locationLbl.text = moodTrackerViewModel.location
-        locationImg.image = moodTrackerViewModel.locationOffImg
+        
+        if !isToday() {
+            locationImg.image = moodTrackerViewModel.locationOffImg
+        }
+        
         weatherImg.image = moodTrackerViewModel.weatherImg
         feelsLikeLbl.text = moodTrackerViewModel.feelsLike
         sunriseLbl.text = moodTrackerViewModel.sunriseTime
@@ -259,7 +263,7 @@ extension MoodTrackerViewController:  UITextViewDelegate {
 extension MoodTrackerViewController: FSCalendarDelegateAppearance {
     // change event dot size
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let eventScaleFactor: CGFloat = 1.3
+        let eventScaleFactor: CGFloat = 1.5
         cell.eventIndicator.transform = CGAffineTransform(scaleX: eventScaleFactor, y: eventScaleFactor)
         
     }
