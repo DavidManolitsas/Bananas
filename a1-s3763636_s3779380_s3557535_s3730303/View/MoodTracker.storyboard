@@ -56,7 +56,7 @@
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <view contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hWe-38-EB7" userLabel="MoodView">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hWe-38-EB7" userLabel="MoodView">
                                                 <rect key="frame" x="7" y="150" width="305" height="75"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="How are you feeling today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsT-6A-ffh">
@@ -78,7 +78,7 @@
                                                             </mask>
                                                         </variation>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="4P4-MJ-bT1">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="4P4-MJ-bT1">
                                                         <rect key="frame" x="35.5" y="35" width="234" height="30"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHc-RC-cNa">
@@ -175,6 +175,22 @@
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="4P4-MJ-bT1" firstAttribute="centerX" secondItem="hWe-38-EB7" secondAttribute="centerX" id="Bwu-2C-NkM"/>
+                                                    <constraint firstItem="rsT-6A-ffh" firstAttribute="centerX" secondItem="hWe-38-EB7" secondAttribute="centerX" id="s5R-B9-AVq"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="s5R-B9-AVq"/>
+                                                        <exclude reference="Bwu-2C-NkM"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="s5R-B9-AVq"/>
+                                                        <include reference="Bwu-2C-NkM"/>
+                                                    </mask>
+                                                </variation>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yvA-Xe-zLz" userLabel="DividerView2">
                                                 <rect key="frame" x="31" y="229" width="256" height="2"/>
@@ -409,7 +425,7 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ljV-d6-mgS">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ljV-d6-mgS">
                                                 <rect key="frame" x="15" y="266" width="290" height="200"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -420,19 +436,24 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="PjQ-S9-9b7" firstAttribute="top" secondItem="yvA-Xe-zLz" secondAttribute="bottom" constant="4" id="8fB-pJ-5Du"/>
                                             <constraint firstItem="hWe-38-EB7" firstAttribute="centerX" secondItem="OdD-IA-6of" secondAttribute="centerX" id="Gea-YE-M0t"/>
                                             <constraint firstAttribute="trailing" secondItem="ljV-d6-mgS" secondAttribute="trailing" constant="15" id="HId-N8-ojz"/>
                                             <constraint firstItem="ljV-d6-mgS" firstAttribute="top" secondItem="PjQ-S9-9b7" secondAttribute="bottom" constant="6" id="Ntt-Du-aJS"/>
                                             <constraint firstItem="XKW-Zr-J0j" firstAttribute="centerX" secondItem="OdD-IA-6of" secondAttribute="centerX" id="OZE-6S-adw"/>
                                             <constraint firstItem="ljV-d6-mgS" firstAttribute="leading" secondItem="OdD-IA-6of" secondAttribute="leading" constant="15" id="Rw9-ai-76Y"/>
                                             <constraint firstItem="rsH-6f-P0S" firstAttribute="centerX" secondItem="OdD-IA-6of" secondAttribute="centerX" id="U57-6V-Jmy"/>
+                                            <constraint firstItem="rsH-6f-P0S" firstAttribute="top" secondItem="OdD-IA-6of" secondAttribute="top" id="VD8-LM-53F"/>
                                             <constraint firstItem="ljV-d6-mgS" firstAttribute="centerX" secondItem="OdD-IA-6of" secondAttribute="centerX" id="a7u-kV-meU"/>
                                             <constraint firstAttribute="height" constant="128" id="cK6-8N-5bS">
                                                 <variation key="heightClass=regular-widthClass=compact" constant="295"/>
                                             </constraint>
+                                            <constraint firstItem="XKW-Zr-J0j" firstAttribute="top" secondItem="rsH-6f-P0S" secondAttribute="bottom" constant="4" id="fEv-5X-Hpw"/>
                                             <constraint firstAttribute="bottom" secondItem="ljV-d6-mgS" secondAttribute="bottom" constant="8" id="kKG-LL-h31"/>
                                             <constraint firstItem="yvA-Xe-zLz" firstAttribute="centerX" secondItem="OdD-IA-6of" secondAttribute="centerX" id="lt9-4Q-xen"/>
                                             <constraint firstItem="PjQ-S9-9b7" firstAttribute="centerX" secondItem="OdD-IA-6of" secondAttribute="centerX" id="nUc-kQ-RMO"/>
+                                            <constraint firstItem="hWe-38-EB7" firstAttribute="top" secondItem="XKW-Zr-J0j" secondAttribute="bottom" constant="4" id="rXA-nM-FhS"/>
+                                            <constraint firstItem="yvA-Xe-zLz" firstAttribute="top" secondItem="hWe-38-EB7" secondAttribute="bottom" constant="4" id="uIE-Jt-a5d"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="subviews">
@@ -446,14 +467,19 @@
                                             <mask key="constraints">
                                                 <exclude reference="cK6-8N-5bS"/>
                                                 <exclude reference="U57-6V-Jmy"/>
+                                                <exclude reference="VD8-LM-53F"/>
                                                 <exclude reference="OZE-6S-adw"/>
+                                                <exclude reference="fEv-5X-Hpw"/>
                                                 <exclude reference="Gea-YE-M0t"/>
+                                                <exclude reference="rXA-nM-FhS"/>
                                                 <exclude reference="lt9-4Q-xen"/>
+                                                <exclude reference="uIE-Jt-a5d"/>
                                                 <exclude reference="HId-N8-ojz"/>
                                                 <exclude reference="Ntt-Du-aJS"/>
                                                 <exclude reference="Rw9-ai-76Y"/>
                                                 <exclude reference="a7u-kV-meU"/>
                                                 <exclude reference="kKG-LL-h31"/>
+                                                <exclude reference="8fB-pJ-5Du"/>
                                                 <exclude reference="nUc-kQ-RMO"/>
                                             </mask>
                                         </variation>
@@ -469,14 +495,19 @@
                                             <mask key="constraints">
                                                 <include reference="cK6-8N-5bS"/>
                                                 <include reference="U57-6V-Jmy"/>
+                                                <include reference="VD8-LM-53F"/>
                                                 <include reference="OZE-6S-adw"/>
+                                                <include reference="fEv-5X-Hpw"/>
                                                 <include reference="Gea-YE-M0t"/>
+                                                <include reference="rXA-nM-FhS"/>
                                                 <include reference="lt9-4Q-xen"/>
+                                                <include reference="uIE-Jt-a5d"/>
                                                 <include reference="HId-N8-ojz"/>
                                                 <include reference="Ntt-Du-aJS"/>
                                                 <include reference="Rw9-ai-76Y"/>
                                                 <include reference="a7u-kV-meU"/>
                                                 <include reference="kKG-LL-h31"/>
+                                                <include reference="8fB-pJ-5Du"/>
                                                 <include reference="nUc-kQ-RMO"/>
                                             </mask>
                                         </variation>
