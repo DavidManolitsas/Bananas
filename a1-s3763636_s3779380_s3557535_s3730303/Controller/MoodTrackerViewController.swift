@@ -105,9 +105,9 @@ class MoodTrackerViewController: UIViewController, Refresh {
         appearance.todayColor = .orange;
         appearance.headerTitleColor = customBrown;
         appearance.weekdayTextColor = customBrown;
-        appearance.titleFont = UIFont.systemFont(ofSize:17.0)
+        appearance.titleFont = UIFont.systemFont(ofSize:18.0)
         appearance.headerTitleFont = UIFont.systemFont(ofSize:18.0)
-        appearance.weekdayFont = UIFont.systemFont(ofSize:16.0)
+        appearance.weekdayFont = UIFont.systemFont(ofSize:18.0)
         appearance.titleSelectionColor = UIColor(hexString: "4E5D97")
         // 1. 566397
         //      2.  394989
@@ -115,7 +115,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
     
     private func initDateMoodView() {
 //        greetingsLbl.text = moodGreeting
-//        dateLbl.font = UIFont.boldSystemFont(ofSize: 18.0)
+        dateLbl.font = UIFont.boldSystemFont(ofSize: 22.0)
         
         updateDateMoodViewFor(date: calendar.today!)
     }
