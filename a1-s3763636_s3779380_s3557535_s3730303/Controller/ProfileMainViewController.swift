@@ -60,11 +60,6 @@ class ProfileMainViewController: UIViewController {
             return nil
         }
         
-//        dataViewController.dataIndex = index
-//         dataViewController.displayText = dataSource[index].getProfileName()
-//        dataViewController.avatarName = dataSource[index].getAvatarName()
-//        dataViewController.recipe = dataSource[index].getFavRecipe()
-        
         dataViewController.setRecipe(_recipe: dataSource[index].getFavRecipe())
         dataViewController.setAvatarName(_name: dataSource[index].getAvatarName())
         dataViewController.setDisplayText(_text: dataSource[index].getProfileName())
@@ -88,10 +83,6 @@ extension ProfileMainViewController: UIPageViewControllerDelegate, UIPageViewCon
     
    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?{
         let dataViewController = viewController as? ProfileDataViewController
-        
-//        guard var currentIndex = dataViewController?.dataIndex else{
-//            return nil
-//        }
     
     guard var currentIndex = dataViewController?.getIndex() else{
         return nil
@@ -109,10 +100,6 @@ extension ProfileMainViewController: UIPageViewControllerDelegate, UIPageViewCon
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let dataViewController = viewController as? ProfileDataViewController
-        
-//        guard var currentIndex = dataViewController?.dataIndex else{
-//            return nil
-//        }
         
         guard var currentIndex = dataViewController?.getIndex() else{
             return nil
