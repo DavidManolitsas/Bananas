@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7mF-e7-HCA">
-    <device id="retina4_0" orientation="landscape">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="umj-hM-Hc5" customClass="ProfileMainViewController" customModule="a1_s3763636_s3779380_s3557535_s3730303" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mbP-zD-zMU">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftC-ca-fD3">
-                                <rect key="frame" x="0.0" y="32" width="568" height="288"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="515"/>
                                 <color key="backgroundColor" red="0.92549019607843142" green="0.76078431372549016" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ftC-ca-fD3" secondAttribute="height" multiplier="125:201" id="6TE-hy-d48"/>
@@ -110,11 +110,11 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileDataViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QBF-gZ-fwu" customClass="ProfileDataViewController" customModule="a1_s3763636_s3779380_s3557535_s3730303" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vsG-8d-F5n">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="em1-qM-AIE">
-                                <rect key="frame" x="79" y="27" width="134" height="134"/>
+                                <rect key="frame" x="93" y="55" width="134" height="134"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="134" id="Meh-oW-rai"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="134" id="XXc-kU-niS"/>
@@ -145,19 +145,21 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVK-rZ-fTs">
-                                <rect key="frame" x="124" y="198" width="42" height="20"/>
+                                <rect key="frame" x="139" y="209" width="42" height="20"/>
+                                <accessibility key="accessibilityConfiguration" identifier="displayName"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite Banana Recipe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kt-D5-40C">
-                                <rect key="frame" x="291" y="27" width="193" height="21"/>
+                                <rect key="frame" x="63.5" y="271" width="193" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8j-WV-LgD">
-                                <rect key="frame" x="268" y="70" width="240" height="160"/>
+                                <rect key="frame" x="40" y="300" width="240" height="160"/>
+                                <accessibility key="accessibilityConfiguration" identifier="favRecipe"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="Wol-Uf-SWk"/>
                                     <constraint firstAttribute="width" constant="240" id="hn8-Wv-iY5"/>
@@ -221,16 +223,16 @@
                                 <exclude reference="X5o-sN-a8q"/>
                                 <exclude reference="g6x-DB-UVb"/>
                                 <exclude reference="m5l-jo-JiT"/>
+                                <exclude reference="6Tq-1x-1hN"/>
+                                <exclude reference="91I-2z-oi3"/>
+                                <exclude reference="yD9-RR-2i0"/>
+                                <exclude reference="ybO-Uz-p3t"/>
                                 <exclude reference="77x-28-Jam"/>
                                 <exclude reference="OH4-Fm-JzF"/>
                                 <exclude reference="cjU-d3-naj"/>
                                 <exclude reference="ggH-fp-nps"/>
                                 <exclude reference="wdo-xJ-yg9"/>
                                 <exclude reference="ySa-YL-6fX"/>
-                                <exclude reference="6Tq-1x-1hN"/>
-                                <exclude reference="91I-2z-oi3"/>
-                                <exclude reference="yD9-RR-2i0"/>
-                                <exclude reference="ybO-Uz-p3t"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
@@ -240,9 +242,9 @@
                                 <include reference="Bj8-Lp-tUY"/>
                                 <include reference="X5o-sN-a8q"/>
                                 <include reference="m5l-jo-JiT"/>
+                                <include reference="ybO-Uz-p3t"/>
                                 <include reference="cjU-d3-naj"/>
                                 <include reference="ggH-fp-nps"/>
-                                <include reference="ybO-Uz-p3t"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
@@ -252,9 +254,9 @@
                                 <include reference="fLR-rO-DDS"/>
                                 <include reference="GUX-0M-AM6"/>
                                 <include reference="Phd-yx-YAA"/>
+                                <include reference="6Tq-1x-1hN"/>
                                 <include reference="77x-28-Jam"/>
                                 <include reference="wdo-xJ-yg9"/>
-                                <include reference="6Tq-1x-1hN"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -263,10 +265,10 @@
                                 <include reference="Mkz-sH-dOI"/>
                                 <include reference="JDE-ca-iro"/>
                                 <include reference="g6x-DB-UVb"/>
-                                <include reference="OH4-Fm-JzF"/>
-                                <include reference="ySa-YL-6fX"/>
                                 <include reference="91I-2z-oi3"/>
                                 <include reference="yD9-RR-2i0"/>
+                                <include reference="OH4-Fm-JzF"/>
+                                <include reference="ySa-YL-6fX"/>
                             </mask>
                         </variation>
                     </view>
@@ -297,7 +299,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8dd-HA-Z5t">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="32"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

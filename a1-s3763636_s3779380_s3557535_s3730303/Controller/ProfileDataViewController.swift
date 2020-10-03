@@ -25,6 +25,7 @@ class ProfileDataViewController: UIViewController {
         displayLabel.text = displayText
         displayRecipe.text = recipe
        displayAvatar.image = UIImage(named: avatarName)
+        displayAvatar.restorationIdentifier = avatarName
         
         displayRecipe.textAlignment = .center
     }
