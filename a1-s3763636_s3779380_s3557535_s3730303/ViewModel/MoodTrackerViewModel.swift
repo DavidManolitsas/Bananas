@@ -164,7 +164,7 @@ struct MoodTrackerViewModel {
         if let forecast = RESTReq.forecast {
             let temp = formatFeelsLikeTemp(forecast.feelsLike)
             
-            return temp + celsius
+            return temp
         }
         return "No data"
         
