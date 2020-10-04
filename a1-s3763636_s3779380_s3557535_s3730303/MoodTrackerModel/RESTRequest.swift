@@ -30,6 +30,7 @@ class RESTRequest {
     public func getWeatherFor(lat: String, lon: String) {
 //        _forecasts = []
         let urlString = baseUrl + paramLat + lat + paramLon + lon + paramExtras
+//        print("\t\t\t\t\t\t\t\t\t \(urlString)")
         if let url = URL(string: urlString) {
 //            let request = URLRequest(url: url)
             getData(url)
