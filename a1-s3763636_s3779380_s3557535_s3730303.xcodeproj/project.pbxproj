@@ -27,6 +27,8 @@
 		63AD4D8424EA0E8D00CAAEB4 /* MoodTracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AD4D8324EA0E8D00CAAEB4 /* MoodTracker.storyboard */; };
 		63AD4D8824EA0EC100CAAEB4 /* Profiles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AD4D8724EA0EC100CAAEB4 /* Profiles.storyboard */; };
 		63D0528224EE5AD900665E67 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0528124EE5AD900665E67 /* SplitViewController.swift */; };
+		63F29181252975CD0011A9C8 /* TodoTask+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F2917F252975CD0011A9C8 /* TodoTask+CoreDataClass.swift */; };
+		63F29182252975CD0011A9C8 /* TodoTask+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F29180252975CD0011A9C8 /* TodoTask+CoreDataProperties.swift */; };
 		63FA777E24F240F4009F47B7 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FA777D24F240F4009F47B7 /* TodoCell.swift */; };
 		63FA778024F262B4009F47B7 /* TodoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FA777F24F262B4009F47B7 /* TodoDetailController.swift */; };
 		C8800DD7251731D2003B2A10 /* MoodTrackerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8800DD6251731D2003B2A10 /* MoodTrackerManager.swift */; };
@@ -81,6 +83,8 @@
 		63AD4D8324EA0E8D00CAAEB4 /* MoodTracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MoodTracker.storyboard; sourceTree = "<group>"; };
 		63AD4D8724EA0EC100CAAEB4 /* Profiles.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profiles.storyboard; sourceTree = "<group>"; };
 		63D0528124EE5AD900665E67 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		63F2917F252975CD0011A9C8 /* TodoTask+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoTask+CoreDataClass.swift"; sourceTree = "<group>"; };
+		63F29180252975CD0011A9C8 /* TodoTask+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoTask+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		63FA777D24F240F4009F47B7 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		63FA777F24F262B4009F47B7 /* TodoDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailController.swift; sourceTree = "<group>"; };
 		BD0CFFEC536B1C0A945079B6 /* Pods_a1_s3763636_s3779380_s3557535_s3730303.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_a1_s3763636_s3779380_s3557535_s3730303.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,14 +139,12 @@
 		631E2A9424E4D7A900D90097 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				63F2917E252975370011A9C8 /* TodoList */,
 				5F4EB9E8252588C700623092 /* Records+CoreDataProperties.swift */,
 				5F4EB9E6252588C100623092 /* Records+CoreDataClass.swift */,
 				5F4EB9E4252588A100623092 /* recordsModel.swift */,
 				CB9C782024F0E078007878A3 /* SongList.swift */,
 				CB9C783424F10EAB007878A3 /* BreakDuration.swift */,
-				63652DD024ECFA96005C0BC1 /* Task.swift */,
-				63652DDC24ED1CA0005C0BC1 /* TaskPriority.swift */,
-				636B875824F60C7300D4C644 /* TodoList.swift */,
 				CB36EEB825106A5B009EF4AC /* TimerRecords.swift */,
 				CB29B3BE2511D5D000B8646A /* DatabaseModel.xcdatamodeld */,
 				CBB4D8CC251B68940037C16C /* Profile.swift */,
@@ -228,6 +230,18 @@
 				6348D72C24DBC15C004B0476 /* Info.plist */,
 			);
 			path = "a1-s3763636_s3779380_s3557535_s3730303";
+			sourceTree = "<group>";
+		};
+		63F2917E252975370011A9C8 /* TodoList */ = {
+			isa = PBXGroup;
+			children = (
+				63F2917F252975CD0011A9C8 /* TodoTask+CoreDataClass.swift */,
+				63F29180252975CD0011A9C8 /* TodoTask+CoreDataProperties.swift */,
+				63652DD024ECFA96005C0BC1 /* Task.swift */,
+				63652DDC24ED1CA0005C0BC1 /* TaskPriority.swift */,
+				636B875824F60C7300D4C644 /* TodoList.swift */,
+			);
+			path = TodoList;
 			sourceTree = "<group>";
 		};
 		63FA777A24F23C57009F47B7 /* Custom UI */ = {
@@ -411,6 +425,7 @@
 				63FA777E24F240F4009F47B7 /* TodoCell.swift in Sources */,
 				C8E1403824F142EC0024F572 /* Forecast.swift in Sources */,
 				CB29B3C02511D5D000B8646A /* DatabaseModel.xcdatamodeld in Sources */,
+				63F29182252975CD0011A9C8 /* TodoTask+CoreDataProperties.swift in Sources */,
 				C8BB0D2724EE13A500E027B1 /* MoodTrackerViewController.swift in Sources */,
 				6348D72124DBC158004B0476 /* AppDelegate.swift in Sources */,
 				C8800DF325173B85003B2A10 /* DailyMoodRecord+CoreDataProperties.swift in Sources */,
@@ -420,6 +435,7 @@
 				5FAA268624FDD5C700FE79D6 /* recordsViewCell.swift in Sources */,
 				6348D72124DBC158004B0476 /* AppDelegate.swift in Sources */,
 				C8800DD7251731D2003B2A10 /* MoodTrackerManager.swift in Sources */,
+				63F29181252975CD0011A9C8 /* TodoTask+CoreDataClass.swift in Sources */,
 				5F4EB9E5252588A100623092 /* recordsModel.swift in Sources */,
 				63D0528224EE5AD900665E67 /* SplitViewController.swift in Sources */,
 				5F4EB9E7252588C100623092 /* Records+CoreDataClass.swift in Sources */,

@@ -10,60 +10,51 @@ import Foundation
 
 struct TodoViewModel {
     
-    private var _todoList = TodoList()
+    private var model = TodoList.shared
     
-    var todoList:TodoList {
-        get {
-            return _todoList
-        }
-        set {
-            _todoList = newValue
-        }
+    var count:Int {
+        return model.tasks.count
     }
     
-    
-    public mutating func setTaskReminder(currTask: Task, isOn: Bool) {
-        for task in todoList.tasks {
-            if task === currTask {
-                task.reminderOn = isOn
-                todoList.updateTask(updatedTask: task)
-                print("reminder is on: \(task.reminderOn)")
-                break
-            }
-        }
+    mutating func updateTaskReminder(index: Int, isOn: Bool) {
+        model.tasks[index].reminderOn = isOn
+        model.sortTasks()
     }
     
-    
-    public mutating func setTaskPriority(searchedTask: Task, priority: TaskPriority) {
-        for task in todoList.tasks {
-            if searchedTask === task {
-                task.priority = priority
-                todoList.updateTask(updatedTask: task)
-                break
-            }
-        }
+    mutating func updatePriority(index: Int, priority: TaskPriority) {
+        model.tasks[index].priority = priority
+        model.sortTasks()
         
+        model.updateCoreDataPriority(task: model.tasks[index])
+    }
+    
+    
+    func getTask(byIndex index: Int) -> Task {
+        return model.tasks[index]
+    }
+    
+    mutating func updateTaskCompletion(task: Task) {
+        model.updateCompletionCoreData(task: task)
+        model.sortTasks()
+    }
+    
+    mutating func removeTask(at: Int) {
+        let taskID = model.tasks[at].id
+        model.tasks.remove(at: at)
+        model.deleteCoreDataTask(taskID: taskID)
+    }
+    
+    mutating func addTask(task: Task) {
+        model.addTask(insertedTask: task)
+        model.sortTasks()
+    }
+    
+    
+    mutating func refreshTodoList() {
+        model.sortTasks()
     }
 
 }
-
-//    func sortTasks(tasks: [Task]) -> [Task] {
-//
-//        var sortedTasks:[Task] = tasks
-//
-//        //Bubble Sort
-//        for i in 0..<sortedTasks.count {
-//            for j in 1..<sortedTasks.count - i {
-//                if sortedTasks[j].getTaskPriorityValue() < sortedTasks[j-1].getTaskPriorityValue() {
-//                    let temp = sortedTasks[j-1]
-//                    sortedTasks[j-1] = sortedTasks[j]
-//                    sortedTasks[j] = temp
-//                }
-//            }
-//        }
-//        return sortedTasks
-//
-//    }
     
     
     
