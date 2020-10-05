@@ -15,39 +15,60 @@ class RESTRequestTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        
+        if let path = Bundle.main.path(forResource: "MockWeather", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                var json: WeatherResponse?
+                do {
+                    json = try JSONDecoder().decode(WeatherResponse.self, from: data)
+                } catch {
+                    print("**** error in JSON Decoder ****")
+                }
+                
+                guard let result = json else {
+                    return
+                }
+                
+                let day = result.daily[0]
+                let current = result.current
+                let forecast = Forecast(iconName: day.weather[0].icon, maxTemp: day.temp.max, minTemp: day.temp.min, feelsLike: current.feels_like, sunrise: day.sunrise, sunset: day.sunset)
+                self._forecast = forecast
+                
+            } catch {
+                print("**** Could not unwrap data ****")
+            }
+            
+        } else {
+            print("*** No such file found ***")
+        }
     }
     
     override func tearDown() {
         super.tearDown()
     }
     
+    // test that it does read in the daily weather for the first day
     func testGetData() {
-        
-        if let path = Bundle.main.path(forResource: "mockWeather", ofType: "json") {
-            //            do {
-            //                  let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-            //                 var json: WeatherResponse?
-            //                  do {
-            //                      json = try JSONDecoder().decode(WeatherResponse.self, from: data)
-            //                  } catch {
-            //                      print("error in do try: \(error)")
-            //                  }
-//            guard let result = json else {
-//                return
-//            }
-//            let day = result.daily[0]
-//            let current = result.current
-//            let forecast = Forecast(iconName: day.weather[0].icon, maxTemp: day.temp.max, minTemp: day.temp.min, feelsLike: current.feels_like, sunrise: day.sunrise, sunset: day.sunset)
-//            self._forecast = forecast
-            //              } catch {
-            //                print(error)
-            //                   // handle error
-            //              }
-        } else {
-            print("!@#$%^&*()_+")
-        }
-        
-        //        XCTAssertEqual(12.79, 12.79)
+        guard let forecast = _forecast else { return }
+        XCTAssertEqual(12.79, forecast.maxTemp)
+        XCTAssertEqual(10.07, forecast.minTemp)
+        XCTAssertEqual("10d", forecast.iconName)
+        XCTAssertEqual(5.91, forecast.feelsLike)
+        XCTAssertEqual(1601840968, forecast.sunrise)
+        XCTAssertEqual(1601886453, forecast.sunset)
+
+    }
+    
+    // test that it does not read in the daily weather for the second day
+    func testInvalidData() {
+       guard let forecast = _forecast else { return }
+        XCTAssertNotEqual(11.77, forecast.maxTemp)
+        XCTAssertNotEqual(10.25, forecast.minTemp)
+        XCTAssertNotEqual("01d", forecast.iconName)
+        XCTAssertNotEqual(7.12, forecast.feelsLike)
+        XCTAssertNotEqual(1601927277, forecast.sunrise)
+        XCTAssertNotEqual(1601972907, forecast.sunset)
     }
     
 }
