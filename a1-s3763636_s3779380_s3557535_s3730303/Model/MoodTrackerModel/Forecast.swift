@@ -8,7 +8,7 @@
 import Foundation
 
 struct Forecast {
-   var iconName: String, maxTemp: Double, minTemp: Double
+    var iconName: String, maxTemp: Double, minTemp: Double, feelsLike: Double, sunrise: Int, sunset: Int
 }
 
 

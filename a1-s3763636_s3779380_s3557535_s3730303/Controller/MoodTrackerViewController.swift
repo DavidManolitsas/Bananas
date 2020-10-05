@@ -13,13 +13,19 @@ import CoreLocation
 
 class MoodTrackerViewController: UIViewController, Refresh {
     @IBOutlet weak var calendar: FSCalendar!
+    
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var tempLbl: UILabel!
     @IBOutlet weak var weatherImg: UIImageView!
-    @IBOutlet weak var greetingsLbl: UILabel!
-    @IBOutlet weak var notesText: UITextView!
     @IBOutlet weak var locationLbl: UILabel!
     @IBOutlet weak var locationImg: UIImageView!
+    @IBOutlet weak var feelsLikeLbl: UILabel!
+    @IBOutlet weak var sunriseLbl: UILabel!
+    @IBOutlet weak var sunsetLbl: UILabel!
+    
+    @IBOutlet weak var greetingsLbl: UILabel!
+    
+    @IBOutlet weak var notesText: UITextView!
     
     private let moodGreeting = "How are you feeling today?"
     private let greatHexCode = "#8cc0a8"
@@ -72,23 +78,17 @@ class MoodTrackerViewController: UIViewController, Refresh {
         if isToday() {
             weatherImg.image = moodTrackerViewModel.getImage()
             tempLbl.text = moodTrackerViewModel.getTodayTempDetails()
-            moodTrackerViewModel.updateWeatherDetailsFor(calendar.today!)
+            feelsLikeLbl.text = moodTrackerViewModel.getFeelsLikeTemp()
+            sunriseLbl.text = moodTrackerViewModel.getSunriseTime()
+            sunsetLbl.text = moodTrackerViewModel.getSunsetTime()
             
+            moodTrackerViewModel.updateWeatherDetailsFor(calendar.today!)
             moodTrackerViewModel.loadRecordFor(calendar.today!)
+            
             notesText.text = moodTrackerViewModel.notes
+            
             calendar.reloadData()
         }
-    }
-    
-    private func isToday() -> Bool {
-        if let date = chosenDate {
-            if date.compare(calendar.today!) == .orderedSame {
-                return true
-            }
-            return false
-        }
-        // otherwise it's calendar.today since chosenDate cannot be unwrapped
-        return true
     }
     
     private func setUpLocation() {
@@ -105,19 +105,30 @@ class MoodTrackerViewController: UIViewController, Refresh {
         appearance.todayColor = .orange;
         appearance.headerTitleColor = customBrown;
         appearance.weekdayTextColor = customBrown;
-        appearance.titleFont = UIFont.systemFont(ofSize:17.0)
+        appearance.titleFont = UIFont.systemFont(ofSize:18.0)
         appearance.headerTitleFont = UIFont.systemFont(ofSize:18.0)
-        appearance.weekdayFont = UIFont.systemFont(ofSize:16.0)
+        appearance.weekdayFont = UIFont.systemFont(ofSize:18.0)
         appearance.titleSelectionColor = UIColor(hexString: "4E5D97")
         // 1. 566397
         //      2.  394989
     }
     
     private func initDateMoodView() {
-        greetingsLbl.text = moodGreeting
-        dateLbl.font = UIFont.boldSystemFont(ofSize: 18.0)
+//        greetingsLbl.text = moodGreeting
+        dateLbl.font = UIFont.boldSystemFont(ofSize: 22.0)
         
         updateDateMoodViewFor(date: calendar.today!)
+    }
+    
+    private func isToday() -> Bool {
+        if let date = chosenDate {
+            if date.compare(calendar.today!) == .orderedSame {
+                return true
+            }
+            return false
+        }
+        // otherwise it's calendar.today since chosenDate cannot be unwrapped
+        return true
     }
     
     private func updateMoodAs(_ newMood: Moods) {
@@ -162,8 +173,15 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
         notesText.text = moodTrackerViewModel.notes
         tempLbl.text = moodTrackerViewModel.tempDetails
         locationLbl.text = moodTrackerViewModel.location
-        locationImg.image = moodTrackerViewModel.locationOffImg
+        
+        if !isToday() {
+            locationImg.image = moodTrackerViewModel.locationOffImg
+        }
+        
         weatherImg.image = moodTrackerViewModel.weatherImg
+        feelsLikeLbl.text = moodTrackerViewModel.feelsLike
+        sunriseLbl.text = moodTrackerViewModel.sunriseTime
+        sunsetLbl.text = moodTrackerViewModel.sunsetTime
         
         calendar.reloadData()
     }
@@ -245,7 +263,7 @@ extension MoodTrackerViewController:  UITextViewDelegate {
 extension MoodTrackerViewController: FSCalendarDelegateAppearance {
     // change event dot size
     func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
-        let eventScaleFactor: CGFloat = 1.3
+        let eventScaleFactor: CGFloat = 1.5
         cell.eventIndicator.transform = CGAffineTransform(scaleX: eventScaleFactor, y: eventScaleFactor)
         
     }
