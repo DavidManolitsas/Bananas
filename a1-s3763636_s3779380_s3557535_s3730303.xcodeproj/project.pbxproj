@@ -34,6 +34,7 @@
 		C8800DD7251731D2003B2A10 /* MoodTrackerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8800DD6251731D2003B2A10 /* MoodTrackerManager.swift */; };
 		C8800DF225173B85003B2A10 /* DailyMoodRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8800DEE25173B85003B2A10 /* DailyMoodRecord+CoreDataClass.swift */; };
 		C8800DF325173B85003B2A10 /* DailyMoodRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8800DEF25173B85003B2A10 /* DailyMoodRecord+CoreDataProperties.swift */; };
+		C88BB568252ACBEE0051344E /* MoodTrackerUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88BB567252ACBEE0051344E /* MoodTrackerUITest.swift */; };
 		C88F4BA0251AF04F00C68E1D /* Weather+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F4B9E251AF04F00C68E1D /* Weather+CoreDataClass.swift */; };
 		C88F4BA1251AF04F00C68E1D /* Weather+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F4B9F251AF04F00C68E1D /* Weather+CoreDataProperties.swift */; };
 		C8949E7B24F2709E00FE6A64 /* Moods.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8949E7A24F2709E00FE6A64 /* Moods.swift */; };
@@ -113,6 +114,7 @@
 		C8800DD6251731D2003B2A10 /* MoodTrackerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerManager.swift; sourceTree = "<group>"; };
 		C8800DEE25173B85003B2A10 /* DailyMoodRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailyMoodRecord+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		C8800DEF25173B85003B2A10 /* DailyMoodRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailyMoodRecord+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		C88BB567252ACBEE0051344E /* MoodTrackerUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerUITest.swift; sourceTree = "<group>"; };
 		C88F4B9E251AF04F00C68E1D /* Weather+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		C88F4B9F251AF04F00C68E1D /* Weather+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		C8949E7A24F2709E00FE6A64 /* Moods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moods.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				CB983E312528B6950085CE85 /* a1_s3763636_s3779380_s3557535_s3730303UITests.swift */,
 				CB983E332528B6950085CE85 /* Info.plist */,
 				CB983E392528B82D0085CE85 /* ProfileUITest.swift */,
+				C88BB567252ACBEE0051344E /* MoodTrackerUITest.swift */,
 			);
 			path = "a1-s3763636_s3779380_s3557535_s3730303UITests";
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C88BB568252ACBEE0051344E /* MoodTrackerUITest.swift in Sources */,
 				CB983E322528B6950085CE85 /* a1_s3763636_s3779380_s3557535_s3730303UITests.swift in Sources */,
 				CB983E3A2528B82D0085CE85 /* ProfileUITest.swift in Sources */,
 			);
