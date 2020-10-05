@@ -10,16 +10,18 @@ import Foundation
 
 class Task {
     
+    private let _id:Int
     private var _completed: Bool
     private var _reminderOn: Bool
     private var _description: String
     private var _priority: TaskPriority
     
-    init(description: String) {
-        self._description = description
-        self._priority = .none
-        self._completed = false;
-        self._reminderOn = false;
+    init(id:Int, description: String) {
+        _id = id
+        _description = description
+        _priority = .none
+        _completed = false;
+        _reminderOn = false;
     }
     
     
@@ -39,12 +41,49 @@ class Task {
         return -1
     }
     
+    
+    func getInt64Priority () -> Int64 {
+        if priority == TaskPriority.none {
+            return Int64(4)
+        } else if priority == TaskPriority.low {
+            return Int64(3)
+        } else if priority == TaskPriority.medium {
+            return Int64(2)
+        } else if priority == TaskPriority.high {
+            return Int64(1)
+        }
+        
+        return Int64(-1)
+    }
+    
+    func setPriorityFromNS(priorityValue: Int) {
+        switch priorityValue {
+        case 1:
+            _priority = .high
+        case 2:
+            _priority = .medium
+        case 3:
+            _priority = .low
+        case 4:
+            _priority = .none
+        default:
+            print("Invalid priority value")
+        }
+    }
+    
+    
     var description: String {
         get {
             return _description
         }
         set (newDescription) {
             _description = newDescription
+        }
+    }
+    
+    var id: Int {
+        get {
+            return _id
         }
     }
     
