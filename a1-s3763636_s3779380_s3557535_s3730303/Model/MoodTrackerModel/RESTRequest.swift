@@ -17,22 +17,23 @@ class RESTRequest {
     private var _forecast: Forecast?
     var delegate: Refresh?
     private let session = URLSession.shared
-
+    
     var forecast: Forecast? {
         return _forecast
     }
+    
+    // creating a Singleton
+    private init() { }
+    static let shared = RESTRequest()
     
     private let baseUrl = "https://api.openweathermap.org/data/2.5/onecall?"
     private let paramLat = "lat="
     private let paramLon = "&lon="
     private let paramExtras = "&exclude=hourly,minutely&units=metric&appid=4cf9cf2abea6ca19629148287ffdd684"
-
+    
     public func getWeatherFor(lat: String, lon: String) {
-//        _forecasts = []
         let urlString = baseUrl + paramLat + lat + paramLon + lon + paramExtras
-//        print("\t\t\t\t\t\t\t\t\t \(urlString)")
         if let url = URL(string: urlString) {
-//            let request = URLRequest(url: url)
             getData(url)
         }
     }
@@ -59,9 +60,8 @@ class RESTRequest {
                 
                 let day = result.daily[0]
                 let current = result.current
-//                let forecast = Forecast(main: day.weather[0].main, description: day.weather[0].description, iconName: day.weather[0].icon, maxTemp: day.temp.max, minTemp: day.temp.min)
                 let forecast = Forecast(iconName: day.weather[0].icon, maxTemp: day.temp.max, minTemp: day.temp.min, feelsLike: current.feels_like, sunrise: day.sunrise, sunset: day.sunset)
-                    self._forecast = forecast
+                self._forecast = forecast
                 
                 DispatchQueue.main.async {
                     self.delegate?.updateUI()
@@ -73,10 +73,6 @@ class RESTRequest {
         
         
     }
-    
-    // creating a Singleton
-    private init() { }
-    static let shared = RESTRequest()
     
 }
 

@@ -39,6 +39,10 @@
 		C88F4BA1251AF04F00C68E1D /* Weather+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F4B9F251AF04F00C68E1D /* Weather+CoreDataProperties.swift */; };
 		C8949E7B24F2709E00FE6A64 /* Moods.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8949E7A24F2709E00FE6A64 /* Moods.swift */; };
 		C8BB0D2724EE13A500E027B1 /* MoodTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB0D2624EE13A500E027B1 /* MoodTrackerViewController.swift */; };
+		C8BB3A2B252AA7000092AEFC /* RESTRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB3A2A252AA7000092AEFC /* RESTRequestTest.swift */; };
+		C8BB3A36252AB5E80092AEFC /* MockWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = C8BB3A35252AB5E80092AEFC /* MockWeather.json */; };
+		C8BB3A37252AB5E80092AEFC /* MockWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = C8BB3A35252AB5E80092AEFC /* MockWeather.json */; };
+		C8BB3A38252AB5E80092AEFC /* MockWeather.json in Resources */ = {isa = PBXBuildFile; fileRef = C8BB3A35252AB5E80092AEFC /* MockWeather.json */; };
 		C8CA4D6225107FF900467AEE /* RESTRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA4D6125107FF900467AEE /* RESTRequest.swift */; };
 		C8E1403624F142800024F572 /* MoodTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E1403524F142800024F572 /* MoodTrackerViewModel.swift */; };
 		C8E1403824F142EC0024F572 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E1403724F142EC0024F572 /* Forecast.swift */; };
@@ -119,6 +123,8 @@
 		C88F4B9F251AF04F00C68E1D /* Weather+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		C8949E7A24F2709E00FE6A64 /* Moods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moods.swift; sourceTree = "<group>"; };
 		C8BB0D2624EE13A500E027B1 /* MoodTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerViewController.swift; sourceTree = "<group>"; };
+		C8BB3A2A252AA7000092AEFC /* RESTRequestTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTRequestTest.swift; sourceTree = "<group>"; };
+		C8BB3A35252AB5E80092AEFC /* MockWeather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockWeather.json; sourceTree = "<group>"; };
 		C8CA4D6125107FF900467AEE /* RESTRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTRequest.swift; sourceTree = "<group>"; };
 		C8E1403524F142800024F572 /* MoodTrackerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodTrackerViewModel.swift; sourceTree = "<group>"; };
 		C8E1403724F142EC0024F572 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
@@ -345,6 +351,8 @@
 				CB983E412528C7060085CE85 /* a1_s3763636_s3779380_s3557535_s3730303Tests.swift */,
 				CB983E432528C7060085CE85 /* Info.plist */,
 				CB983E492528D5D20085CE85 /* TeamProfileTest.swift */,
+				C8BB3A2A252AA7000092AEFC /* RESTRequestTest.swift */,
+				C8BB3A35252AB5E80092AEFC /* MockWeather.json */,
 			);
 			path = "a1-s3763636_s3779380_s3557535_s3730303Tests";
 			sourceTree = "<group>";
@@ -417,7 +425,7 @@
 					"To Do List",
 				);
 				LastSwiftUpdateCheck = 1030;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "David Manolitsas";
 				TargetAttributes = {
 					6348D71C24DBC158004B0476 = {
@@ -464,6 +472,7 @@
 				CB9C782E24F0E337007878A3 /* 1.mp3 in Resources */,
 				63AD4D8224EA0E6900CAAEB4 /* StudyTracker.storyboard in Resources */,
 				63AD4D8024EA0E3E00CAAEB4 /* Todo.storyboard in Resources */,
+				C8BB3A36252AB5E80092AEFC /* MockWeather.json in Resources */,
 				63818FAF24E4E60800E15655 /* Main.storyboard in Resources */,
 				63AD4D8424EA0E8D00CAAEB4 /* MoodTracker.storyboard in Resources */,
 				63AD4D8824EA0EC100CAAEB4 /* Profiles.storyboard in Resources */,
@@ -475,6 +484,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8BB3A37252AB5E80092AEFC /* MockWeather.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +492,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8BB3A38252AB5E80092AEFC /* MockWeather.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,7 +577,6 @@
 				63652DD124ECFA96005C0BC1 /* Task.swift in Sources */,
 				63652DD924ED1029005C0BC1 /* TodoViewController.swift in Sources */,
 				5FAA268624FDD5C700FE79D6 /* recordsViewCell.swift in Sources */,
-				6348D72124DBC158004B0476 /* AppDelegate.swift in Sources */,
 				C8800DD7251731D2003B2A10 /* MoodTrackerManager.swift in Sources */,
 				63F29181252975CD0011A9C8 /* TodoTask+CoreDataClass.swift in Sources */,
 				5F4EB9E5252588A100623092 /* recordsModel.swift in Sources */,
@@ -594,6 +604,7 @@
 				CB17BB8B252AA52E009CE5B0 /* SongListTest.swift in Sources */,
 				CB983E4A2528D5D20085CE85 /* TeamProfileTest.swift in Sources */,
 				CB983E422528C7060085CE85 /* a1_s3763636_s3779380_s3557535_s3730303Tests.swift in Sources */,
+				C8BB3A2B252AA7000092AEFC /* RESTRequestTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
