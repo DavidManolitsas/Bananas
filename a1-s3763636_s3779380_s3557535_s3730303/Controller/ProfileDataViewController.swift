@@ -15,20 +15,40 @@ class ProfileDataViewController: UIViewController {
     @IBOutlet var displayRecipe: UITextView!
     
     
-    var avatarName:String = "dAvatar"
-    var displayText:String?
-    var dataIndex:Int?
-    var recipe:String?
+    private var avatarName:String = "dAvatar"
+    private var displayText:String?
+    private var dataIndex:Int?
+    private var recipe:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         displayLabel.text = displayText
         displayRecipe.text = recipe
        displayAvatar.image = UIImage(named: avatarName)
+        displayAvatar.restorationIdentifier = avatarName
         
         displayRecipe.textAlignment = .center
     }
     
+    public func setAvatarName(_name : String){
+        avatarName = _name
+    }
+    
+    public func setDisplayText(_text : String){
+        displayText = _text
+    }
+    
+    public func setRecipe(_recipe : String){
+        recipe = _recipe
+    }
+    
+    public func setDataIndex(_index : Int){
+        dataIndex = _index
+    }
+    
+    public func getIndex() -> Int{
+        return dataIndex!
+    }
 
 
 }

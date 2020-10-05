@@ -13,6 +13,7 @@ class TodoDetailController: UIViewController {
     
     @IBOutlet weak var taskNameLabel: UILabel!
     private var _task:Task?
+    var tableIndex:Int = 0
     private var _tableViewController:TodoViewController?
     
     @IBOutlet weak var reminderSwitch: UISwitch!
@@ -37,11 +38,11 @@ class TodoDetailController: UIViewController {
     }
     
     @IBAction func reminderSwitchToggled(_ sender: Any) {
-        if let tableView = self._tableViewController, let task = self._task {
+        if let tableView = self._tableViewController {
             if reminderSwitch.isOn {
-                tableView.setTaskReminder(currTask: task, isOn: true)
+                tableView.setTaskReminder(index: self.tableIndex, isOn: true)
             } else {
-                tableView.setTaskReminder(currTask: task, isOn: false)
+                tableView.setTaskReminder(index: self.tableIndex, isOn: false)
             }
         }
 
@@ -52,10 +53,10 @@ class TodoDetailController: UIViewController {
         if let task = self._task {
             if task.priority == TaskPriority.low {
                 lowButton.setImage(UIImage(named: "lowOff"), for: UIControl.State.normal)
-                _tableViewController!.setTaskPriority(searchedTask: task, priority: TaskPriority.none)
+                _tableViewController!.setTaskPriority(index: self.tableIndex, priority: TaskPriority.none)
             } else {
                 updatePriorityButtons(on: "low")
-                _tableViewController!.setTaskPriority(searchedTask: task, priority: TaskPriority.low)
+                _tableViewController!.setTaskPriority(index: self.tableIndex, priority: TaskPriority.low)
             }
         }
     }
@@ -64,10 +65,10 @@ class TodoDetailController: UIViewController {
         if let task = self._task {
             if task.priority == TaskPriority.medium {
                 medButton.setImage(UIImage(named: "medOff"), for: UIControl.State.normal)
-                _tableViewController!.setTaskPriority(searchedTask: task, priority: TaskPriority.none)
+                _tableViewController!.setTaskPriority(index: self.tableIndex, priority: TaskPriority.none)
             } else {
                 updatePriorityButtons(on: "medium")
-                _tableViewController!.setTaskPriority(searchedTask: task, priority: TaskPriority.medium)
+                _tableViewController!.setTaskPriority(index: self.tableIndex, priority: TaskPriority.medium)
             }
         }
     }
@@ -77,10 +78,10 @@ class TodoDetailController: UIViewController {
         if let task = self._task {
             if task.priority == TaskPriority.high {
                 highButton.setImage(UIImage(named: "highOff"), for: UIControl.State.normal)
-                _tableViewController!.setTaskPriority(searchedTask: task, priority: TaskPriority.none)
+                _tableViewController!.setTaskPriority(index: self.tableIndex, priority: TaskPriority.none)
             } else {
                 updatePriorityButtons(on: "high")
-                _tableViewController!.setTaskPriority(searchedTask: task, priority: TaskPriority.high)
+                _tableViewController!.setTaskPriority(index: self.tableIndex, priority: TaskPriority.high)
             }
         }
     }

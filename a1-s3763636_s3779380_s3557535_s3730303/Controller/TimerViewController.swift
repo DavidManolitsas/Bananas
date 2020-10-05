@@ -74,7 +74,8 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
     
     @IBAction func startTimer(_ sender: Any) {
         durations = seconds
-        timerVM.updateRecord(breakduration: breakduration, alarmName: alarmName, durations: durations)
+        
+        timerVM.updateRecords(breakduration,durations,alarmName)
         
         // make sure timer only starts if duration more than 0
         if(seconds > 0){
@@ -185,13 +186,6 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
                    blurview.bounds = super.view.bounds
 
                 }
-        
-        // pass the array to study records controller
-        if segue.identifier == "studyRecords"{
-            let recordsController = segue.destination as! studyRecordsController
-            recordsController.studyRecords2 = timerVM.getRecordsFromModel()
-        }
-        
         
     }
     

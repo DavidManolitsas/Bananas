@@ -13,7 +13,7 @@ class TodoViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var todoViewModel = TodoViewModel()
+    private var viewModel = TodoViewModel()
     private var currDetail = TodoDetailController()
 
     
@@ -39,7 +39,7 @@ class TodoViewController: UIViewController {
                 return
             }
             
-            let task = Task(description: userInput)
+            let task = Task(id: self.viewModel.count + 1, description: userInput)
             self.addTask(insertedTask: task)
             
         }
@@ -54,32 +54,35 @@ class TodoViewController: UIViewController {
     
     
     func addTask(insertedTask:Task) {
-        // Update model
-        todoViewModel.todoList.addTask(insertedTask: insertedTask)
+        viewModel.addTask(task: insertedTask)
         
         // Update view
         let index:Int = 0
         let indexPath = IndexPath(row: index, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
         
-        self.sortTasks()
-    }
-    
-    
-    func setTaskReminder(currTask: Task, isOn: Bool) {
-        todoViewModel.setTaskReminder(currTask: currTask, isOn: isOn)
         tableView.reloadData()
     }
     
     
-    func setTaskPriority(searchedTask: Task, priority: TaskPriority) {
-        todoViewModel.setTaskPriority(searchedTask: searchedTask, priority: priority)
-        self.sortTasks()
+    func setTaskReminder(index: Int, isOn: Bool) {
+        viewModel.updateTaskReminder(index: index, isOn: isOn)
+        tableView.reloadData()
+    }
+    
+    
+    func setTaskPriority(index: Int, priority: TaskPriority) {
+        viewModel.updatePriority(index: index, priority: priority)
+        tableView.reloadData()
+    }
+    
+    func checkboxChanged(task: Task) {
+        viewModel.updateTaskCompletion(task: task)
     }
     
     
     func sortTasks() {
-        todoViewModel.todoList.sortTasks()
+        viewModel.refreshTodoList()
         tableView.reloadData()
     }
 }
@@ -92,36 +95,35 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todoViewModel.todoList.tasks.count
+        return viewModel.count
     }
-
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath) as! TodoCell
-        let task = todoViewModel.todoList.tasks[indexPath.row]
+        let task = viewModel.getTask(byIndex: indexPath.row)
         
         cell.todoViewController = self
         cell.setTodoTask(task: task)
         cell.setReminder()
         cell.task = task
         
-
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
-            todoViewModel.todoList.removeTask(at: indexPath.row)
+            viewModel.removeTask(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = self.storyboard?.instantiateViewController(withIdentifier: "TodoDetail") as? TodoDetailController {
-            vc.task = todoViewModel.todoList.tasks[(tableView.indexPathForSelectedRow?.row)!]
+            vc.task = viewModel.getTask(byIndex: (tableView.indexPathForSelectedRow?.row)!)
+            vc.tableIndex = indexPath.row
             vc.tableViewController = self
             splitViewController?.showDetailViewController(vc, sender: nil)
         }

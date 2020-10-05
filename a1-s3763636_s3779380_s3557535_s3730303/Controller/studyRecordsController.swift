@@ -10,7 +10,8 @@ import UIKit
 
 class studyRecordsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var studyRecords2 = [records]()
+    var studyRecords2 = [Records]()
+     var rm = RecordsManager()
     
     @IBOutlet weak var recordsTableView: UITableView!
     
@@ -20,6 +21,22 @@ class studyRecordsController: UIViewController, UITableViewDataSource, UITableVi
         recordsTableView.dataSource = self
         recordsTableView.rowHeight = 100
         recordsTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        
+        fetchRecords()
+    }
+    
+    func fetchRecords(){
+        do {
+            
+            studyRecords2 = try rm.context.fetch(Records.fetchRequest())
+            DispatchQueue.main.async {
+                self.recordsTableView.reloadData()
+            }
+            
+        }
+        catch {
+            
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -27,7 +44,7 @@ class studyRecordsController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return studyRecords2.count
+        return studyRecords2.count 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,6 +58,27 @@ class studyRecordsController: UIViewController, UITableViewDataSource, UITableVi
         
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // create the swip action
+        let action = UIContextualAction(style: .destructive, title: "Delete") { (action,view, completionHandler) in
+            //which person to move
+            let recordsRemove = self.studyRecords2[indexPath.row]
+            //remove the records
+            self.rm.context.delete(recordsRemove)
+            //save the data
+            do {
+                try self.rm.context.save()
+            }
+            catch {
+                
+            }
+            //re-fetch the records
+            self.fetchRecords()
+            
+        }
+        return UISwipeActionsConfiguration(actions: [action])
     }
     
 }

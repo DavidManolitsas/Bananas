@@ -6,6 +6,17 @@
         <attribute name="notes" optional="YES" attributeType="String"/>
         <relationship name="weather" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Weather" inverseName="dailyMoodRecord" inverseEntity="Weather"/>
     </entity>
+    <entity name="Records" representedClassName="Records" syncable="YES">
+        <attribute name="breaktime" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="timer" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TodoTask" representedClassName="TodoTask" syncable="YES">
+        <attribute name="completed" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="priority" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="taskDescription" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Weather" representedClassName="Weather" syncable="YES">
         <attribute name="feelsLike" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="iconName" optional="YES" attributeType="String"/>
@@ -19,5 +30,8 @@
     <elements>
         <element name="DailyMoodRecord" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="Weather" positionX="314.42578125" positionY="-46.59375" width="128" height="163"/>
+        <element name="Records" positionX="126" positionY="9" width="128" height="90"/>
+        <element name="TodoTask" positionX="126" positionY="9" width="128" height="105"/>
+
     </elements>
 </model>

@@ -53,9 +53,9 @@ class TodoCell: UITableViewCell {
                 task.completed = true
                 checkbox.setImage(UIImage(named: "checkBoxFILLED.png"), for: UIControl.State.normal)
             }
+            
+            todoViewController?.checkboxChanged(task: task)
         }
-        
-        todoViewController?.sortTasks()
     }
     
     func setBackgroundColor() {
