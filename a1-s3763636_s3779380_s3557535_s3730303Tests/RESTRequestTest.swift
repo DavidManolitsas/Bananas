@@ -16,6 +16,7 @@ class RESTRequestTest: XCTestCase {
     override func setUp() {
         super.setUp()
         
+        // read in mock json weather file and retrieve relevant data to instantiate a forecast object
         if let path = Bundle.main.path(forResource: "MockWeather", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
