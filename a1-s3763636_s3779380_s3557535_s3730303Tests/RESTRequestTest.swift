@@ -12,6 +12,9 @@ class RESTRequestTest: XCTestCase {
     
     var rest = RESTRequest.shared
     private var _forecast: Forecast?
+    private var rain: Double?
+    private var noRain: Double?
+    
     
     override func setUp() {
         super.setUp()
@@ -33,8 +36,12 @@ class RESTRequestTest: XCTestCase {
                 
                 let day = result.daily[0]
                 let current = result.current
-                let forecast = Forecast(iconName: day.weather[0].icon, maxTemp: day.temp.max, minTemp: day.temp.min, feelsLike: current.feels_like, sunrise: day.sunrise, sunset: day.sunset)
-                self._forecast = forecast
+                let forecastWRain = Forecast(iconName: day.weather[0].icon, maxTemp: day.temp.max, minTemp: day.temp.min, feelsLike: current.feels_like, sunrise: day.sunrise, sunset: day.sunset)
+                self._forecast = forecastWRain
+                
+                self.rain = day.rain
+                self.noRain = result.daily[1].rain
+                
                 
             } catch {
                 print("**** Could not unwrap data ****")
@@ -58,12 +65,12 @@ class RESTRequestTest: XCTestCase {
         XCTAssertEqual(5.91, forecast.feelsLike)
         XCTAssertEqual(1601840968, forecast.sunrise)
         XCTAssertEqual(1601886453, forecast.sunset)
-
+        
     }
     
     // test that it does not read in the daily weather for the second day
     func testInvalidData() {
-       guard let forecast = _forecast else { return }
+        guard let forecast = _forecast else { return }
         XCTAssertNotEqual(11.77, forecast.maxTemp)
         XCTAssertNotEqual(10.25, forecast.minTemp)
         XCTAssertNotEqual("01d", forecast.iconName)
@@ -72,4 +79,11 @@ class RESTRequestTest: XCTestCase {
         XCTAssertNotEqual(1601972907, forecast.sunset)
     }
     
+    func testHasRain() {
+        XCTAssertNotNil(rain)
+    }
+    
+    func testHasNoRain() {
+        XCTAssertNil(noRain)
+    }
 }
