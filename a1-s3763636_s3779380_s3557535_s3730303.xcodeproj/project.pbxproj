@@ -34,6 +34,7 @@
 		C8800DD7251731D2003B2A10 /* MoodTrackerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8800DD6251731D2003B2A10 /* MoodTrackerManager.swift */; };
 		C8800DF225173B85003B2A10 /* DailyMoodRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8800DEE25173B85003B2A10 /* DailyMoodRecord+CoreDataClass.swift */; };
 		C8800DF325173B85003B2A10 /* DailyMoodRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8800DEF25173B85003B2A10 /* DailyMoodRecord+CoreDataProperties.swift */; };
+		C88BB568252ACBEE0051344E /* MoodTrackerUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88BB567252ACBEE0051344E /* MoodTrackerUITest.swift */; };
 		C88F4BA0251AF04F00C68E1D /* Weather+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F4B9E251AF04F00C68E1D /* Weather+CoreDataClass.swift */; };
 		C88F4BA1251AF04F00C68E1D /* Weather+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F4B9F251AF04F00C68E1D /* Weather+CoreDataProperties.swift */; };
 		C8949E7B24F2709E00FE6A64 /* Moods.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8949E7A24F2709E00FE6A64 /* Moods.swift */; };
@@ -45,6 +46,7 @@
 		C8CA4D6225107FF900467AEE /* RESTRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA4D6125107FF900467AEE /* RESTRequest.swift */; };
 		C8E1403624F142800024F572 /* MoodTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E1403524F142800024F572 /* MoodTrackerViewModel.swift */; };
 		C8E1403824F142EC0024F572 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E1403724F142EC0024F572 /* Forecast.swift */; };
+		CB17BB8B252AA52E009CE5B0 /* SongListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17BB8A252AA52E009CE5B0 /* SongListTest.swift */; };
 		CB29B3C02511D5D000B8646A /* DatabaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB29B3BE2511D5D000B8646A /* DatabaseModel.xcdatamodeld */; };
 		CB36EEB7251063B6009EF4AC /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB36EEB6251063B6009EF4AC /* TimerViewModel.swift */; };
 		CB36EEB925106A5B009EF4AC /* TimerRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB36EEB825106A5B009EF4AC /* TimerRecords.swift */; };
@@ -116,6 +118,7 @@
 		C8800DD6251731D2003B2A10 /* MoodTrackerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerManager.swift; sourceTree = "<group>"; };
 		C8800DEE25173B85003B2A10 /* DailyMoodRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailyMoodRecord+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		C8800DEF25173B85003B2A10 /* DailyMoodRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DailyMoodRecord+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		C88BB567252ACBEE0051344E /* MoodTrackerUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTrackerUITest.swift; sourceTree = "<group>"; };
 		C88F4B9E251AF04F00C68E1D /* Weather+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		C88F4B9F251AF04F00C68E1D /* Weather+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		C8949E7A24F2709E00FE6A64 /* Moods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moods.swift; sourceTree = "<group>"; };
@@ -125,6 +128,7 @@
 		C8CA4D6125107FF900467AEE /* RESTRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTRequest.swift; sourceTree = "<group>"; };
 		C8E1403524F142800024F572 /* MoodTrackerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodTrackerViewModel.swift; sourceTree = "<group>"; };
 		C8E1403724F142EC0024F572 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		CB17BB8A252AA52E009CE5B0 /* SongListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListTest.swift; sourceTree = "<group>"; };
 		CB29B3BF2511D5D000B8646A /* DatabaseModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DatabaseModel.xcdatamodel; sourceTree = "<group>"; };
 		CB36EEB6251063B6009EF4AC /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		CB36EEB825106A5B009EF4AC /* TimerRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRecords.swift; sourceTree = "<group>"; };
@@ -335,6 +339,7 @@
 				CB983E312528B6950085CE85 /* a1_s3763636_s3779380_s3557535_s3730303UITests.swift */,
 				CB983E332528B6950085CE85 /* Info.plist */,
 				CB983E392528B82D0085CE85 /* ProfileUITest.swift */,
+				C88BB567252ACBEE0051344E /* MoodTrackerUITest.swift */,
 			);
 			path = "a1-s3763636_s3779380_s3557535_s3730303UITests";
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 		CB983E402528C7060085CE85 /* a1-s3763636_s3779380_s3557535_s3730303Tests */ = {
 			isa = PBXGroup;
 			children = (
+				CB17BB8A252AA52E009CE5B0 /* SongListTest.swift */,
 				CB983E412528C7060085CE85 /* a1_s3763636_s3779380_s3557535_s3730303Tests.swift */,
 				CB983E432528C7060085CE85 /* Info.plist */,
 				CB983E492528D5D20085CE85 /* TeamProfileTest.swift */,
@@ -585,6 +591,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C88BB568252ACBEE0051344E /* MoodTrackerUITest.swift in Sources */,
 				CB983E322528B6950085CE85 /* a1_s3763636_s3779380_s3557535_s3730303UITests.swift in Sources */,
 				CB983E3A2528B82D0085CE85 /* ProfileUITest.swift in Sources */,
 			);
@@ -594,6 +601,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB17BB8B252AA52E009CE5B0 /* SongListTest.swift in Sources */,
 				CB983E4A2528D5D20085CE85 /* TeamProfileTest.swift in Sources */,
 				CB983E422528C7060085CE85 /* a1_s3763636_s3779380_s3557535_s3730303Tests.swift in Sources */,
 				C8BB3A2B252AA7000092AEFC /* RESTRequestTest.swift in Sources */,
