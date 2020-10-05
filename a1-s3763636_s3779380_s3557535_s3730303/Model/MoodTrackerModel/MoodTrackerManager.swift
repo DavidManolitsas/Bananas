@@ -208,11 +208,11 @@ class MoodTrackerManager {
     }
     
     private func initMockEntries() {
-        let w1 = createNSWeather(minTemp: 30.0, maxTemp: 50.0, iconName: "50d", location: "Mock location", feelsLike: 102.00, sunriseTime: "05:43 am", sunsetTime: "6:01pm")
+        let w1 = createNSWeather(minTemp: 30.0, maxTemp: 50.0, iconName: "50d", location: "Mock location", feelsLike: 102.00, sunriseTime: "5:43 am", sunsetTime: "6:01pm")
         let w2 = createNSWeather(minTemp: 40.0, maxTemp: 60.0, iconName: "01d", location: "Desert", feelsLike: 32.00, sunriseTime: "9:00 am", sunsetTime: "7:01pm")
         
-        createNSDailyMoodRecord("22-09-20", Moods.great.rawValue, "Wow it's boiling hot today", w1)
-        createNSDailyMoodRecord("10-09-20", Moods.awful.rawValue, "Humans weren't built to survive 60 degrees... I don't feel so good... ooft", w2)
+        createNSDailyMoodRecord("28-09-20", Moods.great.rawValue, "Wow it's boiling hot today", w1)
+        createNSDailyMoodRecord("10-09-20", Moods.awful.rawValue, "Humans weren't built to survive 60 degrees... I don't feel so good...", w2)
         
         saveToDatabase(errorMsg: "saving ")
     }
