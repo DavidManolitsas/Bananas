@@ -20,7 +20,8 @@
 		636B875524F5357400D4C644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636B875424F5357300D4C644 /* Assets.xcassets */; };
 		636B875724F6040F00D4C644 /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636B875624F6040F00D4C644 /* TodoViewModel.swift */; };
 		636B875924F60C7300D4C644 /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636B875824F60C7300D4C644 /* TodoList.swift */; };
-		63786C7F252AF05B005C87A9 /* AppIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63786C7E252AF05B005C87A9 /* AppIcon.jpg */; };
+		63786C80252AF130005C87A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636B875424F5357300D4C644 /* Assets.xcassets */; };
+		63786C81252AF131005C87A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636B875424F5357300D4C644 /* Assets.xcassets */; };
 		63818FAD24E4E5FD00E15655 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63818FAC24E4E5FD00E15655 /* LaunchScreen.storyboard */; };
 		63818FAF24E4E60800E15655 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63818FAE24E4E60800E15655 /* Main.storyboard */; };
 		63AD4D8024EA0E3E00CAAEB4 /* Todo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AD4D7F24EA0E3E00CAAEB4 /* Todo.storyboard */; };
@@ -95,10 +96,9 @@
 		63652DD024ECFA96005C0BC1 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		63652DD824ED1029005C0BC1 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		63652DDC24ED1CA0005C0BC1 /* TaskPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPriority.swift; sourceTree = "<group>"; };
-		636B875424F5357300D4C644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		636B875424F5357300D4C644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "a1-s3763636_s3779380_s3557535_s3730303/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		636B875624F6040F00D4C644 /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
 		636B875824F60C7300D4C644 /* TodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
-		63786C7E252AF05B005C87A9 /* AppIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AppIcon.jpg; sourceTree = "<group>"; };
 		63818FAC24E4E5FD00E15655 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63818FAE24E4E60800E15655 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		63AD4D7F24EA0E3E00CAAEB4 /* Todo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Todo.storyboard; sourceTree = "<group>"; };
@@ -276,7 +276,6 @@
 				631E2A9424E4D7A900D90097 /* Model */,
 				6348D72024DBC158004B0476 /* AppDelegate.swift */,
 				636B875424F5357300D4C644 /* Assets.xcassets */,
-				63786C7E252AF05B005C87A9 /* AppIcon.jpg */,
 				6348D72C24DBC15C004B0476 /* Info.plist */,
 			);
 			path = "a1-s3763636_s3779380_s3557535_s3730303";
@@ -465,7 +464,6 @@
 				63AD4D8424EA0E8D00CAAEB4 /* MoodTracker.storyboard in Resources */,
 				63AD4D8824EA0EC100CAAEB4 /* Profiles.storyboard in Resources */,
 				63818FAD24E4E5FD00E15655 /* LaunchScreen.storyboard in Resources */,
-				63786C7F252AF05B005C87A9 /* AppIcon.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +471,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63786C80252AF130005C87A9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +479,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63786C81252AF131005C87A9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,6 +729,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2D7F2DCE304674AD2C109068 /* Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -750,6 +751,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DF1B939875A39D6CA2A620B7 /* Pods-a1-s3763636_s3779380_s3557535_s3730303.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
