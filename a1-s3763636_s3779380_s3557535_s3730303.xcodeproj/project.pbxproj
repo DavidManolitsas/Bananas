@@ -182,6 +182,7 @@
 		631E2A9424E4D7A900D90097 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C8800DD52517020A003B2A10 /* MoodTrackerModel */,
 				63F2917E252975370011A9C8 /* TodoList */,
 				5F4EB9E8252588C700623092 /* Records+CoreDataProperties.swift */,
 				5F4EB9E6252588C100623092 /* Records+CoreDataClass.swift */,
@@ -270,7 +271,6 @@
 				631E2A9824E4D7D900D90097 /* ViewModel */,
 				631E2A9724E4D7CB00D90097 /* View */,
 				631E2A9524E4D7B400D90097 /* Controller */,
-				C8800DD52517020A003B2A10 /* MoodTrackerModel */,
 				631E2A9424E4D7A900D90097 /* Model */,
 				6348D72024DBC158004B0476 /* AppDelegate.swift */,
 				636B875424F5357300D4C644 /* Assets.xcassets */,
