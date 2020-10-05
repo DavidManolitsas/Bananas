@@ -41,6 +41,7 @@
 		C8CA4D6225107FF900467AEE /* RESTRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA4D6125107FF900467AEE /* RESTRequest.swift */; };
 		C8E1403624F142800024F572 /* MoodTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E1403524F142800024F572 /* MoodTrackerViewModel.swift */; };
 		C8E1403824F142EC0024F572 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E1403724F142EC0024F572 /* Forecast.swift */; };
+		CB17BB8B252AA52E009CE5B0 /* SongListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB17BB8A252AA52E009CE5B0 /* SongListTest.swift */; };
 		CB29B3C02511D5D000B8646A /* DatabaseModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB29B3BE2511D5D000B8646A /* DatabaseModel.xcdatamodeld */; };
 		CB36EEB7251063B6009EF4AC /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB36EEB6251063B6009EF4AC /* TimerViewModel.swift */; };
 		CB36EEB925106A5B009EF4AC /* TimerRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB36EEB825106A5B009EF4AC /* TimerRecords.swift */; };
@@ -119,6 +120,7 @@
 		C8CA4D6125107FF900467AEE /* RESTRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTRequest.swift; sourceTree = "<group>"; };
 		C8E1403524F142800024F572 /* MoodTrackerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodTrackerViewModel.swift; sourceTree = "<group>"; };
 		C8E1403724F142EC0024F572 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		CB17BB8A252AA52E009CE5B0 /* SongListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongListTest.swift; sourceTree = "<group>"; };
 		CB29B3BF2511D5D000B8646A /* DatabaseModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DatabaseModel.xcdatamodel; sourceTree = "<group>"; };
 		CB36EEB6251063B6009EF4AC /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		CB36EEB825106A5B009EF4AC /* TimerRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRecords.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 		CB983E402528C7060085CE85 /* a1-s3763636_s3779380_s3557535_s3730303Tests */ = {
 			isa = PBXGroup;
 			children = (
+				CB17BB8A252AA52E009CE5B0 /* SongListTest.swift */,
 				CB983E412528C7060085CE85 /* a1_s3763636_s3779380_s3557535_s3730303Tests.swift */,
 				CB983E432528C7060085CE85 /* Info.plist */,
 				CB983E492528D5D20085CE85 /* TeamProfileTest.swift */,
@@ -584,6 +587,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB17BB8B252AA52E009CE5B0 /* SongListTest.swift in Sources */,
 				CB983E4A2528D5D20085CE85 /* TeamProfileTest.swift in Sources */,
 				CB983E422528C7060085CE85 /* a1_s3763636_s3779380_s3557535_s3730303Tests.swift in Sources */,
 			);
