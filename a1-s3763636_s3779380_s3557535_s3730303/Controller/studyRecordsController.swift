@@ -12,6 +12,7 @@ class studyRecordsController: UIViewController, UITableViewDataSource, UITableVi
     
     var studyRecords2 = [Records]()
      var rm = RecordsManager()
+     var recordsModel = TimerViewModel()
     
     @IBOutlet weak var recordsTableView: UITableView!
     
@@ -63,22 +64,14 @@ class studyRecordsController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         // create the swip action
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action,view, completionHandler) in
-            //which person to move
-            let recordsRemove = self.studyRecords2[indexPath.row]
+            
             //remove the records
-            self.rm.context.delete(recordsRemove)
-            //save the data
-            do {
-                try self.rm.context.save()
-            }
-            catch {
-                
-            }
-            //re-fetch the records
+            self.recordsModel.deleteRecords(recordsTimer: indexPath.row)
+            
             self.fetchRecords()
             
         }
         return UISwipeActionsConfiguration(actions: [action])
     }
-    
+
 }
