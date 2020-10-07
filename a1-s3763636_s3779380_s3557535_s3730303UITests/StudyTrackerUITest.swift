@@ -9,19 +9,20 @@
 import XCTest
 
 class StudyTrackerUITests: XCTestCase {
-    
     override func setUp() {
-       
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         
-       
+        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         XCUIApplication().launch()
         
-      
+        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
     override func tearDown() {
-      
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
     func testAddRecords() {
@@ -44,9 +45,12 @@ class StudyTrackerUITests: XCTestCase {
         XCTAssertTrue(app.sliders["47%"].waitForExistence(timeout: 5))
         
         app.buttons["Start"].tap()
+        XCTAssert(app.buttons["Stop"].exists)
+        sleep(3)
         
         XCTAssertTrue(app.buttons["Stop"].waitForExistence(timeout: 5))
         app.buttons["Stop"].tap()
+        XCTAssert(app.buttons["Start"].exists)
         
     }
     
@@ -65,8 +69,8 @@ class StudyTrackerUITests: XCTestCase {
         XCTAssertTrue(delete.waitForExistence(timeout: 5))
         delete.tap()
         
+        
     }
-    
     
 }
 
