@@ -20,7 +20,8 @@ class studyRecordsController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         recordsTableView.delegate = self
         recordsTableView.dataSource = self
-        recordsTableView.rowHeight = 100
+        recordsTableView.rowHeight = UITableView.automaticDimension
+        recordsTableView.estimatedRowHeight = 100
         recordsTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
         fetchRecords()
