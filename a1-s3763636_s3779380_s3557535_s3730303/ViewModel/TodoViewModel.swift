@@ -19,7 +19,18 @@ struct TodoViewModel {
     mutating func updateTaskReminder(index: Int, isOn: Bool) {
         model.tasks[index].reminderOn = isOn
         model.sortTasks()
+        
+        model.updateReminder(task: model.tasks[index])
     }
+    
+    
+    mutating func updateReminderDate(index: Int, date: Date) {
+        model.tasks[index].reminder.date = date
+        model.sortTasks()
+        
+        model.updateReminder(task: model.tasks[index])
+    }
+    
     
     mutating func updatePriority(index: Int, priority: TaskPriority) {
         model.tasks[index].priority = priority

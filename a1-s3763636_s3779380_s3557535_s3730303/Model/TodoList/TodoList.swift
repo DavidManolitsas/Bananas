@@ -68,11 +68,15 @@ struct TodoList {
             
             for nsTask in nsTasks {
                 
-                print("Task ID:" + String(Int(nsTask.id)))
                 let task:Task = Task(id: Int(nsTask.id), description: nsTask.taskDescription!)
-                print("NS priority: \(nsTask.priority)")
                 task.setPriorityFromNS(priorityValue: Int(nsTask.priority))
                 task.completed = nsTask.completed
+                task.reminderOn = nsTask.isReminderOn
+                
+                if let reminderDate = nsTask.reminderDate {
+                    task.reminder.date = reminderDate
+                }
+                
                 
                 _tasks.append(task)
             }
@@ -92,7 +96,11 @@ struct TodoList {
         NSTask.setValue(task.description, forKey: "taskDescription")
         NSTask.setValue(task.getInt64Priority(), forKey: "priority")
         NSTask.setValue(task.completed, forKey: "completed")
-        //        NSTask.setValue(nil, forKey: "reminder")
+        NSTask.setValue(task.reminderOn, forKey: "isReminderOn")
+        
+        if let reminderDate = task.reminder.date {
+            NSTask.setValue(reminderDate, forKey: "reminderDate")
+        }
         
         saveContext()
     }
@@ -115,6 +123,28 @@ struct TodoList {
             
             let foundTasks = try managedContext.fetch(fetchRequest) as! [TodoTask]
             foundTasks.first?.completed = task.completed
+            
+            saveContext()
+            
+        } catch {
+            print("error updating!")
+        }
+    }
+    
+    
+    func updateReminder(task: Task) {
+        do {
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "TodoTask")
+            let predicate = NSPredicate(format: "id = %ld", task.id)
+            fetchRequest.predicate = predicate
+            
+            let foundTasks = try managedContext.fetch(fetchRequest) as! [TodoTask]
+            
+            if let reminderDate = task.reminder.date {
+                foundTasks.first?.reminderDate = reminderDate
+            }
+            foundTasks.first?.isReminderOn = task.reminderOn
             
             saveContext()
             
