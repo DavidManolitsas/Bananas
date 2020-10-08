@@ -19,8 +19,6 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
 
     var durations = 10
     
-//    var studyRecords = [records]()
-    
     private var songList = getSongList()
     var receivedSong:String = ""
     

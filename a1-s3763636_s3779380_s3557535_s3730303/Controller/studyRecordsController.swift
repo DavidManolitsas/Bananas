@@ -27,6 +27,7 @@ class studyRecordsController: UIViewController, UITableViewDataSource, UITableVi
         fetchRecords()
     }
     
+    // get records from coredata
     func fetchRecords(){
         do {
             
@@ -62,13 +63,14 @@ class studyRecordsController: UIViewController, UITableViewDataSource, UITableVi
         
     }
     
+    //add delete function
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         // create the swip action
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action,view, completionHandler) in
             
             //remove the records
             self.recordsModel.deleteRecords(recordsTimer: indexPath.row)
-            
+            //reload the reocrds
             self.fetchRecords()
             
         }
