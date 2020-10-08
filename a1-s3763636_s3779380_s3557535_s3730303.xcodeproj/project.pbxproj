@@ -24,6 +24,7 @@
 		63818FAF24E4E60800E15655 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63818FAE24E4E60800E15655 /* Main.storyboard */; };
 		63A5C6DA252EAFD700A82FB0 /* ReminderDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5C6D9252EAFD700A82FB0 /* ReminderDate.swift */; };
 		63A5C6DC252EDE7800A82FB0 /* TodoListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5C6DB252EDE7800A82FB0 /* TodoListTest.swift */; };
+		63A5C6DE252EEF6C00A82FB0 /* TodoUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5C6DD252EEF6C00A82FB0 /* TodoUITest.swift */; };
 		63AD4D8024EA0E3E00CAAEB4 /* Todo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AD4D7F24EA0E3E00CAAEB4 /* Todo.storyboard */; };
 		63AD4D8224EA0E6900CAAEB4 /* StudyTracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AD4D8124EA0E6900CAAEB4 /* StudyTracker.storyboard */; };
 		63AD4D8424EA0E8D00CAAEB4 /* MoodTracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AD4D8324EA0E8D00CAAEB4 /* MoodTracker.storyboard */; };
@@ -108,6 +109,7 @@
 		63818FAE24E4E60800E15655 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		63A5C6D9252EAFD700A82FB0 /* ReminderDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDate.swift; sourceTree = "<group>"; };
 		63A5C6DB252EDE7800A82FB0 /* TodoListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTest.swift; sourceTree = "<group>"; };
+		63A5C6DD252EEF6C00A82FB0 /* TodoUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoUITest.swift; sourceTree = "<group>"; };
 		63AD4D7F24EA0E3E00CAAEB4 /* Todo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Todo.storyboard; sourceTree = "<group>"; };
 		63AD4D8124EA0E6900CAAEB4 /* StudyTracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StudyTracker.storyboard; sourceTree = "<group>"; };
 		63AD4D8324EA0E8D00CAAEB4 /* MoodTracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MoodTracker.storyboard; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				CB983E392528B82D0085CE85 /* ProfileUITest.swift */,
 				C88BB567252ACBEE0051344E /* MoodTrackerUITest.swift */,
 				5FCD70A9252D7AB400FAA5A4 /* StudyTrackerUITest.swift */,
+				63A5C6DD252EEF6C00A82FB0 /* TodoUITest.swift */,
 			);
 			path = "a1-s3763636_s3779380_s3557535_s3730303UITests";
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 			files = (
 				C88BB568252ACBEE0051344E /* MoodTrackerUITest.swift in Sources */,
 				CB983E322528B6950085CE85 /* a1_s3763636_s3779380_s3557535_s3730303UITests.swift in Sources */,
+				63A5C6DE252EEF6C00A82FB0 /* TodoUITest.swift in Sources */,
 				5FCD70AA252D7AB400FAA5A4 /* StudyTrackerUITest.swift in Sources */,
 				CB983E3A2528B82D0085CE85 /* ProfileUITest.swift in Sources */,
 			);
