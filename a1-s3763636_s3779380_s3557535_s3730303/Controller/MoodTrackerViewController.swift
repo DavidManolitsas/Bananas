@@ -23,11 +23,8 @@ class MoodTrackerViewController: UIViewController, Refresh {
     @IBOutlet weak var sunriseLbl: UILabel!
     @IBOutlet weak var sunsetLbl: UILabel!
     
-    @IBOutlet weak var greetingsLbl: UILabel!
-    
     @IBOutlet weak var notesText: UITextView!
     
-    private let moodGreeting = "How are you feeling today?"
     private let greatHexCode = "#8cc0a8"
     private let goodHexCode = "#c9cba3"
     private let okHexCode = "#ffe1a8"
@@ -63,17 +60,6 @@ class MoodTrackerViewController: UIViewController, Refresh {
         updateMoodAs(Moods.awful)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        moodTrackerViewModel.delegate = self
-        notesText.delegate = self;
-        
-        setUpLocation()
-        setUpCalendar()
-        
-        initDateMoodView()
-    }
-    
     func updateUI() {
         if isToday() {
             weatherImg.image = moodTrackerViewModel.getImage()
@@ -91,6 +77,17 @@ class MoodTrackerViewController: UIViewController, Refresh {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        moodTrackerViewModel.delegate = self
+        notesText.delegate = self;
+        
+        setUpLocation()
+        setUpCalendar()
+        
+        initDateMoodView()
+    }
+
     private func setUpLocation() {
         locationMangager.delegate = self
         locationMangager.requestWhenInUseAuthorization()
@@ -114,7 +111,6 @@ class MoodTrackerViewController: UIViewController, Refresh {
     }
     
     private func initDateMoodView() {
-//        greetingsLbl.text = moodGreeting
         dateLbl.font = UIFont.boldSystemFont(ofSize: 22.0)
         
         updateDateMoodViewFor(date: calendar.today!)
@@ -198,66 +194,6 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
 }
 
 /*
- Location manager delegate
- */
-extension MoodTrackerViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // only get location if it's todays date
-        if !locations.isEmpty {
-            currentLocation = locations.first
-            getLocation()
-        }
-    }
-    
-    func getLocation() {
-        guard let location = currentLocation else { return }
-        let lat = location.coordinate.latitude
-        let lon = location.coordinate.longitude
-        print("the lat is \(lat) and the lon is \(lon)")
-        moodTrackerViewModel.getWeatherFor(lat, lon)
-        
-        geocoder.reverseGeocodeLocation(location) { placemarks, error in
-            if let err = error {
-                print("geocoder error**: \(err)")
-            } else  {
-                if let placemark = placemarks {
-                    self.placemark = placemark.last
-                }
-                self.parsePlacemarks()
-            }
-        }
-    }
-    
-    func parsePlacemarks() {
-        if let placemark = placemark {
-            if let city = placemark.locality, !city.isEmpty {
-                print("placemark.locality is = \(city)")
-                
-                if isToday() {
-                    locationLbl.text = city
-                    locationImg.image = moodTrackerViewModel.locationOnImg
-                    moodTrackerViewModel.updateWeatherForLocation(city, calendar.today!)
-                }
-            }
-        }
-    }
-    
-}
-/*
- Textview delegate
- */
-extension MoodTrackerViewController:  UITextViewDelegate {
-    func textViewDidChange(_ textView: UITextView) {
-        if let date = chosenDate {
-            moodTrackerViewModel.updateNotesFor(date, as: notesText.text)
-        } else {
-            moodTrackerViewModel.updateNotesFor(calendar.today!, as: notesText.text)
-        }
-        
-    }
-}
-
-/*
  Calendar appearance delegate
  */
 extension MoodTrackerViewController: FSCalendarDelegateAppearance {
@@ -318,11 +254,65 @@ extension MoodTrackerViewController: FSCalendarDelegateAppearance {
         return [moodEventColor, customBrown]
         
     }
+
+}
+
+/*
+ Location manager delegate
+ */
+extension MoodTrackerViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if !locations.isEmpty {
+            currentLocation = locations.first
+            getLocation()
+        }
+    }
     
+    func getLocation() {
+        guard let location = currentLocation else { return }
+        let lat = location.coordinate.latitude
+        let lon = location.coordinate.longitude
+        moodTrackerViewModel.getWeatherFor(lat, lon)
+        
+        geocoder.reverseGeocodeLocation(location) { placemarks, error in
+            if let err = error {
+                print("geocoder error**: \(err)")
+            } else  {
+                if let placemark = placemarks {
+                    self.placemark = placemark.last
+                }
+                self.parsePlacemarks()
+            }
+        }
+    }
+    
+    func parsePlacemarks() {
+        if let placemark = placemark {
+            if let city = placemark.locality, !city.isEmpty {
+                if isToday() {
+                    locationLbl.text = city
+                    locationImg.image = moodTrackerViewModel.locationOnImg
+                    moodTrackerViewModel.updateWeatherForLocation(city, calendar.today!)
+                }
+            }
+        }
+    }
     
 }
 
-
+/*
+ Textview delegate
+ */
+extension MoodTrackerViewController:  UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        if let date = chosenDate {
+            moodTrackerViewModel.updateNotesFor(date, as: notesText.text)
+        } else {
+            moodTrackerViewModel.updateNotesFor(calendar.today!, as: notesText.text)
+        }
+        
+    }
+}
 
 
 /*
