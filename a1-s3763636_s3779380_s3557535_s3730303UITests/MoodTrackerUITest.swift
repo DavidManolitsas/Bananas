@@ -10,30 +10,20 @@ import XCTest
 
 class MoodTrackerUITest: XCTestCase {
     let app = XCUIApplication()
-    
-    
+
     override func setUp() {
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         app.launch()
-        
-        //            let app = XCUIApplication()
         app.tabBars.buttons["Mood Tracker"].tap()
         
-        // if this is the first time launching, there may be a pop up
-        //            app.alerts["Allow “a1-s3763636_s3779380_s3557535_s3730303” to use your location?"].scrollViews.otherElements.buttons["Allow Once"].tap()
+/**
+ if this is the first time launching, there may be a pop up where you need to allow location
+ */
+            // app.alerts["Allow “a1-s3763636_s3779380_s3557535_s3730303” to use your location?"].scrollViews.otherElements.buttons["Allow Once"].tap()
 
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
-    
+  
     func testNumComponents() {
-        //let app = XCUIApplication()
         let numBtns = app.buttons.count
         let numImgs = app.images.count
         XCTAssertEqual(numBtns, 9)

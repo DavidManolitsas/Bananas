@@ -8,7 +8,6 @@
 
 import Foundation
 
-// using delegation so that once the request has finished retrieving data, then the view can update the ui
 protocol Refresh {
     func updateUI()
 }
@@ -22,7 +21,6 @@ class RESTRequest {
         return _forecast
     }
     
-    // creating a Singleton
     private init() { }
     static let shared = RESTRequest()
     
@@ -70,8 +68,7 @@ class RESTRequest {
             }
         })
         task.resume()
-        
-        
+
     }
     
 }
@@ -95,7 +92,7 @@ struct CurrentWeather: Codable {
     let pressure: Int
     let humidity: Int
     let dew_point: Double
-    let uvi: Double
+    let uvi: Double?
     let clouds: Int
     let visibility: Int
     let wind_speed: Double
@@ -118,7 +115,8 @@ struct DailyEntry: Codable {
     let clouds: Int
     let pop: Double
     let rain: Double?
-    let uvi: Double
+    let uvi: Double?
+    
 }
 
 struct Temp: Codable {

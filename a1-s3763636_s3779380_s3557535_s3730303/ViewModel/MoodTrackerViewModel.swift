@@ -110,11 +110,6 @@ struct MoodTrackerViewModel {
         self._feelsLike = "No data"
     }
     
-    private func formatDate(_ date: Date) -> String {
-        let formatter = DateFormatter();
-        formatter.dateFormat = dtFormat;
-        return formatter.string(from: date);
-    }
     
     public func getWeatherFor(_ lat: Double, _ lon: Double) {
         RESTReq.getWeatherFor(lat: String(lat), lon: String(lon))
@@ -150,16 +145,6 @@ struct MoodTrackerViewModel {
         return "No data"
     }
     
-    private func formatTime(utc: Int) -> String {
-        let date = Date(timeIntervalSince1970: TimeInterval(utc))
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = DateFormatter.Style.short
-        dateFormatter.timeZone = TimeZone.current
-        let localDate = dateFormatter.string(from: date)
-        return localDate
-        
-    }
-    
     public mutating func getFeelsLikeTemp()-> String {
         if let forecast = RESTReq.forecast {
             let temp = formatFeelsLikeTemp(forecast.feelsLike)
@@ -170,18 +155,10 @@ struct MoodTrackerViewModel {
         
     }
     
-    private func formatFeelsLikeTemp(_ feelsLike: Double) -> String {
-        let temp = Int(round(feelsLike))
-        return String(temp) + celsius
-    }
-    
     public func updateWeatherDetailsFor(_ today: Date) {
         if let forecast = RESTReq.forecast {
-           moodTrackerManager.updateWeatherDetails(formatDate(today), forecast.minTemp, forecast.maxTemp, forecast.iconName, forecast.feelsLike, self._sunriseTime, self._sunsetTime)
-            
-//            moodTrackerManager.updateWeatherDetails("09-09-20", forecast.minTemp, forecast.maxTemp, forecast.iconName, forecast.feelsLike, self.sunriseTime, self.sunsetTime)
+            moodTrackerManager.updateWeatherDetails(formatDate(today), forecast.minTemp, forecast.maxTemp, forecast.iconName, forecast.feelsLike, self._sunriseTime, self._sunsetTime)
         }
-        
     }
     
     public func updateNotesFor(_ date: Date, as notes: String) {
@@ -200,7 +177,6 @@ struct MoodTrackerViewModel {
     
     public func updateWeatherForLocation(_ location: String, _ date: Date) {
         moodTrackerManager.updateWeatherLocation(location, formatDate(date))
-//                moodTrackerManager.updateWeatherLocation(location, "09-09-20")
     }
     
     public mutating func loadRecordFor(_ date: Date) {
@@ -219,7 +195,6 @@ struct MoodTrackerViewModel {
                 self._feelsLike = formatFeelsLikeTemp(weather.feelsLike)
                 self._sunriseTime = weather.sunriseTime
                 self._sunsetTime = weather.sunsetTime
-//                print("the sunset time is \(weather.sunsetTime)")
             }
             
         } else {
@@ -253,5 +228,27 @@ struct MoodTrackerViewModel {
         
         return count
     }
+    
+    private func formatDate(_ date: Date) -> String {
+        let formatter = DateFormatter();
+        formatter.dateFormat = dtFormat;
+        return formatter.string(from: date);
+    }
+    
+    private func formatTime(utc: Int) -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(utc))
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        dateFormatter.timeZone = TimeZone.current
+        let localDate = dateFormatter.string(from: date)
+        return localDate
+        
+    }
+    
+    private func formatFeelsLikeTemp(_ feelsLike: Double) -> String {
+        let temp = Int(round(feelsLike))
+        return String(temp) + celsius
+    }
+    
     
 }
