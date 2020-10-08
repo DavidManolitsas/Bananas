@@ -8,7 +8,6 @@
 
 import Foundation
 
-// using delegation so that once the request has finished retrieving data, then the view can update the ui
 protocol Refresh {
     func updateUI()
 }
@@ -22,7 +21,6 @@ class RESTRequest {
         return _forecast
     }
     
-    // creating a Singleton
     private init() { }
     static let shared = RESTRequest()
     
@@ -70,8 +68,7 @@ class RESTRequest {
             }
         })
         task.resume()
-        
-        
+
     }
     
 }
