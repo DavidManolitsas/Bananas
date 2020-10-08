@@ -102,7 +102,6 @@ class MoodTrackerManager {
     
     public func retrieveRecordFor(date: String) {
         if (entityDoesExistFor(date: date)) {
-            print("exists an entity at \(date)")
             loadRecordFor(date)
         } else {
             record = nil

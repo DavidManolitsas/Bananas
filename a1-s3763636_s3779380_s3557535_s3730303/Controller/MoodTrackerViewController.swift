@@ -294,6 +294,8 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
                     locationImg.image = moodTrackerViewModel.locationOnImg
                     moodTrackerViewModel.updateWeatherForLocation(city, calendar.today!)
                 }
+            } else {
+                locationLbl.text = "City not found"
             }
         }
     }
