@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Weather+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:a1-s3763636_s3779380_s3557535_s3730303.xcodeproj">
    </FileRef>
    <FileRef

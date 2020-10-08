@@ -48,4 +48,18 @@ class RecordsManager{
             print("could nort save \(error), \(error.userInfo)")
         }
     }
+    
+    func removeRecords(recordsTimer:Int){
+        let fetchRecords = NSFetchRequest<NSFetchRequestResult>(entityName: "Records")
+        let recordsResult = try? context.fetch(fetchRecords)
+        let NSRecords = recordsResult as! [Records]
+        context.delete(NSRecords[recordsTimer])
+        
+        do{
+            try context.save()
+        } catch let error as NSError{
+            print("could not save \(error), \(error.userInfo)")
+        }
+    }
+
 }

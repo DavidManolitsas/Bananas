@@ -14,5 +14,10 @@ struct TimerViewModel {
     public mutating func updateRecords(_ breaktime:Int,_ timer:Int,_ title: String){
         trackerManager.addRecords(breaktime: breaktime, timer: timer, title: title)
     }
+    
+    public mutating func deleteRecords(recordsTimer: Int){
+        trackerManager.removeRecords(recordsTimer: recordsTimer)
+        
+    }
    
 }
