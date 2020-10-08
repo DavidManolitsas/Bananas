@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Os-mV-BTR">
-    <device id="retina6_1" orientation="landscape" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Os-mV-BTR">
+    <device id="retina6_1" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -240,7 +242,7 @@
                                                         </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Sunrise Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGe-cl-7qc">
-                                                        <rect key="frame" x="244" y="89.5" width="100" height="20.5"/>
+                                                        <rect key="frame" x="244" y="89.5" width="99.5" height="20.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="83" id="vdY-pH-szr"/>
                                                         </constraints>
@@ -1486,7 +1488,6 @@
                         <outlet property="calendar" destination="5eA-er-LNz" id="6d2-kW-iG1"/>
                         <outlet property="dateLbl" destination="hjr-mF-hAY" id="QBE-5z-R6L"/>
                         <outlet property="feelsLikeLbl" destination="Ex4-Ll-3PJ" id="zZ6-jg-kbS"/>
-                        <outlet property="greetingsLbl" destination="rsT-6A-ffh" id="shu-DT-aMi"/>
                         <outlet property="locationImg" destination="f2H-aF-8Tb" id="XEE-Cl-eWd"/>
                         <outlet property="locationLbl" destination="7PY-X9-RNa" id="78d-gd-XoN"/>
                         <outlet property="notesText" destination="ljV-d6-mgS" id="6qa-iq-lLh"/>
