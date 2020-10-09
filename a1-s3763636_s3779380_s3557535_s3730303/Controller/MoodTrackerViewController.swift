@@ -99,15 +99,14 @@ class MoodTrackerViewController: UIViewController, Refresh {
         calendar.dataSource = self;
         
         let appearance = calendar.appearance
-        appearance.todayColor = .orange;
-        appearance.headerTitleColor = customBrown;
-        appearance.weekdayTextColor = customBrown;
+        appearance.subtitleDefaultColor = UIColor(hexString: "2D4051")
+        appearance.headerTitleColor = customBrown
+        appearance.weekdayTextColor = customBrown
         appearance.titleFont = UIFont.systemFont(ofSize:18.0)
         appearance.headerTitleFont = UIFont.systemFont(ofSize:18.0)
         appearance.weekdayFont = UIFont.systemFont(ofSize:18.0)
-        appearance.titleSelectionColor = UIColor(hexString: "4E5D97")
-        // 1. 566397
-        //      2.  394989
+        appearance.titleSelectionColor = UIColor(hexString: "3B4F61")
+
     }
     
     private func initDateMoodView() {
@@ -220,8 +219,9 @@ extension MoodTrackerViewController: FSCalendarDelegateAppearance {
         } else if mood == Moods.awful.rawValue {
             return UIColor(hexString: awfulHexCode)
         }
+
+        return UIColor(hexString: "9E9E9E")
         
-        return appearance.eventDefaultColor
     }
     
     // customise event dot colours when date is not selected
