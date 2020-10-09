@@ -72,7 +72,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
             moodTrackerViewModel.loadRecordFor(calendar.today!)
             
             notesText.text = moodTrackerViewModel.notes
-            
+            dateLbl.text = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy")
             calendar.reloadData()
         }
     }
