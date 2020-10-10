@@ -21,5 +21,7 @@ extension TodoTask {
     @NSManaged public var priority: Int64
     @NSManaged public var taskDescription: String?
     @NSManaged public var id: Int64
+    @NSManaged public var isReminderOn: Bool
+    @NSManaged public var reminderDate: Date?
 
 }

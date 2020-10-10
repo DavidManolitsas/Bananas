@@ -71,6 +71,12 @@ class TodoViewController: UIViewController {
     }
     
     
+    func setReminderDate(index: Int, date: Date) {
+        viewModel.updateReminderDate(index: index, date: date)
+        tableView.reloadData()
+    }
+    
+    
     func setTaskPriority(index: Int, priority: TaskPriority) {
         viewModel.updatePriority(index: index, priority: priority)
         tableView.reloadData()

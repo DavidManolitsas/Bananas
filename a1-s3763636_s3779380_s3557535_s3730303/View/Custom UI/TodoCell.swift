@@ -14,11 +14,11 @@ class TodoCell: UITableViewCell {
     @IBOutlet weak var checkbox: UIButton!
     @IBOutlet weak var reminderLabel: UILabel!
     
+    let formatter = DateFormatter()
     var task:Task?
     var todoViewController:TodoViewController?
     
     // Reminder symbol
-    let reminderOn:String = "!"
     let reminderOff:String = ""
     
     func setTodoTask(task: Task) {
@@ -26,6 +26,7 @@ class TodoCell: UITableViewCell {
         taskDescription.text = task.description
         reminderLabel.text = reminderOff
         setBackgroundColor()
+        formatter.dateFormat = "dd-MM-yyyy"
     }
     
     @IBAction func checkboxClicked(_ sender: Any) {
@@ -36,10 +37,14 @@ class TodoCell: UITableViewCell {
     func setReminder() {
         if let task = self.task {
             if task.reminderOn {
-                reminderLabel.text = reminderOn
-            } else {
+                if let _ = self.task?.reminder.date {
+                    reminderLabel.text = self.task?.reminder.formatted()!
+                }
+            }
+            else {
                 reminderLabel.text = reminderOff
             }
+            
         }
     }
     
