@@ -16,6 +16,26 @@ struct TodoViewModel {
         return model.tasks.count
     }
     
+    
+    mutating func getNextId() -> Int {
+        if model.tasks.count == 0 {
+            return 1
+        }
+        
+        var max:Int = model.tasks[0].id
+        
+        for task in model.tasks {
+            if task.id > max {
+                max = task.id
+            }
+        }
+        
+        // increment maxId number by 1
+        max += 1;
+        print(max)
+        return max;
+    }
+    
     mutating func updateTaskReminder(index: Int, isOn: Bool) {
         model.tasks[index].reminderOn = isOn
         model.sortTasks()

@@ -39,7 +39,7 @@ class TodoViewController: UIViewController {
                 return
             }
             
-            let task = Task(id: self.viewModel.count + 1, description: userInput)
+            let task = Task(id: self.viewModel.getNextId(), description: userInput)
             self.addTask(insertedTask: task)
             
         }
