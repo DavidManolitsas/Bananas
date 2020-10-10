@@ -15,7 +15,6 @@ struct ReminderDate {
         
     }
     
-    
     func formatted(as format:String = "dd-MM-yyyy") -> String? {
         guard let date = self.date else {
             return nil

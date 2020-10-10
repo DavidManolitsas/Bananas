@@ -15,16 +15,10 @@ class TodoUITest: XCTestCase {
 
     
     override func setUp() {
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test.
         app.launch()
         // Navigate to tab bars
         app.tabBars.buttons["To do"].tap()
-    }
-    
-    override func tearDown() {
-        
     }
     
     func testAddingTasks() {

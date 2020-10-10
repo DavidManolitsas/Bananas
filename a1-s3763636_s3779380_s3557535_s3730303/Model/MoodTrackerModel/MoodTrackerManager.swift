@@ -59,7 +59,7 @@ class MoodTrackerManager {
                 records = result as! [DailyMoodRecord]
                 
                 if (records.count != 0) {
-                 
+                    
                     records[0].weather?.setValue(self.location, forKey: "location")
                 }
                 
@@ -75,10 +75,10 @@ class MoodTrackerManager {
     }
     
     public func updateWeatherDetails(_ date: String, _ minTemp: Double, _ maxTemp: Double, _ iconName: String, _ feelsLike: Double, _ sunriseTime: String, _ sunsetTime: String) {
-
-         let nsWeather = createNSWeather(minTemp: minTemp, maxTemp: maxTemp, iconName: iconName, location: self.location, feelsLike: feelsLike, sunriseTime: sunriseTime, sunsetTime: sunsetTime)
+        
+        let nsWeather = createNSWeather(minTemp: minTemp, maxTemp: maxTemp, iconName: iconName, location: self.location, feelsLike: feelsLike, sunriseTime: sunriseTime, sunsetTime: sunsetTime)
         if entityDoesExistFor(date: date) {
-           
+            
             do {
                 let predicate = NSPredicate(format: "%K == %@", "date", date)
                 recordFetchRequest.predicate = predicate
@@ -93,7 +93,7 @@ class MoodTrackerManager {
             } catch let error as NSError {
                 print("*** Retrieving from database error: \(error), \(error.userInfo)")
             }
-
+            
         }  else {
             createNSDailyMoodRecord(date, Moods.none.rawValue, "", nsWeather)
         }
@@ -126,7 +126,7 @@ class MoodTrackerManager {
         
         saveToDatabase(errorMsg: "error saving update")
     }
-
+    
     private func createNSDailyMoodRecord(_ date: String,_ mood: String,_ notes: String)  {
         let recordEntity = NSEntityDescription.entity(forEntityName: "DailyMoodRecord", in: managedContext)!
         let nsRecord = NSManagedObject(entity: recordEntity, insertInto: managedContext) as! DailyMoodRecord
@@ -134,7 +134,7 @@ class MoodTrackerManager {
         nsRecord.setValue(date, forKeyPath: "date")
         nsRecord.setValue(mood, forKeyPath: "mood")
         nsRecord.setValue(notes, forKeyPath: "notes")
-
+        
         saveToDatabase(errorMsg: "error creating daily mood record w/o weather")
         
     }
@@ -197,7 +197,7 @@ class MoodTrackerManager {
         }
     }
     
- 
+    
     private func entityDoesExistFor(date: String) -> Bool {
         var results: [DailyMoodRecord] = []
         do {

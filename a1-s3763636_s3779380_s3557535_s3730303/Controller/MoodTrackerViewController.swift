@@ -87,7 +87,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
         
         initDateMoodView()
     }
-
+    
     private func setUpLocation() {
         locationMangager.delegate = self
         locationMangager.requestWhenInUseAuthorization()
@@ -106,7 +106,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
         appearance.headerTitleFont = UIFont.systemFont(ofSize:18.0)
         appearance.weekdayFont = UIFont.systemFont(ofSize:18.0)
         appearance.titleSelectionColor = UIColor(hexString: "3B4F61")
-
+        
     }
     
     private func initDateMoodView() {
@@ -219,7 +219,7 @@ extension MoodTrackerViewController: FSCalendarDelegateAppearance {
         } else if mood == Moods.awful.rawValue {
             return UIColor(hexString: awfulHexCode)
         }
-
+        
         return UIColor(hexString: "9E9E9E")
         
     }
@@ -254,7 +254,7 @@ extension MoodTrackerViewController: FSCalendarDelegateAppearance {
         return [moodEventColor, customBrown]
         
     }
-
+    
 }
 
 /*

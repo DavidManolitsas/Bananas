@@ -24,7 +24,7 @@ struct TodoList {
         set (newTasks) {
             _tasks = newTasks
         }
-    
+        
     }
     
     
@@ -50,7 +50,7 @@ struct TodoList {
         
     }
     
-
+    
     public mutating func addTask(insertedTask: Task) {
         tasks.append(insertedTask)
         insertNSTask(task: insertedTask)

@@ -15,17 +15,17 @@ class PopViewController: UIViewController{
     var durationText:Int = 0
     var songText:String = "1"
     private var songList = getSongList()
-
+    
     @IBOutlet weak var labelField: UITextField!
     @IBOutlet weak var breakToggle: UISwitch!
     @IBOutlet weak var songPicker: UIPickerView!
     @IBOutlet weak var userInputStack: UIStackView!
     @IBOutlet weak var durationPicker: UIPickerView!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //initialise song pickerview content
         songPicker.dataSource = self
         songPicker.delegate = self
@@ -34,10 +34,10 @@ class PopViewController: UIViewController{
         durationPicker.dataSource = self
         durationPicker.delegate = self
         
-       super.preferredContentSize = CGSize(width: 300, height: 300)
-
+        super.preferredContentSize = CGSize(width: 300, height: 300)
+        
     }
-
+    
     
     
     // if user make changes on the labelField
@@ -56,12 +56,12 @@ class PopViewController: UIViewController{
             durationPicker.isUserInteractionEnabled = true
         }
         else{
-             print("break toggle is off")
+            print("break toggle is off")
             durationPicker.isUserInteractionEnabled = false
             durationText = 0
         }
     }
-
+    
     func getLabelText() -> String{
         return labelText
     }
@@ -78,9 +78,10 @@ class PopViewController: UIViewController{
     func setSongTitle(name : String){
         songText = name
     }
-
+    
     
 }
+
 // for song picker view
 extension PopViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -100,22 +101,22 @@ extension PopViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-       
+        
         if(pickerView.tag == 1){
             durationText = Int(BreakDuration.allCases[row].rawValue)!
             print("duration selected \(durationText)")
         }
         if(pickerView.tag == 2){
             songText = songList[row]
-           
+            
             
         }
         
-       
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-       
+        
         if(pickerView.tag == 1){
             return BreakDuration.allCases[row].rawValue
         }
@@ -128,15 +129,15 @@ extension PopViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat{
-
+        
         return 40
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat{
         return 120
     }
     
- 
+    
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
@@ -149,13 +150,13 @@ extension PopViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             pickerLabel?.font = UIFont(name: "Myanmar Sangam MN", size: 13)
             pickerLabel?.textAlignment = NSTextAlignment.right
         }
-
+        
         
         if(pickerView.tag == 1){
-             pickerLabel?.text = BreakDuration.allCases[row].rawValue
+            pickerLabel?.text = BreakDuration.allCases[row].rawValue
         }
         if(pickerView.tag == 2){
-             pickerLabel?.text = songList[row]
+            pickerLabel?.text = songList[row]
         }
         
         return pickerLabel!;

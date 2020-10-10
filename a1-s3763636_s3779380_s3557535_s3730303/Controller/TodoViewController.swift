@@ -9,13 +9,13 @@
 import UIKit
 
 class TodoViewController: UIViewController {
-
+    
     
     @IBOutlet weak var tableView: UITableView!
     
     private var viewModel = TodoViewModel()
     private var currDetail = TodoDetailController()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,5 +136,5 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
     
-
+    
 }

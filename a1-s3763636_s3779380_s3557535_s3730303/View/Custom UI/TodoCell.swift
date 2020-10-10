@@ -9,7 +9,7 @@
 import UIKit
 
 class TodoCell: UITableViewCell {
-
+    
     @IBOutlet weak var taskDescription: UILabel!
     @IBOutlet weak var checkbox: UIButton!
     @IBOutlet weak var reminderLabel: UILabel!
@@ -80,10 +80,6 @@ class TodoCell: UITableViewCell {
         } else if taskPriority == TaskPriority.high {
             self.backgroundColor = UIColor(red: 0.94, green: 0.54, blue: 0.48, alpha: 1.00)
         }
-        
-        // UIColor(red: 0.79, green: 0.80, blue: 0.64, alpha: 1.00) (low)
-        // UIColor(red: 1.00, green: 0.88, blue: 0.66, alpha: 1.00) (medium)
-        // UIColor(red: 0.94, green: 0.54, blue: 0.48, alpha: 1.00) (high)
     }
     
 }

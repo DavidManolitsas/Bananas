@@ -57,9 +57,7 @@
 		CB92D03E2519CFBD006D6A0E /* ProfileDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB92D03D2519CFBD006D6A0E /* ProfileDataViewController.swift */; };
 		CB92D040251A4425006D6A0E /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB92D03F251A4425006D6A0E /* CustomPageViewController.swift */; };
 		CB92D042251A4535006D6A0E /* ProfileMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB92D041251A4535006D6A0E /* ProfileMainViewController.swift */; };
-		CB983E322528B6950085CE85 /* a1_s3763636_s3779380_s3557535_s3730303UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB983E312528B6950085CE85 /* a1_s3763636_s3779380_s3557535_s3730303UITests.swift */; };
 		CB983E3A2528B82D0085CE85 /* ProfileUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB983E392528B82D0085CE85 /* ProfileUITest.swift */; };
-		CB983E422528C7060085CE85 /* a1_s3763636_s3779380_s3557535_s3730303Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB983E412528C7060085CE85 /* a1_s3763636_s3779380_s3557535_s3730303Tests.swift */; };
 		CB983E4A2528D5D20085CE85 /* TeamProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB983E492528D5D20085CE85 /* TeamProfileTest.swift */; };
 		CB9C781E24F0E064007878A3 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C781C24F0E064007878A3 /* TimerViewController.swift */; };
 		CB9C782124F0E078007878A3 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C782024F0E078007878A3 /* SongList.swift */; };
@@ -142,11 +140,9 @@
 		CB92D03F251A4425006D6A0E /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		CB92D041251A4535006D6A0E /* ProfileMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainViewController.swift; sourceTree = "<group>"; };
 		CB983E2F2528B6950085CE85 /* a1-s3763636_s3779380_s3557535_s3730303UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "a1-s3763636_s3779380_s3557535_s3730303UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB983E312528B6950085CE85 /* a1_s3763636_s3779380_s3557535_s3730303UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a1_s3763636_s3779380_s3557535_s3730303UITests.swift; sourceTree = "<group>"; };
 		CB983E332528B6950085CE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB983E392528B82D0085CE85 /* ProfileUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUITest.swift; sourceTree = "<group>"; };
 		CB983E3F2528C7060085CE85 /* a1-s3763636_s3779380_s3557535_s3730303Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "a1-s3763636_s3779380_s3557535_s3730303Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB983E412528C7060085CE85 /* a1_s3763636_s3779380_s3557535_s3730303Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a1_s3763636_s3779380_s3557535_s3730303Tests.swift; sourceTree = "<group>"; };
 		CB983E432528C7060085CE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB983E492528D5D20085CE85 /* TeamProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamProfileTest.swift; sourceTree = "<group>"; };
 		CB9C781C24F0E064007878A3 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
@@ -233,7 +229,6 @@
 				CB92D03F251A4425006D6A0E /* CustomPageViewController.swift */,
 				CB92D041251A4535006D6A0E /* ProfileMainViewController.swift */,
 				5F7F5F092531E5A600EF4BF1 /* StudyRecordController.swift */,
-				5F7F5F0B2531E6CA00EF4BF1 /* RecordViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -318,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				63FA777D24F240F4009F47B7 /* TodoCell.swift */,
+				5F7F5F0B2531E6CA00EF4BF1 /* RecordViewCell.swift */,
 			);
 			path = "Custom UI";
 			sourceTree = "<group>";
@@ -349,7 +345,6 @@
 		CB983E302528B6950085CE85 /* a1-s3763636_s3779380_s3557535_s3730303UITests */ = {
 			isa = PBXGroup;
 			children = (
-				CB983E312528B6950085CE85 /* a1_s3763636_s3779380_s3557535_s3730303UITests.swift */,
 				CB983E332528B6950085CE85 /* Info.plist */,
 				CB983E392528B82D0085CE85 /* ProfileUITest.swift */,
 				C88BB567252ACBEE0051344E /* MoodTrackerUITest.swift */,
@@ -363,7 +358,6 @@
 			isa = PBXGroup;
 			children = (
 				CB17BB8A252AA52E009CE5B0 /* SongListTest.swift */,
-				CB983E412528C7060085CE85 /* a1_s3763636_s3779380_s3557535_s3730303Tests.swift */,
 				CB983E432528C7060085CE85 /* Info.plist */,
 				CB983E492528D5D20085CE85 /* TeamProfileTest.swift */,
 				C8BB3A2A252AA7000092AEFC /* RESTRequestTest.swift */,
@@ -609,7 +603,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C88BB568252ACBEE0051344E /* MoodTrackerUITest.swift in Sources */,
-				CB983E322528B6950085CE85 /* a1_s3763636_s3779380_s3557535_s3730303UITests.swift in Sources */,
 				63A5C6DE252EEF6C00A82FB0 /* TodoUITest.swift in Sources */,
 				5FCD70AA252D7AB400FAA5A4 /* StudyTrackerUITest.swift in Sources */,
 				CB983E3A2528B82D0085CE85 /* ProfileUITest.swift in Sources */,
@@ -623,7 +616,6 @@
 				CB17BB8B252AA52E009CE5B0 /* SongListTest.swift in Sources */,
 				CB983E4A2528D5D20085CE85 /* TeamProfileTest.swift in Sources */,
 				63A5C6DC252EDE7800A82FB0 /* TodoListTest.swift in Sources */,
-				CB983E422528C7060085CE85 /* a1_s3763636_s3779380_s3557535_s3730303Tests.swift in Sources */,
 				C8BB3A2B252AA7000092AEFC /* RESTRequestTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,7 +12,7 @@ class ProfileMainViewController: UIViewController {
     
     @IBOutlet weak var contentView: UIView!
     
-
+    
     private var dataSource:[Profile] = TeamProfile().getPeople()
     private var currentViewControllerIndex = 0
     
@@ -46,7 +46,7 @@ class ProfileMainViewController: UIViewController {
         guard let startingViewController = detailViewControllerAt(index: currentViewControllerIndex) else{
             return
         }
-
+        
         pageViewController.setViewControllers([startingViewController], direction: .forward, animated: true)
     }
     
@@ -68,7 +68,7 @@ class ProfileMainViewController: UIViewController {
         return dataViewController
     }
     
-
+    
 }
 
 extension ProfileMainViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
@@ -81,13 +81,13 @@ extension ProfileMainViewController: UIPageViewControllerDelegate, UIPageViewCon
         return dataSource.count
     }
     
-   func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?{
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?{
         let dataViewController = viewController as? ProfileDataViewController
-    
-    guard var currentIndex = dataViewController?.getIndex() else{
-        return nil
-    }
-    
+        
+        guard var currentIndex = dataViewController?.getIndex() else{
+            return nil
+        }
+        
         currentViewControllerIndex = currentIndex
         
         if currentIndex == 0{
@@ -112,7 +112,7 @@ extension ProfileMainViewController: UIPageViewControllerDelegate, UIPageViewCon
         currentIndex += 1
         currentViewControllerIndex = currentIndex
         
-       return detailViewControllerAt(index: currentIndex)
+        return detailViewControllerAt(index: currentIndex)
     }
     
     

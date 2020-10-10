@@ -9,7 +9,7 @@
 import UIKit
 
 class ProfileDataViewController: UIViewController {
-
+    
     @IBOutlet weak var displayLabel: UILabel!
     @IBOutlet var displayAvatar: UIImageView!
     @IBOutlet var displayRecipe: UITextView!
@@ -24,7 +24,7 @@ class ProfileDataViewController: UIViewController {
         super.viewDidLoad()
         displayLabel.text = displayText
         displayRecipe.text = recipe
-       displayAvatar.image = UIImage(named: avatarName)
+        displayAvatar.image = UIImage(named: avatarName)
         displayAvatar.restorationIdentifier = avatarName
         
         displayRecipe.textAlignment = .center
@@ -49,6 +49,6 @@ class ProfileDataViewController: UIViewController {
     public func getIndex() -> Int{
         return dataIndex!
     }
-
-
+    
+    
 }

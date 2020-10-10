@@ -9,7 +9,7 @@
 import UIKit
 
 class TodoDetailController: UIViewController {
-
+    
     
     @IBOutlet weak var taskNameLabel: UILabel!
     private var _task:Task?
@@ -49,7 +49,7 @@ class TodoDetailController: UIViewController {
                 tableView.setTaskReminder(index: self.tableIndex, isOn: false)
             }
         }
-
+        
     }
     
     @IBAction func saveClicked(_ sender: Any) {
