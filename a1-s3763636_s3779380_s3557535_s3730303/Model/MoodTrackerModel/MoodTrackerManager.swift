@@ -158,7 +158,6 @@ class MoodTrackerManager {
         createNSDailyMoodRecord("28-09-20", Moods.great.rawValue, "Wow it's boiling hot today", w1)
         createNSDailyMoodRecord("10-09-20", Moods.awful.rawValue, "Humans weren't built to survive 60 degrees... I don't feel so good...", w2)
         
-        saveToDatabase(errorMsg: "saving ")
     }
     
     private func saveToDatabase(errorMsg: String) {

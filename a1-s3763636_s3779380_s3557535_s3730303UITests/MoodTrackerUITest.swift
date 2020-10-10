@@ -26,9 +26,12 @@ class MoodTrackerUITest: XCTestCase {
     func testNumComponents() {
         let numBtns = app.buttons.count
         let numImgs = app.images.count
+        // 5 mood buttons and 4 tab buttons
         XCTAssertEqual(numBtns, 9)
-        XCTAssertEqual(numImgs, 2)
         
+        //bananas, location and weather icons
+        XCTAssertEqual(numImgs, 3)
+
     }
     
     // When a different date is selected, test if the weather labels will change
