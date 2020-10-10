@@ -12,23 +12,10 @@ class RecordViewCell: UITableViewCell {
 
     @IBOutlet weak var timeline: UIImageView!
     
-    
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var breakLabel: UILabel!
     
-    
     @IBOutlet weak var timerLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-
-    }
-
 }
