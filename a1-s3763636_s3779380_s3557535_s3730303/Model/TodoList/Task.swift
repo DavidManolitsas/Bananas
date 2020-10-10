@@ -15,13 +15,15 @@ class Task {
     private var _reminderOn: Bool
     private var _description: String
     private var _priority: TaskPriority
+    private var _reminder: ReminderDate
     
     init(id:Int, description: String) {
         _id = id
         _description = description
         _priority = .none
-        _completed = false;
-        _reminderOn = false;
+        _completed = false
+        _reminderOn = false
+        _reminder = ReminderDate()
     }
     
     
@@ -114,4 +116,13 @@ class Task {
         }
     }
     
+    
+    var reminder: ReminderDate {
+        get {
+            return _reminder
+        }
+        set (newReminder) {
+            _reminder = newReminder
+        }
+    }
 }
