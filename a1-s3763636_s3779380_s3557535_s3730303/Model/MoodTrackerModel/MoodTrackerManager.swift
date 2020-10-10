@@ -47,6 +47,7 @@ class MoodTrackerManager {
         
     }
     
+    // given only a location, either create a database entity without any of the other attributes or update an existing one
     public func updateWeatherLocation(_ location: String, _ date: String) {
         self.location = location
         
@@ -74,6 +75,7 @@ class MoodTrackerManager {
         saveToDatabase(errorMsg: "error saving update")
     }
     
+    // given full weather details, either create or update an entry
     public func updateWeatherDetails(_ date: String, _ minTemp: Double, _ maxTemp: Double, _ iconName: String, _ feelsLike: Double, _ sunriseTime: String, _ sunsetTime: String) {
         
         let nsWeather = createNSWeather(minTemp: minTemp, maxTemp: maxTemp, iconName: iconName, location: self.location, feelsLike: feelsLike, sunriseTime: sunriseTime, sunsetTime: sunsetTime)
@@ -100,6 +102,7 @@ class MoodTrackerManager {
         saveToDatabase(errorMsg: "error saving update")
     }
     
+    // check if given a date, a record exists
     public func retrieveRecordFor(date: String) {
         if (entityDoesExistFor(date: date)) {
             loadRecordFor(date)
@@ -108,6 +111,7 @@ class MoodTrackerManager {
         }
     }
     
+    // given a date, update a specific attribute
     private func updateRecordEntity(attribute: String, keyPath: String, datePredicate: String) {
         do {
             let predicate = NSPredicate(format: "%K == %@", "date", datePredicate)
@@ -127,6 +131,7 @@ class MoodTrackerManager {
         saveToDatabase(errorMsg: "error saving update")
     }
     
+    // create a mood entry without weather
     private func createNSDailyMoodRecord(_ date: String,_ mood: String,_ notes: String)  {
         let recordEntity = NSEntityDescription.entity(forEntityName: "DailyMoodRecord", in: managedContext)!
         let nsRecord = NSManagedObject(entity: recordEntity, insertInto: managedContext) as! DailyMoodRecord
@@ -139,6 +144,7 @@ class MoodTrackerManager {
         
     }
     
+    // create a mood entry with weather
     private func createNSDailyMoodRecord(_ date: String,_ mood: String,_ notes: String, _ weather: Weather) {
         let recordEntity = NSEntityDescription.entity(forEntityName: "DailyMoodRecord", in: managedContext)!
         let nsRecord = NSManagedObject(entity: recordEntity, insertInto: managedContext) as! DailyMoodRecord
@@ -184,6 +190,7 @@ class MoodTrackerManager {
         return nsWeather
     }
     
+    // retrieve a record based on a date key
     private func loadRecordFor(_ date: String) {
         do {
             let predicate = NSPredicate(format: "%K == %@", "date", date)

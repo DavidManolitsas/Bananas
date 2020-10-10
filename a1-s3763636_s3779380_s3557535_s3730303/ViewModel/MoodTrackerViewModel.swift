@@ -155,16 +155,19 @@ struct MoodTrackerViewModel {
         
     }
     
+    // update database for date of 'today'
     public func updateWeatherDetailsFor(_ today: Date) {
         if let forecast = RESTReq.forecast {
             moodTrackerManager.updateWeatherDetails(formatDate(today), forecast.minTemp, forecast.maxTemp, forecast.iconName, forecast.feelsLike, self._sunriseTime, self._sunsetTime)
         }
     }
     
+    // update database with notes
     public func updateNotesFor(_ date: Date, as notes: String) {
         moodTrackerManager.updateNotes(notes, formatDate(date))
     }
     
+    // update database with mood
     public func updateMoodFor(_ date: Date, as mood: Moods) {
         for moodEnum in Moods.allCases {
             if mood == moodEnum {
@@ -175,6 +178,7 @@ struct MoodTrackerViewModel {
         
     }
     
+    // first save the location of the weather into the database
     public func updateWeatherForLocation(_ location: String, _ date: Date) {
         moodTrackerManager.updateWeatherLocation(location, formatDate(date))
     }
@@ -220,6 +224,7 @@ struct MoodTrackerViewModel {
         return "\(minTemp) - \(maxTemp)"
     }
     
+    // for displaying the number of dots on the calendar
     public mutating func getEventCountFor(_ date: Date) -> Int {
         loadRecordFor(date)
         var count = 0

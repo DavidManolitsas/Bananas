@@ -60,6 +60,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
         updateMoodAs(Moods.awful)
     }
     
+    // only update the UI for today as location only gets calculated for 'today'
     func updateUI() {
         if isToday() {
             weatherImg.image = moodTrackerViewModel.getImage()
@@ -151,6 +152,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
  */
 extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
     // selecting a date and loading the view for that date
+    // if it's 'today' then get the location
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         chosenDate = date
         if date.compare(calendar.today!) == .orderedSame {
@@ -181,11 +183,12 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
         calendar.reloadData()
     }
     
+    // do not allow selection of future dates
     func maximumDate(for calendar: FSCalendar) -> Date {
         return calendar.today!
     }
     
-    // display mood and note entries as dots
+    // display number of mood and note entries as dots
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         return moodTrackerViewModel.getEventCountFor(date)
     }
@@ -272,6 +275,7 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
         guard let location = currentLocation else { return }
         let lat = location.coordinate.latitude
         let lon = location.coordinate.longitude
+        // make rest request for those coordinates
         moodTrackerViewModel.getWeatherFor(lat, lon)
         
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
@@ -286,6 +290,7 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
         }
     }
     
+    // find the city name and update the view 
     func parsePlacemarks() {
         if let placemark = placemark {
             if let city = placemark.locality, !city.isEmpty {
@@ -295,7 +300,8 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
                     moodTrackerViewModel.updateWeatherForLocation(city, calendar.today!)
                 }
             } else {
-                locationLbl.text = "City not found"
+                locationLbl.text = "Unknown"
+                moodTrackerViewModel.updateWeatherForLocation("Unknown", calendar.today!)
             }
         }
     }
