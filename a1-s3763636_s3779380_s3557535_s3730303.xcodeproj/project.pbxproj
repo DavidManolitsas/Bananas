@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5F1EC8A32524C31C0086944C /* RecordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1EC8A22524C31C0086944C /* RecordsManager.swift */; };
+		5F7F5F0A2531E5A600EF4BF1 /* StudyRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7F5F092531E5A600EF4BF1 /* StudyRecordController.swift */; };
+		5F7F5F0C2531E6CA00EF4BF1 /* RecordViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7F5F0B2531E6CA00EF4BF1 /* RecordViewCell.swift */; };
 		5FAA268424FDD5AD00FE79D6 /* studyRecordsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA268324FDD5AD00FE79D6 /* studyRecordsController.swift */; };
 		5FAA268624FDD5C700FE79D6 /* recordsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA268524FDD5C700FE79D6 /* recordsViewCell.swift */; };
 		5FCD70A4252D773400FAA5A4 /* Records+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCD70A3252D773400FAA5A4 /* Records+CoreDataClass.swift */; };
@@ -93,6 +95,8 @@
 /* Begin PBXFileReference section */
 		2D7F2DCE304674AD2C109068 /* Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig"; path = "Target Support Files/Pods-a1-s3763636_s3779380_s3557535_s3730303/Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig"; sourceTree = "<group>"; };
 		5F1EC8A22524C31C0086944C /* RecordsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsManager.swift; sourceTree = "<group>"; };
+		5F7F5F092531E5A600EF4BF1 /* StudyRecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyRecordController.swift; sourceTree = "<group>"; };
+		5F7F5F0B2531E6CA00EF4BF1 /* RecordViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewCell.swift; sourceTree = "<group>"; };
 		5FAA268324FDD5AD00FE79D6 /* studyRecordsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = studyRecordsController.swift; sourceTree = "<group>"; };
 		5FAA268524FDD5C700FE79D6 /* recordsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recordsViewCell.swift; sourceTree = "<group>"; };
 		5FCD70A3252D773400FAA5A4 /* Records+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Records+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -234,6 +238,8 @@
 				CB92D03D2519CFBD006D6A0E /* ProfileDataViewController.swift */,
 				CB92D03F251A4425006D6A0E /* CustomPageViewController.swift */,
 				CB92D041251A4535006D6A0E /* ProfileMainViewController.swift */,
+				5F7F5F092531E5A600EF4BF1 /* StudyRecordController.swift */,
+				5F7F5F0B2531E6CA00EF4BF1 /* RecordViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -500,11 +506,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				C8BB3A37252AB5E80092AEFC /* MockWeather.json in Resources */,
-
 				63786C80252AF130005C87A9 /* Assets.xcassets in Resources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,11 +515,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				C8BB3A38252AB5E80092AEFC /* MockWeather.json in Resources */,
-
 				63786C81252AF131005C87A9 /* Assets.xcassets in Resources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +602,8 @@
 				63FA778024F262B4009F47B7 /* TodoDetailController.swift in Sources */,
 				63652DD124ECFA96005C0BC1 /* Task.swift in Sources */,
 				63652DD924ED1029005C0BC1 /* TodoViewController.swift in Sources */,
+				5F7F5F0C2531E6CA00EF4BF1 /* RecordViewCell.swift in Sources */,
+				5F7F5F0A2531E5A600EF4BF1 /* StudyRecordController.swift in Sources */,
 				5FAA268624FDD5C700FE79D6 /* recordsViewCell.swift in Sources */,
 				C8800DD7251731D2003B2A10 /* MoodTrackerManager.swift in Sources */,
 				63F29181252975CD0011A9C8 /* TodoTask+CoreDataClass.swift in Sources */,

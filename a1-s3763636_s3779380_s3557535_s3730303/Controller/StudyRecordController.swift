@@ -1,18 +1,18 @@
 //
-//  studyRecordsController.swift
+//  StudyRecordController.swift
 //  a1-s3763636_s3779380_s3557535_s3730303
 //
-//  Created by kerwin on 31/8/20.
+//  Created by kerwin on 10/10/20.
 //  Copyright © 2020 David Manolitsas. All rights reserved.
 //
 
-/*import UIKit
+import UIKit
 
-class studyRecordsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class StudyRecordController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var studyRecords2 = [Records]()
-     var rm = RecordsManager()
-     var recordsModel = TimerViewModel()
+    var rm = RecordsManager()
+    var recordsModel = TimerViewModel()
     
     @IBOutlet weak var recordsTableView: UITableView!
     
@@ -47,11 +47,11 @@ class studyRecordsController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return studyRecords2.count 
+        return studyRecords2.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = recordsTableView.dequeueReusableCell(withIdentifier: "recordsCell", for: indexPath) as! recordsViewCell
+        let cell = recordsTableView.dequeueReusableCell(withIdentifier: "recordsCell", for: indexPath) as! RecordViewCell
         
         let sr = studyRecords2[indexPath.row]
         cell.timeline.image = UIImage(named:"timeline.png")
@@ -76,5 +76,6 @@ class studyRecordsController: UIViewController, UITableViewDataSource, UITableVi
         }
         return UISwipeActionsConfiguration(actions: [action])
     }
+    
+}
 
-} */
