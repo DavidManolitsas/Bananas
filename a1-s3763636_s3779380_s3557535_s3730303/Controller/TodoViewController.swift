@@ -9,13 +9,13 @@
 import UIKit
 
 class TodoViewController: UIViewController {
-
+    
     
     @IBOutlet weak var tableView: UITableView!
     
     private var viewModel = TodoViewModel()
     private var currDetail = TodoDetailController()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class TodoViewController: UIViewController {
                 return
             }
             
-            let task = Task(id: self.viewModel.count + 1, description: userInput)
+            let task = Task(id: self.viewModel.getNextId(), description: userInput)
             self.addTask(insertedTask: task)
             
         }
@@ -67,6 +67,12 @@ class TodoViewController: UIViewController {
     
     func setTaskReminder(index: Int, isOn: Bool) {
         viewModel.updateTaskReminder(index: index, isOn: isOn)
+        tableView.reloadData()
+    }
+    
+    
+    func setReminderDate(index: Int, date: Date) {
+        viewModel.updateReminderDate(index: index, date: date)
         tableView.reloadData()
     }
     
@@ -130,5 +136,5 @@ extension TodoViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
     
-
+    
 }

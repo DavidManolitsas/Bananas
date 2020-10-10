@@ -10,24 +10,27 @@ import XCTest
 
 class MoodTrackerUITest: XCTestCase {
     let app = XCUIApplication()
-
+    
     override func setUp() {
         continueAfterFailure = false
         app.launch()
         app.tabBars.buttons["Mood Tracker"].tap()
         
-/**
- if this is the first time launching, there may be a pop up where you need to allow location
- */
-            // app.alerts["Allow “a1-s3763636_s3779380_s3557535_s3730303” to use your location?"].scrollViews.otherElements.buttons["Allow Once"].tap()
-
+        /**
+         if this is the first time launching, there may be a pop up where you need to allow location
+         */
+        // app.alerts["Allow “a1-s3763636_s3779380_s3557535_s3730303” to use your location?"].scrollViews.otherElements.buttons["Allow Once"].tap()
+        
     }
-  
+    
     func testNumComponents() {
         let numBtns = app.buttons.count
         let numImgs = app.images.count
+        // 5 mood buttons and 4 tab buttons
         XCTAssertEqual(numBtns, 9)
-        XCTAssertEqual(numImgs, 2)
+        
+        //bananas, location and weather icons
+        XCTAssertEqual(numImgs, 3)
         
     }
     
@@ -35,8 +38,10 @@ class MoodTrackerUITest: XCTestCase {
     func testWeatherLabelChange() {
         let calendar = app.otherElements["fsCalendar"].children(matching: .other).element.children(matching: .other).element(boundBy: 3).collectionViews
         let date = calendar.children(matching: .cell).element(boundBy: 8).staticTexts["5"]
+        // swipe from 'october' to 'september'
         date.swipeRight()
-
+        
+        // press on 28th September
         calendar.children(matching: .cell).element(boundBy: 29).staticTexts["28"].tap()
         
         let scrollViewsQuery = app.scrollViews
@@ -48,7 +53,8 @@ class MoodTrackerUITest: XCTestCase {
         let feelsLikeLbl = elementsQuery.staticTexts["102°C"].label
         let sunriseLbl = elementsQuery.staticTexts["5:43 am"].label
         let sunsetLbl = elementsQuery.staticTexts["6:01pm"].label
-
+        
+        // Check the text of the labels is equal to the mock database entries
         XCTAssertEqual(dateLblText, "28 September, 2020")
         XCTAssertEqual(locationLbl, "Mock location")
         XCTAssertEqual(tempLbl, "30°C - 50°C")
@@ -56,16 +62,17 @@ class MoodTrackerUITest: XCTestCase {
         XCTAssertEqual(sunriseLbl, "5:43 am")
         XCTAssertEqual(sunsetLbl, "6:01pm")
         
-        // select a different date
+        // select the 10th of september
         calendar.children(matching: .cell).element(boundBy: 11).staticTexts["10"].tap()
         
         let dateLblText2 = elementsQuery.staticTexts["10 September, 2020"].label
-         let locationLbl2 = elementsQuery.staticTexts["Desert"].label
+        let locationLbl2 = elementsQuery.staticTexts["Desert"].label
         let tempLbl2 = elementsQuery.staticTexts["40°C - 60°C"].label
-         let feelsLikeLbl2 = elementsQuery.staticTexts["32°C"].label
-         let sunriseLbl2 = elementsQuery.staticTexts["9:00 am"].label
+        let feelsLikeLbl2 = elementsQuery.staticTexts["32°C"].label
+        let sunriseLbl2 = elementsQuery.staticTexts["9:00 am"].label
         let sunsetLbl2 = elementsQuery.staticTexts["7:01pm"].label
         
+        // Check the text of the labels is equal to the mock database entries
         XCTAssertEqual(dateLblText2, "10 September, 2020")
         XCTAssertEqual(locationLbl2, "Desert")
         XCTAssertEqual(tempLbl2, "40°C - 60°C")
@@ -78,19 +85,20 @@ class MoodTrackerUITest: XCTestCase {
         let calendar = app.otherElements["fsCalendar"].children(matching: .other).element.children(matching: .other).element(boundBy: 3).collectionViews
         let date = calendar.children(matching: .cell).element(boundBy: 8).staticTexts["5"]
         date.swipeRight()
-
+        
         // tap on 28th
         calendar.children(matching: .cell).element(boundBy: 29).staticTexts["28"].tap()
         
         let scrollViewsQuery = app.scrollViews
         let notesElementsQuery = scrollViewsQuery.otherElements.containing(.staticText, identifier:"Notes")
         notesElementsQuery.children(matching: .other).element(boundBy: 0).swipeUp()
-    
+        
+        // retrieve and check if the text in the text view matches
         let textView = notesElementsQuery.children(matching: .textView).element
         let textValue = textView.value as? String
         XCTAssertEqual(textValue, "Wow it's boiling hot today")
         
-        // tap on 11th
+        // tap on 10th
         calendar.children(matching: .cell).element(boundBy: 11).staticTexts["10"].tap()
         let textValue2 = textView.value as? String
         XCTAssertEqual(textValue2, "Humans weren't built to survive 60 degrees... I don't feel so good...")

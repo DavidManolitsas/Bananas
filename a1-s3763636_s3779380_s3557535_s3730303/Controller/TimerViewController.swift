@@ -162,6 +162,7 @@ class TimerViewController: UIViewController, UIPopoverPresentationControllerDele
         }
         catch{
             //ERROR
+             print("Couldn't create the audio player for file")
         }
     }
     

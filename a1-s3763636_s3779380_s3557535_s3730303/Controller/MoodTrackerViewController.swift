@@ -60,6 +60,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
         updateMoodAs(Moods.awful)
     }
     
+    // only update the UI for today as location only gets calculated for 'today'
     func updateUI() {
         if isToday() {
             weatherImg.image = moodTrackerViewModel.getImage()
@@ -72,7 +73,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
             moodTrackerViewModel.loadRecordFor(calendar.today!)
             
             notesText.text = moodTrackerViewModel.notes
-            
+            dateLbl.text = formatDate(date: calendar.today!, asFormat: "dd MMMM, yyyy")
             calendar.reloadData()
         }
     }
@@ -87,7 +88,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
         
         initDateMoodView()
     }
-
+    
     private func setUpLocation() {
         locationMangager.delegate = self
         locationMangager.requestWhenInUseAuthorization()
@@ -99,15 +100,14 @@ class MoodTrackerViewController: UIViewController, Refresh {
         calendar.dataSource = self;
         
         let appearance = calendar.appearance
-        appearance.todayColor = .orange;
-        appearance.headerTitleColor = customBrown;
-        appearance.weekdayTextColor = customBrown;
+        appearance.subtitleDefaultColor = UIColor(hexString: "2D4051")
+        appearance.headerTitleColor = customBrown
+        appearance.weekdayTextColor = customBrown
         appearance.titleFont = UIFont.systemFont(ofSize:18.0)
         appearance.headerTitleFont = UIFont.systemFont(ofSize:18.0)
         appearance.weekdayFont = UIFont.systemFont(ofSize:18.0)
-        appearance.titleSelectionColor = UIColor(hexString: "4E5D97")
-        // 1. 566397
-        //      2.  394989
+        appearance.titleSelectionColor = UIColor(hexString: "3B4F61")
+        
     }
     
     private func initDateMoodView() {
@@ -152,6 +152,7 @@ class MoodTrackerViewController: UIViewController, Refresh {
  */
 extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
     // selecting a date and loading the view for that date
+    // if it's 'today' then get the location
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         chosenDate = date
         if date.compare(calendar.today!) == .orderedSame {
@@ -182,11 +183,12 @@ extension MoodTrackerViewController: FSCalendarDelegate, FSCalendarDataSource {
         calendar.reloadData()
     }
     
+    // do not allow selection of future dates
     func maximumDate(for calendar: FSCalendar) -> Date {
         return calendar.today!
     }
     
-    // display mood and note entries as dots
+    // display number of mood and note entries as dots
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         return moodTrackerViewModel.getEventCountFor(date)
     }
@@ -221,7 +223,8 @@ extension MoodTrackerViewController: FSCalendarDelegateAppearance {
             return UIColor(hexString: awfulHexCode)
         }
         
-        return appearance.eventDefaultColor
+        return UIColor(hexString: "9E9E9E")
+        
     }
     
     // customise event dot colours when date is not selected
@@ -254,7 +257,7 @@ extension MoodTrackerViewController: FSCalendarDelegateAppearance {
         return [moodEventColor, customBrown]
         
     }
-
+    
 }
 
 /*
@@ -272,6 +275,7 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
         guard let location = currentLocation else { return }
         let lat = location.coordinate.latitude
         let lon = location.coordinate.longitude
+        // make rest request for those coordinates
         moodTrackerViewModel.getWeatherFor(lat, lon)
         
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
@@ -286,6 +290,7 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
         }
     }
     
+    // find the city name and update the view 
     func parsePlacemarks() {
         if let placemark = placemark {
             if let city = placemark.locality, !city.isEmpty {
@@ -295,7 +300,8 @@ extension MoodTrackerViewController: CLLocationManagerDelegate {
                     moodTrackerViewModel.updateWeatherForLocation(city, calendar.today!)
                 }
             } else {
-                locationLbl.text = "City not found"
+                locationLbl.text = "Unknown"
+                moodTrackerViewModel.updateWeatherForLocation("Unknown", calendar.today!)
             }
         }
     }

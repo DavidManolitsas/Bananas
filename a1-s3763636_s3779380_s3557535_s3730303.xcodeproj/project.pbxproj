@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5F1EC8A32524C31C0086944C /* RecordsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1EC8A22524C31C0086944C /* RecordsManager.swift */; };
-		5FAA268424FDD5AD00FE79D6 /* studyRecordsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA268324FDD5AD00FE79D6 /* studyRecordsController.swift */; };
-		5FAA268624FDD5C700FE79D6 /* recordsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA268524FDD5C700FE79D6 /* recordsViewCell.swift */; };
+		5F7F5F0A2531E5A600EF4BF1 /* StudyRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7F5F092531E5A600EF4BF1 /* StudyRecordController.swift */; };
+		5F7F5F0C2531E6CA00EF4BF1 /* RecordViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7F5F0B2531E6CA00EF4BF1 /* RecordViewCell.swift */; };
 		5FCD70A4252D773400FAA5A4 /* Records+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCD70A3252D773400FAA5A4 /* Records+CoreDataClass.swift */; };
 		5FCD70A6252D773C00FAA5A4 /* Records+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCD70A5252D773C00FAA5A4 /* Records+CoreDataProperties.swift */; };
 		5FCD70AA252D7AB400FAA5A4 /* StudyTrackerUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCD70A9252D7AB400FAA5A4 /* StudyTrackerUITest.swift */; };
@@ -24,6 +24,9 @@
 		63786C81252AF131005C87A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636B875424F5357300D4C644 /* Assets.xcassets */; };
 		63818FAD24E4E5FD00E15655 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63818FAC24E4E5FD00E15655 /* LaunchScreen.storyboard */; };
 		63818FAF24E4E60800E15655 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63818FAE24E4E60800E15655 /* Main.storyboard */; };
+		63A5C6DA252EAFD700A82FB0 /* ReminderDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5C6D9252EAFD700A82FB0 /* ReminderDate.swift */; };
+		63A5C6DC252EDE7800A82FB0 /* TodoListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5C6DB252EDE7800A82FB0 /* TodoListTest.swift */; };
+		63A5C6DE252EEF6C00A82FB0 /* TodoUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A5C6DD252EEF6C00A82FB0 /* TodoUITest.swift */; };
 		63AD4D8024EA0E3E00CAAEB4 /* Todo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AD4D7F24EA0E3E00CAAEB4 /* Todo.storyboard */; };
 		63AD4D8224EA0E6900CAAEB4 /* StudyTracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AD4D8124EA0E6900CAAEB4 /* StudyTracker.storyboard */; };
 		63AD4D8424EA0E8D00CAAEB4 /* MoodTracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63AD4D8324EA0E8D00CAAEB4 /* MoodTracker.storyboard */; };
@@ -54,9 +57,7 @@
 		CB92D03E2519CFBD006D6A0E /* ProfileDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB92D03D2519CFBD006D6A0E /* ProfileDataViewController.swift */; };
 		CB92D040251A4425006D6A0E /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB92D03F251A4425006D6A0E /* CustomPageViewController.swift */; };
 		CB92D042251A4535006D6A0E /* ProfileMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB92D041251A4535006D6A0E /* ProfileMainViewController.swift */; };
-		CB983E322528B6950085CE85 /* a1_s3763636_s3779380_s3557535_s3730303UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB983E312528B6950085CE85 /* a1_s3763636_s3779380_s3557535_s3730303UITests.swift */; };
 		CB983E3A2528B82D0085CE85 /* ProfileUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB983E392528B82D0085CE85 /* ProfileUITest.swift */; };
-		CB983E422528C7060085CE85 /* a1_s3763636_s3779380_s3557535_s3730303Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB983E412528C7060085CE85 /* a1_s3763636_s3779380_s3557535_s3730303Tests.swift */; };
 		CB983E4A2528D5D20085CE85 /* TeamProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB983E492528D5D20085CE85 /* TeamProfileTest.swift */; };
 		CB9C781E24F0E064007878A3 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C781C24F0E064007878A3 /* TimerViewController.swift */; };
 		CB9C782124F0E078007878A3 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C782024F0E078007878A3 /* SongList.swift */; };
@@ -90,8 +91,8 @@
 /* Begin PBXFileReference section */
 		2D7F2DCE304674AD2C109068 /* Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig"; path = "Target Support Files/Pods-a1-s3763636_s3779380_s3557535_s3730303/Pods-a1-s3763636_s3779380_s3557535_s3730303.debug.xcconfig"; sourceTree = "<group>"; };
 		5F1EC8A22524C31C0086944C /* RecordsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsManager.swift; sourceTree = "<group>"; };
-		5FAA268324FDD5AD00FE79D6 /* studyRecordsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = studyRecordsController.swift; sourceTree = "<group>"; };
-		5FAA268524FDD5C700FE79D6 /* recordsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recordsViewCell.swift; sourceTree = "<group>"; };
+		5F7F5F092531E5A600EF4BF1 /* StudyRecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyRecordController.swift; sourceTree = "<group>"; };
+		5F7F5F0B2531E6CA00EF4BF1 /* RecordViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewCell.swift; sourceTree = "<group>"; };
 		5FCD70A3252D773400FAA5A4 /* Records+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Records+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		5FCD70A5252D773C00FAA5A4 /* Records+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Records+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		5FCD70A9252D7AB400FAA5A4 /* StudyTrackerUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyTrackerUITest.swift; sourceTree = "<group>"; };
@@ -106,6 +107,9 @@
 		636B875824F60C7300D4C644 /* TodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 		63818FAC24E4E5FD00E15655 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63818FAE24E4E60800E15655 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		63A5C6D9252EAFD700A82FB0 /* ReminderDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDate.swift; sourceTree = "<group>"; };
+		63A5C6DB252EDE7800A82FB0 /* TodoListTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTest.swift; sourceTree = "<group>"; };
+		63A5C6DD252EEF6C00A82FB0 /* TodoUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoUITest.swift; sourceTree = "<group>"; };
 		63AD4D7F24EA0E3E00CAAEB4 /* Todo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Todo.storyboard; sourceTree = "<group>"; };
 		63AD4D8124EA0E6900CAAEB4 /* StudyTracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StudyTracker.storyboard; sourceTree = "<group>"; };
 		63AD4D8324EA0E8D00CAAEB4 /* MoodTracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MoodTracker.storyboard; sourceTree = "<group>"; };
@@ -136,11 +140,9 @@
 		CB92D03F251A4425006D6A0E /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		CB92D041251A4535006D6A0E /* ProfileMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainViewController.swift; sourceTree = "<group>"; };
 		CB983E2F2528B6950085CE85 /* a1-s3763636_s3779380_s3557535_s3730303UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "a1-s3763636_s3779380_s3557535_s3730303UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB983E312528B6950085CE85 /* a1_s3763636_s3779380_s3557535_s3730303UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a1_s3763636_s3779380_s3557535_s3730303UITests.swift; sourceTree = "<group>"; };
 		CB983E332528B6950085CE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB983E392528B82D0085CE85 /* ProfileUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUITest.swift; sourceTree = "<group>"; };
 		CB983E3F2528C7060085CE85 /* a1-s3763636_s3779380_s3557535_s3730303Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "a1-s3763636_s3779380_s3557535_s3730303Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB983E412528C7060085CE85 /* a1_s3763636_s3779380_s3557535_s3730303Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a1_s3763636_s3779380_s3557535_s3730303Tests.swift; sourceTree = "<group>"; };
 		CB983E432528C7060085CE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB983E492528D5D20085CE85 /* TeamProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamProfileTest.swift; sourceTree = "<group>"; };
 		CB9C781C24F0E064007878A3 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
@@ -217,8 +219,6 @@
 		631E2A9524E4D7B400D90097 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5FAA268524FDD5C700FE79D6 /* recordsViewCell.swift */,
-				5FAA268324FDD5AD00FE79D6 /* studyRecordsController.swift */,
 				CB9C781C24F0E064007878A3 /* TimerViewController.swift */,
 				CB9C783224F0EEAB007878A3 /* PopViewController.swift */,
 				C8BB0D2624EE13A500E027B1 /* MoodTrackerViewController.swift */,
@@ -228,6 +228,7 @@
 				CB92D03D2519CFBD006D6A0E /* ProfileDataViewController.swift */,
 				CB92D03F251A4425006D6A0E /* CustomPageViewController.swift */,
 				CB92D041251A4535006D6A0E /* ProfileMainViewController.swift */,
+				5F7F5F092531E5A600EF4BF1 /* StudyRecordController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -303,6 +304,7 @@
 				63652DD024ECFA96005C0BC1 /* Task.swift */,
 				63652DDC24ED1CA0005C0BC1 /* TaskPriority.swift */,
 				636B875824F60C7300D4C644 /* TodoList.swift */,
+				63A5C6D9252EAFD700A82FB0 /* ReminderDate.swift */,
 			);
 			path = TodoList;
 			sourceTree = "<group>";
@@ -311,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				63FA777D24F240F4009F47B7 /* TodoCell.swift */,
+				5F7F5F0B2531E6CA00EF4BF1 /* RecordViewCell.swift */,
 			);
 			path = "Custom UI";
 			sourceTree = "<group>";
@@ -342,11 +345,11 @@
 		CB983E302528B6950085CE85 /* a1-s3763636_s3779380_s3557535_s3730303UITests */ = {
 			isa = PBXGroup;
 			children = (
-				CB983E312528B6950085CE85 /* a1_s3763636_s3779380_s3557535_s3730303UITests.swift */,
 				CB983E332528B6950085CE85 /* Info.plist */,
 				CB983E392528B82D0085CE85 /* ProfileUITest.swift */,
 				C88BB567252ACBEE0051344E /* MoodTrackerUITest.swift */,
 				5FCD70A9252D7AB400FAA5A4 /* StudyTrackerUITest.swift */,
+				63A5C6DD252EEF6C00A82FB0 /* TodoUITest.swift */,
 			);
 			path = "a1-s3763636_s3779380_s3557535_s3730303UITests";
 			sourceTree = "<group>";
@@ -355,11 +358,11 @@
 			isa = PBXGroup;
 			children = (
 				CB17BB8A252AA52E009CE5B0 /* SongListTest.swift */,
-				CB983E412528C7060085CE85 /* a1_s3763636_s3779380_s3557535_s3730303Tests.swift */,
 				CB983E432528C7060085CE85 /* Info.plist */,
 				CB983E492528D5D20085CE85 /* TeamProfileTest.swift */,
 				C8BB3A2A252AA7000092AEFC /* RESTRequestTest.swift */,
 				C8BB3A35252AB5E80092AEFC /* MockWeather.json */,
+				63A5C6DB252EDE7800A82FB0 /* TodoListTest.swift */,
 			);
 			path = "a1-s3763636_s3779380_s3557535_s3730303Tests";
 			sourceTree = "<group>";
@@ -491,11 +494,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				C8BB3A37252AB5E80092AEFC /* MockWeather.json in Resources */,
-
 				63786C80252AF130005C87A9 /* Assets.xcassets in Resources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,11 +503,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				C8BB3A38252AB5E80092AEFC /* MockWeather.json in Resources */,
-
 				63786C81252AF131005C87A9 /* Assets.xcassets in Resources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,7 +575,6 @@
 				C8CA4D6225107FF900467AEE /* RESTRequest.swift in Sources */,
 				5FCD70A4252D773400FAA5A4 /* Records+CoreDataClass.swift in Sources */,
 				5F1EC8A32524C31C0086944C /* RecordsManager.swift in Sources */,
-				5FAA268424FDD5AD00FE79D6 /* studyRecordsController.swift in Sources */,
 				CBB4D8CD251B68940037C16C /* Profile.swift in Sources */,
 				CB92D042251A4535006D6A0E /* ProfileMainViewController.swift in Sources */,
 				63FA777E24F240F4009F47B7 /* TodoCell.swift in Sources */,
@@ -587,12 +583,14 @@
 				63F29182252975CD0011A9C8 /* TodoTask+CoreDataProperties.swift in Sources */,
 				C8BB0D2724EE13A500E027B1 /* MoodTrackerViewController.swift in Sources */,
 				6348D72124DBC158004B0476 /* AppDelegate.swift in Sources */,
+				63A5C6DA252EAFD700A82FB0 /* ReminderDate.swift in Sources */,
 				C8800DF325173B85003B2A10 /* DailyMoodRecord+CoreDataProperties.swift in Sources */,
 				5FCD70A6252D773C00FAA5A4 /* Records+CoreDataProperties.swift in Sources */,
 				63FA778024F262B4009F47B7 /* TodoDetailController.swift in Sources */,
 				63652DD124ECFA96005C0BC1 /* Task.swift in Sources */,
 				63652DD924ED1029005C0BC1 /* TodoViewController.swift in Sources */,
-				5FAA268624FDD5C700FE79D6 /* recordsViewCell.swift in Sources */,
+				5F7F5F0C2531E6CA00EF4BF1 /* RecordViewCell.swift in Sources */,
+				5F7F5F0A2531E5A600EF4BF1 /* StudyRecordController.swift in Sources */,
 				C8800DD7251731D2003B2A10 /* MoodTrackerManager.swift in Sources */,
 				63F29181252975CD0011A9C8 /* TodoTask+CoreDataClass.swift in Sources */,
 				63D0528224EE5AD900665E67 /* SplitViewController.swift in Sources */,
@@ -605,7 +603,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C88BB568252ACBEE0051344E /* MoodTrackerUITest.swift in Sources */,
-				CB983E322528B6950085CE85 /* a1_s3763636_s3779380_s3557535_s3730303UITests.swift in Sources */,
+				63A5C6DE252EEF6C00A82FB0 /* TodoUITest.swift in Sources */,
 				5FCD70AA252D7AB400FAA5A4 /* StudyTrackerUITest.swift in Sources */,
 				CB983E3A2528B82D0085CE85 /* ProfileUITest.swift in Sources */,
 			);
@@ -617,7 +615,7 @@
 			files = (
 				CB17BB8B252AA52E009CE5B0 /* SongListTest.swift in Sources */,
 				CB983E4A2528D5D20085CE85 /* TeamProfileTest.swift in Sources */,
-				CB983E422528C7060085CE85 /* a1_s3763636_s3779380_s3557535_s3730303Tests.swift in Sources */,
+				63A5C6DC252EDE7800A82FB0 /* TodoListTest.swift in Sources */,
 				C8BB3A2B252AA7000092AEFC /* RESTRequestTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

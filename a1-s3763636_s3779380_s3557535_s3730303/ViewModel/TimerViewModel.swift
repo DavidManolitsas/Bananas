@@ -19,5 +19,5 @@ struct TimerViewModel {
         trackerManager.removeRecords(recordsTimer: recordsTimer)
         
     }
-   
+    
 }

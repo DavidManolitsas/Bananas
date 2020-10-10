@@ -9,7 +9,7 @@
 import UIKit
 
 class TodoDetailController: UIViewController {
-
+    
     
     @IBOutlet weak var taskNameLabel: UILabel!
     private var _task:Task?
@@ -29,6 +29,10 @@ class TodoDetailController: UIViewController {
         setReminderStatus()
         taskNameLabel.text = _task?.description
         loadPriorityStatus()
+        
+        if let date = self._task?.reminder.date {
+            datePicker.date = date
+        }
     }
     
     func setReminderStatus() {
@@ -45,8 +49,21 @@ class TodoDetailController: UIViewController {
                 tableView.setTaskReminder(index: self.tableIndex, isOn: false)
             }
         }
-
+        
     }
+    
+    @IBAction func saveClicked(_ sender: Any) {
+        if let tableView = self._tableViewController {
+            if reminderSwitch.isOn {
+                tableView.setReminderDate(index: self.tableIndex, date: datePicker.date)
+            }
+            else {
+                tableView.setTaskReminder(index: self.tableIndex, isOn: false)
+            }
+        }
+        
+    }
+    
     
     
     @IBAction func lowPriorityClicked(_ sender: Any) {
